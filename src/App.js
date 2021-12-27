@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
-function App() {
+import { Home, Actions, Forum, TanamPohon, Login, SignUp } from "./pages";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Navbar /> */}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signUp" component={SignUp} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/account" component={Account} />
+        <Route exact path="/forum" component={Forum} />
+        <Route exact path="/tanamPohon" component={TanamPohon} />
+        <Route exact path="/leaderboard" component={leaderboard} />
+      </Switch>
+      {/* <Footer /> */}
+    </>
   );
 }
-
-export default App;
