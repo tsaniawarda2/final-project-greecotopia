@@ -7,26 +7,27 @@ nav {
 }
 .navbar-brand {
   font-weight: 700;
-  color: #342b2b !important;
-  font-size: 28px !important;
+  color: #232323 !important;
+  font-size: 24px !important;
+  text-transform: uppercase;
 }
 
 /* LEFT */
-.logo {
-  width: 28px;
+.logo-nav {
+  width: 42px;
   margin-right: 12px;
 }
 
 /* CENTER */
 .navCenter {
-  font-size: 16px;
+  font-size: 18px;
 }
 .navCenter .nav-link {
-  margin: 0px 5px;
+  margin: 0px 14px;
   font-weight: 500;
 }
 .navCenter:hover.active {
-  color: #342b2b !important;
+  color: #232323 !important;
 }
 
 /* RIGHT */
@@ -35,17 +36,17 @@ nav {
   font-weight: 500;
 }
 .signup {
-  color: #5a8653 !important;
+  color: #10550f !important;
 }
 .login {
-  border: 2px solid #5a8653;
+  border: 2px solid #10550f;
   border-radius: 8px;
-  color: #5a8653 !important;
-  padding: 4px 8px !important;
+  color: #10550f !important;
+  padding: 6px 12px 4px !important;
   margin: 2px;
 }
 .login:hover {
-  background-color: #5a8653;
+  background-color: #10550f;
   color: white !important;
 }
 

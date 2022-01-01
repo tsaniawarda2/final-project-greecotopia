@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/img/logo.png";
+
+import Logo from "../assets/image/logo.png";
 import {
   FaFacebookF,
   FaTwitter,
-  FaGithub,
-  FaLinkedin,
-  FaYoutube,
+  FaInstagram,
+  FaPhoneAlt,
 } from "react-icons/fa";
-import "../assets/css/footer.css";
+
+import "../assets/styles/footer.css";
 
 export default function Footer() {
   return (
@@ -16,25 +17,27 @@ export default function Footer() {
       <section className="footer">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-md-6 col-xs-12">
-              <div className="ttl-footer" id="first">
-                <img className="logo" src={Logo} alt="brand" /> Greecotopia
+            <div className="col-lg-3 col-md-6 col-xs-12">
+              <div id="ttl-footer">
+                <img className="logo-footer" src={Logo} alt="brand" />
+                Greecotopia
                 <div className="aboutUs">
-                  Greecotopia is website youth for environmental care
+                  Mega Plaza Building Lt. 5, Jl. HR. Rasuna Said Kav. C3
+                  Kuningan, Jakarta Selatan, Indonesia 12920
                 </div>
               </div>
             </div>
             <div className="col-lg-3 col-md-6 col-xs-12 uLink">
-              <div className="ttl-footer">Useful Link</div>
               <p className="list-pages">
                 <Link className="item-pages" to="/">
                   Home
                 </Link>
-                <p className="item-pages">About</p>
+                <Link className="item-pages" to="/account">
+                  Account
+                </Link>
                 <Link className="item-pages" to="/forum">
                   Forum
                 </Link>
-                <p className="item-pages">Account</p>
                 <Link className="item-pages" to="/tanamPohon">
                   Tanam Pohon
                 </Link>
@@ -43,31 +46,46 @@ export default function Footer() {
                 </Link>
               </p>
             </div>
-            <div className="col-lg-3 col-md-6 col-xs-12 contact">
-              <div className="ttl-footer">Contact</div>
+            <div className="col-lg-3 col-md-6 col-xs-12 findUs">
               <p className="list-pages">
-                Greecotopia.Inc Jln. Benjamin No. 45 Jakarta Pusat, Indonesia
-                <br />
-                Telp: (022) 64828729
-                <br />
-                Email : greecotopia.com
+                <Link className="item-pages" to="#">
+                  <FaFacebookF className="me-3" />
+                  GreecotopiaIndonesia
+                </Link>
+                <Link className="item-pages" to="#">
+                  <FaTwitter className="twitter" />
+                  GreecotopiaID
+                </Link>
+                <Link className="item-pages" to="#">
+                  <FaInstagram className="me-3" />
+                  greecotopiaid
+                </Link>
+                <Link className="item-pages" to="#">
+                  <FaPhoneAlt className="me-3" />
+                  (021) 5212552
+                </Link>
               </p>
             </div>
-            <div className="col-lg-2 col-md-6 col-xs-12 find-us">
-              <div className="ttl-footer">Find Us At</div>
-              <div className="icon-find">
-                <FaFacebookF className="me-3" />
-                <FaTwitter className="me-3" />
-                <FaYoutube className="me-3" />
-                <FaLinkedin className="me-3" />
-                <FaGithub className="me-3" />
+            <div className="col-lg-3 col-md-6 col-xs-12 contactUs">
+              <div className="list-pages">Subscribe to our newsletter</div>
+              <div className="contact">
+                <input
+                  type="text"
+                  class="form-control subs"
+                  id="subscribe"
+                  placeholder="Email Address"
+                />
+                <button type="submit" class="btn-submit">
+                  OK
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
       <footer className="text-center">
-        Copyright © Greecotopia Indonesia 2021. All rights reserved.
+        Copyright © Greecotopia Indonesia 2021. <br />
+        All rights reserved.
       </footer>
     </>
   );

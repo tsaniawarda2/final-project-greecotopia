@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/img/logo.png";
-import "../assets/css/navbar.css";
+import Logo from "../assets/image/logo.png";
+import "../assets/styles/navbar.css";
 
 export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
-          <NavLink className="navbar-brand" to="#">
-            <img className="logo" src={Logo} alt="brand" /> Greecotopia
+          <NavLink className="navbar-brand" to="/">
+            <img className="logo-nav" src={Logo} alt="brand" /> Greecotopia
           </NavLink>
           <button
             className="navbar-toggler"
@@ -47,12 +47,15 @@ export default function Navbar() {
             </ul>
             <ul className="navbar-nav mb-md-2 mb-lg-0 navRight">
               <li className="nav-item me-md-4">
-                <NavLink className="nav-link signup" to="/signUp">
+                <NavLink
+                  className="nav-link text-uppercase signup"
+                  to="/signUp"
+                >
                   Sign Up
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link login" to="/login">
+                <NavLink className="nav-link text-uppercase login" to="/login">
                   Login
                 </NavLink>
               </li>
