@@ -45,18 +45,18 @@ export default function Navbar() {
                 </NavLink>
               </li>
             </ul>
-            <ul className="navbar-nav mb-md-2 mb-lg-0 navRight">
+            <ul className="navbar-nav mb-md-5 mb-lg-0 navRight">
               <li className="nav-item me-md-4">
                 <NavLink
                   className="nav-link text-uppercase signup"
                   to="/signUp"
                 >
-                  Sign Up
+                  Daftar
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link text-uppercase login" to="/login">
-                  Login
+                  Masuk
                 </NavLink>
               </li>
             </ul>

@@ -32,6 +32,7 @@ nav {
 
 /* RIGHT */
 .navRight {
+  margin-top: 4px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -42,8 +43,7 @@ nav {
   border: 2px solid #10550f;
   border-radius: 8px;
   color: #10550f !important;
-  padding: 6px 12px 4px !important;
-  margin: 2px;
+  padding: 5px 12px 2px !important;
 }
 .login:hover {
   background-color: #10550f;
