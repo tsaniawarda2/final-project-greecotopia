@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.body {
+  background-image: url("../image/bg-login.png");
+  display: flex;
+  align-items: center;
+}
+
+/* === LOGIN === */
+#login {
+  padding: 72px 0px;
+  height: 100vh;
+}
+#login #form {
+  width: 36%;
+}
+#login #username {
+  margin-bottom: -10px;
+}
+
+/* === SIGNUP === */
+#signUp {
+  padding: 72px 0px;
+}
+
+/* FONT */
+#signUp,
+.input,
+.log,
+.forgot-pw,
+.opsi {
+  color: #fcfcfc;
+}
+.input,
+.log,
+.opsi {
+  font-family: "Poppins", sans-serif;
+}
+
+/* TITLE */
+.title-form {
+  font-family: "Rubik", sans-serif;
+  color: #fcfcfc;
+}
+#logo-log {
+  width: 10%;
+  margin-right: 12px;
+}
+.title-form h1 {
+  text-transform: uppercase;
+  font-size: 32px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.title-form h2 {
+  font-size: 24px;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+/* === FORM === */
+#form {
+  padding: 38px 54px;
+  background: #23282562;
+  backdrop-filter: blur(4px);
+  box-shadow: 4px 8px 18px #23282562;
+  height: 100%;
+  margin-left: 54px;
+  border-radius: 32px;
+}
+#form .form-control:focus {
+  border-color: #fab7a6;
+  box-shadow: 0 0 0 0.25rem rgba(119, 75, 39, 0.25);
+  color: #232825;
+}
+#signUp #form {
+  width: 42%;
+}
+.input {
+  font-size: 16px;
+  font-weight: 500;
+}
+#fullname,
+#email {
+  margin-bottom: -10px;
+}
+#signUp .username {
+  margin-bottom: 16px;
+}
+#signUp .password {
+  margin-bottom: 32px;
+}
+.password1 {
+  margin-right: 24px;
+}
+
+/* BUTTON */
+#submit {
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 32px;
+  width: 100%;
+  background-color: #ff6239;
+  border-color: #ff6239;
+  padding-bottom: 4px;
+  margin-bottom: 22px;
+  letter-spacing: 6px;
+  font-size: 18px;
+}
+#submit:hover {
+  background-color: #ffb039;
+  border-color: #ffb039;
+}
+#submit:focus {
+  box-shadow: 0 0 0 0.25rem rgba(119, 71, 39, 0.25);
+}
+
+/* Register */
+.opsi {
+  font-weight: 400;
+  font-size: 15px;
+}
+.log {
+  color: #ffb039;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 8px;
+}
+.log:hover {
+  color: #ff6239;
+}
+#alt1 {
+  margin-top: 18px;
+  margin-bottom: 0px;
+}
+#alt2 {
+  margin-top: 8px;
+  margin-bottom: 0px;
+}

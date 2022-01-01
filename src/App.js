@@ -16,7 +16,7 @@ import {
 export default function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signUp" component={SignUp} />
@@ -26,7 +26,7 @@ export default function App() {
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
