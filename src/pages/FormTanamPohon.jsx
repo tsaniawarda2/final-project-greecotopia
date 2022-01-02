@@ -1,7 +1,7 @@
 import React from "react";
 // import "../assets/styles/FormTanamPohon.css"
 
-export default function TanamPohon() {
+export default function FormTanamPohon() {
   return (
     <>
       <div className="form-tanam-pohon row">
