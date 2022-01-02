@@ -17,7 +17,7 @@
   background-color: #10550f;
   border-color: #10550f;
   border-radius: 12px;
-  padding: 8px 0px 4px;
+  padding: 8px 0px;
   letter-spacing: 2px;
   color: #fcfcfc;
   width: 42%;
@@ -98,6 +98,61 @@
   font-size: 14px;
   margin-bottom: 4px;
 }
+
+/* === Forum === */
+#forum {
+  padding: 94px 0px 48px;
+}
+#forum .text-content {
+  width: 92% !important;
+  padding: 70px 0px;
+}
+#forum #btn-home {
+  width: 52%;
+}
+#carousel .carousel-inner {
+  border-radius: 24px;
+  background-color: #232825;
+}
+#carousel .carousel-control-prev-icon,
+#carousel .carousel-control-next-icon {
+  background-color: #fcfcfc;
+  border-radius: 34px;
+  padding: 22px;
+  background-size: 76% 100%;
+}
+#carousel .carousel-control-prev-icon {
+  background-position: 32%;
+}
+#carousel .carousel-control-next-icon {
+  background-position: 68%;
+}
+#carousel .carousel-indicators [data-bs-target] {
+  width: 16%;
+  height: 4px;
+  margin: 0px 12px;
+  background-color: #fcfcfc;
+}
+#carousel .carousel-item img {
+  opacity: 74%;
+}
+#carousel .carousel-caption {
+  padding: 114px 0px 104px;
+  color: #fcfcfc;
+}
+#carousel h5 {
+  font-family: "Rubik", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 34px;
+}
+#carousel p {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
 /* === Tanam Pohon === */
 #tanamPohon {
   background-image: url(../image/bg-tanam-pohon.png);
@@ -109,7 +164,8 @@
 #tanamPohon .text-content {
   width: 52% !important;
 }
-/* === Tanam Pohon === */
+
+/* === Leaderboard === */
 #leaderboard {
   margin-top: 64px;
   background-image: url(../image/bg-leaderboard.png);
@@ -123,6 +179,19 @@
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
+  #forum .col-md-12 {
+    text-align: center;
+  }
+  #forum .text-content {
+    width: 100% !important;
+  }
+  #first {
+    margin-left: 0px;
+  }
+  #tanamPohon .text-content,
+  #leaderboard .text-content {
+    width: 80% !important;
+  }
 }
 @media only screen and (max-width: 380px) {
 }

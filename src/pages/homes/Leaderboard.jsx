@@ -6,7 +6,7 @@ export default function Leaderboard() {
     <>
       <>
         <section id="leaderboard">
-          <div className="container text-content ">
+          <div className="container text-content">
             <div className="text-center">
               <p class="text-uppercase pb-3" id="first">
                 Leaderboard
@@ -26,6 +26,8 @@ export default function Leaderboard() {
               >
                 Lihat Peringkatku
               </NavLink>
+
+              <div className="board"></div>
             </div>
           </div>
         </section>
