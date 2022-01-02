@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/styles/TanamPohon.css"
+import "../assets/styles/FormTanamPohon.css"
 
 export default function TanamPohon() {
   return (
