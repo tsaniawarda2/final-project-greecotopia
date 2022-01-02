@@ -8,6 +8,7 @@ import {
   Account,
   Forum,
   TanamPohon,
+  FormTanamPohon,
   Login,
   SignUp,
   Leaderboard,
@@ -24,6 +25,7 @@ export default function App() {
         <Route exact path="/account" component={Account} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
+        <Route exact path="/formTanamPohon" component={FormTanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>
       <Footer />
