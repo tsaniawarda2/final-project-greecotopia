@@ -1,6 +1,6 @@
 import React from "react";
 
-import { energy, forests, plastics, oceans } from "../config/dataForum";
+import { hutan, energi, plastik, laut } from "../config/dataForum";
 import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
 
@@ -27,109 +27,109 @@ export default function Forum() {
           </div>
         </div>
 
-        {/* Forest */}
+        {/* Hutan*/}
         <div className="row mb-5">
-          <div className="col-md-2" id="image-cat">
+          <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
                 src="https://images.unsplash.com/photo-1587102100712-6c7ae6b6da53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                alt="forest"
+                alt="hutan"
               />
             </div>
             <div className="text-cat">
-              <div className="categories">forests</div>
+              <div className="categories">hutan</div>
               <div className="sub">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </div>
-              <NavLink to="#">
+              <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
               </NavLink>
             </div>
           </div>
-          <div className="col-md-10 d-flex" id="forest">
-            {forests.map((data) => (
+          <div className="col-lg-10 col-md-12 d-flex" id="hutan">
+            {hutan.map((data) => (
               <Card item={data} key={data.id} />
             ))}
           </div>
         </div>
 
-        {/* Energy */}
+        {/* Energi */}
         <div className="row mb-5">
-          <div className="col-md-2" id="image-cat">
+          <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
                 src="https://images.unsplash.com/photo-1548613053-22087dd8edb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
-                alt="energy"
+                alt="energi"
               />
             </div>
             <div className="text-cat">
-              <div className="categories">Energy</div>
+              <div className="categories">Energi</div>
               <div className="sub">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </div>
-              <NavLink to="#">
+              <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
               </NavLink>
             </div>
           </div>
-          <div className="col-md-10 d-flex" id="energy">
-            {energy.map((data) => (
+          <div className="col-lg-10 col-md-12 d-flex" id="energi">
+            {energi.map((data) => (
               <Card item={data} key={data.id} />
             ))}
           </div>
         </div>
 
-        {/* Plastic */}
+        {/* Plastik */}
         <div className="row mb-5">
-          <div className="col-md-2" id="image-cat">
+          <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
                 src="https://images.unsplash.com/photo-1606901302392-ca613ab6abb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                alt="plastic"
+                alt="plastik"
               />
             </div>
             <div className="text-cat">
-              <div className="categories">Plastics</div>
+              <div className="categories">plastik</div>
               <div className="sub">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </div>
-              <NavLink to="#">
+              <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
               </NavLink>
             </div>
           </div>
-          <div className="col-md-10 d-flex" id="plastic">
-            {plastics.map((data) => (
+          <div className="col-lg-10 col-md-12 d-flex" id="plastik">
+            {plastik.map((data) => (
               <Card item={data} key={data.id} />
             ))}
           </div>
         </div>
 
-        {/* Ocean */}
+        {/* Laut */}
         <div className="row mb-5">
-          <div className="col-md-2" id="image-cat">
+          <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
                 src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                alt="ocean"
+                alt="laut"
               />
             </div>
             <div className="text-cat">
-              <div className="categories">Oceans</div>
+              <div className="categories">laut</div>
               <div className="sub">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor
               </div>
-              <NavLink to="#">
+              <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
               </NavLink>
             </div>
           </div>
-          <div className="col-md-10 d-flex" id="ocean">
-            {oceans.map((data) => (
+          <div className="col-lg-10 col-md-12 d-flex" id="laut">
+            {laut.map((data) => (
               <Card item={data} key={data.id} />
             ))}
           </div>

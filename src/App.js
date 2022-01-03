@@ -7,6 +7,7 @@ import {
   Home,
   Account,
   Forum,
+  Issues,
   TanamPohon,
   Login,
   SignUp,
@@ -23,6 +24,7 @@ export default function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/forum" component={Forum} />
+        <Route exact path="/issues" component={Issues} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>

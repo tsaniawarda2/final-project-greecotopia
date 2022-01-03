@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* ===== TITLE ===== */
 .content-forum {
   margin: 100px 40px 40px !important;
   background: linear-gradient(to bottom right, #ff6239 0%, #dc6239 94%);
   transform: skew(-15deg);
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #f7f6f2;
   border-radius: 48px;
 }
@@ -64,25 +64,25 @@
 }
 
 /* CONTENT */
-#forest,
-#energy,
-#plastic,
-#ocean {
+#hutan,
+#energi,
+#plastik,
+#laut {
   width: 82.2%;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
   height: 100%;
 }
-#forest {
+#hutan {
   background-color: #aec183;
 }
-#energy {
+#energi {
   background-color: #d1ac94;
 }
-#plastic {
+#plastik {
   background-color: #bec1c9;
 }
-#ocean {
+#laut {
   background-color: #b7dae0;
 }
 
@@ -103,7 +103,7 @@
 }
 .sub {
   font-size: 10px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .categories,
 .seeMore {
@@ -142,7 +142,7 @@
   object-fit: cover;
 }
 #forum .card-body {
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 0px;
   margin-top: 20px;
 }
@@ -155,55 +155,73 @@
   font-size: 12px;
 }
 
-/* date & view */
-.date-view {
-  font-size: 8px;
-  font-weight: 700;
-  color: #ff6239;
-  margin: -8px 0px 14px;
-}
-.date {
-  margin-right: 24px;
-}
-.icon-dv {
-  font-size: 14px;
-  margin-right: 2px;
-}
-
-/* Poin */
-.share {
+/* Favorite */
+.fav {
   color: #f7f6f2;
-  background: linear-gradient(to top left, #ff6239 0%, #ffb039 100%);
+  background: linear-gradient(to top left, #ff6239 14%, #ffb039 56%);
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 16px;
   position: absolute;
-  bottom: 160px;
+  bottom: 172px;
   right: 20px;
-  padding: 4px 8px;
-}
-.icon-shr {
-  margin-top: -4px;
-  margin-left: -2px;
+  padding: 0px 6px 3px;
+  cursor: pointer;
 }
 
 /* Button */
-#forum .btn-warning {
-  background-color: #ffffff;
-  border-color: #5a8653;
+#btn-issue {
+  background-color: #ff6239;
   font-size: 10px;
   padding: 4px 18px 2px;
-  color: #5a8653;
+  color: #fcfcfc;
   font-weight: 500;
   letter-spacing: 1px;
   margin-bottom: 4px;
   width: 100%;
   font-family: "Rubik", sans-serif;
   text-transform: uppercase;
+  border-color: #ff6239;
 }
-#forum .btn-warning.active:focus {
-  box-shadow: 0 0 0 0.25rem #5a86538e;
+#btn-issue.active:focus {
+  box-shadow: 0 0 0 0.25rem #eca9508e;
+  border-color: none;
 }
-#forum .btn-warning:hover {
-  background-color: #5a8653;
-  color: #f7f6f2;
+#btn-issue:hover {
+  background-color: #ffb039;
+  border-color: #ffb039;
+  color: #fcfcfc;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  #hutan,
+  #energi,
+  #plastik,
+  #laut {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    height: 100%;
+  }
+
+  #image-cat {
+    padding-left: 0px;
+  }
+  .picture,
+  .picture img {
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 14px;
+  }
+
+  #forum .card {
+    margin: 12px 16px;
+  }
+  #forum .fav {
+    bottom: 158px;
+  }
+}
+@media only screen and (max-width: 380px) {
 }
