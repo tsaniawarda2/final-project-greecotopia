@@ -47,7 +47,7 @@
 }
 
 .tp-info-1, .tp-info-2, .tp-info-3{
-  padding: 12px;
+  padding: 12px 20px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -100,7 +100,7 @@
   border-color: #FF6239!important;
 }
 
-.btn-daftar{
+.btn-daftar, .btn-submit-doc{
   background-color: #FF6239;
   color: #fefefe;
   width: 100%;
@@ -111,4 +111,13 @@
   font-size: 18px;
   font-weight: 600;
   margin-top: 12px;
+}
+
+.form-unggah-foto input{
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.form-kesan-pesan{
+  margin-bottom: 16px;
 }
