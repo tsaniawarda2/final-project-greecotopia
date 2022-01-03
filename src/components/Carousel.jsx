@@ -5,7 +5,7 @@ import "../assets/styles/home.css";
 export default function Gallery() {
   return (
     <>
-      <Carousel variant="dark" id="carousel">
+      <Carousel variant="light" id="carousel">
         <div className="carousel-item">
           <img
             className="d-block w-100"
