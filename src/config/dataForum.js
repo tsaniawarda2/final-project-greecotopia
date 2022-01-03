@@ -27,7 +27,7 @@ export const hutan = [
   },
   {
     id: 4,
-    title: "Restore Forests: Restore Life",
+    title: "Restore Forests",
     image_url:
       "https://media.greenpeace.org/GPIDoc/TR4/5/7/0/4/GP0STSKTB.jpg?d63676149710",
     decs: "Hold companies on their promises to slow down climate change for secure future.",
@@ -87,7 +87,7 @@ export const plastik = [
   },
   {
     id: 2,
-    title: "Call for a Plastic-Free Future",
+    title: "Plastic-Free Future",
     image_url:
       "https://www.greenpeace.org/static/planet4-international-stateless/2019/04/727264de-gp0stqt4n-1024x683.jpg",
     decs: "The plastic pollution crisis is one of a broken system that is failing both us and the planet we call home.",
@@ -108,7 +108,7 @@ export const plastik = [
     title: "Packaging Made of Seaweed",
     image_url:
       "https://cdn.materialdistrict.com/wp-content/uploads/2018/02/this-edible-packaging-material-is-based-on-seaweed-01-598x400.jpg",
-    decs: "Finally a clever solution for single-use food packaging. The food packed in the seaweed packaging stays fresh longer.",
+    decs: "The food packed in the seaweed packaging stays fresh longer.",
     date: "24 Juli 2021",
     view: "1.3k Views",
   },
@@ -126,7 +126,7 @@ export const laut = [
   },
   {
     id: 2,
-    title: "100 Million Dead Sharks",
+    title: "100 M Dead Sharks",
     image_url:
       "https://www.greenpeace.org/static/planet4-international-stateless/2021/04/8cbd172f-gp1suxj8_web_size-510x340.jpg",
     decs: "Sharks are a critical part of the ocean ecosystem, vital for ocean health and our blue planet. ",
