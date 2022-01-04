@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* ===== TITLE ===== */
-.content-forum {
+#forum {
   margin: 100px 40px 40px !important;
   background: linear-gradient(to bottom right, #ff6239 0%, #dc6239 94%);
   transform: skew(-15deg);
@@ -43,6 +43,9 @@
   padding: 0px !important;
 }
 
+#content-forum {
+  margin-bottom: 54px;
+}
 /* ===== IMAGE ===== */
 #image-cat {
   padding-right: 0px;
@@ -126,32 +129,36 @@
 }
 
 /* ===== CARD ===== */
-#forum {
+.card-forum {
   width: 35%;
 }
-#forum .card {
-  height: 93%;
+#cardFI .card {
   padding: 10px;
-  margin: 12px;
   border-radius: 8px;
+  height: 93%;
 }
-#forum .card-img-top {
-  width: 100%;
+.card-forum .card {
+  margin: 12px;
+}
+.card-forum .card-img-top {
   height: 154px;
+}
+#cardFI .card-img-top {
+  width: 100%;
   border-radius: 8px;
   object-fit: cover;
 }
-#forum .card-body {
+#cardFI .card-body {
   font-family: "Poppins", sans-serif;
   padding: 0px;
   margin-top: 20px;
 }
-#forum .card-title {
+#cardFI .card-title {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
 }
-#forum .card-text {
+#cardFI .card-text {
   font-size: 12px;
 }
 
@@ -162,34 +169,39 @@
   border-radius: 50%;
   font-size: 16px;
   position: absolute;
-  bottom: 158px;
   right: 20px;
   padding: 0px 6px 3px;
   cursor: pointer;
 }
+.card-forum .fav {
+  bottom: 158px;
+}
 
 /* Button */
+.btn-warning {
+  font-family: "Rubik", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+  color: #fcfcfc !important;
+  border-color: #ff6239 !important;
+  background-color: #ff6239 !important;
+  border-radius: 12px !important;
+}
 #btn-issue {
-  background-color: #ff6239;
-  font-size: 10px;
-  padding: 4px 18px 2px;
-  color: #fcfcfc;
-  font-weight: 500;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
   width: 100%;
-  font-family: "Rubik", sans-serif;
-  text-transform: uppercase;
-  border-color: #ff6239;
+  padding: 4px 18px 2px;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
 }
-#btn-issue.active:focus {
-  box-shadow: 0 0 0 0.25rem #eca9508e;
-  border-color: none;
+.btn-warning.active:focus {
+  box-shadow: 0 0 0 0.25rem rgb(227 125 15 / 50%) !important;
+  border-color: none !important;
 }
-#btn-issue:hover {
-  background-color: #ffb039;
-  border-color: #ffb039;
-  color: #fcfcfc;
+.btn-warning:hover {
+  background-color: #ffb039 !important;
+  border-color: #ffb039 !important;
+  color: #fcfcfc !important;
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
@@ -216,10 +228,10 @@
     border-top-right-radius: 14px;
   }
 
-  #forum .card {
+  #cardForum .card {
     margin: 12px 16px;
   }
-  #forum .fav {
+  #cardForum .fav {
     bottom: 158px;
   }
 }

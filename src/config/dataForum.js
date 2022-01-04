@@ -1,3 +1,35 @@
+export const categories = [
+  {
+    forum_id: 1,
+    title: "Hutan",
+    image_url:
+      "https://images.unsplash.com/photo-1587102100712-6c7ae6b6da53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    description: "Bagikan pendapatmu dengan menanggapi isu-isu terkait Hutan.",
+  },
+  {
+    forum_id: 2,
+    title: "Energi",
+    image_url:
+      "https://images.unsplash.com/photo-1548613053-22087dd8edb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
+    description: "Bagikan pendapatmu dengan menanggapi isu-isu terkait Energi.",
+  },
+  {
+    forum_id: 3,
+    title: "Plastik",
+    image_url:
+      "https://images.unsplash.com/photo-1606901302392-ca613ab6abb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    description:
+      "Bagikan pendapatmu dengan menanggapi isu-isu terkait Plastik.",
+  },
+  {
+    forum_id: 4,
+    title: "Laut",
+    image_url:
+      "https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    description: "Bagikan pendapatmu dengan menanggapi isu-isu terkait Laut.",
+  },
+];
+
 export const hutan = [
   {
     id: 1,
@@ -21,7 +53,7 @@ export const hutan = [
     id: 3,
     title: "Stand for Forests",
     image_url: "https://cdn.betahita.id/5/7/8/4/5784_840x576.jpg",
-    decs: "Demand governments to address the broken food system and protect people and nature - not corporations.",
+    decs: "Demand governments to address the broken food system and protect people and nature.",
     date: "23 Juli 2021",
     view: "1.2k Views",
   },

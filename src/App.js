@@ -5,12 +5,13 @@ import Navbar from "./components/Navbar";
 
 import {
   Home,
+  Login,
+  SignUp,
   Account,
   Forum,
   Issues,
+  Issue,
   TanamPohon,
-  Login,
-  SignUp,
   Leaderboard,
 } from "./pages";
 
@@ -25,6 +26,7 @@ export default function App() {
         <Route exact path="/account" component={Account} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/issues" component={Issues} />
+        <Route exact path="/issues/:id" component={Issue} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>

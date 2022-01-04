@@ -1,10 +1,11 @@
 import React from "react";
 
-import { hutan, energi, plastik, laut } from "../config/dataForum";
+import { categories, hutan, energi, plastik, laut } from "../config/dataForum";
+
 import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
 
-import Card from "../components/forum/Card";
+import Card from "../components/card/CardForum";
 import { NavLink } from "react-router-dom";
 
 export default function Forum() {
@@ -12,7 +13,7 @@ export default function Forum() {
     <>
       <div className="container mb-5">
         {/* Header */}
-        <div className="row content-forum">
+        <div className="row" id="forum">
           <div className="col-md-8 content-header">
             <p className="yvm text-uppercase">Your Voice Matter</p>
             <p className="wdyt">What do you think?</p>
@@ -28,34 +29,34 @@ export default function Forum() {
         </div>
 
         {/* Hutan*/}
-        <div className="row mb-5">
-          <div className="col-lg-2 col-md-12" id="image-cat">
-            <div className="picture">
-              <img
-                src="https://images.unsplash.com/photo-1587102100712-6c7ae6b6da53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                alt="hutan"
-              />
-            </div>
-            <div className="text-cat">
-              <div className="categories">hutan</div>
-              <div className="sub">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor
+        {categories.map((forums) => (
+          <>
+            <div className="row" id="content-forum">
+              {/* Categories */}
+              <div className="col-lg-2 col-md-12" id="image-cat">
+                <div className="picture">
+                  <img src={forums.image_url} alt={forums.title} />
+                </div>
+                <div className="text-cat">
+                  <div className="categories">{forums.title}</div>
+                  <div className="sub">{forums.description}</div>
+                  <NavLink to="/issues">
+                    <div className="seeMore">lihat selengkapnya</div>
+                  </NavLink>
+                </div>
               </div>
-              <NavLink to="/issues">
-                <div className="seeMore">lihat selengkapnya</div>
-              </NavLink>
+              {/* Issues */}
+              <div className="col-lg-10 col-md-12 d-flex" id="hutan">
+                {hutan.map((data) => (
+                  <Card item={data} key={data.id} />
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="col-lg-10 col-md-12 d-flex" id="hutan">
-            {hutan.map((data) => (
-              <Card item={data} key={data.id} />
-            ))}
-          </div>
-        </div>
+          </>
+        ))}
 
         {/* Energi */}
-        <div className="row mb-5">
+        {/* <div className="row mb-5">
           <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
@@ -66,8 +67,7 @@ export default function Forum() {
             <div className="text-cat">
               <div className="categories">Energi</div>
               <div className="sub">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor
+                Bagikan pendapatmu dengan menanggapi isu-isu terkait Energi.
               </div>
               <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
@@ -79,10 +79,10 @@ export default function Forum() {
               <Card item={data} key={data.id} />
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Plastik */}
-        <div className="row mb-5">
+        {/* <div className="row mb-5">
           <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
@@ -93,8 +93,7 @@ export default function Forum() {
             <div className="text-cat">
               <div className="categories">plastik</div>
               <div className="sub">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor
+                Bagikan pendapatmu dengan menanggapi isu-isu terkait Plastik.
               </div>
               <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
@@ -106,10 +105,10 @@ export default function Forum() {
               <Card item={data} key={data.id} />
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Laut */}
-        <div className="row mb-5">
+        {/* <div className="row mb-5">
           <div className="col-lg-2 col-md-12" id="image-cat">
             <div className="picture">
               <img
@@ -120,8 +119,7 @@ export default function Forum() {
             <div className="text-cat">
               <div className="categories">laut</div>
               <div className="sub">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor
+                Bagikan pendapatmu dengan menanggapi isu-isu terkait Laut.
               </div>
               <NavLink to="/issues">
                 <div className="seeMore">lihat selengkapnya</div>
@@ -133,7 +131,7 @@ export default function Forum() {
               <Card item={data} key={data.id} />
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
