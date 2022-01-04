@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/styles/formTanamPohon.css"
 import { useState } from "react"
 import { Cloudinary } from "../config/thirdParty"
-// import { ToastContainer, toast } from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env
 
 export default function FormDocumentation() {
@@ -28,21 +28,21 @@ export default function FormDocumentation() {
       const id = 1;
       setDocumentation({tanam_pohon_id: id})
       if (!documentation.caption) {
-        // toast("Keterangan foto tidak boleh kosong", {
-        //   type: 'error'
-        // })
-        console.log("Keterangan foto tidak boleh kosong");
+        toast("Keterangan foto tidak boleh kosong", {
+          type: 'error'
+        })
+        // console.log("Keterangan foto tidak boleh kosong");
       } 
       if (!documentation.messages) {
-        // toast("Kesan & Pesan tidak boleh kosong", {
-        //   type: 'error'
-        // })
-        console.log("Kesan & Pesan tidak boleh kosong");
+        toast("Kesan & Pesan tidak boleh kosong", {
+          type: 'error'
+        })
+        // console.log("Kesan & Pesan tidak boleh kosong");
       }
       if (!form) {
-        // toast("Please input file!", {
-        //   type: "error"
-        // })
+        toast("Please input file!", {
+          type: "error"
+        })
        console.log("please input file");
       } else {
         const payload = new FormData()
@@ -58,13 +58,12 @@ export default function FormDocumentation() {
 
         // const { data } = await API().post("/documentations", documentation);
 
-        
-        // toast("Upload image success", { type: "success" } )
-        console.log("success");
+        toast("Upload image success", { type: "success" } )
+        // console.log("success");
       }
     } catch (error) {
-      // toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
-      console.log(error);
+      toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
+      // console.log(error);
     }
   }
 
@@ -145,10 +144,10 @@ export default function FormDocumentation() {
               </div>
               <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
             </form>
-          {/* <ToastContainer /> */}
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   )
 }
