@@ -1,7 +1,73 @@
 import React from "react";
 import "../assets/styles/formTanamPohon.css"
+import { useState } from "react"
+import { Cloudinary } from "../config/thirdParty"
+// import { ToastContainer, toast } from "react-toastify"
+const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env
 
 export default function FormDocumentation() {
+  const [ form, setForm ] = useState(null)
+
+  const [ documentation, setDocumentation ] = useState({
+    image_url:"",
+    caption: "",
+    messages: "",
+    tanam_pohon_id: 0
+  })
+
+  const onChangeFile = (e) => {
+    console.log(e.target)
+    const files = e?.target?.files
+    console.log(files)
+    setForm(files[0])
+  }
+
+  const onHandleUpload = async () => {
+    try {
+      console.log("masuk");
+      const id = 1;
+      setDocumentation({tanam_pohon_id: id})
+      if (!documentation.caption) {
+        // toast("Keterangan foto tidak boleh kosong", {
+        //   type: 'error'
+        // })
+        console.log("Keterangan foto tidak boleh kosong");
+      } 
+      if (!documentation.messages) {
+        // toast("Kesan & Pesan tidak boleh kosong", {
+        //   type: 'error'
+        // })
+        console.log("Kesan & Pesan tidak boleh kosong");
+      }
+      if (!form) {
+        // toast("Please input file!", {
+        //   type: "error"
+        // })
+       console.log("please input file");
+      } else {
+        const payload = new FormData()
+        payload.append("file", form)
+        payload.append("upload_preset", REACT_APP_UPLOAD_PRESET_CLOUDINARY)
+        payload.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
+  
+        const { data } = await Cloudinary().post("/", payload)
+        .then(
+          setDocumentation({image_url: data.url})
+        )
+        console.log(data, "< data");
+
+        // const { data } = await API().post("/documentations", documentation);
+
+        
+        // toast("Upload image success", { type: "success" } )
+        console.log("success");
+      }
+    } catch (error) {
+      // toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <div className="form-tanam-pohon row">
@@ -65,20 +131,21 @@ export default function FormDocumentation() {
         <div className="form-tp col-lg-6">
           <div className="container-form-tp">
             <h1>Formulir Dokumentasi Tanam Pohon</h1>
-            <form action="">
+            <form>
               <div class="form-unggah-foto">
-                <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+                <input type="file" class="custom-file-input" id="inputGroupFile04" onChange={e => onChangeFile(e)}/>
               </div>
               <div className="form-tp-ket-foto">
               <label for="ket-foto">Keterangan Foto</label>
-              <textarea class="form-control" id="tp-let-foto" rows="3"></textarea>
+              <textarea class="form-control" id="tp-let-foto" rows="3" onChange={e => setDocumentation({ ...documentation, caption: e.target?.value })}></textarea>
               </div>
               <div class="form-kesan-pesan">
                 <label for="tp-kesan-pesan">Kesan dan Pesan</label>
-                <textarea class="form-control" id="tp-kesan-pesan" rows="5"></textarea>
+                <textarea class="form-control" id="tp-kesan-pesan" rows="5" onChange={e => setDocumentation({ ...documentation, messages: e.target?.value })}></textarea>
               </div>
-              <button type="submit" className="btn-submit-doc">SUBMIT</button>
+              <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
             </form>
+          {/* <ToastContainer /> */}
           </div>
         </div>
       </div>
