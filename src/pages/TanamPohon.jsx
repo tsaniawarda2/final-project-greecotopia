@@ -1,9 +1,27 @@
 import React from "react";
 import "../assets/styles/tanamPohon.css"
+import { API } from "../config/api"
+import { useEffect, useState } from "react";
 
 export default function TanamPohon() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getTanamPohon();
+  }, []);
+
+  const getTanamPohon = async () => {
+    await API().get("/tanampohons")
+    .then((response) => {
+      const dataTanamPohon = response.data.TanamPohon;
+      setData(dataTanamPohon)
+    })
+    .catch(error => console.log(error))
+  } 
+
   return (
     <>
+    {console.log(data)}
       <div className="tanam-pohon container-fluid p-0">
         <section className="header-tp">
           <div className="content-header-tp">
