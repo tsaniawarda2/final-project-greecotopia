@@ -1,27 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../assets/styles/tanamPohon.css"
-import { API } from "../config/api"
-import { useEffect, useState } from "react";
+// import { DataContext } from "../context/DataTanamPohon";
+import CardTanamPohon from "../components/card/CardTanamPohon";
+import { data } from "../config/dataTanamPohon";
 
 export default function TanamPohon() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getTanamPohon();
-  }, []);
-
-  const getTanamPohon = async () => {
-    await API().get("/tanampohons")
-    .then((response) => {
-      const dataTanamPohon = response.data.TanamPohon;
-      setData(dataTanamPohon)
-    })
-    .catch(error => console.log(error))
-  } 
-
+  // const { data } = useContext(DataContext);
+  
   return (
     <>
-    {console.log(data)}
       <div className="tanam-pohon container-fluid p-0">
         <section className="header-tp">
           <div className="content-header-tp">
@@ -36,9 +23,9 @@ export default function TanamPohon() {
             <div className="col-lg-8 tp-2-text">
               <h1>Saya mau menanam pohon, apa yang harus saya persiapkan?</h1>
               <ul>
-                <li> <i class="fas fa-check-circle"></i> Mendaftar dan mengisi data diri.</li>
-                <li> <i class="fas fa-check-circle"></i> Datang ke tempat Tanam Pohon yang kamu pilih.</li>
-                <li> <i class="fas fa-check-circle"></i> Dokumentasikan kegiatan untuk bukti mengikuti kegiatan kemudian unggah ke formulir yang di sediakan.</li>
+                <li> <i className="fas fa-check-circle"></i> Mendaftar dan mengisi data diri.</li>
+                <li> <i className="fas fa-check-circle"></i> Datang ke tempat Tanam Pohon yang kamu pilih.</li>
+                <li> <i className="fas fa-check-circle"></i> Dokumentasikan kegiatan untuk bukti mengikuti kegiatan kemudian unggah ke formulir yang di sediakan.</li>
                 <br></br>
                 <p> Informasi tambahan:<br></br>
                     Tanam Pohon ini merupakan program berkala yang bertujuan untuk menahan laju suhu iklim global.</p>
@@ -61,27 +48,12 @@ export default function TanamPohon() {
             <div className="col-lg-1"></div>
           </div>
           <div className="cards-tp">
-            <div className="card-tp">
-              <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"/>
-              <p><i class="fas fa-map-marked-alt"></i> Papua Barat</p>
-              <p><i class="fas fa-calendar-alt"></i> 20 April 2022</p>
-              <h1>Tanam pohon untuk papua yang lebih hijau</h1>
-              <button className="btn-join-tp">BERGABUNG</button>
-            </div>
-            <div className="card-tp">
-              <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"/>
-              <p><i class="fas fa-map-marked-alt"></i> Papua Barat</p>
-              <p><i class="fas fa-calendar-alt"></i> 20 April 2022</p>
-              <h1>Tanam pohon untuk papua yang lebih hijau</h1>
-              <button className="btn-join-tp">BERGABUNG</button>
-            </div>
-            <div className="card-tp">
-              <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"/>
-              <p><i class="fas fa-map-marked-alt"></i> Papua Barat</p>
-              <p><i class="fas fa-calendar-alt"></i> 20 April 2022</p>
-              <h1>Tanam pohon untuk papua yang lebih hijau</h1>
-              <button className="btn-join-tp">BERGABUNG</button>
-            </div>
+            {data.map((data, index) => (
+              index < 3 ? 
+              <CardTanamPohon item={data} key={data.tanam_pohon_id} />
+              :
+              <div></div>
+            ))}
           </div>
         </section>
         <section className="content-tp-4">
