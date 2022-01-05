@@ -51,12 +51,17 @@
   margin-top: 120px;
 }
 .content-issue {
+  box-shadow: 8px 10px 8px 0px rgb(197 202 204);
+}
+.content-issue,
+#inputCom {
   border-radius: 14px;
   border: 1px solid #10550f96;
   background-color: #ffffff;
-  box-shadow: 8px 10px 8px 0px rgb(197 202 204);
 }
-
+#contentIssue {
+  height: 114vh;
+}
 /* --- Left --- */
 #picsIssue {
   padding-right: 0px;
@@ -65,7 +70,7 @@
   border-top-left-radius: 14px;
   object-fit: cover;
   width: 100%;
-  height: 90vh;
+  height: 114vh;
 }
 
 /* --- Right --- */
@@ -75,13 +80,17 @@
 .catCI,
 .dateCI,
 .decsCI,
-.secondCom {
+.secondCom,
+#inputCom,
+#dropItem {
   font-family: "Poppins", sans-serif;
 }
 .titleCI,
 .decsCI,
 .firstCom,
-.secondCom {
+.secondCom,
+#inputCom,
+#dropItem {
   color: #232825;
 }
 .catCI {
@@ -108,9 +117,10 @@
   display: flex;
   justify-content: end;
   margin-top: 24px;
+  margin-right: 36px;
 }
 #btn-fav {
-  width: 36%;
+  width: 24%;
   padding: 6px 0px 4px;
   margin-bottom: 4px;
   letter-spacing: 2px;
@@ -133,6 +143,143 @@
   font-weight: 500;
 }
 
+/* User */
+.formCom {
+  display: flex;
+  flex-wrap: wrap;
+}
+#formCom1 {
+  align-items: center;
+  margin: 24px 0px;
+}
+#formCom2,
+#formCom3 {
+  align-items: flex-start;
+}
+.repCom {
+  justify-content: end;
+  margin-right: 12px;
+}
+#avaCom {
+  margin-left: 8px;
+  width: 58px;
+}
+#inputCom {
+  width: 86%;
+  margin: 0px 16px;
+  font-size: 14px;
+  box-shadow: 2px 2px 2px 0px rgb(197 202 204);
+  padding: 10px 16px;
+}
+.upperCom {
+  margin-bottom: 4px;
+}
+
+/* btnUser */
+.btnSC {
+  border: 4px solid #10550f;
+  border-radius: 50px;
+  padding: 4px;
+  cursor: pointer;
+}
+.btnSC:hover {
+  border-color: #117c10;
+}
+#btnUser {
+  font-size: 28px;
+  color: #10550f;
+  margin: 2px 0px 1px 4px;
+  justify-content: end;
+}
+#btnUser:hover {
+  color: #117c10;
+}
+
+/* --- FillComment --- */
+.infoCom,
+.decsCom {
+  margin-left: 4px;
+}
+.infoCom {
+  display: flex;
+  justify-content: space-between;
+}
+.decsCom {
+  margin-bottom: 10px;
+}
+.nameCom {
+  margin-right: 14px;
+  font-weight: 700;
+}
+#dropdownCom {
+  border: none;
+  background: none;
+  padding: 0px;
+}
+#dropMenu {
+  min-width: 5rem;
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 0px;
+  border: 1px solid #10550f96;
+}
+.dropdown-divider {
+  border-color: #10550f96 !important;
+  margin: 2px 0px !important;
+}
+#dropItem {
+  background-color: #ffffff;
+  padding: 0px;
+  font-size: 14px;
+}
+#dropItem:hover {
+  color: #10550f;
+  font-weight: 500;
+}
+#iMenu {
+  font-size: 18px;
+  color: #10550f;
+  font-weight: 700;
+}
+/* Bubble */
+.cli {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 4px 6px;
+}
+
+.fillC,
+.fillUp,
+.fillDown {
+  background-color: #9ecc85a8;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+.fillC:hover,
+.fillUp:hover,
+.fillDown:hover {
+  background-color: #9ecc85;
+}
+.fillDown {
+  margin-left: 14px;
+}
+.iconCom {
+  margin-top: -1px;
+}
+.countCom {
+  margin-left: 6px;
+  font-size: 12px;
+}
+#formCom3 {
+  width: 185vh;
+  margin: 32px 0px 6px;
+}
+#formCom3 .cli {
+  justify-content: end;
+}
 /* --- Card ---- */
 #issue #cardIssue {
   margin-top: 56px;

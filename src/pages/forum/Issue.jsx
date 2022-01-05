@@ -1,9 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { IoMdSend } from "react-icons/io";
+import { HiDotsVertical } from "react-icons/hi";
+import { FaRegComment } from "react-icons/fa";
+
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 
 import { hutan } from "../../config/dataForum";
 import "../../assets/styles/issue.css";
 import CardIssue from "../../components/card/CardIssue";
+
+import Avatar from "../../assets/image/avatar.png";
+import Person from "../../assets/image/person.png";
 
 export default function Issue() {
   return (
@@ -12,7 +20,7 @@ export default function Issue() {
         <div id="issue">
           {/* Content */}
           <div className="content-issue">
-            <div className="row">
+            <div className="row" id="contentIssue">
               <div className="col-md-4 " id="picsIssue">
                 <img
                   src="https://images.unsplash.com/photo-1619369029907-b8d8d5eac859?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG9yYW5ndXRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
@@ -53,11 +61,11 @@ export default function Issue() {
                     </li>
                   </ol>
                 </p>
-                <div id="buttonIssue">
-                  <div id="btn-fav" className="btn btn-warning">
-                    Tambahkan ke Favorit
-                  </div>
-                </div>
+              </div>
+            </div>
+            <div id="buttonIssue">
+              <div id="btn-fav" className="btn btn-warning">
+                Tambahkan ke Favorit
               </div>
             </div>
             <div id="comment">
@@ -65,8 +73,170 @@ export default function Issue() {
                 Yuk Sampaikan Pendapatmu disini
               </p>
               <p className="secondCom">1 Comments</p>
+              {/* Form Comment */}
+              <div className="formCom" id="formCom1">
+                {/* Avatar */}
+                <img src={Avatar} alt="avatar" id="avaCom" />
+
+                {/* Form */}
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Tambahkan komentar disini"
+                  aria-label="input comment"
+                  id="inputCom"
+                />
+                {/* Button */}
+                <div className="btnSC">
+                  <IoMdSend id="btnUser" />
+                </div>
+              </div>
+              {/* Comment Filled */}
+              <div className="formCom" id="formCom2">
+                {/* Avatar */}
+                <img src={Person} alt="avatar" id="avaCom" />
+
+                {/* Form */}
+                <div id="inputCom">
+                  <div className="infoCom">
+                    <div className="upperCom">
+                      <span className="nameCom">Roy Andreas</span>
+                      <span className="timeCom">2j</span>
+                    </div>
+
+                    {/* Menu */}
+                    <div className="menuCom">
+                      <div className="dropdown">
+                        <button
+                          type="button"
+                          id="dropdownCom"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <HiDotsVertical id="iMenu" />
+                        </button>
+                        <div
+                          className="dropdown-menu"
+                          aria-labelledby="dropdownCom"
+                          id="dropMenu"
+                        >
+                          <NavLink
+                            className="dropdown-item"
+                            id="dropItem"
+                            to="#"
+                          >
+                            Edit
+                          </NavLink>
+                          <div className="dropdown-divider"></div>
+                          <NavLink
+                            className="dropdown-item"
+                            id="dropItem"
+                            to="#"
+                          >
+                            Hapus
+                          </NavLink>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="decsCom">
+                    Langkah di masa depan lebih menjalin kerja bersama
+                    masyarakat lokal, pengambilan keputusan dan organisasi
+                    penghubung dalam mengatasi kendala yang ada dan
+                    terimplementasi dalam beragam konteks dengan sistem
+                    pemantauan, evaluasi dan pelaporan yang kuat.
+                  </p>
+                  <div className="cli">
+                    <div className="fillC">
+                      <FaRegComment className="iconCom" />
+                      <span className="countCom">0</span>
+                    </div>
+                    <div id="likeCom">
+                      <span className="fillUp">
+                        <AiOutlineLike />
+                        <span className="countCom">0</span>
+                      </span>
+                      <span className="fillDown">
+                        <AiOutlineDislike />
+                        <span className="countCom">0</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Reply Comment */}
+              <div className="repCom d-flex">
+                <div className="formCom" id="formCom3">
+                  {/* Avatar */}
+                  <img src={Person} alt="avatar" id="avaCom" />
+                  {/* Form */}
+                  <div id="inputCom">
+                    <div className="infoCom">
+                      <div className="upperCom">
+                        <span className="nameCom">Roy Andreas</span>
+                        <span className="timeCom">2j</span>
+                      </div>
+
+                      {/* Menu */}
+                      <div className="menuCom">
+                        <div className="dropdown">
+                          <button
+                            type="button"
+                            id="dropdownCom"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            <HiDotsVertical id="iMenu" />
+                          </button>
+                          <div
+                            className="dropdown-menu"
+                            aria-labelledby="dropdownCom"
+                            id="dropMenu"
+                          >
+                            <NavLink
+                              className="dropdown-item"
+                              id="dropItem"
+                              to="#"
+                            >
+                              Edit
+                            </NavLink>
+                            <div className="dropdown-divider"></div>
+                            <NavLink
+                              className="dropdown-item"
+                              id="dropItem"
+                              to="#"
+                            >
+                              Hapus
+                            </NavLink>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p className="decsCom">
+                      Langkah di masa depan lebih menjalin kerja bersama
+                      masyarakat lokal, pengambilan keputusan dan organisasi
+                      penghubung dalam mengatasi kendala yang ada dan
+                      terimplementasi dalam beragam konteks dengan sistem
+                      pemantauan, evaluasi dan pelaporan yang kuat.
+                    </p>
+                    <div className="cli">
+                      <div id="likeCom">
+                        <span className="fillUp">
+                          <AiOutlineLike />
+                          <span className="countCom">0</span>
+                        </span>
+                        <span className="fillDown">
+                          <AiOutlineDislike />
+                          <span className="countCom">0</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
           {/* Card */}
           <div className="row" id="cardIssue">
             {hutan.map((data) => (
