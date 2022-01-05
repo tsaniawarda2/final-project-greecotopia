@@ -11,10 +11,9 @@ export default function CardTanamPohon({ item }) {
         <h1>{item.title}</h1>
         <NavLink
             to={`/formTanamPohon/${item.tanam_pohon_id}`}
-            id="btn-issue"
-            className="btn btn-warning"
-        >BERGABUNG</NavLink>
-        {/* <button className="btn-join-tp">BERGABUNG</button> */}
+        >
+        <button className="btn-join-tp">BERGABUNG</button>
+        </NavLink>     
       </div>
     </>
   );
