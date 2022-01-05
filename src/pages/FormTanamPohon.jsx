@@ -1,7 +1,16 @@
 import React from "react";
 import "../assets/styles/formTanamPohon.css"
+import { useParams } from "react-router-dom";
+import { data } from "../config/dataTanamPohon";
 
 export default function FormTanamPohon() {
+  // const { data } = useContext(DataContext);
+
+  let { id } = useParams();
+  //find by id
+  const foundTanamPohon = data?.filter((data) => Number(data?.tanam_pohon_id) === Number(id));
+  const tanamPohon = foundTanamPohon[0]
+
   return (
     <>
       <div className="form-tanam-pohon row">
@@ -11,41 +20,41 @@ export default function FormTanamPohon() {
           <table>
             <thead>
               <tr>
-                <th colspan="3">Tanam pohon untuk papua yang lebih hijau</th>
+                <th colspan="3">{tanamPohon.title}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Tanggal </td>
                 <td className="titik-dua-tp"> : </td>
-                <td>20 April 2022</td>
+                <td>{tanamPohon.date}</td>
               </tr>
               <tr>
                 <td>Pukul</td>
                 <td className="titik-dua-tp"> : </td>
-                <td> 08.00 WIT</td>
+                <td>{tanamPohon.time}</td>
               </tr>
               <tr>
                 <td>Lokasi </td>
                 <td className="titik-dua-tp"> : </td>
-                <td>Taman wisata alam Sorong, kota Sorong, Papua Barat </td>
+                <td>{tanamPohon.location}</td>
               </tr>
               <tr>
                 <td>Hadiah Poin</td>
                 <td className="titik-dua-tp"> : </td>
-                <td>150 Poin/Pohon</td>
+                <td>{tanamPohon.reward_point}</td>
               </tr>
               <tr>
                 <td>Periode unggah foto</td>
                 <td className="titik-dua-tp"> : </td>
-                <td>20 April 2022 -23 April 2022</td>
+                <td>{tanamPohon.date} - {tanamPohon.due_date}</td>
               </tr>
             </tbody>
           </table>
           <br></br>
           <p>Jangan lupa untuk mengambil gambar saat kegiatan, kemudian unggah foto tersebut di bagian unggah dokumentasi pada periode yang ditentukan.</p>
           <div className="syarat-ketentuan-tp">
-            <p> <i class="fas fa-info-circle"></i> Syarat & Ketentuan</p>
+            <p> <i className="fas fa-info-circle"></i> Syarat & Ketentuan</p>
           </div>
           <div className="tp-info row">
             <div className="col-4">
@@ -74,13 +83,13 @@ export default function FormTanamPohon() {
                 <label for="noHp">No. Handphone</label>
                 <input className="form-control" type="text" placeholder=""/>
               </div>
-              <div class="form-tp-jumlah-pohon">
+              <div className="form-tp-jumlah-pohon">
                 <label for="jumlahPohon">Jumlah Pohon</label>
-                <input class="form-control" type="number" min="1" max="100"></input>
+                <input className="form-control" type="number" min="1" max="100"></input>
               </div>
               <div className="form-tp-lokasi">
                 <label for="lokasi">Lokasi</label>
-                <input class="form-control" type="text" placeholder="Taman wisata alam Sorong, kota Sorong, Papua Barat" readonly/>
+                <input className="form-control" type="text" placeholder={`${tanamPohon.location}`} readonly/>
               </div>
               <div className="form-check">
                 <input type="checkbox" className="form-check-input" id="siap-tp"/>
