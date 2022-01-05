@@ -3,10 +3,18 @@ import "../assets/styles/formTanamPohon.css"
 import { useState } from "react"
 import { Cloudinary } from "../config/thirdParty"
 import { ToastContainer, toast } from "react-toastify"
+import { useParams } from "react-router-dom";
+import { data } from "../config/dataTanamPohon";
+import { API } from "../config/api";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env
 
 export default function FormDocumentation() {
   const [ form, setForm ] = useState(null)
+
+  let { id } = useParams();
+  //find by id
+  const foundTanamPohon = data?.filter((data) => Number(data?.tanam_pohon_id) === Number(id));
+  const tanamPohon = foundTanamPohon[0]
 
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
@@ -31,86 +39,78 @@ export default function FormDocumentation() {
         toast("Keterangan foto tidak boleh kosong", {
           type: 'error'
         })
-        // console.log("Keterangan foto tidak boleh kosong");
       } 
       if (!documentation.messages) {
         toast("Kesan & Pesan tidak boleh kosong", {
           type: 'error'
         })
-        // console.log("Kesan & Pesan tidak boleh kosong");
       }
       if (!form) {
         toast("Please input file!", {
           type: "error"
         })
-       console.log("please input file");
       } else {
         const payload = new FormData()
         payload.append("file", form)
         payload.append("upload_preset", REACT_APP_UPLOAD_PRESET_CLOUDINARY)
         payload.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
   
-        const { data } = await Cloudinary().post("/", payload)
-        .then(
-          setDocumentation({image_url: data.url})
-        )
-        console.log(data, "< data");
+        const { data : dataPict} = await Cloudinary().post("/", payload)
+        setDocumentation({image_url: dataPict.url})
 
-        // const { data } = await API().post("/documentations", documentation);
+        const { data: dataDoc } = await API().post("/documentations", documentation);
 
         toast("Upload image success", { type: "success" } )
-        // console.log("success");
       }
     } catch (error) {
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
-      // console.log(error);
     }
   }
 
   return (
     <>
       <div className="form-tanam-pohon row">
-      <div className="info-tp col-lg-6">
+        <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
           <p>Terima kasih karena kamu sudah mempunyai niat baik untuk menghijaukan bumi kita. Yuk baca terlebih dahulu detail informasi dibawah ini.</p>
           <table>
             <thead>
               <tr>
-                <th colspan="3">Tanam pohon untuk papua yang lebih hijau</th>
+                <th colspan="3">{tanamPohon.title}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Tanggal </td>
                 <td className="titik-dua-tp"> : </td>
-                <td>20 April 2022</td>
+                <td>{tanamPohon.date}</td>
               </tr>
               <tr>
                 <td>Pukul</td>
                 <td className="titik-dua-tp"> : </td>
-                <td> 08.00 WIT</td>
+                <td>{tanamPohon.time}</td>
               </tr>
               <tr>
                 <td>Lokasi </td>
                 <td className="titik-dua-tp"> : </td>
-                <td>Taman wisata alam Sorong, kota Sorong, Papua Barat </td>
+                <td>{tanamPohon.location}</td>
               </tr>
               <tr>
                 <td>Hadiah Poin</td>
                 <td className="titik-dua-tp"> : </td>
-                <td>150 Poin/Pohon</td>
+                <td>{tanamPohon.reward_point}</td>
               </tr>
               <tr>
                 <td>Periode unggah foto</td>
                 <td className="titik-dua-tp"> : </td>
-                <td>20 April 2022 -23 April 2022</td>
+                <td>{tanamPohon.date} - {tanamPohon.due_date}</td>
               </tr>
             </tbody>
           </table>
           <br></br>
           <p>Jangan lupa untuk mengambil gambar saat kegiatan, kemudian unggah foto tersebut di bagian unggah dokumentasi pada periode yang ditentukan.</p>
           <div className="syarat-ketentuan-tp">
-            <p> <i class="fas fa-info-circle"></i> Syarat & Ketentuan</p>
+            <p> <i className="fas fa-info-circle"></i> Syarat & Ketentuan</p>
           </div>
           <div className="tp-info row">
             <div className="col-4">
@@ -131,16 +131,16 @@ export default function FormDocumentation() {
           <div className="container-form-tp">
             <h1>Formulir Dokumentasi Tanam Pohon</h1>
             <form>
-              <div class="form-unggah-foto">
-                <input type="file" class="custom-file-input" id="inputGroupFile04" onChange={e => onChangeFile(e)}/>
+              <div className="form-unggah-foto">
+                <input type="file" className="custom-file-input" id="inputGroupFile04" onChange={e => onChangeFile(e)}/>
               </div>
               <div className="form-tp-ket-foto">
               <label for="ket-foto">Keterangan Foto</label>
-              <textarea class="form-control" id="tp-let-foto" rows="3" onChange={e => setDocumentation({ ...documentation, caption: e.target?.value })}></textarea>
+              <textarea className="form-control" id="tp-let-foto" rows="3" onChange={e => setDocumentation({ ...documentation, caption: e.target?.value })}></textarea>
               </div>
-              <div class="form-kesan-pesan">
+              <div className="form-kesan-pesan">
                 <label for="tp-kesan-pesan">Kesan dan Pesan</label>
-                <textarea class="form-control" id="tp-kesan-pesan" rows="5" onChange={e => setDocumentation({ ...documentation, messages: e.target?.value })}></textarea>
+                <textarea className="form-control" id="tp-kesan-pesan" rows="5" onChange={e => setDocumentation({ ...documentation, messages: e.target?.value })}></textarea>
               </div>
               <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
             </form>
