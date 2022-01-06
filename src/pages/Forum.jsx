@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { categories, hutan, energi, plastik, laut } from "../config/dataForum";
 
 import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
-
 import Card from "../components/card/CardForum";
+import { ForumContext } from "../context/DataForum";
+import { API } from "../config/api";
 
 export default function Forum() {
+  const { forum } = useContext(ForumContext);
+  console.log(forum, "<<< -----------");
+
   return (
     <>
       <div className="container mb-5">
@@ -28,17 +32,17 @@ export default function Forum() {
         </div>
 
         {/* Hutan*/}
-        {categories.map((forums) => (
+        {forum.map((data, idx) => (
           <>
-            <div className="row" id="content-forum">
+            <div className="row" id="content-forum" key={idx}>
               {/* Categories */}
               <div className="col-lg-2 col-md-12" id="image-cat">
                 <div className="picture">
-                  <img src={forums.image_url} alt={forums.title} />
+                  <img src={data.image} alt={data.title} />
                 </div>
                 <div className="text-cat">
-                  <div className="categories">{forums.title}</div>
-                  <div className="sub">{forums.description}</div>
+                  <div className="categories">{data.title}</div>
+                  <div className="sub">{data.description}</div>
                   <NavLink to="/issues">
                     <div className="seeMore">lihat selengkapnya</div>
                   </NavLink>

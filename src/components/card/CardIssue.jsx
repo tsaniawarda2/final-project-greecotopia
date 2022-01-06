@@ -6,7 +6,6 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FaComment, FaRegComment } from "react-icons/fa";
 
 export default function CardIssue({ item }) {
-  console.log(item.title.length, "<<<");
   return (
     <>
       <div id="cardFI" className="card-issue">
