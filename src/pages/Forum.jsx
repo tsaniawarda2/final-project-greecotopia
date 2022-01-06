@@ -4,14 +4,15 @@ import { categories, hutan, energi, plastik, laut } from "../config/dataForum";
 
 import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
-import Card from "../components/card/CardForum";
+import CardForum from "../components/card/CardForum";
 import { ForumContext } from "../context/DataForum";
 import { API } from "../config/api";
+import { IssueContext } from "../context/DataIssue";
 
 export default function Forum() {
   const { forum } = useContext(ForumContext);
-  console.log(forum, "<<< -----------");
-
+  const { issue } = useContext(IssueContext);
+  console.log(issue, "<<<issue");
   return (
     <>
       <div className="container mb-5">
@@ -50,8 +51,8 @@ export default function Forum() {
               </div>
               {/* Issues */}
               <div className="col-lg-10 col-md-12 d-flex" id="hutan">
-                {hutan.map((data) => (
-                  <Card item={data} key={data.id} />
+                {issue.map((data, idx) => (
+                  <CardForum item={data} key={idx} />
                 ))}
               </div>
             </div>

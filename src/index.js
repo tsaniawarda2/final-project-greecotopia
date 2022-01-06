@@ -10,12 +10,15 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "../src/index.css";
 import { DataForum } from "./context/DataForum";
+import { DataIssue } from "./context/DataIssue";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <DataForum>
-        <App />
+        <DataIssue>
+          <App />
+        </DataIssue>
       </DataForum>
     </BrowserRouter>
   </React.StrictMode>,

@@ -140,14 +140,12 @@
 .card-forum .card {
   margin: 12px;
 }
-.card-forum .card-img-top {
-  height: 154px;
-}
 #cardFI .card-img-top {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
 }
+
 #cardFI .card-body {
   font-family: "Poppins", sans-serif;
   padding: 0px;
@@ -158,7 +156,7 @@
   font-weight: 700;
   margin-bottom: 6px;
 }
-#cardFI .card-text {
+#cardFI p {
   font-size: 12px;
 }
 
