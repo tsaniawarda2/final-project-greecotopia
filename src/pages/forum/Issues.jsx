@@ -4,10 +4,14 @@ import { NavLink } from "react-router-dom";
 import { categories, hutan } from "../../config/dataForum";
 import "../../assets/styles/issue.css";
 import CardIssue from "../../components/card/CardIssue";
+import Banners from "../../components/Banners";
 
 export default function Issues() {
   return (
     <>
+      {/* Header */}
+      <Banners />
+
       {/* Filter */}
       <ul
         className=" nav d-flex justify-content-center mb-5 sticky-top"
@@ -25,15 +29,6 @@ export default function Issues() {
       </ul>
       <div className="container mb-5">
         <div id="issues">
-          {/* Header */}
-          {/* <div className="content-header">
-            <p className="yvm text-uppercase">Your Voice Matter</p>
-            <p className="wdyt">Hutan</p>
-            <p className="decs-header">
-              Mari berdikusi mengenai hutan yang ada di Indonesia, kita dukung
-              bumi agar menjadi semakin hijau.
-            </p>
-          </div> */}
           {/* Card */}
           <div className="row" id="cardIssues">
             {hutan.map((data) => (
