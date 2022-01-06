@@ -8,6 +8,7 @@ import {
   Account,
   Forum,
   TanamPohon,
+  AllTanamPohon,
   FormTanamPohon,
   FormDocumentation,
   Login,
@@ -26,6 +27,7 @@ export default function App() {
         <Route exact path="/account" component={Account} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
+        <Route exact path="/allTanamPohon" component={AllTanamPohon} />
         <Route exact path="/formTanamPohon" component={FormTanamPohon} />
         <Route exact path="/formTanamPohon/:id" component={FormTanamPohon} />
         <Route exact path="/formDocumentation" component={FormDocumentation} />
