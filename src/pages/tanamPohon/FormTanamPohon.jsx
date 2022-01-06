@@ -1,15 +1,59 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../../assets/styles/formTanamPohon.css"
 import { useParams } from "react-router-dom";
 import { data } from "../../config/dataTanamPohon";
+import { ToastContainer, toast } from "react-toastify"
+import { API } from "../../config/api";
+// import { DataContext } from "../../context/DataTanamPohon";
 
 export default function FormTanamPohon() {
-  // const { data } = useContext(DataContext);
+  //  const { tanamPohon } = useContext(DataContext);
 
   let { id } = useParams();
   //find by id
   const foundTanamPohon = data?.filter((data) => Number(data?.tanam_pohon_id) === Number(id));
   const tanamPohon = foundTanamPohon[0]
+
+  const [ participant, setParticipant ] = useState({
+    name:"",
+    no_hp: "",
+    number_of_trees: "",
+    tanam_pohon_id: 0
+  })
+
+  const onHandleRegister = async () => {
+    try {
+      setParticipant({tanam_pohon_id: id})
+      if (!participant.name) {
+        toast("Nama tidak boleh kosong", {
+          type: 'error'
+        })
+      } 
+      if (!participant.no_hp) {
+        toast("Nomor Handphone tidak boleh kosong", {
+          type: 'error'
+        })
+      }
+      if (!participant.number_of_trees) {
+        toast("Jumlah Pohon tidak boleh kosong", {
+          type: 'error'
+        })
+      }
+      if (!participant) {
+        toast("Please input file!", {
+          type: "error"
+        })
+      } else {
+        console.log("masuk");
+        const { data: dataParticipant } = await API().post("/participants", participant);
+        console.log(dataParticipant);
+
+        toast("Upload image success", { type: "success" } )
+      }
+    } catch (error) {
+      toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
+    }
+  }
 
   return (
     <>
@@ -95,11 +139,12 @@ export default function FormTanamPohon() {
                 <input type="checkbox" className="form-check-input" id="siap-tp"/>
                 <p className="form-check-label" for="siap-tp">Saya siap menanam pohon</p>
               </div>
-              <button type="submit" className="btn-daftar">DAFTAR</button>
+              <button type="submit" className="btn-daftar" onClick={() => onHandleRegister()}>DAFTAR</button>
             </form>
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   )
 }
