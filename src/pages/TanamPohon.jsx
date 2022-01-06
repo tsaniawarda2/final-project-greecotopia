@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import "../assets/styles/tanamPohon.css"
-// import { DataContext } from "../context/DataTanamPohon";
+import { DataContext } from "../context/DataTanamPohon";
 import CardTanamPohon from "../components/card/CardTanamPohon";
-import { data } from "../config/dataTanamPohon";
+// import { data } from "../config/dataTanamPohon";
 
 export default function TanamPohon() {
-  // const { data } = useContext(DataContext);
+  const { data } = useContext(DataContext);
   
   return (
     <>

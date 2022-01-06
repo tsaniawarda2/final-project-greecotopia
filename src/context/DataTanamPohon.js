@@ -6,8 +6,11 @@ const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
+  const [dataDoc, setDataDoc] = useState([]);
+
   useEffect(() => {
     getTanamPohon();
+    getDocumentations();
   }, []);
 
   const getTanamPohon = async () => {
@@ -19,6 +22,15 @@ const DataProvider = ({ children }) => {
     .catch(error => console.log(error))
   } 
 
+  const getDocumentations = async () => {
+      await API().get("/documentations")
+      .then((response) => {
+        const dataDocumentations = response.data.documentations;
+        setDataDoc(dataDocumentations)
+      })
+      .catch(error => console.log(error))
+    } 
+
   const [state, dispatch] = useReducer(tanamPohonReducer, {
     documentation: {
       image_url: "",
@@ -29,7 +41,7 @@ const DataProvider = ({ children }) => {
   });
 
   return (
-    <DataContext.Provider value={{ data, state, dispatch}}>
+    <DataContext.Provider value={{ data, dataDoc, state, dispatch}}>
       {children}
     </DataContext.Provider>
   )
