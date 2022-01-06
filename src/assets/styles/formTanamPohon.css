@@ -113,6 +113,10 @@
   margin-top: 12px;
 }
 
+.btn-daftar:hover, .btn-submit-doc:hover{
+	background-color: #FFB039;
+}
+
 .form-unggah-foto input{
   margin-top: 12px;
   margin-bottom: 4px;

@@ -166,6 +166,11 @@ body{
 	width: 320px;
 	padding: 16px;
 	margin: 30px;
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.card-tp:hover{
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
 .card-tp img{
@@ -173,7 +178,7 @@ body{
 	width: 100%;
 	border-radius: 5px;
 	object-fit: cover;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 	box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, 
 							rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
@@ -183,7 +188,8 @@ body{
 	font-size: 16px;
   font-weight: 500;
 	color: #10550F;
-  margin: 0;
+  margin: 0!important;
+	margin-bottom: 4px!important;
   margin-bottom: 12px;
 }
 
@@ -196,7 +202,7 @@ body{
 	font-family: 'Rubik', sans-serif;
 	font-size: 24px;
 	font-weight: 600;
-  margin: 0;
+	margin-top: 12px;
   margin-bottom: 16px;
 }
 
@@ -213,6 +219,10 @@ body{
 	border: none;
 	border-radius: 25px;
 	text-decoration: none;
+}
+
+.btn-join-tp:hover{
+	background-color: #FFB039;
 }
 
 .text-section-4{
