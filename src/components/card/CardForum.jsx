@@ -5,7 +5,6 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 import "../../assets/styles/forum.css";
 export default function CardForum({ item }) {
-  console.log(item.summary.length, "<<<");
   return (
     <>
       <div id="cardFI" className="card-forum">

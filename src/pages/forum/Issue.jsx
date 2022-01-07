@@ -1,27 +1,29 @@
 import React, { useContext } from "react";
+import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+
+import { IssueContext } from "../../context/DataIssue";
+import CardIssue from "../../components/card/CardIssue";
+import { hutan } from "../../config/dataForum";
+
+// Icon
 import { IoMdSend } from "react-icons/io";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaRegComment } from "react-icons/fa";
-
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 
-import { hutan } from "../../config/dataForum";
 import "../../assets/styles/issue.css";
-import CardIssue from "../../components/card/CardIssue";
-
 import Avatar from "../../assets/image/avatar.png";
 import Person from "../../assets/image/person.png";
-import { useParams } from "react-router-dom";
-import { IssueContext } from "../../context/DataIssue";
 
 export default function Issue() {
-  const { issue } = useContext(IssueContext);
-  console.log(issue, "---- Issue");
-  let { id } = useParams();
+  // const { issue } = useContext(IssueContext);
 
-  const issueID = issue?.find((data) => data.issue_id === id);
-  console.log(issueID, "----- id Issue");
+  // console.log(id, "---- Hutan");
+  // let { id } = useParams();
+
+  // const issueID = issue?.find((data) => data.issue_id === id);
+  // console.log(issueID, "----- id Issue");
 
   return (
     <>
@@ -160,16 +162,10 @@ export default function Issue() {
                       <FaRegComment className="iconCom" />
                       <span className="countCom">0</span>
                     </div>
-                    <div id="likeCom">
-                      <span className="fillUp">
-                        <AiOutlineLike />
-                        <span className="countCom">0</span>
-                      </span>
-                      <span className="fillDown">
-                        <AiOutlineDislike />
-                        <span className="countCom">0</span>
-                      </span>
-                    </div>
+                    <span className="fillUp">
+                      <AiOutlineLike />
+                      <span className="countCom">0</span>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -229,16 +225,10 @@ export default function Issue() {
                       pemantauan, evaluasi dan pelaporan yang kuat.
                     </p>
                     <div className="cli">
-                      <div id="likeCom">
-                        <span className="fillUp">
-                          <AiOutlineLike />
-                          <span className="countCom">0</span>
-                        </span>
-                        <span className="fillDown">
-                          <AiOutlineDislike />
-                          <span className="countCom">0</span>
-                        </span>
-                      </div>
+                      <span className="fillUp">
+                        <AiOutlineLike />
+                        <span className="countCom">0</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -247,13 +237,13 @@ export default function Issue() {
           </div>
 
           {/* Card */}
-          <div className="row" id="cardIssue">
+          {/* <div className="row" id="cardIssue">
             {hutan.map((data) => (
               <div className="col-md-3">
                 <CardIssue item={data} key={data.id} />
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>

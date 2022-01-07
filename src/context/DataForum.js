@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import { API } from "../config/api";
 import { forumReducer } from "./ReducerForum";
 
@@ -24,6 +18,7 @@ const DataForum = ({ children }) => {
   const [state, dispatch] = useReducer(forumReducer, {
     forums: forum,
   });
+  console.log(forum, "---- DataForum");
   return (
     <>
       <ForumContext.Provider value={{ forum, state, dispatch }}>

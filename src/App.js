@@ -14,6 +14,7 @@ import {
   TanamPohon,
   Leaderboard,
 } from "./pages";
+import NotFound from "./pages/errors/NotFound";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
         <Route exact path="/issues/:id" component={Issue} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
+        <Route exact path="*" component={NotFound} />
       </Switch>
       <Footer />
     </>

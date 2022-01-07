@@ -14,10 +14,11 @@ const DataIssue = ({ children }) => {
   useEffect(() => {
     getIssues();
   }, []);
-  console.log(issue, "---- DataIssue");
+
   const [state, dispatch] = useReducer(issueReducer, {
     issues: issue,
   });
+  console.log(issue, "---- DataIssue");
   return (
     <>
       <IssueContext.Provider value={{ issue, state, dispatch }}>

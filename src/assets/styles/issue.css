@@ -247,26 +247,22 @@
 .cli {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
   margin: 0px 4px 6px;
 }
-
+.fillC {
+  margin-right: 14px;
+}
 .fillC,
-.fillUp,
-.fillDown {
+.fillUp {
   background-color: #9ecc85a8;
   border-radius: 4px;
   padding: 2px 8px;
   cursor: pointer;
 }
 .fillC:hover,
-.fillUp:hover,
-.fillDown:hover {
+.fillUp:hover {
   background-color: #9ecc85;
-}
-.fillDown {
-  margin-left: 14px;
 }
 .iconCom {
   margin-top: -1px;
@@ -280,7 +276,7 @@
   margin: 32px 0px 6px;
 }
 #formCom3 .cli {
-  justify-content: end;
+  justify-content: start;
 }
 /* --- Card ---- */
 #issue #cardIssue {
