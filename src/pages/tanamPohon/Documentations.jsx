@@ -18,7 +18,7 @@ export default function Documentations() {
                 <div className="docs-icon">
                   <i class="far fa-images fa-2x"></i>
                 </div>
-                <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                <img src={data.Documentations[0].image_url} alt="" />
               </div>
               <p className="total-picts">({data.Documentations.length} Foto)</p>
               <h3 className="doc-title-tp">{data.title}</h3>
