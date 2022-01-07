@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
 import { HiDotsVertical } from "react-icons/hi";
@@ -12,8 +12,17 @@ import CardIssue from "../../components/card/CardIssue";
 
 import Avatar from "../../assets/image/avatar.png";
 import Person from "../../assets/image/person.png";
+import { useParams } from "react-router-dom";
+import { IssueContext } from "../../context/DataIssue";
 
 export default function Issue() {
+  const { issue } = useContext(IssueContext);
+  console.log(issue, "---- Issue");
+  let { id } = useParams();
+
+  const issueID = issue?.find((data) => data.issue_id === id);
+  console.log(issueID, "----- id Issue");
+
   return (
     <>
       <div className="container mb-5">

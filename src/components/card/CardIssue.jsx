@@ -31,7 +31,7 @@ export default function CardIssue({ item }) {
               <span className="context">12</span>
             </div>
             <NavLink
-              to="/issues/:id"
+              to={`/issues/${item?.issue_id}`}
               id="btn-issue"
               className="btn btn-warning"
             >

@@ -24,7 +24,7 @@ export default function CardForum({ item }) {
             </p>
 
             <NavLink
-              to="/issues/:id"
+              to={`/issues/${item?.issue_id}`}
               id="btn-issue"
               className="btn btn-warning"
             >

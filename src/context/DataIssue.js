@@ -14,7 +14,7 @@ const DataIssue = ({ children }) => {
   useEffect(() => {
     getIssues();
   }, []);
-  console.log(issue, "<<< Issue");
+  console.log(issue, "---- DataIssue");
   const [state, dispatch] = useReducer(issueReducer, {
     issues: issue,
   });

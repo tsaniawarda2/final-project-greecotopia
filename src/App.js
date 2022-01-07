@@ -24,7 +24,7 @@ export default function App() {
         <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
-        <Route exact path="/forum" component={Forum} />
+        <Route exact path="/forums" component={Forum} />
         <Route exact path="/issues" component={Issues} />
         <Route exact path="/issues/:id" component={Issue} />
         <Route exact path="/tanamPohon" component={TanamPohon} />

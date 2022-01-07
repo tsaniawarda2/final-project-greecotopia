@@ -9,6 +9,7 @@ import Banners from "../../components/Banners";
 
 export default function Issues() {
   const { issue } = useContext(IssueContext);
+
   return (
     <>
       {/* Header */}
