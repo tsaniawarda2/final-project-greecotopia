@@ -12,6 +12,7 @@ import {
   FormTanamPohon,
   FormDocumentation,
   Documentations,
+  Documentation,
   Login,
   SignUp,
   Leaderboard,
@@ -34,6 +35,7 @@ export default function App() {
         <Route exact path="/formDocumentation" component={FormDocumentation} />
         <Route exact path="/formDocumentation/:id" component={FormDocumentation} />
         <Route exact path="/documentations" component={Documentations} />
+        <Route exact path="/documentations/:id" component={Documentation} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>
       <Footer />
