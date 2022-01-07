@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { categories, hutan, energi, plastik, laut } from "../config/dataForum";
 
 import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
 import CardForum from "../components/card/CardForum";
 import { ForumContext } from "../context/DataForum";
-import { API } from "../config/api";
 import { IssueContext } from "../context/DataIssue";
 
 export default function Forum() {

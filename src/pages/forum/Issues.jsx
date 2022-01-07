@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
-import { categories, hutan } from "../../config/dataForum";
+import { categories } from "../../config/dataForum";
+import { IssueContext } from "../../context/DataIssue";
 import "../../assets/styles/issue.css";
 import CardIssue from "../../components/card/CardIssue";
 import Banners from "../../components/Banners";
 
 export default function Issues() {
+  const { issue } = useContext(IssueContext);
   return (
     <>
       {/* Header */}
@@ -31,9 +33,9 @@ export default function Issues() {
         <div id="issues">
           {/* Card */}
           <div className="row" id="cardIssues">
-            {hutan.map((data) => (
+            {issue.map((data, idx) => (
               <div className="col-md-3">
-                <CardIssue item={data} key={data.id} />
+                <CardIssue item={data} key={idx} />
               </div>
             ))}
           </div>
