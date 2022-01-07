@@ -1,60 +1,59 @@
-import React, { createContext, useState, useEffect, useReducer } from "react";
-import { tanamPohonReducer } from "./ReducerTanamPohon";
+import React, { createContext, useState, useEffect } from "react";
 import { API } from "../config/api";
-// import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom";
+
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [data, setData] = useState([]);
-  const [dataDoc, setDataDoc] = useState([]);
+  const [ dataTP, setDataTP ] = useState([]);
   const [ tanamPohon, setTanamPohon ] = useState([]);
+  const [ dataDoc, setDataDoc ] = useState([]);
+  const [ documentation, setDocumentation ] = useState([]);
+  const { pathname } = useLocation();
 
-  useEffect(() => {
-    getTanamPohon();
-    getDocumentations();
-    // getTanamPohonById();
+  useEffect(async () => {
+    const arrPath = pathname?.split("/")
+    const newId = Number(arrPath[arrPath.length-1])
+
+    await getTanamPohon();
+    await getDocumentations();
+    await getTanamPohonById(newId);
+    await getDocumentationsById(newId);
   }, []);
 
+  useEffect(async () =>{
+    const arrPath = pathname?.split("/")
+    const newId = Number(arrPath[arrPath.length-1])
+  
+    await getTanamPohonById(newId);
+    await getDocumentationsById(newId);
+  }, [pathname])
+
   const getTanamPohon = async () => {
-    await API().get("/tanampohons")
-    .then((response) => {
-      const dataTanamPohon = response.data.TanamPohon;
-      setData(dataTanamPohon)
-    })
-    .catch(error => console.log(error))
+    const { data : dataTanamPohon} = await API().get("/tanampohons");
+    setDataTP(dataTanamPohon.TanamPohon);
   } 
 
-  // let { id } = useParams();
-  // const getTanamPohonById = async () => {
-  //   await API().get(`/tanampohons/${id}`)
-  //   .then((response) => {
-  //     const dataTanamPohon = response.data.TanamPohon;
-  //     setData(dataTanamPohon)
-  //   })
-  //   .catch(error => console.log(error))
-  // } 
+  const getTanamPohonById = async (id) => {
+    if(id){
+      const {data : dataTanamPohonId} = await API().get(`/tanampohons/${id}`);
+        setTanamPohon(dataTanamPohonId.TanamPohon);
+    }
+  } 
 
   const getDocumentations = async () => {
-      await API().get("/documentations")
-      .then((response) => {
-        const dataDocumentations = response.data.documentations;
-        setDataDoc(dataDocumentations)
-      })
-      .catch(error => console.log(error))
-    } 
+    const { data : dataDocumentations } = await API().get("/documentations");
+    setDataDoc(dataDocumentations.documentations);
+  } 
 
-  const [state, dispatch] = useReducer(tanamPohonReducer, {
-    documentation: {
-      image_url: "",
-      caption: "",
-      messages: "",
-      tanam_pohon_id: 0
-    }
-  });
+  const getDocumentationsById = async (id) => {
+    const { data : dataDocumentationId } = await API().get(`/documentations/${id}`);
+    setDocumentation(dataDocumentationId.data);
+  }
 
   return (
-    <DataContext.Provider value={{ data, tanamPohon, dataDoc, state, dispatch}}>
+    <DataContext.Provider value={{ dataTP, tanamPohon, dataDoc, documentation }}>
       {children}
     </DataContext.Provider>
   )

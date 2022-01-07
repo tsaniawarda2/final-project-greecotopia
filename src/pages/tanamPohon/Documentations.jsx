@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, { useContext } from "react";
 import "../../assets/styles/documentations.css"
 import { DataContext } from "../../context/DataTanamPohon";
 
@@ -7,7 +7,6 @@ export default function Documentations() {
 
   return (
     <>
-    {console.log(dataDoc)}
       <div className="container-docs">
         <div className="doc-text">
           <h1>Dokumentasi <span>Tanam Pohon</span></h1>

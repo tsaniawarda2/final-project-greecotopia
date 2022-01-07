@@ -1,29 +1,22 @@
 import React, { useContext, useState } from "react";
-import "../../assets/styles/formTanamPohon.css"
-import { useParams } from "react-router-dom";
-import { data } from "../../config/dataTanamPohon";
-import { ToastContainer, toast } from "react-toastify"
+import "../../assets/styles/formTanamPohon.css";
+import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
-// import { DataContext } from "../../context/DataTanamPohon";
+import { DataContext } from "../../context/DataTanamPohon";
 
 export default function FormTanamPohon() {
-  //  const { tanamPohon } = useContext(DataContext);
-
-  let { id } = useParams();
-  //find by id
-  const foundTanamPohon = data?.filter((data) => Number(data?.tanam_pohon_id) === Number(id));
-  const tanamPohon = foundTanamPohon[0]
+  const { tanamPohon } = useContext(DataContext);
 
   const [ participant, setParticipant ] = useState({
     name:"",
     no_hp: "",
     number_of_trees: "",
-    tanam_pohon_id: 0
+    tanam_pohon_id: 1,
+    user_id: 3
   })
 
   const onHandleRegister = async () => {
     try {
-      setParticipant({tanam_pohon_id: id})
       if (!participant.name) {
         toast("Nama tidak boleh kosong", {
           type: 'error'
@@ -40,15 +33,16 @@ export default function FormTanamPohon() {
         })
       }
       if (!participant) {
-        toast("Please input file!", {
+        toast("Isi data terlebih dahulu ya!", {
           type: "error"
         })
       } else {
         console.log("masuk");
+        console.log(participant, "<< participant");
         const { data: dataParticipant } = await API().post("/participants", participant);
         console.log(dataParticipant);
 
-        toast("Upload image success", { type: "success" } )
+        toast("Pendaftaran berhasil", { type: "success" } )
       }
     } catch (error) {
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
@@ -121,15 +115,15 @@ export default function FormTanamPohon() {
             <form action="">
               <div className="form-tp-nama">
               <label for="nama">Nama</label>
-                <input className="form-control" type="text" placeholder=""/>
+                <input className="form-control" type="text" placeholder="" value={participant.name} onChange={e => setParticipant({ ...participant, name: e.target?.value })}/>
               </div>
               <div className="form-tp-no-hp">
                 <label for="noHp">No. Handphone</label>
-                <input className="form-control" type="text" placeholder=""/>
+                <input className="form-control" type="text" placeholder="" value={participant.no_hp} onChange={e => setParticipant({ ...participant, no_hp: e.target?.value })}/>
               </div>
               <div className="form-tp-jumlah-pohon">
                 <label for="jumlahPohon">Jumlah Pohon</label>
-                <input className="form-control" type="number" min="1" max="100"></input>
+                <input className="form-control" type="number" min="1" max="100" value={participant.number_of_trees} onChange={e => setParticipant({ ...participant, number_of_trees: e.target?.value })}></input>
               </div>
               <div className="form-tp-lokasi">
                 <label for="lokasi">Lokasi</label>
@@ -139,7 +133,7 @@ export default function FormTanamPohon() {
                 <input type="checkbox" className="form-check-input" id="siap-tp"/>
                 <p className="form-check-label" for="siap-tp">Saya siap menanam pohon</p>
               </div>
-              <button type="submit" className="btn-daftar" onClick={() => onHandleRegister()}>DAFTAR</button>
+              <button type="button" className="btn-daftar" onClick={() => onHandleRegister()}>DAFTAR</button>
             </form>
           </div>
         </div>

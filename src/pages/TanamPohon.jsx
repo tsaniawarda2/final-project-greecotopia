@@ -5,7 +5,7 @@ import CardTanamPohon from "../components/card/CardTanamPohon";
 // import { data } from "../config/dataTanamPohon";
 
 export default function TanamPohon() {
-  const { data } = useContext(DataContext);
+  const { dataTP: data } = useContext(DataContext);
   
   return (
     <>

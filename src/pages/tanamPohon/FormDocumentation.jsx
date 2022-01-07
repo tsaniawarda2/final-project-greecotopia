@@ -1,20 +1,15 @@
-import React from "react";
-import "../../assets/styles/formTanamPohon.css"
-import { useState } from "react"
-import { Cloudinary } from "../../config/thirdParty"
-import { ToastContainer, toast } from "react-toastify"
-import { useParams } from "react-router-dom";
-import { data } from "../../config/dataTanamPohon";
+import React, { useContext } from "react";
+import "../../assets/styles/formTanamPohon.css";
+import { useState } from "react";
+import { Cloudinary } from "../../config/thirdParty";
+import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
-const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env
+import { DataContext } from "../../context/DataTanamPohon";
+const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
+  const { tanamPohon } = useContext(DataContext);
   const [ form, setForm ] = useState(null)
-
-  let { id } = useParams();
-  //find by id
-  const foundTanamPohon = data?.filter((data) => Number(data?.tanam_pohon_id) === Number(id));
-  const tanamPohon = foundTanamPohon[0]
 
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
