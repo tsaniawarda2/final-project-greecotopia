@@ -2,7 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 import { API } from "../config/api";
 import { useLocation } from "react-router-dom";
 
-
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
@@ -48,7 +47,7 @@ const DataProvider = ({ children }) => {
   } 
 
   const getDocumentationsById = async (id) => {
-    const { data : dataDocumentationId } = await API().get(`/documentations/${id}`);
+    const { data : dataDocumentationId } = await API().get(`/documentations/tanam_pohon/${id}`);
     setDocumentation(dataDocumentationId.data);
   }
 
