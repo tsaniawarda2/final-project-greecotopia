@@ -24,6 +24,7 @@ const DataProvider = ({ children }) => {
   useEffect(async () =>{
     const arrPath = pathname?.split("/")
     const newId = Number(arrPath[arrPath.length-1])
+    console.log(arrPath);
   
     await getTanamPohonById(newId);
     await getDocumentationsById(newId);
@@ -37,7 +38,7 @@ const DataProvider = ({ children }) => {
   const getTanamPohonById = async (id) => {
     if(id){
       const {data : dataTanamPohonId} = await API().get(`/tanampohons/${id}`);
-        setTanamPohon(dataTanamPohonId.TanamPohon);
+      setTanamPohon(dataTanamPohonId.TanamPohon);
     }
   } 
 
@@ -47,6 +48,7 @@ const DataProvider = ({ children }) => {
   } 
 
   const getDocumentationsById = async (id) => {
+    console.log(id, "id");
     if(id){
       const { data : dataDocumentationId } = await API().get(`/documentations/tanam_pohon/${id}`);
       setDocumentation(dataDocumentationId.data);
