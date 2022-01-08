@@ -125,3 +125,13 @@
 .form-kesan-pesan{
   margin-bottom: 16px;
 }
+
+/* modal */
+#sk-modal{
+  max-width: 700px!important;
+  padding: 16px!important;
+}
+
+.sk-modal-title{
+  font-family: "Rubik", sans-serif;
+}

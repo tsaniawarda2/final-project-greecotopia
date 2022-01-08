@@ -1,15 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../../assets/styles/formTanamPohon.css";
-import { useState } from "react";
 import { Cloudinary } from "../../config/thirdParty";
 import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
 import { DataContext } from "../../context/DataTanamPohon";
+import { Modal, Button } from "react-bootstrap"
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
   const { tanamPohon } = useContext(DataContext);
   const [ form, setForm ] = useState(null)
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
@@ -105,8 +110,29 @@ export default function FormDocumentation() {
           <br></br>
           <p>Jangan lupa untuk mengambil gambar saat kegiatan, kemudian unggah foto tersebut di bagian unggah dokumentasi pada periode yang ditentukan.</p>
           <div className="syarat-ketentuan-tp">
-            <p> <i className="fas fa-info-circle"></i> Syarat & Ketentuan</p>
+            <p type="button" id="sk-btn" onClick={handleShow}> <i className="fas fa-info-circle"></i> Syarat & Ketentuan</p>
           </div>
+
+          {/* Modal Syarat & Ketentuan */}
+          <Modal show={show} onHide={handleClose} id="sk-modal" aria-labelledby="contained-modal-title-vcenter" centered>
+            <Modal.Header closeButton className="sk-modal-header">
+              <Modal.Title className="sk-modal-title" centered>Syarat & Ketentuan Tanam Pohon</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <ol>
+                <li>Kamu harus mendaftarkan diri di formulir yang sudah disediakan. </li>
+                <li>Kamu harus datang ke lokasi dan pada tanggal yang sudah ditentukan.</li>
+                <li>Kamu harus mengunggah dokumentasi berupa foto sebagai bukti bahwa kamu telah hadir dalam kegiatan tanam pohon tertentu, dan poin akan diupgrade saat kamu sudah menggungah dokumentasi.</li>
+                <li>Dokumentasi harus diunggah dalam periode waktu yang ditentukan, saat kegiatan belum dimulai atau periode sudah terlewat maka tombol submit di formulir dokumentasi akan disable.</li>
+                <li>Jika tidak mengunggah dokumentasi maka kamu tidak akan mendapatkan poin.</li>
+                <li>Poin yang didapatkan merupakan hasil perkalian dari jumlah poin yang ditentukan dengan jumlah pohon yang kamu tanam.</li>
+              </ol>
+            </Modal.Body>
+            <Modal.Footer>
+              <div>Greecotopia</div>
+            </Modal.Footer>
+          </Modal>
+
           <div className="tp-info row">
             <div className="col-4">
               <p>Trees Planted</p>

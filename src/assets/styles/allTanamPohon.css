@@ -6,6 +6,11 @@
   background: url("../image/banner-tanam-pohon.png");
   background-repeat: no-repeat;
   margin-top: 65px;
+  height: 300px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .banner-tp-text{
@@ -35,7 +40,7 @@
   font-size: 24px;
   text-align: center;
   margin-top: 36px;
-  color: #FFB039;
+  color: #232323;
 }
 
 .text-ytp span{
