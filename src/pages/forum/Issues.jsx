@@ -7,9 +7,11 @@ import "../../assets/styles/issue.css";
 import CardIssue from "../../components/card/CardIssue";
 import Banners from "../../components/Banners";
 
+const bgColors = ["hutan", "energi", "plastik", "laut"];
 export default function Issues() {
   const { issue } = useContext(IssueContext);
   console.log(issue, "---- Issue");
+
   return (
     <>
       {/* Header */}
@@ -22,7 +24,7 @@ export default function Issues() {
       >
         {categories?.map((category, idx) => (
           <>
-            <li className="nav-item" key={idx}>
+            <li className={`${bgColors[idx]} nav-item`} key={idx}>
               <NavLink to="#" id="link-issues">
                 {category.title}
               </NavLink>

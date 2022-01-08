@@ -8,19 +8,15 @@ export default function CardForum({ item }) {
   return (
     <>
       <div id="cardFI" className="card-forum">
-        <div className="card">
+        <div className="card" id="cForum">
           <div className="fav text-center">
             <AiOutlineHeart className="icon-fav" />
           </div>
-          <img src={item.image} className="card-img-top" alt="tree" />
+          <img src={item.image_url} className="card-img-top" alt="imgCard" />
 
           <div className="card-body">
-            <h5 className="card-title">{item.title.substr(0, 30)}</h5>
-            <p className="card-text">
-              {item.title.length > 25
-                ? item.summary.substring(0, 70) + "..."
-                : item.summary.substring(0, 100) + "..."}
-            </p>
+            <h5 className="card-title">{item.title}</h5>
+            <p className="card-text">{item.summary}</p>
 
             <NavLink
               to={`/issues/${item?.issue_id}`}

@@ -45,10 +45,13 @@
 
 #content-forum {
   margin-bottom: 54px;
+  height: 64vh;
+  /* padding: ; */
 }
+
 /* ===== IMAGE ===== */
 #image-cat {
-  padding-right: 0px;
+  padding: 0px;
 }
 .picture {
   height: 100%;
@@ -67,25 +70,23 @@
 }
 
 /* CONTENT */
-#hutan,
-#energi,
-#plastik,
-#laut {
-  width: 82.2%;
+#contentCard {
+  width: 83.3%;
+  height: 100%;
+  padding: 18px;
   border-top-right-radius: 14px;
   border-bottom-right-radius: 14px;
-  height: 100%;
 }
-#hutan {
+.hutan #contentCard {
   background-color: #aec183;
 }
-#energi {
+.energi #contentCard {
   background-color: #d1ac94;
 }
-#plastik {
+.plastik #contentCard {
   background-color: #bec1c9;
 }
-#laut {
+.laut #contentCard {
   background-color: #b7dae0;
 }
 
@@ -131,21 +132,22 @@
 /* ===== CARD ===== */
 .card-forum {
   width: 35%;
+  margin: 6px 10px 8px;
 }
 #cardFI .card {
   padding: 10px;
   border-radius: 8px;
-  height: 93%;
 }
-.card-forum .card {
-  margin: 12px;
-}
+/* Image */
 #cardFI .card-img-top {
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
 }
-
+#cForum .card-img-top {
+  height: 24vh;
+}
+/* Body */
 #cardFI .card-body {
   font-family: "Poppins", sans-serif;
   padding: 0px;
@@ -154,7 +156,12 @@
 #cardFI .card-title {
   font-size: 16px;
   font-weight: 700;
+}
+#cForum .card-title {
   margin-bottom: 6px;
+}
+#cForum .card-text {
+  margin-bottom: 12px;
 }
 #cardFI p {
   font-size: 12px;

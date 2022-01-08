@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import "../src/index.css";
+import { LoginProvider } from "./context/DataLogin";
 import { DataForum } from "./context/DataForum";
 import { DataIssue } from "./context/DataIssue";
 
@@ -17,7 +18,9 @@ ReactDOM.render(
     <BrowserRouter>
       <DataForum>
         <DataIssue>
+          {/* <LoginProvider> */}
           <App />
+          {/* </LoginProvider> */}
         </DataIssue>
       </DataForum>
     </BrowserRouter>

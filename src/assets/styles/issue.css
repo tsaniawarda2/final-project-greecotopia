@@ -13,22 +13,38 @@
   margin: 0px 28px;
 }
 #link-issues {
-  background: linear-gradient(to right, #6cb146 0%, #9ecc85 100%);
   text-decoration: none;
   padding: 12px 134px 18px 28px;
   border-radius: 28px;
   color: #fcfcfc;
 }
 
+.hutan #link-issues {
+  background: linear-gradient(to right, #6cb146 0%, #9ecc85 100%);
+}
+.energi #link-issues {
+  background: linear-gradient(to right, #f07926 0%, #f49e62 100%);
+}
+.plastik #link-issues {
+  background: linear-gradient(to right, #eab035 0%, #f0c770 100%);
+}
+.laut #link-issues {
+  background: linear-gradient(to right, #5cc1bd 0%, #95d7d4 100%);
+}
+
 /*  Card  */
-.card-issue .card {
-  margin: 8px;
+.card-issue {
+  width: 83%;
+  margin: 16px 8px;
 }
 .card-issue .fav {
-  bottom: 184px;
+  bottom: 180px;
 }
-.card-issue .card-img-top {
-  height: 172px;
+#cIssue .card-title {
+  margin-bottom: 8px;
+}
+#cIssue .card-img-top {
+  height: 28vh;
 }
 .card-issue .card-text {
   margin-bottom: 0px;
@@ -60,7 +76,7 @@
   background-color: #ffffff;
 }
 #contentIssue {
-  height: 114vh;
+  height: 100%;
 }
 /* --- Left --- */
 #picsIssue {
@@ -70,7 +86,7 @@
   border-top-left-radius: 14px;
   object-fit: cover;
   width: 100%;
-  height: 114vh;
+  height: 100%;
 }
 
 /* --- Right --- */
@@ -113,6 +129,10 @@
 }
 .decsCI {
   font-size: 14px;
+  text-align: justify;
+}
+.decsCI p {
+  margin-bottom: 0px;
 }
 /* Button */
 #buttonIssue {

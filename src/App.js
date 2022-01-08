@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import {
   Home,
   Login,
-  SignUp,
+  Register,
   Account,
   Forum,
   Issues,
@@ -22,11 +22,11 @@ export default function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signUp" component={SignUp} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/forums" component={Forum} />
-        <Route exact path="/issues" component={Issues} />
+        <Route exact path="/forums/:id" component={Issues} />
         <Route exact path="/issues/:id" component={Issue} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />

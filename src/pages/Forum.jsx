@@ -5,12 +5,11 @@ import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
 import CardForum from "../components/card/CardForum";
 import { ForumContext } from "../context/DataForum";
-import { IssueContext } from "../context/DataIssue";
 
+const bgColors = ["hutan", "energi", "plastik", "laut"];
 export default function Forum() {
-  const { forum } = useContext(ForumContext);
-  const { issue } = useContext(IssueContext);
-  console.log(issue, "<<<issue");
+  const { forums } = useContext(ForumContext);
+
   return (
     <>
       <div className="container mb-5">
@@ -31,26 +30,26 @@ export default function Forum() {
         </div>
 
         {/* Hutan*/}
-        {forum.map((data, idx) => (
+        {forums?.map((dataForum, idxForum) => (
           <>
-            <div className="row" id="content-forum" key={idx}>
+            <div className={`${bgColors[idxForum]} row`} id="content-forum">
               {/* Categories */}
               <div className="col-lg-2 col-md-12" id="image-cat">
                 <div className="picture">
-                  <img src={data.image} alt={data.title} />
+                  <img src={dataForum.image_url} alt={dataForum.title} />
                 </div>
                 <div className="text-cat">
-                  <div className="categories">{data.title}</div>
-                  <div className="sub">{data.description}</div>
+                  <div className="categories">{dataForum.title}</div>
+                  <div className="sub">{dataForum.description}</div>
                   <NavLink to="/issues">
                     <div className="seeMore">lihat selengkapnya</div>
                   </NavLink>
                 </div>
               </div>
               {/* Issues */}
-              <div className="col-lg-10 col-md-12 d-flex" id="hutan">
-                {issue.map((data, idx) => (
-                  <CardForum item={data} key={idx} />
+              <div className="col-lg-10 col-md-12 d-flex" id="contentCard">
+                {dataForum?.Issues?.map((dataIssue, idxIssue) => (
+                  <CardForum item={dataIssue} key={idxIssue} />
                 ))}
               </div>
             </div>

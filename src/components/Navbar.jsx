@@ -35,7 +35,7 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item me-md-3">
-                <NavLink exact className="nav-link" to="/forum">
+                <NavLink exact className="nav-link" to="/forums">
                   Forum
                 </NavLink>
               </li>
@@ -56,7 +56,7 @@ export default function Navbar() {
               <li className="nav-item me-md-4">
                 <NavLink
                   className="nav-link text-uppercase signup"
-                  to="/signUp"
+                  to="/register"
                 >
                   Daftar
                 </NavLink>
