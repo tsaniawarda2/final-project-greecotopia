@@ -13,12 +13,12 @@
   height: 100vh;
 }
 #formLogin,
-#formSignUp,
+#formRegister,
 #pass {
   margin-bottom: -10px;
 }
 
-/* === SIGNUP === */
+/* === REGISTER === */
 .password1 {
   margin-right: 24px;
 }

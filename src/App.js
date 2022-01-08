@@ -9,7 +9,7 @@ import {
   Forum,
   TanamPohon,
   Login,
-  SignUp,
+  Register,
   Password,
   Leaderboard,
 } from "./pages";
@@ -20,7 +20,7 @@ export default function App() {
       {/* <Navbar /> */}
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signUp" component={SignUp} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/password" component={Password} />
         <Route exact path="/account" component={Account} />
