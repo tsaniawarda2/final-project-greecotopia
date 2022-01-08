@@ -43,12 +43,14 @@ const DataProvider = ({ children }) => {
 
   const getDocumentations = async () => {
     const { data : dataDocumentations } = await API().get("/documentations");
-    setDataDoc(dataDocumentations.documentations);
+    setDataDoc(dataDocumentations.data);
   } 
 
   const getDocumentationsById = async (id) => {
-    const { data : dataDocumentationId } = await API().get(`/documentations/tanam_pohon/${id}`);
-    setDocumentation(dataDocumentationId.data);
+    if(id){
+      const { data : dataDocumentationId } = await API().get(`/documentations/tanam_pohon/${id}`);
+      setDocumentation(dataDocumentationId.data);
+    }
   }
 
   return (

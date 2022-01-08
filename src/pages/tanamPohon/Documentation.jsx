@@ -3,7 +3,6 @@ import { DataContext } from "../../context/DataTanamPohon";
 
 export default function Documentation() {
   const { documentation } = useContext(DataContext);
-  console.log(documentation);
 
   return (
     <>

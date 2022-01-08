@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "../../assets/styles/documentations.css"
 import { DataContext } from "../../context/DataTanamPohon";
+import AlbumDocumentations from "../../components/card/AlbumDocumentations";
 
 export default function Documentations() {
   const { dataDoc } = useContext(DataContext);
@@ -13,16 +14,7 @@ export default function Documentations() {
         </div>
         <div className="all-docs">
           {dataDoc.map(data => (
-            <div className="documentations">
-              <div className="image-docs">
-                <div className="docs-icon">
-                  <i class="far fa-images fa-2x"></i>
-                </div>
-                <img src={data.Documentations[0].image_url} alt="" />
-              </div>
-              <p className="total-picts">({data.Documentations.length} Foto)</p>
-              <h3 className="doc-title-tp">{data.title}</h3>
-            </div>
+            <AlbumDocumentations data={data} key={data.tanam_pohon_id}/>
           ))}
         </div>
       </div>
