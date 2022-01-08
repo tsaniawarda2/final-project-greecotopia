@@ -10,23 +10,25 @@ import {
   TanamPohon,
   Login,
   SignUp,
+  Password,
   Leaderboard,
 } from "./pages";
 
 export default function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/password" component={Password} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

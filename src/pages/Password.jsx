@@ -14,25 +14,27 @@ export default function Login() {
                 <img src={Logo} alt="earth" id="logo-log" />
                 Greecotopia
               </NavLink>
-              <h2>Selamat Datang Kembali</h2>
+              <h2>Atur Ulang Password</h2>
             </div>
 
             <form>
               <div className="mb-4">
-                <label for="username" className="form-label input">
-                  Username
+                <label for="passOld" className="form-label input">
+                  Password Lama
                 </label>
-                <input type="text" className="form-control" id="formLogin" />
+                <input type="password" className="form-control" id="pass" />
+              </div>
+              <div className="mb-4">
+                <label for="passNew1" className="form-label input">
+                  Password Baru
+                </label>
+                <input type="password" className="form-control" id="pass" />
               </div>
               <div className="mb-2">
-                <label for="password" className="form-label input">
-                  Password
+                <label for="passNew2" className="form-label input">
+                  Konfirmasi Password Baru
                 </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="formLogin"
-                />
+                <input type="password" className="form-control" id="pass" />
               </div>
 
               {/* Button */}
@@ -41,7 +43,7 @@ export default function Login() {
                 className="btn btn-success text-center"
                 id="submit"
               >
-                Masuk
+                Simpan
               </button>
 
               <div className="text-center opsi">
@@ -52,9 +54,8 @@ export default function Login() {
                   </NavLink>
                 </p>
                 <p id="alt2">
-                  Lupa Password?
-                  <NavLink to="/password" className="log">
-                    Atur ulang password
+                  <NavLink to="/login" className="log">
+                    Kembali ke halaman masuk
                   </NavLink>
                 </p>
               </div>
