@@ -204,3 +204,58 @@
   padding: 0;
   z-index: 10;
 }
+
+/* Point Modal */
+.modal-wrapper-point{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fefefe;
+  color: #232323;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.point-badge{
+  margin-top: -100px;
+}
+
+.point-badge img{
+  width: 170px;
+  height: 150px;
+}
+
+.modal-content-point{
+  text-align: center;
+}
+
+.modal-ok-btn button{
+  background-color: #FF6239;
+  border: none;
+  color: #fefefe;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.modal-message{
+  margin: 20px 30px;
+}
+
+.modal-message h1{
+  font-family: "Rubik", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.modal-message p{
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  margin: 0;
+}

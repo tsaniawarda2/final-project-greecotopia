@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
 import { DataContext } from "../../context/DataTanamPohon";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
+import PointModal from "../../components/modal/PointModal";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
@@ -12,6 +13,7 @@ export default function FormDocumentation() {
   const [ form, setForm ] = useState(null)
 
   const [showModal, setShowModal] = useState(false);
+  const [showModalPoint, setShowModalPoint] = useState(false);
 
   const openModal = () => {
     setShowModal(prev => !prev);
@@ -61,7 +63,7 @@ export default function FormDocumentation() {
 
         const { data: dataDoc } = await API().post("/documentations", documentation);
 
-        toast("Upload image success", { type: "success" } )
+        setShowModalPoint(prev => !prev);
       }
     } catch (error) {
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
@@ -72,6 +74,7 @@ export default function FormDocumentation() {
     <>
     <div className="container-modal">
       <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
+      <PointModal showModal={showModalPoint} setShowModal={setShowModalPoint}/>
       <div className="form-tanam-pohon row">
         <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
