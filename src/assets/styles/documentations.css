@@ -70,3 +70,65 @@
   margin-top: 12px;
   margin-bottom: 8px!important;
 }
+
+/* Picture's Modal */
+.modal-wrapper-pict{
+  width: 800px;
+  height: 100%;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fefefe;
+  color: #232323;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.modal-profile{
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.modal-profile-pict{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.profile-text h1{
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  margin-left: 20px;
+}
+
+.profile-text p{
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+
+.pict-modal img{
+  height: 450px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.modal-text-bottom{
+  margin: 10px 20px 20px;
+}
+
+.modal-text-bottom h1{
+  font-family: "Rubik", sans-serif;
+  font-size: 24px;
+  margin: 0;
+}
+
+.modal-text-bottom p{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  text-align: justify;
+  margin: 0;
+}
