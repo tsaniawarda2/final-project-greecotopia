@@ -5,11 +5,12 @@ import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
 import CardForum from "../components/card/CardForum";
 import { ForumContext } from "../context/DataForum";
+import { useHistory } from "react-router-dom";
 
 const bgColors = ["hutan", "energi", "plastik", "laut"];
 export default function Forum() {
-  const { forums } = useContext(ForumContext);
-
+  const { forums: data } = useContext(ForumContext);
+  const history = useHistory();
   return (
     <>
       <div className="container mb-5">
@@ -30,7 +31,7 @@ export default function Forum() {
         </div>
 
         {/* Hutan*/}
-        {forums?.map((dataForum, idxForum) => (
+        {data?.map((dataForum, idxForum) => (
           <>
             <div className={`${bgColors[idxForum]} row`} id="content-forum">
               {/* Categories */}
@@ -41,9 +42,18 @@ export default function Forum() {
                 <div className="text-cat">
                   <div className="categories">{dataForum.title}</div>
                   <div className="sub">{dataForum.description}</div>
-                  <NavLink to="/issues">
-                    <div className="seeMore">lihat selengkapnya</div>
-                  </NavLink>
+                  {/* <NavLink to={`/forums/${dataForum?.forum_id}`}> */}
+                  <div
+                    className="seeMore"
+                    onClick={() =>
+                      history.push(`/forums/${dataForum?.forum_id}`, {
+                        id: dataForum?.forum_id,
+                      })
+                    }
+                  >
+                    lihat selengkapnya
+                  </div>
+                  {/* </NavLink> */}
                 </div>
               </div>
               {/* Issues */}

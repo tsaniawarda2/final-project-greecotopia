@@ -17,6 +17,7 @@
   padding: 12px 134px 18px 28px;
   border-radius: 28px;
   color: #fcfcfc;
+  cursor: pointer;
 }
 
 .hutan #link-issues {
@@ -206,6 +207,7 @@
 }
 .btnSC:hover {
   border-color: #117c10;
+  text-align: center;
 }
 #btnUser {
   font-size: 28px;

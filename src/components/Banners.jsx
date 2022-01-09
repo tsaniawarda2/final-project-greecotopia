@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { banners } from "../config/banner";
 
 const Banner = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
@@ -15,17 +14,17 @@ const Banner = styled.div`
   }
 
   width: 100%;
-  height: 92vh;
+  height: 82vh;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
   position: relative;
   background: linear-gradient(
       to top,
-      rgb(0 0 0 / 28%) -18%,
-      rgb(255 255 255 / 50%) 90%
+      rgb(0 0 0 / 24%) 34%,
+      rgb(255 255 255 / 50%) 78%
     ),
     url(${(props) => props.bg});
   background-size: cover;
-  background-position: center 64%;
+  background-position: center 74%;
   background-blend-mode: multiply;
   background-attachment: fixed;
 `;
@@ -51,24 +50,24 @@ const TitleBan = styled.h1`
   text-shadow: 4px 4px 2px rgb(140 140 140 / 85%);
   margin: 14px 0px 10px;
   text-transform: uppercase;
+
+  padding-left: 36px;
 `;
 const DescBan = styled.h3`
   font-size: 12px;
   font-weight: 500;
 `;
 
-export default function Banners() {
+export default function Banners({ item }) {
   return (
     <>
-      {banners.map((item) => (
-        <Banner bg={item.img} key={item.id}>
-          <ContentBan>
-            <YvmBan>Your Voice Matter</YvmBan>
-            <TitleBan>{item.title}</TitleBan>
-            <DescBan>{item.desc}</DescBan>
-          </ContentBan>
-        </Banner>
-      ))}
+      <Banner bg={item.banner_url}>
+        <ContentBan>
+          <YvmBan>Your Voice Matter</YvmBan>
+          <TitleBan>{item.title}</TitleBan>
+          <DescBan>{item.description}</DescBan>
+        </ContentBan>
+      </Banner>
     </>
   );
 }

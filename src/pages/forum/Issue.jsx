@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-import { IssueContext } from "../../context/DataIssue";
+import { ForumContext } from "../../context/DataForum";
 import CardIssue from "../../components/card/CardIssue";
 import { hutan } from "../../config/dataForum";
 
@@ -17,13 +17,7 @@ import Avatar from "../../assets/image/avatar.png";
 import Person from "../../assets/image/person.png";
 
 export default function Issue() {
-  // const { issue } = useContext(IssueContext);
-
-  // console.log(issue, "---- Hutan");
-  // let { id } = useParams();
-
-  // const issueID = issue?.find((data) => data.issue_id === id);
-  // console.log(issue.issue_id, "----- idIssue");
+  const { issues } = useContext(ForumContext);
 
   return (
     <>
@@ -33,37 +27,13 @@ export default function Issue() {
           <div className="content-issue">
             <div className="row" id="contentIssue">
               <div className="col-md-4 " id="picsIssue">
-                <img
-                  src="https://images.unsplash.com/photo-1619369029907-b8d8d5eac859?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG9yYW5ndXRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  alt="orangutan"
-                  id="imgCI"
-                />
+                <img src={issues?.image_url} alt="issueImg" id="imgCI" />
               </div>
               <div className="col-md-8" id="descIssue">
                 <p className="catCI">Hutan</p>
-                <p className="titleCI">Pulihkan Hutan: Pulihkan Harapan</p>
+                <p className="titleCI">a</p>
                 <p className="dateCI">Selasa, 18 Desember 2021</p>
-                <div className="decsCI">
-                  AQUA 100% Plastik Daur Ulang merupakan kemasan botol plastik
-                  100% hasil daur ulang pertama di Indonesia yang juga 100%
-                  dapat didaur ulang sehingga membawa kebaikan bagi lingkungan.
-                  AQUA berasal dari sumber air terpilih dengan segala kandungan
-                  mineral alami yang terjaga. Produk memenuhi kriteria SNI,
-                  Halal dan dikemas dalam ukuran 1.1 L melalui proses produksi
-                  yang tersertifikasi oleh FSSC 22000 sehingga aman untuk
-                  dikonsumsi.
-                  <br /> <br />
-                  <b>AQUA Reflection</b>
-                  <p>
-                    Di dalam setiap botol AQUA Reflections terdapat kemurnian
-                    air mineral pegunungan berkualitas tinggi dan diproses
-                    dengan teknologi tercanggih. Hadir dalam dua varian yaitu
-                    Sparkling dan Still, kami berkomitmen untuk memberikan
-                    sebuah kesempurnaan dalam keseluruhan proses karena kami
-                    mengerti bahwa Anda hanya pantas mendapatkan air dengan
-                    kualitas terbaik.
-                  </p>
-                </div>
+                <div className="decsCI">a</div>
               </div>
             </div>
             <div id="buttonIssue">
