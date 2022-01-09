@@ -3,15 +3,16 @@ import "../../assets/styles/formTanamPohon.css";
 import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
 import { DataContext } from "../../context/DataTanamPohon";
-import { Button, Modal } from "react-bootstrap";
+import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 
 export default function FormTanamPohon() {
   const { tanamPohon } = useContext(DataContext);
 
-  const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const openModal = () => {
+    setShowModal(prev => !prev);
+  };
 
   const [ participant, setParticipant ] = useState({
     name:"",
@@ -57,6 +58,8 @@ export default function FormTanamPohon() {
 
   return (
     <>
+    <div className="container-modal">
+      <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
       <div className="form-tanam-pohon row">
         <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
@@ -98,29 +101,8 @@ export default function FormTanamPohon() {
           <br></br>
           <p>Jangan lupa untuk mengambil gambar saat kegiatan, kemudian unggah foto tersebut di bagian unggah dokumentasi pada periode yang ditentukan.</p>
           <div className="syarat-ketentuan-tp">
-            <p type="button" id="sk-btn" onClick={handleShow}> <i className="fas fa-info-circle"></i> Syarat & Ketentuan</p>
+            <p type="button" id="sk-btn" onClick={openModal}> <i className="fas fa-info-circle"></i> Syarat & Ketentuan</p>
           </div>
-
-           {/* Modal Syarat & Ketentuan */}
-           <Modal show={show} onHide={handleClose} id="sk-modal" aria-labelledby="contained-modal-title-vcenter" centered>
-            <Modal.Header closeButton className="sk-modal-header">
-              <Modal.Title className="sk-modal-title" centered>Syarat & Ketentuan Tanam Pohon</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <ol>
-                <li>Kamu harus mendaftarkan diri di formulir yang sudah disediakan. </li>
-                <li>Kamu harus datang ke lokasi dan pada tanggal yang sudah ditentukan.</li>
-                <li>Kamu harus mengunggah dokumentasi berupa foto sebagai bukti bahwa kamu telah hadir dalam kegiatan tanam pohon tertentu, dan poin akan diupgrade saat kamu sudah menggungah dokumentasi.</li>
-                <li>Dokumentasi harus diunggah dalam periode waktu yang ditentukan, saat kegiatan belum dimulai atau periode sudah terlewat maka tombol submit di formulir dokumentasi akan disable.</li>
-                <li>Jika tidak mengunggah dokumentasi maka kamu tidak akan mendapatkan poin.</li>
-                <li>Poin yang didapatkan merupakan hasil perkalian dari jumlah poin yang ditentukan dengan jumlah pohon yang kamu tanam.</li>
-              </ol>
-            </Modal.Body>
-            <Modal.Footer>
-              <div>Greecotopia</div>
-            </Modal.Footer>
-          </Modal>
-
 
           <div className="tp-info row">
             <div className="col-4">
@@ -167,6 +149,7 @@ export default function FormTanamPohon() {
         </div>
       </div>
       <ToastContainer />
+    </div>
     </>
   )
 }
