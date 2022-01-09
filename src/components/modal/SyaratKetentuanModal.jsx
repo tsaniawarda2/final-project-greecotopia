@@ -25,7 +25,7 @@ export default function SyaratKetentuanModal ({ showModal, setShowModal }) {
         <div className='background-modal' onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <div className='modal-wrapper' showModal={showModal}>
-              <div className='col-4'>
+              <div className='col-4 modal-img-container'>
                 <img className="modal-img" src={require('../../assets/image/rules.png')} alt='camera' />
               </div>
               <div className='modal-content'>
