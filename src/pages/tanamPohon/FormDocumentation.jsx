@@ -19,6 +19,12 @@ export default function FormDocumentation() {
     setShowModal(prev => !prev);
   };
 
+  const getDate = (dateStr = '') => {
+    if (!dateStr) return ''
+    const arrDate = dateStr.split('T')
+    return arrDate[0]
+  }
+
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
     caption: "",
@@ -89,7 +95,7 @@ export default function FormDocumentation() {
               <tr>
                 <td>Tanggal </td>
                 <td className="titik-dua-tp"> : </td>
-                <td>{tanamPohon.date}</td>
+                <td>{getDate(tanamPohon.date)}</td>
               </tr>
               <tr>
                 <td>Pukul</td>
@@ -104,12 +110,12 @@ export default function FormDocumentation() {
               <tr>
                 <td>Hadiah Poin</td>
                 <td className="titik-dua-tp"> : </td>
-                <td>{tanamPohon.reward_point}</td>
+                <td>{tanamPohon.reward_point} Poin/Pohon</td>
               </tr>
               <tr>
                 <td>Periode unggah foto</td>
                 <td className="titik-dua-tp"> : </td>
-                <td>{tanamPohon.date} - {tanamPohon.due_date}</td>
+                <td>{getDate(tanamPohon.date)} - {getDate(tanamPohon.due_date)}</td>
               </tr>
             </tbody>
           </table>
