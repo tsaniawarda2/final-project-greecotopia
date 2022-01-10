@@ -39,13 +39,13 @@ export default function SuccessRegistModal ({ showModal, setShowModal }) {
                   }}/>
               </div>
               <div className='modal-content-point'>
-                <div className='point-badge'>
-                  <img src="https://res.cloudinary.com/dxykuppjd/image/upload/v1641765095/point-badge_bg9oek.png" alt="" />
+                <div className='sucess-icons'>
+                  <img src="https://res.cloudinary.com/dxykuppjd/image/upload/v1641773825/success_zls9ts.png" alt="" />
                 </div>
                 <div className='modal-message'>
-                  <h1>Selamat!</h1>
-                  <p>Kamu berhasil mendapatkan 750 poin!</p>
-                  <p>Yuk terus kumpulkan poin lebih banyak lagi!</p>
+                  <h1>Terimakasih!</h1>
+                  <p>Kamu berhasil mendaftarkan diri dikegiatan Tanam Pohon ini.</p>
+                  <p>Silakan ditunggu waktu pelaksanaan kegiatannya, jangan lupa hadir ya!</p>
                 </div>
                 <div className='modal-ok-btn'>
                   <button type='button' onClick={() => {

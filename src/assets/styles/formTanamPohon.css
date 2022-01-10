@@ -218,7 +218,7 @@
   padding: 30px;
 }
 
-.point-badge{
+.point-badge, .sucess-icons{
   margin-top: -100px;
 }
 
@@ -258,4 +258,14 @@
   font-family: "Poppins", sans-serif;
   font-size: 20px;
   margin: 0;
+}
+
+/* Success Modal */
+.sucess-icons{
+  margin: -100px auto 0px;
+}
+
+.sucess-icons img{
+  height: 120px;
+  width: 120px;
 }
