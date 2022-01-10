@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
-import { MdClose } from 'react-icons/md';
 import "../../assets/styles/formTanamPohon.css"
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function PointModal ({ showModal, setShowModal }) {
   const modalRef = useRef();
+  const history = useHistory();
 
   const animation = useSpring({
     config: {
@@ -26,13 +27,6 @@ export default function PointModal ({ showModal, setShowModal }) {
         <div className='background-modal' onClick={closeModal} ref={modalRef}>
           <animated.div style={animation}>
             <div className='modal-wrapper-point' showModal={showModal}>
-              <div className='close-model-pict'>
-                <MdClose 
-                  className='modal-close-btn'
-                  aria-label='Close modal'
-                  onClick={() => setShowModal(prev => !prev)}
-                />
-              </div>
               <div className='modal-content-point'>
                 <div className='point-badge'>
                   <img src="https://res.cloudinary.com/dxykuppjd/image/upload/v1641765095/point-badge_bg9oek.png" alt="" />
@@ -43,7 +37,10 @@ export default function PointModal ({ showModal, setShowModal }) {
                   <p>Yuk terus kumpulkan poin lebih banyak lagi!</p>
                 </div>
                 <div className='modal-ok-btn'>
-                  <button type='button' onClick={() => setShowModal(prev => !prev)}>
+                  <button type='button' onClick={() => {
+                    setShowModal(prev => !prev)
+                    history.push("/tanamPohon")
+                  }}>
                     Okay
                   </button>
                 </div>

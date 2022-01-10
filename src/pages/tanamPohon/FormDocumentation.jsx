@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../assets/styles/formTanamPohon.css";
 import { Cloudinary } from "../../config/thirdParty";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,7 +9,7 @@ import PointModal from "../../components/modal/PointModal";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
-  const { tanamPohon } = useContext(DataContext);
+  const { userLogin, tanamPohon } = useContext(DataContext);
   const [ form, setForm ] = useState(null)
 
   const [showModal, setShowModal] = useState(false);
@@ -29,6 +29,7 @@ export default function FormDocumentation() {
     image_url:"",
     caption: "",
     messages: "",
+    participant_id: 0,
     tanam_pohon_id: 0
   })
 
@@ -41,9 +42,6 @@ export default function FormDocumentation() {
 
   const onHandleUpload = async () => {
     try {
-      console.log("masuk");
-      const id = 1;
-      setDocumentation({tanam_pohon_id: id})
       if (!documentation.caption) {
         toast("Keterangan foto tidak boleh kosong", {
           type: 'error'
@@ -65,13 +63,35 @@ export default function FormDocumentation() {
         payload.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
   
         const { data : dataPict} = await Cloudinary().post("/", payload)
-        setDocumentation({image_url: dataPict.url})
+        
+        console.log(dataPict.url, "pict url");
 
-        const { data: dataDoc } = await API().post("/documentations", documentation);
+        const payloadDoc = {
+          ...documentation,
+          image_url: dataPict.url,
+          tanam_pohon_id: tanamPohon.tanam_pohon_id,
+          participant_id: userLogin.user_id
+        }
+        
+        // console.log(payloadDoc, "payload doc");
+        setDocumentation(payloadDoc)
 
-        setShowModalPoint(prev => !prev);
+          const { data: dataDoc } = await toast.promise(
+            API().post("/documentations", payloadDoc),
+            {
+              pending: "Uploading Documentation in progress!",
+              success: "Success uploading Documentation",
+              error: "Failed to uploading Documentation"
+            }
+          )
+          // const { data: dataDoc } = await API().post("/documentations", payloadDoc);
+          // console.log(dataDoc.message, "data doc");
+          // console.log("masuk");
+
+          setShowModalPoint(prev => !prev);
       }
     } catch (error) {
+      // console.log(error);
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
     }
   }

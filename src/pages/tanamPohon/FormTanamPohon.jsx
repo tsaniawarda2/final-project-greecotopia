@@ -5,18 +5,11 @@ import { API } from "../../config/api";
 import { DataContext } from "../../context/DataTanamPohon";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import SuccessRegistModal from "../../components/modal/SuccessRegistModal";
-import { useEffect } from "react/cjs/react.development";
 
 export default function FormTanamPohon() {
   const { userLogin, tanamPohon } = useContext(DataContext);
-  console.log(tanamPohon, "tanam");
+  // console.log(tanamPohon, "tanam pohon");
 
-  useEffect(()=>{
-    setParticipant({
-      tanam_pohon_id: tanamPohon.tanam_pohon_id,
-      user_id: userLogin.user_id
-    })
-  }, [])
 
   const [showModal, setShowModal] = useState(false);
   const [showModalSuccess, setShowModalSuccess] = useState(false);
@@ -61,8 +54,13 @@ export default function FormTanamPohon() {
           type: "error"
         })
       } else {
-        console.log(participant, "participant");
-        const {data: dataParticipant} = await API().post("/participants", participant);
+        const payload = {
+          ...participant,
+          tanam_pohon_id: tanamPohon.tanam_pohon_id,
+          user_id: userLogin.user_id
+        }
+        console.log(payload, "participant");
+        const {data: dataParticipant} = await API().post("/participants", payload);
         console.log(dataParticipant);
         setShowModalSuccess(true)
       }
