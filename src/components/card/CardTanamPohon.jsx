@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import {GiTwoCoins} from "react-icons/gi"
 
 export default function CardTanamPohon({ item }) {
   const history = useHistory();
@@ -13,6 +14,10 @@ export default function CardTanamPohon({ item }) {
   return (
     <>
       <div className="card-tp">
+        <div className="point">
+          <GiTwoCoins className="point-icon"/>
+          <h4>{item.reward_point}</h4>
+        </div>
         <img src={item.image_url}/>
         <p><i className="fas fa-map-marked-alt"></i>{item.location}</p>
         <p><i className="fas fa-calendar-alt"></i> {getDate(item.date)}</p>
