@@ -171,7 +171,7 @@
 }
 
 /* === Leaderboard === */
-#home #leaderboard {
+#home #board-home {
   margin-top: 64px;
   background-image: url(../image/bg-leaderboard.png);
   background-size: cover;
@@ -179,7 +179,7 @@
   background-position-x: center;
   padding: 32px 0px 258px;
 }
-#home #leaderboard .text-content {
+#home #board-home .text-content {
   width: 52% !important;
 }
 
@@ -194,7 +194,7 @@
     margin-left: 0px;
   }
   #home #tanamPohon .text-content,
-  #home #leaderboard .text-content {
+  #home #board-home .text-content {
     width: 80% !important;
   }
 }

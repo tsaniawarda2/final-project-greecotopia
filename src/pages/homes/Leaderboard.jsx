@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function Leaderboard() {
   return (
     <>
-      <section id="leaderboard">
+      <section id="board-home">
         <div className="container text-content">
           <div className="text-center">
             <p class="text-uppercase pb-3" id="first">
