@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import "../assets/styles/leaderboard.css";
 export default function Leaderboard() {
   return (
     <>
