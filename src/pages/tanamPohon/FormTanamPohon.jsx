@@ -4,11 +4,14 @@ import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
 import { DataContext } from "../../context/DataTanamPohon";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
+import SuccessRegistModal from "../../components/modal/SuccessRegistModal";
 
 export default function FormTanamPohon() {
-  const { tanamPohon } = useContext(DataContext);
+  const { userLogin, tanamPohon } = useContext(DataContext);
+  console.log(tanamPohon,"userLogin");
 
   const [showModal, setShowModal] = useState(false);
+  const [showModalSuccess, setShowModalSuccess] = useState(false);
 
   const openModal = () => {
     setShowModal(prev => !prev);
@@ -24,8 +27,8 @@ export default function FormTanamPohon() {
     name:"",
     no_hp: "",
     number_of_trees: "",
-    tanam_pohon_id: 1,
-    user_id: 3
+    tanam_pohon_id: tanamPohon.tanam_pohon_id,
+    user_id: userLogin.user_id
   })
 
   const onHandleRegister = async () => {
@@ -50,12 +53,8 @@ export default function FormTanamPohon() {
           type: "error"
         })
       } else {
-        console.log("masuk");
-        console.log(participant, "<< participant");
-        const { data: dataParticipant } = await API().post("/participants", participant);
-        console.log(dataParticipant);
-
-        toast("Pendaftaran berhasil", { type: "success" } )
+        await API().post("/participants", participant);
+        setShowModalSuccess(true)
       }
     } catch (error) {
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
@@ -66,6 +65,7 @@ export default function FormTanamPohon() {
     <>
     <div className="container-modal">
       <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
+      <SuccessRegistModal showModal={showModalSuccess} setShowModal={setShowModalSuccess}/>
       <div className="form-tanam-pohon row">
         <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>

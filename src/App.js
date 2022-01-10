@@ -21,7 +21,7 @@ import {
 export default function App() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signUp" component={SignUp} />

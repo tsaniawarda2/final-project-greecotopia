@@ -11,6 +11,17 @@ const DataProvider = ({ children }) => {
   const [ documentation, setDocumentation ] = useState([]);
   const { pathname } = useLocation();
 
+  const [ userLogin, setUserLogin ] = useState([]);
+
+  useEffect(() => {
+    getUserLogin();
+  }, []);
+
+  const getUserLogin = async () => {
+    const { data } = await API().get("/profile");
+    setUserLogin(data.dataUser);
+  } 
+
   useEffect(async () => {
     const arrPath = pathname?.split("/")
     const newId = Number(arrPath[arrPath.length-1])
@@ -56,7 +67,7 @@ const DataProvider = ({ children }) => {
   }
 
   return (
-    <DataContext.Provider value={{ dataTP, tanamPohon, dataDoc, documentation }}>
+    <DataContext.Provider value={{ userLogin, dataTP, tanamPohon, dataDoc, documentation }}>
       {children}
     </DataContext.Provider>
   )
