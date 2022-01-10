@@ -1,24 +1,105 @@
-import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { ForumContext } from "../../context/DataForum";
-import CardIssue from "../../components/card/CardIssue";
-import { hutan } from "../../config/dataForum";
-
+import dataCom from "../../config/comment.json";
+import calculateDuration from "../../utils/duration";
 // Icon
 import { IoMdSend } from "react-icons/io";
 import { HiDotsVertical } from "react-icons/hi";
-import { FaRegComment } from "react-icons/fa";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import { FaComment as CommentFill, FaRegComment as CommentOutLine} from "react-icons/fa";
+import {
+  AiTwotoneLike as Like,
+  AiOutlineLike as Dislike,
+} from "react-icons/ai";
 
 import "../../assets/styles/issue.css";
-import Avatar from "../../assets/image/avatar.png";
+import Avatar from "react-avatar";
+// import Avatar from "../../assets/image/avatar.png";
 import Person from "../../assets/image/person.png";
 
-export default function Issue() {
-  const { issues } = useContext(ForumContext);
+const dataComment = dataCom[0].comments;
 
+const dataLogin = {
+  user_id: 1,
+  fullname: "Ananda Raisa",
+  email: "anarai@gmail.com",
+  username: "anarai123",
+  image_url:
+    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
+  background_url:
+    "https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZsb3dlcnN8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  points: null,
+  role_id: 1,
+};
+
+const getDate = (dateStr = "") => {
+  if (!dateStr) return "";
+  const arrDate = dateStr.split("T");
+  console.log(arrDate, "------------WAKTU");
+  const date = new Date(
+    new Date(dateStr).getTime() - new Date(dateStr).getTimezoneOffset() * 60000
+  );
+  return `${date.getUTCDate()}/${date.getUTCMonth()}/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`;
+};
+
+export default function Issue() {
+  const [dataComments, setDataComments] = useState([]);
+  const [formComment, setFormComment] = useState([]);
+  const [positionComment, setPositionComment] = useState({
+    commentID: "",
+    repCommentUUID: "",
+    depends_on: {
+      user_id: "",
+      username: "",
+      context: "",
+    },
+  });
+
+  const checkLike = (arrLike = []) => {
+    if (arrLike?.find((data) => data?.user_id === dataLogin?.user_id)) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleComment = () => {
+    console.log(formComment, "-----COMMENT");
+    if (formComment) {
+      if (positionComment?.commentID) {
+        const payload = {
+          context: formComment,
+          depends_on: {
+            uuid: positionComment?.repCommentUUID,
+            author: "",
+          },
+        };
+        const commentID = positionComment?.commentID;
+        console.log(payload, "-----NEW REPLY COMMENT ID", commentID);
+      } else {
+        const payload = {
+          context: formComment,
+        };
+        console.log(payload, "------- COMMENT BARU");
+      }
+    }
+  };
+
+  const handleCancelComment = () => {
+    setFormComment("");
+    setPositionComment({
+      commentID: "",
+      repCommentUUID: "",
+      depends_on: {
+        user_id: "",
+        username: "",
+        context: "",
+      },
+    });
+  };
+  const CommentSection =()=> {
+    
+  }
   return (
     <>
       <div className="container mb-5">
@@ -27,13 +108,46 @@ export default function Issue() {
           <div className="content-issue">
             <div className="row" id="contentIssue">
               <div className="col-md-4 " id="picsIssue">
-                <img src={issues?.image_url} alt="issueImg" id="imgCI" />
+                <img
+                  src="https://images.unsplash.com/photo-1619369029907-b8d8d5eac859?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG9yYW5ndXRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                  alt="issueImg"
+                  id="imgCI"
+                />
               </div>
               <div className="col-md-8" id="descIssue">
-                <p className="catCI">Hutan</p>
-                <p className="titleCI">a</p>
-                <p className="dateCI">Selasa, 18 Desember 2021</p>
-                <div className="decsCI">a</div>
+                <p className="catCI">Judul</p>
+                <p className="titleCI">Pulihkan Hutan: Pulihkan Harapan</p>
+                <p className="authorCI">Dodi</p>
+                <p className="dateCI">24</p>
+                <div className="decsCI">
+                  10 tahun yang lalu, ratusan merek-merek konsumen terbesar
+                  dunia - termasuk Nestle, Mondelez, dan Unilever - berjanji
+                  untuk menghentikan penghancuran hutan pada tahun 2020. Namun
+                  dengan hanya beberapa bulan yang tersisa, mereka tidak tampak
+                  mendekati tujuan ini. Para ilmuwan telah mengatakan, kita
+                  hanya punya 10 tahun tersisa untuk menghindari dampak terburuk
+                  dari perubahan iklim. Melindungi dan memulihkan hutan adalah
+                  salah satu pertahanan terbaik yang kita miliki untuk
+                  menghadapi kerusakan iklim.Saatnya kita menentukan batasan.
+                  Banyak perusahaan yang berjanji bahwa mereka peduli terhadap
+                  lingkungan sambil tetap mengambil untung dari perusakan hutan.
+                  Mereka harus bertindak sekarang - selagi masih ada hutan yang
+                  tersisa untuk dilindungi. <br /> <br />
+                  <b>Langkah-langkah melindungi hutan</b>
+                  <ol>
+                    <li>Melakukan penghijauan atau reboisasi;</li>
+                    <li>Melindungi dan menjaga habitat di hutan;</li>
+                    <li>Menerapkan sistem tebang pilih;</li>
+                    <li>Menerapkan sistem tebang-tanam;</li>
+                    <li>Melakukan penebangan secara konservatif;</li>
+                    <li> Mencegah kebakaran hutan;</li>
+                    <li>Berdonasi melalui link berikut : bit.ly/3es3qZ8</li>
+                    <li>
+                      Bantu tanda tangani petisi melalui link berikut :
+                      bit.ly/3FQ607r
+                    </li>
+                  </ol>
+                </div>
               </div>
             </div>
             <div id="buttonIssue">
@@ -49,7 +163,13 @@ export default function Issue() {
               {/* Form Comment */}
               <div className="formCom" id="formCom1">
                 {/* Avatar */}
-                <img src={Avatar} alt="avatar" id="avaCom" />
+                <div id="avaCom">
+                  {dataLogin?.image_url ? (
+                    <Avatar src={dataLogin?.image_url} id="avaCom" />
+                  ) : (
+                    <Avatar name={dataLogin?.fullname} id="avaCom" />
+                  )}
+                </div>
 
                 {/* Form */}
                 <input
@@ -121,11 +241,11 @@ export default function Issue() {
                   </p>
                   <div className="cli">
                     <div className="fillC">
-                      <FaRegComment className="iconCom" />
+                      <CommentOutLine className="iconCom" />
                       <span className="countCom">0</span>
                     </div>
                     <span className="fillUp">
-                      <AiOutlineLike />
+                      <Dislike />
                       <span className="countCom">0</span>
                     </span>
                   </div>
@@ -188,7 +308,7 @@ export default function Issue() {
                     </p>
                     <div className="cli">
                       <span className="fillUp">
-                        <AiOutlineLike />
+                        <Dislike />
                         <span className="countCom">0</span>
                       </span>
                     </div>

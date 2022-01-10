@@ -46,7 +46,6 @@
 #content-forum {
   margin-bottom: 54px;
   height: 64vh;
-  /* padding: ; */
 }
 
 /* ===== IMAGE ===== */
@@ -144,10 +143,9 @@
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
-}
-#cForum .card-img-top {
   height: 24vh;
 }
+
 /* Body */
 #cardFI .card-body {
   font-family: "Poppins", sans-serif;

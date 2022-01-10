@@ -42,7 +42,7 @@ const DataForum = ({ children }) => {
     if (id) {
       const { data: dataForumId } = await API().get(`/forums/${id}`);
       setForum(dataForumId.Forums);
-      console.log(dataForumId, "--------FORUM ID---");
+      // console.log(dataForumId.Forums, "---------FROUM DATA---");
     }
   };
 
@@ -56,10 +56,9 @@ const DataForum = ({ children }) => {
   const getIssueById = async (id) => {
     if (id) {
       const { data: dataIssueId } = await API().get(`/issues/${id}`);
-      setIssue(dataIssueId.Issues);
+      setIssue(dataIssueId.DataIssue);
     }
   };
-  // console.log(issue, "----------ISSUES---");
   return (
     <>
       <ForumContext.Provider value={{ forums, forum, issues, issue }}>

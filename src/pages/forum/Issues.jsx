@@ -13,10 +13,13 @@ export default function Issues() {
   const { forum } = useContext(ForumContext);
   const history = useHistory();
 
+  const dataForum = forum.Forums;
+  const dataIssues = forum.Issues;
+
   return (
     <>
       {/* Header */}
-      <Banners item={forum[0].dataForum} key={forum[0].dataForum.forum_id} />
+      <Banners item={dataForum} key={dataForum.forum_id} />
 
       {/* Filter */}
       <ul
@@ -29,12 +32,12 @@ export default function Issues() {
               <div
                 id="link-issues"
                 onClick={() =>
-                  history.push(`/forums/${category?.forum_id}`, {
+                  history.push(`/forums/${category.forum_id}`, {
                     id: category?.forum_id,
                   })
                 }
               >
-                {category.title}
+                {category?.title}
               </div>
             </li>
           </>
@@ -44,7 +47,7 @@ export default function Issues() {
         <div id="issues">
           {/* Card */}
           <div className="row" id="cardIssues">
-            {forum?.map((forum, idx) => (
+            {dataIssues?.map((forum, idx) => (
               <div className="col-md-3">
                 <CardIssue item={forum} key={forum.issue_id} />
               </div>

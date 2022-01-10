@@ -35,28 +35,27 @@
 
 /*  Card  */
 .card-issue {
-  width: 83%;
+  width: 90%;
   margin: 16px 8px;
 }
 .card-issue .fav {
-  bottom: 180px;
+  bottom: 164px;
 }
 #cIssue .card-title {
   margin-bottom: 8px;
-}
-#cIssue .card-img-top {
-  height: 28vh;
 }
 .card-issue .card-text {
   margin-bottom: 0px;
 }
 .card-issue .comment {
   margin: 4px 0px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .icon-com {
   color: #10550f;
   font-size: 16px;
-  margin-top: -4px;
 }
 .context {
   padding-left: 8px;
@@ -101,8 +100,9 @@
 .decsCI,
 .secondCom,
 #inputCom,
-#dropItem {
-  font-family: "Poppins", sans-serif;
+#dropItem,
+#avaCom .sb-avatar {
+  font-family: "Poppins", sans-serif !important;
 }
 .titleCI,
 .decsCI,
@@ -185,7 +185,14 @@
 }
 #avaCom {
   margin-left: 8px;
-  width: 58px;
+  width: 58px !important;
+}
+#avaCom .sb-avatar,
+#avaCom img {
+  width: 58px !important;
+  height: 58px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
 }
 #inputCom {
   width: 86%;

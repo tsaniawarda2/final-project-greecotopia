@@ -24,7 +24,7 @@ const Banner = styled.div`
     ),
     url(${(props) => props.bg});
   background-size: cover;
-  background-position: center 74%;
+  background-position: center 66%;
   background-blend-mode: multiply;
   background-attachment: fixed;
 `;
