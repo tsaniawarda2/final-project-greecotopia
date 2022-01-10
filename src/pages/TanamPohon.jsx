@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import "../assets/styles/tanamPohon.css"
 import { DataContext } from "../context/DataTanamPohon";
 import CardTanamPohon from "../components/card/CardTanamPohon";
+import { useHistory } from "react-router-dom";
 // import { data } from "../config/dataTanamPohon";
 
 export default function TanamPohon() {
   const { dataTP: data } = useContext(DataContext);
+  const history = useHistory();
   
   return (
     <>
@@ -15,7 +17,7 @@ export default function TanamPohon() {
             <h1 className="title-tp">Tanam Pohon</h1>
             <h3 className="subtitle-tp">Hijaukan bumimu! Bagaimana Caranya?</h3>
             <p className="text-header-tp">Greenpeace Indonesia menyediakan ruang bagi kamu yang ingin kembali menguhijaukan bumi kita dengan cara menanam pohon. Ayo berkontribusi untuk membuat bumi menjadi lebih baik!</p>
-            <button className="btn-tanam-pohon">MULAI MENANAM POHON</button>
+            <button className="btn-tanam-pohon" onClick={()=> history.push("/alltanampohon")}>MULAI MENANAM POHON</button>
           </div>
         </section>
         <section className="content-tp-2">
@@ -43,7 +45,7 @@ export default function TanamPohon() {
               <h1>Mari mulai Tanam Pohon!</h1>
             </div>
             <div className="col-lg-2 btn-header-tp-3">
-              <button className="btn-tp-3">Lebih Banyak</button>
+              <button className="btn-tp-3" onClick={()=> history.push("/alltanampohon")}>Lebih Banyak</button>
             </div>
             <div className="col-lg-1"></div>
           </div>
@@ -63,7 +65,7 @@ export default function TanamPohon() {
               <h1>Dokumentasi Tanam Pohon</h1>
             </div>
             <div className="col-lg-2 btn-header-tp-4">
-              <button className="btn-tp-3">Lebih Banyak</button>
+              <button className="btn-tp-3" onClick={()=> history.push("/documentations")}>Lebih Banyak</button>
             </div>
             <div className="col-lg-1"></div>
           </div>

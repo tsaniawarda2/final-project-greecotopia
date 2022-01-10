@@ -35,7 +35,7 @@ const DataProvider = ({ children }) => {
   useEffect(async () =>{
     const arrPath = pathname?.split("/")
     const newId = Number(arrPath[arrPath.length-1])
-    console.log(arrPath);
+    console.log(pathname, "path");
   
     await getTanamPohonById(newId);
     await getDocumentationsById(newId);

@@ -3,11 +3,10 @@ import { useHistory } from "react-router-dom";
 
 export default function AlbumDocumentations({ data }) {
   const history = useHistory();
-  console.log(history, "dataAlbum");
 
   return (
     <>
-      <div className="documentations" type="button" onClick={() => history.push(`/documentations/tanampohon/${data.tanam_pohon_id}`, {id: data.tanam_pohon_id})}>
+      <div className="documentations" onClick={() => history.push(`/documentations/${data.tanam_pohon_id}`, {id: data.tanam_pohon_id})}>
         <div className="image-docs">
           <div className="docs-icon">
             <i class="far fa-images fa-2x"></i>
