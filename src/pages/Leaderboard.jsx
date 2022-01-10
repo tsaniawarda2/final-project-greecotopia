@@ -20,11 +20,11 @@ export default function Leaderboard() {
             </p>
             {/* Button */}
             <NavLink
-              to="/leaderboard"
+              to="/formReward"
               className="btn btn-light text-center"
               id="btn-home"
             >
-              Lihat Peringkatku
+              Top 3? Klaim Hadiahmu!
             </NavLink>
 
             <div className="board"></div>

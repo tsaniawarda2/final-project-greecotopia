@@ -11,6 +11,7 @@ import {
   Login,
   SignUp,
   Leaderboard,
+  FormReward,
 } from "./pages";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route exact path="/forums" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
+        <Route exact path="/formReward" component={FormReward} />
       </Switch>
       <Footer />
     </>
