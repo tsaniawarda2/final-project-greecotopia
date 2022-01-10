@@ -1,17 +1,17 @@
 module.exports = (date) => {
-  const now = new Date();
+  const sekarang = new Date();
   const passDate = new Date(
     new Date(date).getTime() - new Date(date).getTimezoneOffset() * 60000
   );
-  let delta = Math.abs(now - passDate) / 1000;
+  let delta = Math.abs(sekarang - passDate) / 1000;
   let timestamp = {
-    year: 31536000,
-    month: 2592000,
-    week: 604800,
-    day: 86400,
-    hour: 3600,
-    minutes: 60,
-    second: 1,
+    tahun: 31536000,
+    bulan: 2592000,
+    minggu: 604800,
+    hari: 86400,
+    jam: 3600,
+    menit: 60,
+    detik: 1,
   };
   let diffTimestamp = {};
   let result = "";
@@ -19,12 +19,14 @@ module.exports = (date) => {
     const diffTime = Math.floor(delta / timestamp[key]);
     if (!result && diffTime) {
       result = `${diffTime} ${
-        key !== "month" && key !== "minutes" ? key[0] : key.substr(0, 3)
-      } ago`;
+        key !== "bulan" && key !== "menit"
+          ? key.substring(0, 5)
+          : key.substring(0, 3)
+      } yang lalu`;
     }
     diffTimestamp[key] = diffTime;
     delta -= diffTimestamp[key] * timestamp[key];
   });
-  if (!result) result = "now";
+  if (!result) result = "sekarang";
   return result;
 };

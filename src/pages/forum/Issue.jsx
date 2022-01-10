@@ -7,18 +7,22 @@ import calculateDuration from "../../utils/duration";
 // Icon
 import { IoMdSend } from "react-icons/io";
 import { HiDotsVertical } from "react-icons/hi";
-import { FaComment as CommentFill, FaRegComment as CommentOutLine} from "react-icons/fa";
+import {
+  FaComment as CommentFilled,
+  FaRegComment as CommentOutLine,
+} from "react-icons/fa";
 import {
   AiTwotoneLike as Like,
   AiOutlineLike as Dislike,
 } from "react-icons/ai";
+import { RiCloseFill } from "react-icons/ri";
 
 import "../../assets/styles/issue.css";
 import Avatar from "react-avatar";
 // import Avatar from "../../assets/image/avatar.png";
 import Person from "../../assets/image/person.png";
 
-const dataComment = dataCom[0].comments;
+const dummyComment = dataCom[0].comments;
 
 const dataLogin = {
   user_id: 1,
@@ -44,7 +48,12 @@ const getDate = (dateStr = "") => {
 };
 
 export default function Issue() {
-  const [dataComments, setDataComments] = useState([]);
+  // --- Data Issue ---
+  const { issue } = useContext(ForumContext);
+  console.log(issue.Issues[0], "------");
+  const dataIssue = issue.Issues[0];
+  // --- Data Comment ---
+  const [dataComments, setDataComments] = useState([...dummyComment]);
   const [formComment, setFormComment] = useState([]);
   const [positionComment, setPositionComment] = useState({
     commentID: "",
@@ -97,9 +106,64 @@ export default function Issue() {
       },
     });
   };
-  const CommentSection =()=> {
-    
-  }
+  console.log(dataComments.length, "----PANJANG DATA");
+  const CommentSection = () => {
+    return (
+      <>
+        <div className="formCom" id="formCom1">
+          {/* Avatar */}
+          <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" />
+          {/* <div id="avaCom">
+            {dataLogin?.image_url ? (
+              <Avatar src={dataLogin?.image_url} id="avaCom" />
+            ) : (
+              <Avatar name={dataLogin?.fullname} id="avaCom" />
+            )}
+          </div> */}
+
+          {/* Form */}
+          {/* {positionComment?.depends_on?.username &&
+          positionComment?.depends_on?.context ? (
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Tambahkan komentar disini"
+              aria-label="input comment"
+              id="inputCom"
+            />
+          ) : null} */}
+          <div className="formIC">
+            {positionComment?.depends_on?.username &&
+            positionComment?.depends_on?.context ? (
+              <input
+                type="text"
+                className="form-control"
+                id="replyCom"
+                value={`Replying to ${positionComment?.depends_on.username}`}
+                disabled
+              />
+            ) : null}
+            <input
+              className="form-control mainInput"
+              placeholder="Tambahkan komentar disini"
+              value={formComment}
+              id="inputCom"
+              onChange={(e) => setFormComment(e?.target?.value)}
+            />
+          </div>
+
+          {/* Button */}
+
+          <div className="btnCC" onClick={() => handleCancelComment()}>
+            <RiCloseFill id="btnCancel" />
+          </div>
+          <div className="btnSC" onClick={() => handleComment()}>
+            <IoMdSend id="btnComment" />
+          </div>
+        </div>
+      </>
+    );
+  };
   return (
     <>
       <div className="container mb-5">
@@ -115,39 +179,11 @@ export default function Issue() {
                 />
               </div>
               <div className="col-md-8" id="descIssue">
-                <p className="catCI">Judul</p>
-                <p className="titleCI">Pulihkan Hutan: Pulihkan Harapan</p>
-                <p className="authorCI">Dodi</p>
-                <p className="dateCI">24</p>
-                <div className="decsCI">
-                  10 tahun yang lalu, ratusan merek-merek konsumen terbesar
-                  dunia - termasuk Nestle, Mondelez, dan Unilever - berjanji
-                  untuk menghentikan penghancuran hutan pada tahun 2020. Namun
-                  dengan hanya beberapa bulan yang tersisa, mereka tidak tampak
-                  mendekati tujuan ini. Para ilmuwan telah mengatakan, kita
-                  hanya punya 10 tahun tersisa untuk menghindari dampak terburuk
-                  dari perubahan iklim. Melindungi dan memulihkan hutan adalah
-                  salah satu pertahanan terbaik yang kita miliki untuk
-                  menghadapi kerusakan iklim.Saatnya kita menentukan batasan.
-                  Banyak perusahaan yang berjanji bahwa mereka peduli terhadap
-                  lingkungan sambil tetap mengambil untung dari perusakan hutan.
-                  Mereka harus bertindak sekarang - selagi masih ada hutan yang
-                  tersisa untuk dilindungi. <br /> <br />
-                  <b>Langkah-langkah melindungi hutan</b>
-                  <ol>
-                    <li>Melakukan penghijauan atau reboisasi;</li>
-                    <li>Melindungi dan menjaga habitat di hutan;</li>
-                    <li>Menerapkan sistem tebang pilih;</li>
-                    <li>Menerapkan sistem tebang-tanam;</li>
-                    <li>Melakukan penebangan secara konservatif;</li>
-                    <li> Mencegah kebakaran hutan;</li>
-                    <li>Berdonasi melalui link berikut : bit.ly/3es3qZ8</li>
-                    <li>
-                      Bantu tanda tangani petisi melalui link berikut :
-                      bit.ly/3FQ607r
-                    </li>
-                  </ol>
-                </div>
+                <p className="catCI">a</p>
+                <p className="titleCI">a</p>
+                <p className="authorCI">a</p>
+                <p className="dateCI">a</p>
+                <div className="decsCI">a</div>
               </div>
             </div>
             <div id="buttonIssue">
@@ -159,162 +195,265 @@ export default function Issue() {
               <p className="firstCom text-uppercase">
                 Yuk Sampaikan Pendapatmu disini
               </p>
-              <p className="secondCom">1 Comments</p>
+              <p className="secondCom">{dataComments.length} Comments</p>
+
               {/* Form Comment */}
-              <div className="formCom" id="formCom1">
-                {/* Avatar */}
-                <div id="avaCom">
-                  {dataLogin?.image_url ? (
-                    <Avatar src={dataLogin?.image_url} id="avaCom" />
-                  ) : (
-                    <Avatar name={dataLogin?.fullname} id="avaCom" />
-                  )}
-                </div>
-
-                {/* Form */}
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Tambahkan komentar disini"
-                  aria-label="input comment"
-                  id="inputCom"
-                />
-                {/* Button */}
-                <div className="btnSC">
-                  <IoMdSend id="btnUser" />
-                </div>
-              </div>
+              {!positionComment.commentID && !positionComment.repCommentUUID
+                ? CommentSection()
+                : null}
+              {/* {CommentSection()} */}
               {/* Comment Filled */}
-              <div className="formCom" id="formCom2">
-                {/* Avatar */}
-                <img src={Person} alt="avatar" id="avaCom" />
+              {dataComments?.map((comment) => {
+                return (
+                  <div key={comment?.comment_id}>
+                    <div className="formCom" id="commentFilled">
+                      {/* Avatar */}
+                      <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" />
+                      {/* <div id="avaCom">
+                        {comment?.User?.image_url ? (
+                          <Avatar src={comment?.User?.image_url} id="avaCom" />
+                        ) : (
+                          <Avatar name={comment?.User?.fullname} id="avaCom" />
+                        )}
+                      </div> */}
 
-                {/* Form */}
-                <div id="inputCom">
-                  <div className="infoCom">
-                    <div className="upperCom">
-                      <span className="nameCom">Roy Andreas</span>
-                      <span className="timeCom">2j</span>
-                    </div>
+                      {/* Main Comment */}
+                      <div className="main-comment">
+                        <div id="inputCFilled">
+                          <div className="infoCom">
+                            <div className="upperCom">
+                              <span className="nameCom">
+                                {comment?.User?.username}
+                              </span>
+                              <span className="timeCom">
+                                {getDate(comment?.createdAt)}
+                              </span>
+                            </div>
 
-                    {/* Menu */}
-                    <div className="menuCom">
-                      <div className="dropdown">
-                        <button
-                          type="button"
-                          id="dropdownCom"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <HiDotsVertical id="iMenu" />
-                        </button>
-                        <div
-                          className="dropdown-menu"
-                          aria-labelledby="dropdownCom"
-                          id="dropMenu"
-                        >
-                          <NavLink
-                            className="dropdown-item"
-                            id="dropItem"
-                            to="#"
-                          >
-                            Edit
-                          </NavLink>
-                          <div className="dropdown-divider"></div>
-                          <NavLink
-                            className="dropdown-item"
-                            id="dropItem"
-                            to="#"
-                          >
-                            Hapus
-                          </NavLink>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="decsCom">
-                    Langkah di masa depan lebih menjalin kerja bersama
-                    masyarakat lokal, pengambilan keputusan dan organisasi
-                    penghubung dalam mengatasi kendala yang ada dan
-                    terimplementasi dalam beragam konteks dengan sistem
-                    pemantauan, evaluasi dan pelaporan yang kuat.
-                  </p>
-                  <div className="cli">
-                    <div className="fillC">
-                      <CommentOutLine className="iconCom" />
-                      <span className="countCom">0</span>
-                    </div>
-                    <span className="fillUp">
-                      <Dislike />
-                      <span className="countCom">0</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* Reply Comment */}
-              <div className="repCom d-flex">
-                <div className="formCom" id="formCom3">
-                  {/* Avatar */}
-                  <img src={Person} alt="avatar" id="avaCom" />
-                  {/* Form */}
-                  <div id="inputCom">
-                    <div className="infoCom">
-                      <div className="upperCom">
-                        <span className="nameCom">Roy Andreas</span>
-                        <span className="timeCom">2j</span>
-                      </div>
+                            {/* Menu */}
+                            <div className="menuCom">
+                              <div className="dropdown">
+                                <button
+                                  type="button"
+                                  id="dropdownCom"
+                                  data-bs-toggle="dropdown"
+                                  aria-expanded="false"
+                                >
+                                  <HiDotsVertical id="iMenu" />
+                                </button>
+                                <div
+                                  className="dropdown-menu"
+                                  aria-labelledby="dropdownCom"
+                                  id="dropMenu"
+                                >
+                                  <NavLink
+                                    className="dropdown-item"
+                                    id="dropItem"
+                                    to="#"
+                                  >
+                                    Edit
+                                  </NavLink>
+                                  <div className="dropdown-divider"></div>
+                                  <NavLink
+                                    className="dropdown-item"
+                                    id="dropItem"
+                                    to="#"
+                                  >
+                                    Hapus
+                                  </NavLink>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-                      {/* Menu */}
-                      <div className="menuCom">
-                        <div className="dropdown">
-                          <button
-                            type="button"
-                            id="dropdownCom"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            <HiDotsVertical id="iMenu" />
-                          </button>
-                          <div
-                            className="dropdown-menu"
-                            aria-labelledby="dropdownCom"
-                            id="dropMenu"
-                          >
-                            <NavLink
-                              className="dropdown-item"
-                              id="dropItem"
-                              to="#"
+                          <p className="contextCom">{comment?.context}</p>
+                          <div className="cli">
+                            <div
+                              className="fillC"
+                              onClick={() =>
+                                setPositionComment({
+                                  commentID: comment?.comment_id,
+                                  repCommentUUID: "",
+                                  depends_on: {
+                                    user_id: comment?.User?.user_id,
+                                    username: comment?.User?.username,
+                                    context: comment?.context,
+                                  },
+                                })
+                              }
                             >
-                              Edit
-                            </NavLink>
-                            <div className="dropdown-divider"></div>
-                            <NavLink
-                              className="dropdown-item"
-                              id="dropItem"
-                              to="#"
-                            >
-                              Hapus
-                            </NavLink>
+                              {comment?.rep_comments?.length !== undefined ? (
+                                <CommentFilled className="iconCom" />
+                              ) : (
+                                <CommentOutLine className="iconCom" />
+                              )}
+                              <span className="countCom">
+                                {comment?.rep_comments?.length !== undefined
+                                  ? comment?.rep_comments?.length
+                                  : "0"}
+                              </span>
+                            </div>
+                            <span className="fillUp">
+                              {checkLike(comment?.likes) ? (
+                                <Like />
+                              ) : (
+                                <Dislike />
+                              )}
+
+                              <span className="countCom">
+                                {comment?.likes?.length !== undefined
+                                  ? comment?.likes?.length
+                                  : "0"}
+                              </span>
+                            </span>
                           </div>
                         </div>
+
+                        {comment?.rep_comments?.map((repComment) => {
+                          return (
+                            <>
+                              <div
+                                className="repCom d-flex"
+                                key={repComment?.uuid}
+                              >
+                                {/* Reply Comment */}
+                                <div className="formCom" id="formCom3">
+                                  {/* Avatar */}
+                                  <img
+                                    src={Avatar}
+                                    alt="HAPUSSSSSSS"
+                                    id="avaCom"
+                                  />
+                                  {/* <div id="avaCom">
+                                    {repComment?.author?.image_url ? (
+                                      <Avatar
+                                        src={repComment?.author?.image_url}
+                                        id="avaCom"
+                                      />
+                                    ) : (
+                                      <Avatar
+                                        name={repComment?.author?.fullname}
+                                        id="avaCom"
+                                      />
+                                    )}
+                                  </div> */}
+                                  {/* Form */}
+                                  <div id="repCFilled">
+                                    <div className="infoCom">
+                                      <div className="upperCom">
+                                        <span className="nameCom">
+                                          {repComment?.author?.username}
+                                        </span>
+                                        <span className="timeCom">
+                                          {getDate(repComment?.createdAt)}{" "}
+                                        </span>
+                                      </div>
+
+                                      {/* Menu */}
+                                      <div className="menuCom">
+                                        <div className="dropdown">
+                                          <button
+                                            type="button"
+                                            id="dropdownCom"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                          >
+                                            <HiDotsVertical id="iMenu" />
+                                          </button>
+                                          <div
+                                            className="dropdown-menu"
+                                            aria-labelledby="dropdownCom"
+                                            id="dropMenu"
+                                          >
+                                            <NavLink
+                                              className="dropdown-item"
+                                              id="dropItem"
+                                              to="#"
+                                            >
+                                              Edit
+                                            </NavLink>
+                                            <div className="dropdown-divider"></div>
+                                            <NavLink
+                                              className="dropdown-item"
+                                              id="dropItem"
+                                              to="#"
+                                            >
+                                              Hapus
+                                            </NavLink>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Context Comment */}
+                                    <p className="contextCom">
+                                      {repComment?.context}
+                                    </p>
+                                    <div className="cli">
+                                      <div
+                                        className="fillC"
+                                        onClick={() =>
+                                          setPositionComment({
+                                            commentID: comment?.comment_id,
+                                            repCommentUUID: "",
+                                            depends_on: {
+                                              user_id:
+                                                repComment?.author?.user_id,
+                                              username:
+                                                repComment?.author?.username,
+                                              context: repComment?.context,
+                                            },
+                                          })
+                                        }
+                                      >
+                                        {comment?.rep_comments?.length !==
+                                        undefined ? (
+                                          <CommentFilled className="iconCom" />
+                                        ) : (
+                                          <CommentOutLine className="iconCom" />
+                                        )}
+                                        <span className="countCom">
+                                          {comment?.rep_comments?.length !==
+                                          undefined
+                                            ? comment?.rep_comments?.length
+                                            : "0"}
+                                        </span>
+                                      </div>
+                                      <span className="fillUp">
+                                        {checkLike(repComment?.likes) ? (
+                                          <Like />
+                                        ) : (
+                                          <Dislike />
+                                        )}
+
+                                        <span className="countCom">
+                                          {comment?.likes?.length !== undefined
+                                            ? comment?.likes?.length
+                                            : "0"}
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                {positionComment.commentID ===
+                                  comment?.comment_id &&
+                                positionComment.repCommentUUID ===
+                                  repComment?.uuid
+                                  ? CommentSection()
+                                  : null}
+                              </div>
+                            </>
+                          );
+                        })}
+                        {positionComment.commentID === comment?.comment_id &&
+                        !positionComment.repCommentUUID
+                          ? CommentSection()
+                          : null}
                       </div>
                     </div>
-                    <p className="decsCom">
-                      Langkah di masa depan lebih menjalin kerja bersama
-                      masyarakat lokal, pengambilan keputusan dan organisasi
-                      penghubung dalam mengatasi kendala yang ada dan
-                      terimplementasi dalam beragam konteks dengan sistem
-                      pemantauan, evaluasi dan pelaporan yang kuat.
-                    </p>
-                    <div className="cli">
-                      <span className="fillUp">
-                        <Dislike />
-                        <span className="countCom">0</span>
-                      </span>
-                    </div>
                   </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
 
