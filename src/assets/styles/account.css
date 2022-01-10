@@ -3,26 +3,28 @@
 
 .container-account{
   width: 100%;
-  margin-top: 65px;
+  margin-top: 65px!important;
   background-image: linear-gradient(to bottom right, #CCF4D9, #F1FCF5);
 }
 
 .account{
   justify-content: center;
+  margin-top: 65px!important;
 }
 
 /* Account Side Left */
 .profile-side-left{
   padding: 0;
   padding-right: 30px;
+  margin-bottom: 50px;
 }
 
 .user-profile{
-  margin-top: 50px;
+  margin-top: 50px!important;
   background-color: #fefefe;
   border-radius: 12px;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0px!important;
+  margin-right: 0px!important;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
@@ -35,7 +37,7 @@
 }
 
 .name-poin{
-  margin: auto 0;
+  margin: auto 0!important;
 }
 
 .name-poin h1{
@@ -55,7 +57,7 @@
   margin-top: 30px;
   background-color: #fefefe;
   border-radius: 12px;
-  width: 100%;
+  width: 100%!important;
   padding: 25px;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -69,21 +71,21 @@
 }
 
 .profile-side p, .fav-issues p, .contact-us p, .keluar p{
-  margin: 20px 0;
+  margin: 20px 0!important;
 }
 
 /* Side Right - Profile */
 .profile-right{
-  margin-top: 50px;
+  margin-top: 50px!important;
   background-color: #fefefe;
   border-radius: 12px;
-  width: 680px;
+  width: 680px!important;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   margin-left: 20px;
-  padding: 0;
+  padding: 0!important;
   margin-bottom: 50px;
 }
 
@@ -129,7 +131,7 @@
   color: #777777;
 }
 
-.btn-edit-prfile button{
+.btn-edit-profile button{
   margin-top: 14px;
   border: 2px solid #FF6239;
   border-radius: 25px;
@@ -144,7 +146,7 @@
 
 .card-profile{
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 40px!important;
 }
 
 .circle-profile{
@@ -168,9 +170,9 @@
   background-color: #fefefe;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   height: 150px;
-  width: 180px;
+  width: 180px!important;
   border-radius: 12px;
-  margin: 12px;
+  margin: 12px!important;
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
@@ -192,7 +194,7 @@
   justify-content: center;
   text-align: center;
   width: 600px;
-  margin: 25px auto 40px;
+  margin: 25px auto 40px!important;
   padding: 16px 0;
   border-radius: 12px;
 }
@@ -217,4 +219,50 @@
   font-size: 14px;
   font-weight: 600;
   margin: 5px 0;
+}
+
+/* contact us */
+.contact-container{
+  /* margin-top: 50px!important; */
+  width: 680px!important;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  padding: 0!important;
+  padding-left: 20px!important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-container h1{
+  font-family: "Rubik", sans-serif;
+  font-size: 28px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.contact-us{
+  font-family: "Poppins", sans-serif;
+}
+
+.textarea-contact{
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  padding: 20px!important;
+  border-radius: 12px!important;
+}
+
+.btn-contact{
+  margin-top: 20px!important;
+  border-radius: 25px;
+  background-color: #FF6239;
+  color: #fefefe;
+  padding: 10px 40px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  max-width: 200px;
+  margin: 0 auto;
+  text-transform: uppercase;
 }

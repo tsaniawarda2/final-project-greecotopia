@@ -34,6 +34,7 @@ export default function Account() {
               </div>
             </div>
           </div>
+          
           <div className="col-lg-8 profile-right">
             <div className="header-profile">
               <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" alt="" />
@@ -47,7 +48,7 @@ export default function Account() {
                 <h1>Johnatan Doe</h1>
                 <p>@doejohnathan123</p>
               </div>
-              <div className="btn-edit-prfile col-3">
+              <div className="btn-edit-profile col-3">
                 <button>Edit Profile</button>
               </div>
             </div>
