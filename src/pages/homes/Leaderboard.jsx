@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Board from "../../components/Board";
 
 export default function Leaderboard() {
   return (
@@ -26,7 +27,7 @@ export default function Leaderboard() {
               Lihat Peringkatku
             </NavLink>
 
-            <div className="board"></div>
+            <Board />
           </div>
         </div>
       </section>

@@ -43,8 +43,7 @@ export default function Leaderboard() {
             <p class="pb-4" id="second">
               Januari 2022
             </p>
-            {/* Button */}
-
+            {/* Board */}
             <div className="board">
               {/* Main User */}
               <div className="row" id="top3">

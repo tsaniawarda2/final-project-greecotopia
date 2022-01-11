@@ -37,14 +37,15 @@
 /* Board */
 #top3 {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 .board,
 .formReward {
   background-color: #ff623984;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
-  padding-top: 32px;
+  padding-top: 18px;
+  margin-bottom: 18px;
 }
 .top p {
   color: #fcfcfc;
