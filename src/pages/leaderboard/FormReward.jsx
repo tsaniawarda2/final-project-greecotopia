@@ -39,7 +39,7 @@ export default function FormReward() {
               <p className="titleForm">Klaim Hadiah</p>
               {/* Form */}
               <div className="row" id="dataDiri">
-                <div className="col-md-3 gx-0 " id="profileUser">
+                <div className="col-md-4 gx-0 py-3" id="profileUser">
                   <p className="rank">1st</p>
                   {user?.image_url ? (
                     <Avatar src={user?.image_url} id="avaUser" />
@@ -48,7 +48,7 @@ export default function FormReward() {
                   )}
                   <p className="poin">500 Point</p>
                 </div>
-                <div className="col-md-9 gx-0">
+                <div className="col-md-8 gx-0 py-3">
                   <p className="konfirmasi">Konfirmasi Data Diri</p>
                   <div className="d-flex" id="inputData">
                     <div className="confName">

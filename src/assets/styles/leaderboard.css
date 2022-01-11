@@ -142,7 +142,7 @@
   /* text-shadow: 2px 1px 1px rgb(216 216 216); */
 }
 #dataDiri {
-  background-color: #fcfcfcd5;
+  background-color: #fcfcfcf1;
 }
 #profileUser .sb-avatar,
 #profileUser .sb-avatar__text,
@@ -153,19 +153,48 @@
   border-radius: 100% !important;
 }
 
+.konfirmasi {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
 /* Form */
 #inputData {
-  flex: start;
+  align-items: flex-start;
   text-align: start;
 }
-#inputData label,
-#inputData input {
-  font-size: 14px;
+#inputData .form-control {
+  border-color: #fcc97e;
 }
+#inputData .form-control:focus {
+  border-color: #fcc97e;
+  box-shadow: 0 0 0 1px rgba(187, 164, 61, 0.25);
+  color: #232825;
+}
+
 #inputData label {
+  font-size: 14px;
   font-weight: 600;
 }
+#inputData input {
+  font-size: 12px;
+}
+.confName,
+.confInfo {
+  width: 40%;
+}
+.confName {
+  margin-right: 16px;
+}
+.cUsername,
+.cEmail {
+  margin-bottom: 12px;
+}
 #formDisable {
+  background-color: #fff5e6;
+}
+#dataInput {
+  color: #232323;
 }
 @media only screen and (min-width: 381px) and (max-width: 768px) {
   #leaderboard .text-content {
