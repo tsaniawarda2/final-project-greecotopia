@@ -18,16 +18,16 @@ export default function ContactUs() {
             </div>
             <div className="sidenav-profile">
               <div className="profile-side">
-                <p>Profil</p>
+                <p>Profile</p>
               </div>
-              <div className="fav-issues">
+              <div className="fav-issues-side">
                 <p>Favorite Issues</p>
               </div>
-              <div className="contact-us">
+              <div className="contact-us-side">
                <p>Contact Us</p>
               </div>
-              <div className="keluar">
-                <p>Keluar</p>
+              <div className="logout-side">
+                <p>Logout</p>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function ContactUs() {
           {/* Right */}
           <div className="col-lg-8 contact-container">
             <h1>Sampaikan Pesanmu Di sini!</h1>
-            <div className="form-group contact-us">
+            <div className="form-group contact-us" id="form">
               <textarea className="form-control textarea-contact" id="exampleFormControlTextarea1" rows="10" placeholder="Tuliskan pesanmu disini..."></textarea>
             </div>
             <button className="btn-contact">Submit</button>

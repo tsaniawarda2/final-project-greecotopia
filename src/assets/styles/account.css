@@ -14,18 +14,24 @@
 
 /* Account Side Left */
 .profile-side-left{
-  padding: 0;
+  padding: 0!important;
   padding-right: 30px;
   margin-bottom: 50px;
 }
 
 .user-profile{
   margin-top: 50px!important;
+  width: 380px;
   background-color: #fefefe;
   border-radius: 12px;
   margin-left: 0px!important;
   margin-right: 0px!important;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  /* position: -webkit-sticky;
+  position: sticky;
+  top: 0; */
+  position: fixed;
+  z-index: 1;
 }
 
 .image-profile img{
@@ -54,18 +60,25 @@
 }
 
 .sidenav-profile{
-  margin-top: 30px;
+  margin-top: 200px;
+  width: 380px;
   background-color: #fefefe;
   border-radius: 12px;
-  width: 100%!important;
+  /* width: 100%!important; */
   padding: 25px;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  /* overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0; */
+  position: fixed;
+  z-index: 1;
 }
 
-.profile-side, .fav-issues, .contact-us{
+.profile-side, .fav-issues-side, .contact-us-side{
   border-bottom: 1px solid #232323;
   margin: 10px 0;
 }
@@ -84,9 +97,9 @@
   font-size: 18px;
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   padding: 0!important;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .header-profile img{
@@ -223,7 +236,8 @@
 
 /* contact us */
 .contact-container{
-  /* margin-top: 50px!important; */
+  margin-top: 50px!important;
+  margin-bottom: 100px;
   width: 680px!important;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
@@ -250,6 +264,15 @@
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   padding: 20px!important;
   border-radius: 12px!important;
+  border-color: #10550F;
+}
+#form .form-control {
+  color: #232323;
+}
+#form .form-control:focus {
+  border-color: #66a564;
+  box-shadow: 0 0 0 0.25rem rgba(30, 110, 37, 0.25);
+  color: #232825;
 }
 
 .btn-contact{
@@ -265,4 +288,38 @@
   max-width: 200px;
   margin: 0 auto;
   text-transform: uppercase;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  letter-spacing: 1px;
+}
+
+/* Edit Profile */
+.form-edit-profile form{
+  margin-top: 30px;
+  padding: 50px 80px;
+}
+
+.form-edit-profile form label{
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+.btn-save-profile button{
+  background-color: #FF6239;
+  color: #fefefe;
+  padding: 10px 40px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  margin: 0 auto;
+  text-transform: uppercase;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  letter-spacing: 1px;
+  border-radius: 25px;
+}
+
+.btn-save-profile {
+  margin: 30px auto 0;
+  text-align: center;
 }

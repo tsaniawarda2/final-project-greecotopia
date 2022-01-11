@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import {
   Home,
   Account,
+  EditProfile,
   ContactUs,
   Forum,
   TanamPohon,
@@ -23,6 +24,7 @@ export default function App() {
         <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
+        <Route exact path="/editProfile" component={EditProfile} />
         <Route exact path="/contactUs" component={ContactUs} />
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
