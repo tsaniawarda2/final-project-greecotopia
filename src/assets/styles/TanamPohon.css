@@ -229,11 +229,10 @@ body{
   margin-bottom: 16px;
 }
 
-.btn-join-tp{
-	background-color: #FF6239;
+.btn-join-tp, .btn-unggah-tp{
 	color: #FCFCFC;
 	font-family: 'Rubik', sans-serif;
-	font-size: 18px;
+	font-size: 16px;
   font-weight: 600;
 	text-align: center;
 	padding: 10px 50px;
@@ -242,10 +241,21 @@ body{
 	border: none;
 	border-radius: 25px;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 
+.btn-join-tp{
+	background-color: #FF6239;
+}
 .btn-join-tp:hover{
 	background-color: #FFB039;
+}
+
+.btn-unggah-tp{
+	background-color: #FFB039;
+}
+.btn-unggah-tp:hover{
+	background-color: #FF6239;
 }
 
 .text-section-4{

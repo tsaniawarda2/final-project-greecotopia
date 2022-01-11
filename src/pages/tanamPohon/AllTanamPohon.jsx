@@ -1,9 +1,12 @@
-import React from "react";
-import { data } from "../../config/dataTanamPohon";
+import React, { useContext } from "react";
+// import { data } from "../../config/dataTanamPohon";
 import CardTanamPohon from "../../components/card/CardTanamPohon";
+import { DataContext } from "../../context/DataTanamPohon"
 import "../../assets/styles/allTanamPohon.css"
 
 export default function AllTanamPohon() {
+  const { dataTP: data, userLogin } = useContext(DataContext);
+
   return (
     <>
       <div className="all-tp">
@@ -19,7 +22,7 @@ export default function AllTanamPohon() {
         </div>
         <div className="all-tp-cards">
           {data.map((data) => (
-            <CardTanamPohon item={data} key={data.tanam_pohon_id} />
+            <CardTanamPohon item={data} userLogin={userLogin} key={data.tanam_pohon_id} />
           ))}
         </div>
       </div>

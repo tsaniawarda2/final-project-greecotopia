@@ -81,7 +81,7 @@ export default function FormTanamPohon() {
           <table>
             <thead>
               <tr>
-                <th colspan="3">{tanamPohon.title}</th>
+                <th colSpan="3">{tanamPohon.title}</th>
               </tr>
             </thead>
             <tbody>
@@ -151,7 +151,7 @@ export default function FormTanamPohon() {
               </div>
               <div className="form-tp-lokasi">
                 <label for="lokasi">Lokasi</label>
-                <input className="form-control" type="text" placeholder={`${tanamPohon.location}`} readonly/>
+                <input className="form-control" type="text" placeholder={`${tanamPohon.location}`} readOnly/>
               </div>
               <div className="form-check">
                 <input type="checkbox" className="form-check-input" id="siap-tp"/>

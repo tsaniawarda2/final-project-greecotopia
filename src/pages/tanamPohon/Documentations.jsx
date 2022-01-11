@@ -5,7 +5,7 @@ import AlbumDocumentations from "../../components/card/AlbumDocumentations";
 
 export default function Documentations() {
   const { dataDoc } = useContext(DataContext);
-  // console.log(dataDoc, "doc");
+  console.log(dataDoc, "doc");
 
   return (
     <>

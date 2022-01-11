@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
-import "../assets/styles/tanamPohon.css"
 import { DataContext } from "../context/DataTanamPohon";
 import CardTanamPohon from "../components/card/CardTanamPohon";
 import { useHistory } from "react-router-dom";
-// import { data } from "../config/dataTanamPohon";
+import "../assets/styles/TanamPohon.css";
 
 export default function TanamPohon() {
-  const { dataTP: data } = useContext(DataContext);
+  const { dataTP: data, userLogin } = useContext(DataContext);
   const history = useHistory();
+
+  console.log(userLogin, "user");
+  console.log(data, "tanam pohon");
   
   return (
     <>
@@ -52,7 +54,7 @@ export default function TanamPohon() {
           <div className="cards-tp">
             {data.map((data, index) => (
               index < 3 ? 
-              <CardTanamPohon item={data} key={data.tanam_pohon_id} />
+              <CardTanamPohon item={data} userLogin={userLogin} key={data.tanam_pohon_id} />
               :
               <div></div>
             ))}

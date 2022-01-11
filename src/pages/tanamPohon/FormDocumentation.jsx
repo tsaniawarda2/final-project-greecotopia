@@ -108,7 +108,7 @@ export default function FormDocumentation() {
           <table>
             <thead>
               <tr>
-                <th colspan="3">{tanamPohon.title}</th>
+                <th colSpan="3">{tanamPohon.title}</th>
               </tr>
             </thead>
             <tbody>

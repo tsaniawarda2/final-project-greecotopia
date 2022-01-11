@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 export default function AlbumDocumentations({ data }) {
   const history = useHistory();
+  console.log(data, "data");
 
   return (
     <>
@@ -11,7 +12,7 @@ export default function AlbumDocumentations({ data }) {
           <div className="docs-icon">
             <i class="far fa-images fa-2x"></i>
           </div>
-          <img src={data.Documentations[0].image_url} alt="" />
+          <img src={data?.Documentations[0]?.image_url} alt="" />
         </div>
         <p className="total-picts">({data.Documentations.length} Foto)</p>
         <h3 className="doc-title-tp">{data.title}</h3>
