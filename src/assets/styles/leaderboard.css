@@ -2,29 +2,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 
 /* Text */
-.text-content {
+#leaderboard .text-content {
   font-family: "Poppins", sans-serif;
-  color: #232825;
+  color: #232323;
 }
-#first {
-  font-size: 20px;
-  margin-bottom: -12px;
-  letter-spacing: 4px;
-  font-weight: 600;
-}
-#second {
+
+#leaderboard #first {
+  text-transform: uppercase;
   font-size: 42px;
   margin-bottom: 6px;
   font-weight: 700;
 }
-#third {
-  font-size: 14px;
+#leaderboard #second {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
   margin-bottom: 4px;
 }
 
 /* === Leaderboard === */
 #leaderboard {
   margin-top: 64px;
+  padding-top: 34px;
   background-image: url(../image/bg-leaderboard.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -36,7 +35,8 @@
 }
 
 /* Board */
-.board {
+.board,
+.formReward {
   background-color: #ff623984;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
@@ -119,6 +119,54 @@
   margin-right: 34px;
 }
 
+/* Claim Reward */
+#claimReward {
+  padding: 0px 0px 120px;
+}
+.formReward {
+  padding-top: 20px;
+  /* margin-bottom: 120px; */
+
+  background-color: #ff6139e5;
+}
+.dataClaim {
+  margin-bottom: 120px;
+}
+.titleForm {
+  color: #fcfcfc;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0px 0px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  /* text-shadow: 2px 1px 1px rgb(216 216 216); */
+}
+#dataDiri {
+  background-color: #fcfcfcd5;
+}
+#profileUser .sb-avatar,
+#profileUser .sb-avatar__text,
+#profileUser img {
+  width: 114px !important;
+  height: 114px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+}
+
+/* Form */
+#inputData {
+  flex: start;
+  text-align: start;
+}
+#inputData label,
+#inputData input {
+  font-size: 14px;
+}
+#inputData label {
+  font-weight: 600;
+}
+#formDisable {
+}
 @media only screen and (min-width: 381px) and (max-width: 768px) {
   #leaderboard .text-content {
     width: 80% !important;

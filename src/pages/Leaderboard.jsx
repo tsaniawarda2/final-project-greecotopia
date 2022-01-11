@@ -39,15 +39,9 @@ export default function Leaderboard() {
       <section id="leaderboard">
         <div className="container text-content">
           <div className="text-center">
-            <p class="text-uppercase pb-3" id="first">
-              Leaderboard
-            </p>
-            <p id="second">Top 5 Greecotopia</p>
-            <p class="pb-4" id="third">
-              Jadilah 3 terbesar dengan mengumpulkan poin sebanyak-banyaknya
-              dari kegiatan tanam pohon yang telah kamu ikuti! Hadiah yang akan
-              kamu dapatkan berupa tiket perjalanan dari Greenpeace loh. Ayo
-              buruan kumpulkan poinnya!
+            <p id="first">Leaderboard</p>
+            <p class="pb-4" id="second">
+              Januari 2022
             </p>
             {/* Button */}
 
@@ -71,9 +65,9 @@ export default function Leaderboard() {
                       <p id="rankUser">4</p>
                       <div id="imgUser">
                         {user?.image_url ? (
-                          <Avatar src={user?.image_url} id="avaUser" />
+                          <Avatar src={user?.image_url} />
                         ) : (
-                          <Avatar name={user?.username} id="avaUser" />
+                          <Avatar name={user?.username} />
                         )}
                       </div>
                       <p id="userName">{user?.username}</p>
