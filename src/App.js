@@ -7,7 +7,7 @@ import {
   Home,
   Account,
   EditProfile,
-  ContactUs,
+  // ContactUs,
   Forum,
   TanamPohon,
   Login,
@@ -25,7 +25,7 @@ export default function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/editProfile" component={EditProfile} />
-        <Route exact path="/contactUs" component={ContactUs} />
+        {/* <Route exact path="/contactUs" component={ContactUs} /> */}
         <Route exact path="/forum" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />

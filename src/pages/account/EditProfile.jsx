@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../assets/styles/account.css"
 import { AiFillCamera } from "react-icons/ai"
+import { DataLogin } from "../../context/dataLogin";
 
 export default function EditProfile() {
+  const { userLogin } = useContext(DataLogin);
+
   return (
     <>
       <div className="container-account container-fluid">
@@ -34,6 +37,7 @@ export default function EditProfile() {
           </div>
           
           <div className="col-lg-8 profile-right">
+            <div className="profile-container">
             <div className="header-profile">
               <div className="camera-header">
                 <AiFillCamera className="icons-camera-header"/>
@@ -51,21 +55,22 @@ export default function EditProfile() {
                 <form id="form">
                   <div className="form-group">
                     <label for="formGroupExampleInput">Full Name</label>
-                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Johnathan Doe"/>
+                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder={userLogin.fullname}/>
                   </div>
                   <div className="form-group">
                     <label for="formGroupExampleInput">Username</label>
-                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder="@doejohnathan123"/>
+                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder={userLogin.username}/>
                   </div>
                   <div className="form-group">
                     <label for="formGroupExampleInput">Email</label>
-                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder="johnathan@mail.com"/>
+                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder={userLogin.email}/>
                   </div>
                   <div className="btn-save-profile">
                     <button>Simpan</button>
                   </div>
                 </form>
               </div>
+            </div>
             </div>
           </div>
         </div>
