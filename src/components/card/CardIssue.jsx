@@ -10,7 +10,7 @@ import {
 
 export default function CardIssue({ item }) {
   const history = useHistory();
-  console.log(item.Comments.length, "-----");
+
   return (
     <>
       <div id="cardFI" className="card-issue">

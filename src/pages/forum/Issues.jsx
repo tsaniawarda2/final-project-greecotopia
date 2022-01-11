@@ -19,7 +19,7 @@ export default function Issues() {
   return (
     <>
       {/* Header */}
-      <Banners item={dataForum} key={dataForum.forum_id} />
+      {/* <Banners item={dataForum} key={dataForum.forum_id} /> */}
 
       {/* Filter */}
       <ul

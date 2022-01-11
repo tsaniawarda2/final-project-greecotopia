@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { ForumContext } from "../../context/DataForum";
@@ -20,9 +20,8 @@ import { RiCloseFill } from "react-icons/ri";
 import "../../assets/styles/issue.css";
 import Avatar from "react-avatar";
 // import Avatar from "../../assets/image/avatar.png";
-import Person from "../../assets/image/person.png";
-
-const dummyComment = dataCom[0].comments;
+import { API } from "../../config/api";
+import { useLocation } from "react-router-dom";
 
 const dataLogin = {
   user_id: 1,
@@ -40,7 +39,7 @@ const dataLogin = {
 const getDate = (dateStr = "") => {
   if (!dateStr) return "";
   const arrDate = dateStr.split("T");
-  console.log(arrDate, "------------WAKTU");
+  // console.log(arrDate, "------------WAKTU");
   const date = new Date(
     new Date(dateStr).getTime() - new Date(dateStr).getTimezoneOffset() * 60000
   );
@@ -50,10 +49,10 @@ const getDate = (dateStr = "") => {
 export default function Issue() {
   // --- Data Issue ---
   const { issue } = useContext(ForumContext);
-  console.log(issue.Issues[0], "------");
-  const dataIssue = issue.Issues[0];
+
+  console.log(issue?.title, "----- ISSUE");
   // --- Data Comment ---
-  const [dataComments, setDataComments] = useState([...dummyComment]);
+  const [dataComments, setDataComments] = useState([]);
   const [formComment, setFormComment] = useState([]);
   const [positionComment, setPositionComment] = useState({
     commentID: "",
@@ -65,6 +64,34 @@ export default function Issue() {
     },
   });
 
+  const { pathname } = useLocation();
+
+  useEffect(async () => {
+    const arrPath = pathname?.split("/");
+    const newId = Number(arrPath[arrPath.length - 1]);
+
+    await getCommentsByIssueId(newId);
+  }, []);
+
+  useEffect(async () => {
+    const arrPath = pathname?.split("/");
+    const newId = Number(arrPath[arrPath.length - 1]);
+    console.log(pathname, "-----------history berubah");
+    console.log(newId, "-----NEWID-");
+
+    await getCommentsByIssueId(newId);
+  }, [pathname]);
+
+  const getCommentsByIssueId = async (id) => {
+    if (id) {
+      const { data: dataCommentId } = await API().get(`/comments/issue/${id}`);
+      setDataComments(dataCommentId.Issues);
+    }
+  };
+  const Comments = dataComments.Comments;
+  console.log(Comments, "----- DATA COMMENTS ---");
+
+  // --- Check Like ----
   const checkLike = (arrLike = []) => {
     if (arrLike?.find((data) => data?.user_id === dataLogin?.user_id)) {
       return true;
@@ -106,20 +133,20 @@ export default function Issue() {
       },
     });
   };
-  console.log(dataComments.length, "----PANJANG DATA");
+  // console.log(dataComments.length, "----PANJANG DATA");
   const CommentSection = () => {
     return (
       <>
         <div className="formCom" id="formCom1">
           {/* Avatar */}
-          <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" />
-          {/* <div id="avaCom">
+          {/* <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" /> */}
+          <div id="avaCom">
             {dataLogin?.image_url ? (
               <Avatar src={dataLogin?.image_url} id="avaCom" />
             ) : (
               <Avatar name={dataLogin?.fullname} id="avaCom" />
             )}
-          </div> */}
+          </div>
 
           {/* Form */}
           {/* {positionComment?.depends_on?.username &&
@@ -172,18 +199,14 @@ export default function Issue() {
           <div className="content-issue">
             <div className="row" id="contentIssue">
               <div className="col-md-4 " id="picsIssue">
-                <img
-                  src="https://images.unsplash.com/photo-1619369029907-b8d8d5eac859?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG9yYW5ndXRhbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                  alt="issueImg"
-                  id="imgCI"
-                />
+                <img src={dataComments?.image_url} alt="issueImg" id="imgCI" />
               </div>
               <div className="col-md-8" id="descIssue">
-                <p className="catCI">a</p>
-                <p className="titleCI">a</p>
-                <p className="authorCI">a</p>
-                <p className="dateCI">a</p>
-                <div className="decsCI">a</div>
+                <p className="catCI">{issue?.title}</p>
+                <p className="titleCI">{dataComments?.title}</p>
+                <p className="authorCI">{dataComments?.author_name}</p>
+                <p className="dateCI">{dataComments?.createdAt}</p>
+                <div className="decsCI">{dataComments?.description}</div>
               </div>
             </div>
             <div id="buttonIssue">
@@ -203,19 +226,19 @@ export default function Issue() {
                 : null}
               {/* {CommentSection()} */}
               {/* Comment Filled */}
-              {dataComments?.map((comment) => {
+              {Comments?.map((comment) => {
                 return (
                   <div key={comment?.comment_id}>
                     <div className="formCom" id="commentFilled">
                       {/* Avatar */}
-                      <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" />
-                      {/* <div id="avaCom">
+                      {/* <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" /> */}
+                      <div id="avaCom">
                         {comment?.User?.image_url ? (
                           <Avatar src={comment?.User?.image_url} id="avaCom" />
                         ) : (
                           <Avatar name={comment?.User?.fullname} id="avaCom" />
                         )}
-                      </div> */}
+                      </div>
 
                       {/* Main Comment */}
                       <div className="main-comment">
@@ -226,7 +249,7 @@ export default function Issue() {
                                 {comment?.User?.username}
                               </span>
                               <span className="timeCom">
-                                {getDate(comment?.createdAt)}
+                                {calculateDuration(comment?.createdAt)}
                               </span>
                             </div>
 
@@ -319,12 +342,12 @@ export default function Issue() {
                                 {/* Reply Comment */}
                                 <div className="formCom" id="formCom3">
                                   {/* Avatar */}
-                                  <img
+                                  {/* <img
                                     src={Avatar}
                                     alt="HAPUSSSSSSS"
                                     id="avaCom"
-                                  />
-                                  {/* <div id="avaCom">
+                                  /> */}
+                                  <div id="avaCom">
                                     {repComment?.author?.image_url ? (
                                       <Avatar
                                         src={repComment?.author?.image_url}
@@ -336,7 +359,7 @@ export default function Issue() {
                                         id="avaCom"
                                       />
                                     )}
-                                  </div> */}
+                                  </div>
                                   {/* Form */}
                                   <div id="repCFilled">
                                     <div className="infoCom">
@@ -345,7 +368,9 @@ export default function Issue() {
                                           {repComment?.author?.username}
                                         </span>
                                         <span className="timeCom">
-                                          {getDate(repComment?.createdAt)}{" "}
+                                          {calculateDuration(
+                                            repComment?.createdAt
+                                          )}{" "}
                                         </span>
                                       </div>
 

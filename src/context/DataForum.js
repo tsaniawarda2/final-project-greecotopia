@@ -24,8 +24,8 @@ const DataForum = ({ children }) => {
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
-    console.log(pathname, "-----------history berubah");
-    console.log(newId, "-----NEWID-");
+    // console.log(pathname, "-----------history berubah");
+    // console.log(newId, "-----NEWID-");
 
     await getForumById(newId);
     await getIssueById(newId);
@@ -42,7 +42,6 @@ const DataForum = ({ children }) => {
     if (id) {
       const { data: dataForumId } = await API().get(`/forums/${id}`);
       setForum(dataForumId.Forums);
-      // console.log(dataForumId.Forums, "---------FROUM DATA---");
     }
   };
 
@@ -57,6 +56,7 @@ const DataForum = ({ children }) => {
     if (id) {
       const { data: dataIssueId } = await API().get(`/issues/${id}`);
       setIssue(dataIssueId.DataIssue);
+      // console.log(dataIssueId.DataIssue, "---------FROUM DATA---");
     }
   };
   return (
