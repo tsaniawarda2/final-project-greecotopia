@@ -47,6 +47,38 @@ export default function Leaderboard() {
 
             <div className="board">
               {/* Main User */}
+              <div className="row" id="top3">
+                <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
+                  <p className="rank">2st</p>
+                  {dataTopTen?.image_url ? (
+                    <Avatar src={dataTopTen?.image_url} id="avaUser" />
+                  ) : (
+                    <Avatar name={dataTopTen?.username} id="avaUser" />
+                  )}
+                  <p className="name">username</p>
+                  <p className="poin">{dataTopTen?.points} Point</p>
+                </div>
+                <div className="col-md-4 gx-0 py-3 top" id="profileUser1">
+                  <p className="rank">2st</p>
+                  {dataTopTen?.image_url ? (
+                    <Avatar src={dataTopTen?.image_url} id="avaUser" />
+                  ) : (
+                    <Avatar name={dataTopTen?.username} id="avaUser" />
+                  )}
+                  <p className="name">username</p>
+                  <p className="poin">{dataTopTen?.points} Point</p>
+                </div>
+                <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
+                  <p className="rank">2st</p>
+                  {dataTopTen?.image_url ? (
+                    <Avatar src={dataTopTen?.image_url} id="avaUser" />
+                  ) : (
+                    <Avatar name={dataTopTen?.username} id="avaUser" />
+                  )}
+                  <p className="name">username</p>
+                  <p className="poin">{dataTopTen?.points} Point</p>
+                </div>
+              </div>
 
               {/* Button Claim */}
               <NavLink

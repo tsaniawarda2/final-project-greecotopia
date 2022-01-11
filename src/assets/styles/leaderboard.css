@@ -35,12 +35,25 @@
 }
 
 /* Board */
+#top3 {
+  display: flex;
+  align-items: center;
+}
 .board,
 .formReward {
   background-color: #ff623984;
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
   padding-top: 32px;
+}
+.top p {
+  color: #fcfcfc;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.top .rank {
+  font-size: 18px;
 }
 
 /* Button */
@@ -71,7 +84,7 @@
   display: flex;
   align-items: center;
   background-color: #fcfcfc;
-  font-size: 18px;
+  font-size: 16px;
   padding: 14px 0px;
 }
 .colomnU p {
@@ -99,8 +112,8 @@
 #imgUser .sb-avatar,
 #imgUser .sb-avatar__text,
 #imgUser img {
-  width: 58px !important;
-  height: 58px !important;
+  width: 52px !important;
+  height: 52px !important;
   object-fit: cover !important;
   border-radius: 100% !important;
 }
@@ -118,16 +131,33 @@
   justify-content: flex-end;
   margin-right: 34px;
 }
+.board #profileUser1 .sb-avatar,
+#profileUser1 .sb-avatar__text,
+#profileUser1 img {
+  width: 148px !important;
+  height: 148px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgba(199, 199, 199, 0.74);
+}
+.board #profileUser23 .sb-avatar,
+#profileUser23 .sb-avatar__text,
+#profileUser23 img {
+  width: 114px !important;
+  height: 114px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgba(199, 199, 199, 0.74);
+}
 
 /* Claim Reward */
 #claimReward {
-  padding: 0px 0px 120px;
+  padding: 0px 0px 224px;
 }
 .formReward {
-  padding-top: 20px;
-  /* margin-bottom: 120px; */
-
+  padding-top: 12px;
   background-color: #ff6139e5;
+  box-shadow: 4px -4px 4px 0px rgb(151 151 151 / 74%);
 }
 .dataClaim {
   margin-bottom: 120px;
@@ -139,20 +169,45 @@
   padding: 0px 0px;
   letter-spacing: 8px;
   text-transform: uppercase;
-  /* text-shadow: 2px 1px 1px rgb(216 216 216); */
+  margin-bottom: 8px;
 }
 #dataDiri {
   background-color: #fcfcfcf1;
+  align-items: center;
+  padding: 12px 0px 24px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+#profileUser p {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+#profileUser {
+  width: 20%;
+  margin-left: 36px;
 }
 #profileUser .sb-avatar,
 #profileUser .sb-avatar__text,
 #profileUser img {
-  width: 114px !important;
-  height: 114px !important;
+  width: 148px !important;
+  height: 148px !important;
   object-fit: cover !important;
   border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgb(147 147 147 / 74%);
+}
+#profileUser .rank,
+.top .rank {
+  padding-bottom: 12px;
+}
+#profileUser .name,
+.top .name {
+  padding-top: 12px;
 }
 
+#dataUser {
+  margin-left: 34px;
+}
 .konfirmasi {
   font-weight: 700;
   font-size: 20px;
@@ -162,29 +217,30 @@
 #inputData {
   align-items: flex-start;
   text-align: start;
+  margin-bottom: 24px;
 }
 #inputData .form-control {
   border-color: #fcc97e;
+  box-shadow: 1px 1px 1px 0px rgb(180 180 180 / 45%);
 }
 #inputData .form-control:focus {
   border-color: #fcc97e;
   box-shadow: 0 0 0 1px rgba(187, 164, 61, 0.25);
   color: #232825;
 }
-
 #inputData label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 #inputData input {
-  font-size: 12px;
+  font-size: 13px;
 }
 .confName,
 .confInfo {
-  width: 40%;
+  width: 47%;
 }
 .confName {
-  margin-right: 16px;
+  margin-right: 18px;
 }
 .cUsername,
 .cEmail {
@@ -195,6 +251,28 @@
 }
 #dataInput {
   color: #232323;
+}
+
+/* Btn Claim */
+#btn-claim {
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #10550f;
+  border-color: #10550f;
+  border-radius: 12px;
+  padding: 8px 0px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  width: 48%;
+}
+#btn-claim:hover {
+  background-color: #0d460c;
+  border-color: #0d460c;
+}
+#btn-claim:focus {
+  box-shadow: none;
 }
 @media only screen and (min-width: 381px) and (max-width: 768px) {
   #leaderboard .text-content {

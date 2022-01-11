@@ -13,8 +13,7 @@ const dataUser = [
       fullname: "Tari Ayu",
       email: "tariAyu@gmail.com",
       username: "tari4yu",
-      image_url:
-        "https://images.unsplash.com/photo-1518577915332-c2a19f149a75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2lybHxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60",
+      image_url: "",
       background_url: null,
       points: 0,
       role_id: 2,
@@ -46,9 +45,10 @@ export default function FormReward() {
                   ) : (
                     <Avatar name={user?.username} id="avaUser" />
                   )}
-                  <p className="poin">500 Point</p>
+                  <p className="name">{user?.username}</p>
+                  <p className="poin">{user?.points} Point</p>
                 </div>
-                <div className="col-md-8 gx-0 py-3">
+                <div className="col-md-8 gx-0 py-3" id="dataUser">
                   <p className="konfirmasi">Konfirmasi Data Diri</p>
                   <div className="d-flex" id="inputData">
                     <div className="confName">
@@ -95,6 +95,14 @@ export default function FormReward() {
                       </div>
                     </div>
                   </div>
+                  {/* Button */}
+                  <NavLink
+                    to="/leaderboard"
+                    className="btn btn-light text-center"
+                    id="btn-claim"
+                  >
+                    Data sudah sesuai
+                  </NavLink>
                 </div>
               </div>
 
