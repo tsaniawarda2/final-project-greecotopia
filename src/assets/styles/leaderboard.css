@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Text */
+#leaderboard .text-content {
+  font-family: "Poppins", sans-serif;
+  color: #232323;
+}
+
+#leaderboard #first {
+  text-transform: uppercase;
+  font-size: 42px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+#leaderboard #second {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+/* === Leaderboard === */
+#leaderboard {
+  margin-top: 64px;
+  padding-top: 34px;
+  background-image: url(../image/bg-leaderboard.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding-top: 32px 0px 258px;
+}
+#leaderboard .text-content {
+  width: 52% !important;
+}
+
+/* Board */
+#top3 {
+  display: flex;
+  align-items: center;
+}
+.board,
+.formReward {
+  background-color: #ff623984;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  padding-top: 32px;
+}
+.top p {
+  color: #fcfcfc;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.top .rank {
+  font-size: 18px;
+}
+
+/* Button */
+#btnClaimB {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #fcfcfc;
+  border-color: #fcfcfc;
+  border-radius: 12px;
+  padding: 8px 6px;
+  letter-spacing: 2px;
+  color: #232323;
+  width: 36%;
+  margin-bottom: 24px;
+  box-shadow: 3px 3px 2px 0px rgb(193 193 193);
+}
+#btnClaimB:hover,
+#btnClaimB:focus {
+  background-color: #ffb039;
+  border-color: #ffb039;
+  color: #fcfcfc;
+  box-shadow: 3px 3px 2px 0px rgb(228, 228, 228);
+}
+
+.colomnU {
+  display: flex;
+  align-items: center;
+  background-color: #fcfcfc;
+  font-size: 16px;
+  padding: 14px 0px;
+}
+.colomnU p {
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+.textUser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-left: 34px;
+  width: 150%;
+  text-align: start;
+}
+.colomnU #rankUser {
+  justify-content: flex-start !important;
+  font-weight: 600;
+  width: 6%;
+}
+
+#imgUser {
+  width: 28%;
+  text-align: center;
+}
+#imgUser .sb-avatar,
+#imgUser .sb-avatar__text,
+#imgUser img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+}
+#imgUser .sb-avatar__text span {
+  font-size: 28px !important;
+}
+#userName {
+  width: 56%;
+  text-align: start;
+  margin-left: 12px;
+}
+#poinUser {
+  display: flex;
+  width: 34%;
+  justify-content: flex-end;
+  margin-right: 34px;
+}
+.board #profileUser1 .sb-avatar,
+#profileUser1 .sb-avatar__text,
+#profileUser1 img {
+  width: 148px !important;
+  height: 148px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgba(199, 199, 199, 0.74);
+}
+.board #profileUser23 .sb-avatar,
+#profileUser23 .sb-avatar__text,
+#profileUser23 img {
+  width: 114px !important;
+  height: 114px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgba(199, 199, 199, 0.74);
+}
+
+/* Claim Reward */
+#claimReward {
+  padding: 0px 0px 224px;
+}
+.formReward {
+  padding-top: 12px;
+  background-color: #ff6139e5;
+  box-shadow: 4px -4px 4px 0px rgb(151 151 151 / 74%);
+}
+.dataClaim {
+  margin-bottom: 120px;
+}
+.titleForm {
+  color: #fcfcfc;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0px 0px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+#dataDiri {
+  background-color: #fcfcfcf1;
+  align-items: center;
+  padding: 12px 0px 24px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+#profileUser p {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+#profileUser {
+  width: 20%;
+  margin-left: 36px;
+}
+#profileUser .sb-avatar,
+#profileUser .sb-avatar__text,
+#profileUser img {
+  width: 148px !important;
+  height: 148px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgb(147 147 147 / 74%);
+}
+#profileUser .rank,
+.top .rank {
+  padding-bottom: 12px;
+}
+#profileUser .name,
+.top .name {
+  padding-top: 12px;
+}
+
+#dataUser {
+  margin-left: 34px;
+}
+.konfirmasi {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+/* Form */
+#inputData {
+  align-items: flex-start;
+  text-align: start;
+  margin-bottom: 24px;
+}
+#inputData .form-control {
+  border-color: #fcc97e;
+  box-shadow: 1px 1px 1px 0px rgb(180 180 180 / 45%);
+}
+#inputData .form-control:focus {
+  border-color: #fcc97e;
+  box-shadow: 0 0 0 1px rgba(187, 164, 61, 0.25);
+  color: #232825;
+}
+#inputData label {
+  font-size: 13px;
+  font-weight: 600;
+}
+#inputData input {
+  font-size: 13px;
+}
+.confName,
+.confInfo {
+  width: 47%;
+}
+.confName {
+  margin-right: 18px;
+}
+.cUsername,
+.cEmail {
+  margin-bottom: 12px;
+}
+#formDisable {
+  background-color: #fff5e6;
+}
+#dataInput {
+  color: #232323;
+}
+
+/* Btn Claim */
+#btn-claim {
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #10550f;
+  border-color: #10550f;
+  border-radius: 12px;
+  padding: 8px 0px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  width: 48%;
+}
+#btn-claim:hover {
+  background-color: #0d460c;
+  border-color: #0d460c;
+}
+#btn-claim:focus {
+  box-shadow: none;
+}
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  #leaderboard .text-content {
+    width: 80% !important;
+  }
+}
+@media only screen and (max-width: 380px) {
+}

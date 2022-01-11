@@ -6,3 +6,4 @@ export { default as Account } from "./Account";
 export { default as Forum } from "./Forum";
 export { default as TanamPohon } from "./TanamPohon";
 export { default as Leaderboard } from "./Leaderboard";
+export { default as FormReward } from "./leaderboard/FormReward";
