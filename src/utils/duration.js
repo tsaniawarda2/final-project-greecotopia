@@ -1,8 +1,9 @@
 module.exports = (date) => {
   const sekarang = new Date();
-  const passDate = new Date(
-    new Date(date).getTime() - new Date(date).getTimezoneOffset() * 60000
-  );
+  // const passDate = new Date(
+  //   new Date(date).getTime() - new Date(date).getTimezoneOffset() * 60000
+  // );
+  const passDate = new Date(date);
   let delta = Math.abs(sekarang - passDate) / 1000;
   let timestamp = {
     tahun: 31536000,

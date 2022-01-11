@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Avatar from "react-avatar";
 
-import { ForumContext } from "../../context/DataForum";
-import dataCom from "../../config/comment.json";
-import calculateDuration from "../../utils/duration";
 // Icon
 import { IoMdSend } from "react-icons/io";
 import { HiDotsVertical } from "react-icons/hi";
@@ -17,9 +15,8 @@ import {
 } from "react-icons/ai";
 import { RiCloseFill } from "react-icons/ri";
 
+import calculateDuration from "../../utils/duration";
 import "../../assets/styles/issue.css";
-import Avatar from "react-avatar";
-// import Avatar from "../../assets/image/avatar.png";
 import { API } from "../../config/api";
 import { useLocation } from "react-router-dom";
 
@@ -38,19 +35,18 @@ const dataLogin = {
 
 const getDate = (dateStr = "") => {
   if (!dateStr) return "";
-  const arrDate = dateStr.split("T");
+
   // console.log(arrDate, "------------WAKTU");
-  const date = new Date(
-    new Date(dateStr).getTime() - new Date(dateStr).getTimezoneOffset() * 60000
-  );
-  return `${date.getUTCDate()}/${date.getUTCMonth()}/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`;
+  // const date = new Date(
+  //   new Date(dateStr).getTime() - new Date(dateStr).getTimezoneOffset() * 60000
+  // );
+  const date = new Date(dateStr);
+  return `${date.getUTCDate()}/${
+    date.getUTCMonth() + 1
+  }/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`;
 };
 
 export default function Issue() {
-  // --- Data Issue ---
-  const { issue } = useContext(ForumContext);
-
-  console.log(issue?.title, "----- ISSUE");
   // --- Data Comment ---
   const [dataComments, setDataComments] = useState([]);
   const [formComment, setFormComment] = useState([]);
@@ -63,6 +59,15 @@ export default function Issue() {
       context: "",
     },
   });
+  const [likeComment, setlikeComment] = useState(false);
+  const [positionLikeID, setPositionLikeID] = useState({
+    likeID: "",
+    repLikeUUID: "",
+    depends_on: {
+      user_id: "",
+    },
+  });
+  const [issueID, setIssueID] = useState(0);
 
   const { pathname } = useLocation();
 
@@ -71,15 +76,15 @@ export default function Issue() {
     const newId = Number(arrPath[arrPath.length - 1]);
 
     await getCommentsByIssueId(newId);
+    setIssueID(newId);
   }, []);
 
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
-    console.log(pathname, "-----------history berubah");
-    console.log(newId, "-----NEWID-");
 
     await getCommentsByIssueId(newId);
+    setIssueID(newId);
   }, [pathname]);
 
   const getCommentsByIssueId = async (id) => {
@@ -88,8 +93,11 @@ export default function Issue() {
       setDataComments(dataCommentId.Issues);
     }
   };
+
+  // Data Comment
   const Comments = dataComments.Comments;
-  console.log(Comments, "----- DATA COMMENTS ---");
+  // Data Forum
+  const Forum = dataComments.Forum;
 
   // --- Check Like ----
   const checkLike = (arrLike = []) => {
@@ -99,8 +107,22 @@ export default function Issue() {
     return false;
   };
 
-  const handleComment = () => {
-    console.log(formComment, "-----COMMENT");
+  const handleLike = () => {
+    setlikeComment(!likeComment);
+
+    if (positionLikeID?.likeID) {
+      const payload = {
+        rep_comments_uuid: "",
+        likes: likeComment,
+        user_id: dataLogin?.user_id,
+      };
+      const commentID = positionLikeID?.likeID;
+      console.log(payload, "====like comment");
+      console.log(commentID, "------ id like comment");
+    }
+  };
+
+  const handleComment = async () => {
     if (formComment) {
       if (positionComment?.commentID) {
         const payload = {
@@ -111,12 +133,20 @@ export default function Issue() {
           },
         };
         const commentID = positionComment?.commentID;
-        console.log(payload, "-----NEW REPLY COMMENT ID", commentID);
+        // await API().post(`comments/${commentID}`, payload);
+        // await getCommentsByIssueId(issueID);
+        console.log(commentID, "----id Comment");
+        console.log(payload, "------COMMENT");
       } else {
         const payload = {
           context: formComment,
+          user_id: dataLogin?.user_id,
+          issue_id: dataComments?.issue_id,
         };
-        console.log(payload, "------- COMMENT BARU");
+        console.log(payload, "------COOMMENT");
+
+        // await API().post(`comments/issue/${issueID}`, payload);
+        // await getCommentsByIssueId(issueID);
       }
     }
   };
@@ -133,13 +163,12 @@ export default function Issue() {
       },
     });
   };
-  // console.log(dataComments.length, "----PANJANG DATA");
   const CommentSection = () => {
     return (
       <>
         <div className="formCom" id="formCom1">
           {/* Avatar */}
-          {/* <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" /> */}
+
           <div id="avaCom">
             {dataLogin?.image_url ? (
               <Avatar src={dataLogin?.image_url} id="avaCom" />
@@ -149,16 +178,6 @@ export default function Issue() {
           </div>
 
           {/* Form */}
-          {/* {positionComment?.depends_on?.username &&
-          positionComment?.depends_on?.context ? (
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Tambahkan komentar disini"
-              aria-label="input comment"
-              id="inputCom"
-            />
-          ) : null} */}
           <div className="formIC">
             {positionComment?.depends_on?.username &&
             positionComment?.depends_on?.context ? (
@@ -180,7 +199,6 @@ export default function Issue() {
           </div>
 
           {/* Button */}
-
           <div className="btnCC" onClick={() => handleCancelComment()}>
             <RiCloseFill id="btnCancel" />
           </div>
@@ -202,10 +220,10 @@ export default function Issue() {
                 <img src={dataComments?.image_url} alt="issueImg" id="imgCI" />
               </div>
               <div className="col-md-8" id="descIssue">
-                <p className="catCI">{issue?.title}</p>
+                <p className="catCI">{Forum?.title}</p>
                 <p className="titleCI">{dataComments?.title}</p>
                 <p className="authorCI">{dataComments?.author_name}</p>
-                <p className="dateCI">{dataComments?.createdAt}</p>
+                <p className="dateCI">{getDate(dataComments?.createdAt)}</p>
                 <div className="decsCI">{dataComments?.description}</div>
               </div>
             </div>
@@ -224,14 +242,13 @@ export default function Issue() {
               {!positionComment.commentID && !positionComment.repCommentUUID
                 ? CommentSection()
                 : null}
-              {/* {CommentSection()} */}
+
               {/* Comment Filled */}
               {Comments?.map((comment) => {
                 return (
                   <div key={comment?.comment_id}>
                     <div className="formCom" id="commentFilled">
                       {/* Avatar */}
-                      {/* <img src={Avatar} alt="HAPUSSSSSSS" id="avaCom" /> */}
                       <div id="avaCom">
                         {comment?.User?.image_url ? (
                           <Avatar src={comment?.User?.image_url} id="avaCom" />
@@ -316,12 +333,21 @@ export default function Issue() {
                                   : "0"}
                               </span>
                             </div>
-                            <span className="fillUp">
-                              {checkLike(comment?.likes) ? (
-                                <Like />
-                              ) : (
-                                <Dislike />
-                              )}
+                            <span
+                              className="fillUp"
+                              onClick={() => {
+                                setPositionLikeID({
+                                  likeID: comment?.comment_id,
+                                  repLikeUUID: "",
+                                  depends_on: {
+                                    user_id: comment?.User?.user_id,
+                                  },
+                                });
+
+                                handleLike();
+                              }}
+                            >
+                              {likeComment === true ? <Like /> : <Dislike />}
 
                               <span className="countCom">
                                 {comment?.likes?.length !== undefined
@@ -342,11 +368,6 @@ export default function Issue() {
                                 {/* Reply Comment */}
                                 <div className="formCom" id="formCom3">
                                   {/* Avatar */}
-                                  {/* <img
-                                    src={Avatar}
-                                    alt="HAPUSSSSSSS"
-                                    id="avaCom"
-                                  /> */}
                                   <div id="avaCom">
                                     {repComment?.author?.image_url ? (
                                       <Avatar
@@ -445,11 +466,16 @@ export default function Issue() {
                                         </span>
                                       </div>
                                       <span className="fillUp">
-                                        {checkLike(repComment?.likes) ? (
-                                          <Like />
+                                        {/* {checkLike(repComment?.likes) ? (
+                                          <Like
+                                            value={likeComment}
+                                            onClick={(e) =>
+                                              setlikeComment(e?.target?.value)
+                                            }
+                                          />
                                         ) : (
                                           <Dislike />
-                                        )}
+                                        )} */}
 
                                         <span className="countCom">
                                           {comment?.likes?.length !== undefined
@@ -481,15 +507,6 @@ export default function Issue() {
               })}
             </div>
           </div>
-
-          {/* Card*/}
-          {/* <div className="row" id="cardIssues">
-            {issue.map((data, idx) => (
-              <div className="col-md-3">
-                <CardIssue item={data} key={idx} />
-              </div>
-            ))}
-          </div> */}
         </div>
       </div>
     </>
