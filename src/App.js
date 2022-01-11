@@ -1,9 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 
 import {
+  Welcome,
   Home,
   Account,
   Forum,
@@ -16,9 +15,9 @@ import {
 export default function App() {
   return (
     <>
-      <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Welcome} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/signUp" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/account" component={Account} />
@@ -26,7 +25,6 @@ export default function App() {
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
       </Switch>
-      <Footer />
     </>
   );
 }
