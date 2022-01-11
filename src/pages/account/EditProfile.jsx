@@ -1,8 +1,6 @@
 import React from "react";
 import "../../assets/styles/account.css"
-import { GiTwoCoins } from "react-icons/gi"
-import { FaTree } from "react-icons/fa"
-import { AiOutlineHeart } from "react-icons/ai"
+import { AiFillCamera } from "react-icons/ai"
 
 export default function EditProfile() {
   return (
@@ -37,10 +35,16 @@ export default function EditProfile() {
           
           <div className="col-lg-8 profile-right">
             <div className="header-profile">
+              <div className="camera-header">
+                <AiFillCamera className="icons-camera-header"/>
+              </div>
               <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" alt="" />
             </div>
             <div className="row id-profile">
               <div className="profile-picture">
+                <div className="camera-profile">
+                  <AiFillCamera className="icons-camera-profile"/>
+                </div>
                 <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
               </div>
               <div className="form-edit-profile">

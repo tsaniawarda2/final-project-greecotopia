@@ -304,6 +304,43 @@
   margin-top: 16px;
 }
 
+.camera-header{
+  height: 200px;
+  width: 680px;
+  border-radius: 12px 12px 0 0;
+  color: #fefefe;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(46, 46, 46, 0.5);
+}
+
+.icons-camera-header{
+  position: absolute;
+  font-size: 40px;
+}
+
+.camera-profile{
+  height: 120px;
+  width: 120px;
+  background-color: rgba(46, 46, 46, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  margin-top: -60px;
+  margin-left: 20px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons-camera-profile{
+  color: #fefefe;
+  position: absolute;
+  font-size: 32px;
+}
+
 .btn-save-profile button{
   background-color: #FF6239;
   color: #fefefe;
