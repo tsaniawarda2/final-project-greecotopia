@@ -22,28 +22,6 @@
   margin-bottom: 4px;
 }
 
-/* Button */
-#btn-home {
-  font-family: "Rubik", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  background-color: #10550f;
-  border-color: #10550f;
-  border-radius: 12px;
-  padding: 8px 0px;
-  letter-spacing: 2px;
-  color: #fcfcfc;
-  width: 42%;
-}
-#btn-home:hover {
-  background-color: #0d460c;
-  border-color: #0d460c;
-}
-#btn-home:focus {
-  box-shadow: none;
-}
-
 /* === Leaderboard === */
 #leaderboard {
   margin-top: 64px;
@@ -51,10 +29,94 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
-  padding: 32px 0px 258px;
+  padding-top: 32px 0px 258px;
 }
 #leaderboard .text-content {
   width: 52% !important;
+}
+
+/* Board */
+.board {
+  background-color: #ff623984;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  padding-top: 32px;
+}
+
+/* Button */
+#btnClaimB {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #fcfcfc;
+  border-color: #fcfcfc;
+  border-radius: 12px;
+  padding: 8px 6px;
+  letter-spacing: 2px;
+  color: #232323;
+  width: 36%;
+  margin-bottom: 24px;
+  box-shadow: 3px 3px 2px 0px rgb(193 193 193);
+}
+#btnClaimB:hover,
+#btnClaimB:focus {
+  background-color: #ffb039;
+  border-color: #ffb039;
+  color: #fcfcfc;
+  box-shadow: 3px 3px 2px 0px rgb(228, 228, 228);
+}
+
+.colomnU {
+  display: flex;
+  align-items: center;
+  background-color: #fcfcfc;
+  font-size: 18px;
+  padding: 14px 0px;
+}
+.colomnU p {
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+.textUser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-left: 34px;
+  width: 150%;
+  text-align: start;
+}
+.colomnU #rankUser {
+  justify-content: flex-start !important;
+  font-weight: 600;
+  width: 6%;
+}
+
+#imgUser {
+  width: 28%;
+  text-align: center;
+}
+#imgUser .sb-avatar,
+#imgUser .sb-avatar__text,
+#imgUser img {
+  width: 58px !important;
+  height: 58px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+}
+#imgUser .sb-avatar__text span {
+  font-size: 28px !important;
+}
+#userName {
+  width: 56%;
+  text-align: start;
+  margin-left: 12px;
+}
+#poinUser {
+  display: flex;
+  width: 34%;
+  justify-content: flex-end;
+  margin-right: 34px;
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
