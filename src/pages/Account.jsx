@@ -2,12 +2,12 @@ import React, { useState, useContext } from "react";
 import "../assets/styles/account.css";
 import Profile from "../components/account/Profile";
 import ContactUs from "../components/account/ContactUs";
-import { DataLogin } from "../context/dataLogin";
+import { DataContext } from "../context/DataContext";
 import FavoriteIssue from "../components/account/FavoriteIssue";
 
 export default function Account() {
   const [toggleState, setToggleState] = useState(1);
-  const { userLogin } = useContext(DataLogin);
+  const { userLogin } = useContext(DataContext);
   console.log(userLogin);
 
   const toggleSide = (index) => {

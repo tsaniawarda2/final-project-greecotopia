@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../assets/styles/account.css"
-import { DataLogin } from "../../context/dataLogin";
+import { DataContext } from "../../context/DataContext";
 import { API } from "../../config/api";
 import NotFound from "../../assets/image/not-found.png"
 import { NavLink } from "react-router-dom";
 import CardIssue from "../card/CardIssue";
 
 export default function FavoriteIssue() {
-  const { userLogin } = useContext(DataLogin);
+  const { userLogin } = useContext(DataContext);
   const [ favIssue, setFavIssue ] = useState();
   
   useEffect(() => {

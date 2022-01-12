@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import "../../assets/styles/account.css"
-import { DataLogin } from "../../context/dataLogin";
+import { DataContext } from "../../context/DataContext";
 import { API } from "../../config/api";
 
 export default function ContactUs() {
-  const { userLogin } = useContext(DataLogin);
+  const { userLogin } = useContext(DataContext);
   const [ message, setMessage] = useState({
     context:"",
   })
@@ -19,7 +19,7 @@ export default function ContactUs() {
       } else {
         const payload = {
           ...message,
-          user_id: userLogin.user_id
+          user_id: userLogin?.user_id
         }
 
         const {data: dataMessage} = await API().post("/messages", payload);
@@ -41,7 +41,7 @@ export default function ContactUs() {
         <h1>Sampaikan Pesanmu Di sini!</h1>
         <div className="form-group contact-us" id="form">
           <textarea className="form-control textarea-contact" id="exampleFormControlTextarea1" rows="10" placeholder="Tuliskan pesanmu disini..." 
-          value={message.context} onChange={e => setMessage({ ...message, context: e.target?.value })}
+          value={message?.context} onChange={e => setMessage({ ...message, context: e.target?.value })}
           ></textarea>
         </div>
         <button className="btn-contact" type="button" onClick={() => {onHandleSubmit()}}>Submit</button>

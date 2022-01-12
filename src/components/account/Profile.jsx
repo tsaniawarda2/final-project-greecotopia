@@ -4,30 +4,28 @@ import { GiTwoCoins } from "react-icons/gi"
 import { FaTree } from "react-icons/fa"
 import { AiFillHeart } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
-import { DataLogin } from "../../context/dataLogin";
+import { DataContext } from "../../context/DataContext";
 
 export default function Profile() {
-  const { userLogin, users } = useContext(DataLogin);
+  const { userLogin, users } = useContext(DataContext);
   const history = useHistory();
-  // console.log(userLogin, "users");
 
-  const findUser = users.find(user => user.user_id === userLogin.user_id);
-  // console.log(findUser);
+  const findUser = users?.find(user => user?.user_id === userLogin?.user_id);
 
   return (
     <>          
       <div className="profile-container">
         <div className="header-profile">
-          <img src={userLogin.background_url} alt="" />
+          <img src={userLogin?.background_url} alt="" />
         </div>
         <div className="row id-profile">
           <div className="profile-picture">
-            <img src={userLogin.image_url} alt="" />
+            <img src={userLogin?.image_url} alt="" />
           </div>
           <div className="col-2"></div>
           <div className="name-usn col-6">
-            <h1>{userLogin.fullname}</h1>
-            <p>@{userLogin.username}</p>
+            <h1>{userLogin?.fullname}</h1>
+            <p>@{userLogin?.username}</p>
           </div>
           <div className="btn-edit-profile col-3">
             <button onClick={() => {
@@ -41,14 +39,14 @@ export default function Profile() {
               <GiTwoCoins className="icon-coins-profile"/>
             </div>
             <p>Poin yang kamu miliki saat ini:</p>
-            <p className="total">{userLogin.points}</p>
+            <p className="total">{userLogin?.points}</p>
           </div>
           <div className="user-total-trees content-card-profile col-4">
             <div className="circle-profile">
               <FaTree className="icon-tree-profile"/>
             </div>
             <p>Banyak pohon yang kamu tanam:</p>
-            <p className="total">{userLogin.total_trees}</p>
+            <p className="total">{userLogin?.total_trees}</p>
           </div>
           <div className="user-total-fav-issues content-card-profile col-4">
             <div className="circle-profile">
@@ -63,7 +61,7 @@ export default function Profile() {
             <p>Peringkat kamu saat ini:</p>
           </div>
           <div className="col-4">
-            <p>{findUser.user_id} dari {users.length} </p>
+            <p>{findUser?.user_id-1} dari {users?.length-1} </p>
           </div>
           <div className="col-3">
             <button>Leaderboard</button>

@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
 import { API } from "../config/api";
 
-const DataLogin = createContext();
+const DataContext = createContext();
 
-const LoginProvider = ({ children }) => {
+const DataProvider = ({ children }) => {
   const [ userLogin, setUserLogin ] = useState([]);
   const [ users, setUsers ] = useState([]);
 
@@ -14,19 +14,19 @@ const LoginProvider = ({ children }) => {
 
   const getUserLogin = async () => {
     const { data } = await API().get("/profile");
-    setUserLogin(data.dataUser);
+    setUserLogin(data?.dataUser);
   } 
 
   const getUsers = async () => {
     const { data : dataUser} = await API().get("/users");
-    setUsers(dataUser.users);
+    setUsers(dataUser?.users);
   }
 
   return (
-    <DataLogin.Provider value={{ userLogin, users }}>
+    <DataContext.Provider value={{ userLogin, users }}>
       {children}
-    </DataLogin.Provider>
+    </DataContext.Provider>
   )
 }
 
-export { DataLogin, LoginProvider };
+export { DataContext, DataProvider };
