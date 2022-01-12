@@ -6,6 +6,7 @@ import { API } from "../../config/api";
 import { DataContext } from "../../context/DataContext";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import PointModal from "../../components/modal/PointModal";
+import { getDate } from "../../utils/date"
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
@@ -19,11 +20,11 @@ export default function FormDocumentation() {
     setShowModal(prev => !prev);
   };
 
-  const getDate = (dateStr = '') => {
-    if (!dateStr) return ''
-    const arrDate = dateStr.split('T')
-    return arrDate[0]
-  }
+  // const getDate = (dateStr = '') => {
+  //   if (!dateStr) return ''
+  //   const arrDate = dateStr.split('T')
+  //   return arrDate[0]
+  // }
 
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
@@ -101,7 +102,7 @@ export default function FormDocumentation() {
     <div className="container-modal">
       <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
       <PointModal showModal={showModalPoint} setShowModal={setShowModalPoint}/>
-      <div className="form-tanam-pohon row">
+      <div className="form-tanam-pohon">
         <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
           <p>Terima kasih karena kamu sudah mempunyai niat baik untuk menghijaukan bumi kita. Yuk baca terlebih dahulu detail informasi dibawah ini.</p>
