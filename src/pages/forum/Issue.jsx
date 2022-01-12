@@ -32,7 +32,6 @@ import { toast, ToastContainer } from "react-toastify";
 export default function Issue() {
   const { userLogin } = useContext(DataContext);
 
-  console.log(userLogin, "----DATA USER-");
   // --- Data Comment ---
   const [dataComments, setDataComments] = useState([]);
   const [formComment, setFormComment] = useState([]);
@@ -43,14 +42,6 @@ export default function Issue() {
       user_id: "",
       username: "",
       context: "",
-    },
-  });
-  const [likeComment, setlikeComment] = useState(false);
-  const [positionLikeID, setPositionLikeID] = useState({
-    likeID: "",
-    repLikeUUID: "",
-    depends_on: {
-      user_id: "",
     },
   });
   const [issueID, setIssueID] = useState(0);
@@ -94,8 +85,6 @@ export default function Issue() {
   };
 
   const handleLike = async (comment, repComment) => {
-    console.log(comment, "-----------");
-    console.log(repComment, "-----REPLY------");
     const payload = {
       rep_comments_uuid: "",
       likes: false,
@@ -108,24 +97,40 @@ export default function Issue() {
     }
     const commentID = comment?.comment_id;
     try {
-      await API().patch(`/comments/${commentID}`, payload);
+      await API().patch(`/comments/${commentID}`);
       await getCommentsByIssueId(issueID);
     } catch (error) {
       console.log(error);
     }
+  };
+  const handleDelete = async (comment) => {
+    const userLoginID = userLogin?.user_id;
+    const commentUserID = comment?.user_id;
+    const commentID = comment?.comment_id;
 
-    // setlikeComment(!likeComment);
+    if (userLoginID !== commentUserID) {
+      toast.error("Kamu tidak bisa menghapus komentar milik orang lain", {
+        theme: "colored",
+      });
+    } else {
+      try {
+        await API().delete(`/comments/${commentID}`);
+        await getCommentsByIssueId(issueID);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
-    // if (positionLikeID?.likeID) {
-    //   const payload = {
-    //     rep_comments_uuid: "",
-    //     likes: likeComment,
-    //     user_id: userLogin?.user_id,
-    //   };
-    //   const commentID = positionLikeID?.likeID;
-    //   console.log(payload, "====like comment");
-    //   console.log(commentID, "------ id like comment");
-    // }
+    setFormComment("");
+    setPositionComment({
+      commentID: "",
+      repCommentUUID: "",
+      depends_on: {
+        user_id: "",
+        username: "",
+        context: "",
+      },
+    });
   };
 
   const handleComment = async () => {
@@ -319,21 +324,13 @@ export default function Issue() {
                                   aria-labelledby="dropdownCom"
                                   id="dropMenu"
                                 >
-                                  <NavLink
+                                  <div
                                     className="dropdown-item"
                                     id="dropItem"
-                                    to="#"
-                                  >
-                                    Edit
-                                  </NavLink>
-                                  <div className="dropdown-divider"></div>
-                                  <NavLink
-                                    className="dropdown-item"
-                                    id="dropItem"
-                                    to="#"
+                                    onClick={() => handleDelete(comment)}
                                   >
                                     Hapus
-                                  </NavLink>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -369,14 +366,6 @@ export default function Issue() {
                             <span
                               className="fillUp"
                               onClick={() => {
-                                // setPositionLikeID({
-                                //   likeID: comment?.comment_id,
-                                //   repLikeUUID: "",
-                                //   depends_on: {
-                                //     user_id: comment?.User?.user_id,
-                                //   },
-                                // });
-
                                 handleLike(comment);
                               }}
                             >
@@ -431,41 +420,6 @@ export default function Issue() {
                                           )}{" "}
                                         </span>
                                       </div>
-
-                                      {/* Menu */}
-                                      <div className="menuCom">
-                                        <div className="dropdown">
-                                          <button
-                                            type="button"
-                                            id="dropdownCom"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false"
-                                          >
-                                            <HiDotsVertical id="iMenu" />
-                                          </button>
-                                          <div
-                                            className="dropdown-menu"
-                                            aria-labelledby="dropdownCom"
-                                            id="dropMenu"
-                                          >
-                                            <NavLink
-                                              className="dropdown-item"
-                                              id="dropItem"
-                                              to="#"
-                                            >
-                                              Edit
-                                            </NavLink>
-                                            <div className="dropdown-divider"></div>
-                                            <NavLink
-                                              className="dropdown-item"
-                                              id="dropItem"
-                                              to="#"
-                                            >
-                                              Hapus
-                                            </NavLink>
-                                          </div>
-                                        </div>
-                                      </div>
                                     </div>
 
                                     {/* Context Comment */}
@@ -518,7 +472,7 @@ export default function Issue() {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-center" />
+      <ToastContainer />
       <Footer />
     </>
   );
