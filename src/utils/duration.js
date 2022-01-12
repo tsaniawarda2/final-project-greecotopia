@@ -20,9 +20,7 @@ module.exports = (date) => {
     const diffTime = Math.floor(delta / timestamp[key]);
     if (!result && diffTime) {
       result = `${diffTime} ${
-        key !== "bulan" && key !== "menit"
-          ? key.substring(0, 5)
-          : key.substring(0, 3)
+        key.length <= 3 ? key.substring(0, 3) : key
       } yang lalu`;
     }
     diffTimestamp[key] = diffTime;

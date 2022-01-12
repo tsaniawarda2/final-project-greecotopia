@@ -2,14 +2,25 @@ import React, { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { API } from "../config/api";
 
-const ForumContext = createContext();
+const DataContext = createContext();
 
-const DataForum = ({ children }) => {
+const DataProvider = ({ children }) => {
   const [forums, setForums] = useState([]);
   const [forum, setForum] = useState([]);
   const [issues, setIssues] = useState([]);
   const [issue, setIssue] = useState([]);
   const { pathname } = useLocation();
+
+  const [userLogin, setUserLogin] = useState([]);
+
+  useEffect(() => {
+    getUserLogin();
+  }, []);
+
+  const getUserLogin = async () => {
+    const { data } = await API().get("/profile");
+    setUserLogin(data.dataUser);
+  };
 
   useEffect(async () => {
     const arrPath = pathname?.split("/");
@@ -24,8 +35,6 @@ const DataForum = ({ children }) => {
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
-    // console.log(pathname, "-----------history berubah");
-    // console.log(newId, "-----NEWID-");
 
     await getForumById(newId);
     await getIssueById(newId);
@@ -56,16 +65,15 @@ const DataForum = ({ children }) => {
     if (id) {
       const { data: dataIssueId } = await API().get(`/issues/${id}`);
       setIssue(dataIssueId.DataIssue);
-      // console.log(dataIssueId.DataIssue, "---------FROUM DATA---");
     }
   };
   return (
     <>
-      <ForumContext.Provider value={{ forums, forum, issues, issue }}>
+      <DataContext.Provider value={{ userLogin, forums, forum, issues, issue }}>
         {children}
-      </ForumContext.Provider>
+      </DataContext.Provider>
     </>
   );
 };
 
-export { DataForum, ForumContext };
+export { DataProvider, DataContext };

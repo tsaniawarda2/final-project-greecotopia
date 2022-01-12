@@ -9,17 +9,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import "../src/index.css";
-import { LoginProvider } from "./context/DataLogin";
-import { DataForum } from "./context/DataForum";
+import { DataProvider } from "./context/DataContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <DataForum>
-        {/* <LoginProvider> */}
+      <DataProvider>
         <App />
-        {/* </LoginProvider> */}
-      </DataForum>
+      </DataProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

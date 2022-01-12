@@ -1,5 +1,6 @@
+// Import Module React
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Avatar from "react-avatar";
 
 // Icon
@@ -15,38 +16,23 @@ import {
 } from "react-icons/ai";
 import { RiCloseFill } from "react-icons/ri";
 
-import calculateDuration from "../../utils/duration";
-import "../../assets/styles/issue.css";
+// Import Module Local
 import { API } from "../../config/api";
-import { useLocation } from "react-router-dom";
+import { DataContext } from "../../context/DataContext";
 
-const dataLogin = {
-  user_id: 1,
-  fullname: "Ananda Raisa",
-  email: "anarai@gmail.com",
-  username: "anarai123",
-  image_url:
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
-  background_url:
-    "https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGZsb3dlcnN8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
-  points: null,
-  role_id: 1,
-};
+import { getDate } from "../../utils/date";
+import calculateDuration from "../../utils/duration";
 
-const getDate = (dateStr = "") => {
-  if (!dateStr) return "";
-
-  // console.log(arrDate, "------------WAKTU");
-  // const date = new Date(
-  //   new Date(dateStr).getTime() - new Date(dateStr).getTimezoneOffset() * 60000
-  // );
-  const date = new Date(dateStr);
-  return `${date.getUTCDate()}/${
-    date.getUTCMonth() + 1
-  }/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`;
-};
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import "../../assets/styles/issue.css";
+import checkLogin from "../../utils/checkLogin";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Issue() {
+  const { userLogin } = useContext(DataContext);
+
+  console.log(userLogin, "----DATA USER-");
   // --- Data Comment ---
   const [dataComments, setDataComments] = useState([]);
   const [formComment, setFormComment] = useState([]);
@@ -101,7 +87,7 @@ export default function Issue() {
 
   // --- Check Like ----
   const checkLike = (arrLike = []) => {
-    if (arrLike?.find((data) => data?.user_id === dataLogin?.user_id)) {
+    if (arrLike?.find((data) => data?.user_id === userLogin?.user_id)) {
       return true;
     }
     return false;
@@ -114,7 +100,7 @@ export default function Issue() {
       const payload = {
         rep_comments_uuid: "",
         likes: likeComment,
-        user_id: dataLogin?.user_id,
+        user_id: userLogin?.user_id,
       };
       const commentID = positionLikeID?.likeID;
       console.log(payload, "====like comment");
@@ -124,29 +110,34 @@ export default function Issue() {
 
   const handleComment = async () => {
     if (formComment) {
-      if (positionComment?.commentID) {
-        const payload = {
-          context: formComment,
-          depends_on: {
-            uuid: positionComment?.repCommentUUID,
-            author: "",
-          },
-        };
-        const commentID = positionComment?.commentID;
-        // await API().post(`comments/${commentID}`, payload);
-        // await getCommentsByIssueId(issueID);
-        console.log(commentID, "----id Comment");
-        console.log(payload, "------COMMENT");
-      } else {
-        const payload = {
-          context: formComment,
-          user_id: dataLogin?.user_id,
-          issue_id: dataComments?.issue_id,
-        };
-        console.log(payload, "------COOMMENT");
+      if (localStorage.getItem("token")) {
+        if (positionComment?.commentID) {
+          const payload = {
+            context: formComment,
+            depends_on: {
+              uuid: positionComment?.repCommentUUID,
+              author: "",
+            },
+          };
+          const commentID = positionComment?.commentID;
+          await API().post(`comments/${commentID}`, payload);
+          await getCommentsByIssueId(issueID);
+          setFormComment("");
+        } else {
+          const payload = {
+            context: formComment,
+            user_id: userLogin?.user_id,
+            issue_id: dataComments?.issue_id,
+          };
 
-        // await API().post(`comments/issue/${issueID}`, payload);
-        // await getCommentsByIssueId(issueID);
+          await API().post(`comments/issue/${issueID}`, payload);
+          await getCommentsByIssueId(issueID);
+          setFormComment("");
+        }
+      } else {
+        toast.warning("Kamu harus login terlebih dahulu", {
+          theme: "colored",
+        });
       }
     }
   };
@@ -168,14 +159,26 @@ export default function Issue() {
       <>
         <div className="formCom" id="formCom1">
           {/* Avatar */}
-
-          <div id="avaCom">
-            {dataLogin?.image_url ? (
-              <Avatar src={dataLogin?.image_url} id="avaCom" />
-            ) : (
-              <Avatar name={dataLogin?.fullname} id="avaCom" />
-            )}
-          </div>
+          {checkLogin() ? (
+            <>
+              <div id="avaCom">
+                {userLogin?.image_url ? (
+                  <Avatar src={userLogin?.image_url} id="avaCom" />
+                ) : (
+                  <Avatar name={userLogin?.username} id="avaCom" />
+                )}
+              </div>
+            </>
+          ) : (
+            <>
+              <div id="avaCom">
+                <Avatar
+                  src="https://res.cloudinary.com/dxykuppjd/image/upload/v1641983525/Forums/avatar_n2tynt.png"
+                  id="avaCom"
+                />
+              </div>
+            </>
+          )}
 
           {/* Form */}
           <div className="formIC">
@@ -202,6 +205,7 @@ export default function Issue() {
           <div className="btnCC" onClick={() => handleCancelComment()}>
             <RiCloseFill id="btnCancel" />
           </div>
+
           <div className="btnSC" onClick={() => handleComment()}>
             <IoMdSend id="btnComment" />
           </div>
@@ -211,6 +215,7 @@ export default function Issue() {
   };
   return (
     <>
+      <Navbar />
       <div className="container mb-5">
         <div id="issue">
           {/* Content Issue*/}
@@ -222,9 +227,16 @@ export default function Issue() {
               <div className="col-md-8" id="descIssue">
                 <p className="catCI">{Forum?.title}</p>
                 <p className="titleCI">{dataComments?.title}</p>
-                <p className="authorCI">{dataComments?.author_name}</p>
-                <p className="dateCI">{getDate(dataComments?.createdAt)}</p>
-                <div className="decsCI">{dataComments?.description}</div>
+                <p className="infoCI">
+                  {dataComments?.author_name} -{" "}
+                  {getDate(dataComments?.updatedAt, true)}
+                </p>
+                <div
+                  className="decsCI"
+                  dangerouslySetInnerHTML={{
+                    __html: `${dataComments?.description}`,
+                  }}
+                ></div>
               </div>
             </div>
             <div id="buttonIssue">
@@ -236,7 +248,7 @@ export default function Issue() {
               <p className="firstCom text-uppercase">
                 Yuk Sampaikan Pendapatmu disini
               </p>
-              <p className="secondCom">{dataComments.length} Comments</p>
+              {/* <p className="secondCom">{Comments.length} Comments</p> */}
 
               {/* Form Comment */}
               {!positionComment.commentID && !positionComment.repCommentUUID
@@ -253,7 +265,7 @@ export default function Issue() {
                         {comment?.User?.image_url ? (
                           <Avatar src={comment?.User?.image_url} id="avaCom" />
                         ) : (
-                          <Avatar name={comment?.User?.fullname} id="avaCom" />
+                          <Avatar name={comment?.User?.username} id="avaCom" />
                         )}
                       </div>
 
@@ -376,7 +388,7 @@ export default function Issue() {
                                       />
                                     ) : (
                                       <Avatar
-                                        name={repComment?.author?.fullname}
+                                        name={repComment?.author?.username}
                                         id="avaCom"
                                       />
                                     )}
@@ -436,37 +448,8 @@ export default function Issue() {
                                       {repComment?.context}
                                     </p>
                                     <div className="cli">
-                                      <div
-                                        className="fillC"
-                                        onClick={() =>
-                                          setPositionComment({
-                                            commentID: comment?.comment_id,
-                                            repCommentUUID: "",
-                                            depends_on: {
-                                              user_id:
-                                                repComment?.author?.user_id,
-                                              username:
-                                                repComment?.author?.username,
-                                              context: repComment?.context,
-                                            },
-                                          })
-                                        }
-                                      >
-                                        {comment?.rep_comments?.length !==
-                                        undefined ? (
-                                          <CommentFilled className="iconCom" />
-                                        ) : (
-                                          <CommentOutLine className="iconCom" />
-                                        )}
-                                        <span className="countCom">
-                                          {comment?.rep_comments?.length !==
-                                          undefined
-                                            ? comment?.rep_comments?.length
-                                            : "0"}
-                                        </span>
-                                      </div>
                                       <span className="fillUp">
-                                        {/* {checkLike(repComment?.likes) ? (
+                                        {checkLike(repComment?.likes) ? (
                                           <Like
                                             value={likeComment}
                                             onClick={(e) =>
@@ -475,7 +458,7 @@ export default function Issue() {
                                           />
                                         ) : (
                                           <Dislike />
-                                        )} */}
+                                        )}
 
                                         <span className="countCom">
                                           {comment?.likes?.length !== undefined
@@ -509,6 +492,8 @@ export default function Issue() {
           </div>
         </div>
       </div>
+      <ToastContainer position="top-center" />
+      <Footer />
     </>
   );
 }

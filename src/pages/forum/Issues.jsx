@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
 
-import { ForumContext } from "../../context/DataForum";
+import { DataContext } from "../../context/DataContext";
 
 import "../../assets/styles/issue.css";
 import CardIssue from "../../components/card/CardIssue";
 import Banners from "../../components/Banners";
 import { useHistory } from "react-router-dom";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
 
 const bgColors = ["hutan", "energi", "plastik", "laut"];
 export default function Issues() {
-  const { forums } = useContext(ForumContext);
-  const { forum } = useContext(ForumContext);
+  const { forums } = useContext(DataContext);
+  const { forum } = useContext(DataContext);
   const history = useHistory();
 
   const dataForum = forum.Forums;
@@ -18,6 +20,7 @@ export default function Issues() {
 
   return (
     <>
+      <Navbar />
       {/* Header */}
       {/* <Banners item={dataForum} key={dataForum.forum_id} /> */}
 
@@ -55,6 +58,7 @@ export default function Issues() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

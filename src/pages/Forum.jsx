@@ -1,19 +1,24 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 import "../assets/styles/forum.css";
 import People from "../assets/image/people.png";
 import CardForum from "../components/card/CardForum";
-import { ForumContext } from "../context/DataForum";
-import { useHistory } from "react-router-dom";
+import { DataContext } from "../context/DataContext";
 
 const bgColors = ["hutan", "energi", "plastik", "laut"];
 export default function Forum() {
-  const { forums: data } = useContext(ForumContext);
+  const { forums: data } = useContext(DataContext);
+  console.log(data, "------DATA FORUMS");
   const history = useHistory();
 
   return (
     <>
+      <Navbar />
       <div className="container mb-5">
         {/* Header */}
         <div className="row" id="forum">
@@ -31,7 +36,7 @@ export default function Forum() {
           </div>
         </div>
 
-        {/* Hutan*/}
+        {/* Content */}
         {data?.map((dataForum, idxForum) => (
           <>
             <div className={`${bgColors[idxForum]} row`} id="content-forum">
@@ -43,7 +48,6 @@ export default function Forum() {
                 <div className="text-cat">
                   <div className="categories">{dataForum.title}</div>
                   <div className="sub">{dataForum.description}</div>
-                  {/* <NavLink to={`/forums/${dataForum?.forum_id}`}> */}
                   <div
                     className="seeMore"
                     onClick={() =>
@@ -54,7 +58,6 @@ export default function Forum() {
                   >
                     lihat selengkapnya
                   </div>
-                  {/* </NavLink> */}
                 </div>
               </div>
               {/* Issues */}
@@ -67,6 +70,7 @@ export default function Forum() {
           </>
         ))}
       </div>
+      <Footer />
     </>
   );
 }

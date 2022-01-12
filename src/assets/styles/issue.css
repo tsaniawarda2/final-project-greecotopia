@@ -104,12 +104,12 @@
 .yvmBan,
 .decsBan,
 .catCI,
-.dateCI,
-.decsCI,
+.infoCI,
+.decsCI p,
 .secondCom,
 .formIC,
 #dropItem,
-#avaCom .sb-avatar {
+#avaCom .sb-avatar span {
   font-family: "Poppins", sans-serif !important;
 }
 .titleCI,
@@ -119,6 +119,18 @@
 .formIC,
 #dropItem {
   color: #232825;
+}
+#descIssue p {
+  margin-bottom: 12px;
+}
+#descIssue #boldText {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+#link {
+  color: #10550f;
+  text-decoration: none;
+  font-weight: 600;
 }
 .catCI {
   border-left: 4px solid #10550f;
@@ -130,19 +142,21 @@
 .titleCI {
   font-weight: 700;
   font-family: "Rubik", sans-serif;
-  font-size: 32px;
+  font-size: 28px;
+  padding: 2px 0px 4px;
 }
-.dateCI {
-  color: #ff6239;
-  font-size: 16px;
+.infoCI {
+  color: #8f8f8f;
+  font-size: 15px;
 }
 .decsCI {
-  font-size: 14px;
-  text-align: justify;
+  padding-top: 4px;
+  text-align: left;
 }
 .decsCI p {
-  margin-bottom: 0px;
+  font-size: 14px;
 }
+
 /* Button */
 #buttonIssue {
   display: flex;
@@ -227,12 +241,16 @@
   margin-left: 8px;
   width: 58px !important;
 }
+#avaCom .sb-avatar__text,
 #avaCom .sb-avatar,
 #avaCom img {
   width: 58px !important;
   height: 58px !important;
   object-fit: cover !important;
   border-radius: 100% !important;
+}
+#avaCom .sb-avatar__text span {
+  font-size: 24px;
 }
 #inputCom,
 #inputCFilled {
@@ -382,7 +400,7 @@
   padding: 10px 16px;
   width: 127.6vh;
   margin-left: 16px !important;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 #formCom3 .cli {
   justify-content: start;
