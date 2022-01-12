@@ -9,7 +9,8 @@ import {
   Forum,
   TanamPohon,
   Login,
-  SignUp,
+  Register,
+  Password,
   Leaderboard,
 } from "./pages";
 import NotFound from "./pages/errors/NotFound";
@@ -17,18 +18,19 @@ import NotFound from "./pages/errors/NotFound";
 export default function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/signUp" component={SignUp} />
+        <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/password" component={Password} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/forums" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/leaderboard" component={Leaderboard} />
         <Route exact path="*" component={NotFound} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
