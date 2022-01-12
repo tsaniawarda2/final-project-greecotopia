@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.form-tanam-pohon{
+  margin: 110px 35px 50px !important;
+}
+
+.info-tp h1{
+  font-family: 'Rubik', sans-serif;
+  font-size: 36px;
+}
+
+.info-tp p, .info-tp td{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+.info-tp th{
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+}
+
+.titik-dua-tp{
+  padding: 1px 5px;
+}
+
+.syarat-ketentuan-tp{
+  margin-top: 20px;
+  font-weight: 600;
+  color: #10550F;
+}
+
+.syarat-ketentuan-tp .fa-info-circle{
+  padding-right: 5px;
+}
+
+.tp-info{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #232323;
+  padding-top: 35px;
+}
+
+.tp-info p{
+  margin: 0;
+}
+
+.tp-info-1, .tp-info-2, .tp-info-3{
+  padding: 12px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fefefe;
+  border-radius: 0 25px 25px 0;
+}
+
+.tp-info-1{
+  background-color: #16A414;
+}
+
+.tp-info-2{
+  background-color: #117C10;
+}
+
+.tp-info-3{
+  background-color: #10550F;
+}
+
+.form-tp{
+  padding-left: 40px!important;
+}
+
+.container-form-tp{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 50px;
+  border-radius: 15px;
+}
+
+.container-form-tp h1{
+  font-family: 'Rubik', sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
+
+.container-form-tp label{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.form-check{
+  margin-top: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+.form-check-input:checked {
+  background-color: #FF6239!important;
+  border-color: #FF6239!important;
+}
+
+.btn-daftar, .btn-submit-doc{
+  background-color: #FF6239;
+  color: #fefefe;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.btn-daftar:hover, .btn-submit-doc:hover{
+	background-color: #FFB039;
+}
+
+.form-unggah-foto input{
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.form-kesan-pesan{
+  margin-bottom: 16px;
+}
+
+/* SK Modal */
+.container-modal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.background-modal{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper{
+  width: 1000px;
+  height: 500px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fefefe;
+  color: #232323;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.modal-img-container{
+  width: 100%;
+  height: 100%;
+  background: #10550F;
+  border-radius: 0.3em 0 0 0.3em;
+}
+
+.modal-img{
+  width: 95%;
+  height: 80%;
+  padding: 20px;
+  padding-right: 0px;
+  margin-top: 50px;  
+}
+
+.modal-wrapper .modal-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.8;
+  color: #141414;
+  text-align: justify;
+  border: none;
+  padding: 50px;
+  padding-left: 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.modal-content h1{
+ font-family: "Rubik", sans-serif;
+ font-size: 28px;
+ margin-left: 16px;
+ margin-bottom: 20px;
+}
+
+.modal-close-btn{
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
+}
+
+/* Point Modal */
+.modal-wrapper-point{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fefefe;
+  color: #232323;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.point-badge{
+  margin-top: -100px;
+}
+
+.point-badge img{
+  width: 170px;
+  height: 150px;
+}
+
+.modal-content-point{
+  text-align: center;
+}
+
+.modal-ok-btn button{
+  background-color: #FF6239;
+  border: none;
+  color: #fefefe;
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  padding: 10px 40px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.modal-message{
+  margin: 20px 30px;
+}
+
+.modal-message h1{
+  font-family: "Rubik", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.modal-message p{
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Success Modal */
+.sucess-icons{
+  margin: -100px auto 0px;
+}
+
+.sucess-icons img{
+  height: 120px;
+  width: 120px;
+}
+
+
+/* Success Modal */
+.modal-wrapper-success{
+  width: 650px;
+  height: 100%;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+  background: #fefefe;
+  color: #232323;
+  position: relative;
+  z-index: 10;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.sucess-icons{
+  margin-top: -90px;
+  margin-bottom: 25px;
+}
+
+.success-message-h1{
+  font-size: 32px!important;
+}
+
+.success-message{
+  font-size: 16px!important;
+}

@@ -7,6 +7,11 @@ import {
   Account,
   Forum,
   TanamPohon,
+  AllTanamPohon,
+  FormTanamPohon,
+  FormDocumentation,
+  Documentations,
+  Documentation,
   Login,
   Register,
   Password,
@@ -33,6 +38,13 @@ export default function App() {
         <Route exact path="/account" component={Account} />
         <Route exact path="/forums" component={Forum} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
+        <Route exact path="/allTanamPohon" component={AllTanamPohon} />
+        <Route exact path="/formTanamPohon" component={FormTanamPohon} />
+        <Route exact path="/formTanamPohon/:id" component={FormTanamPohon} />
+        <Route exact path="/formDocumentation" component={FormDocumentation} />
+        <Route exact path="/formDocumentation/:id" component={FormDocumentation} />
+        <Route exact path="/documentations" component={Documentations} />
+        <Route exact path="/documentations/:id" component={Documentation} />
         <Route exact path="/leaderboard" component={Leaderboard} />
         <Route exact path="*" component={NotFound} />
       </Switch>

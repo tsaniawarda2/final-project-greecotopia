@@ -6,4 +6,9 @@ export { default as Password } from "./Password";
 export { default as Account } from "./Account";
 export { default as Forum } from "./Forum";
 export { default as TanamPohon } from "./TanamPohon";
+export { default as AllTanamPohon } from "./tanamPohon/AllTanamPohon"
+export { default as FormTanamPohon } from "./tanamPohon/FormTanamPohon";
+export { default as FormDocumentation } from "./tanamPohon/FormDocumentation";
+export { default as Documentations } from "./tanamPohon/Documentations";
+export { default as Documentation } from "./tanamPohon/Documentation";
 export { default as Leaderboard } from "./Leaderboard";

@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 import "../src/index.css";
+import { DataProvider } from "./context/DataContext"
 
 import { DataProvider } from "./context/DataContext";
 
