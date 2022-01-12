@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 export default function AlbumDocumentations({ data }) {
   const history = useHistory();
-  console.log(data, "data");
+  // console.log(data, "data");
 
   return (
     <>

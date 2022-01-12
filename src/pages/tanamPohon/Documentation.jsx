@@ -7,36 +7,26 @@ import { useParams } from "react-router-dom";
 
 export default function Documentation() {
   const params = useParams();
-  console.log("masuk");
+  // console.log(params);
+  
   // const { documentation } = useContext(DataContext);
   // console.log(documentation, "doc");
-  const [ documentation, setDocumentation ] = useState([]);
-  
-  // const location = useLocation();
-  // const arrPath = location?.pathname?.split("/")
-    // const id = Number(arrPath[arrPath.length-1])
-    // const id = dataId;
+  const [ documentation, setDocumentation ] = useState({});
 
-  const id = req.params.id;
-    console.log(id, "id");
-
-  useEffect(() => {
-    getDocById();
+  useEffect(async () => {
+    console.log("masuk");
+    await getDocumentationById();
   }, []);
   
-  const getDocById = async() => {
-  //   const arrPath = location?.pathname?.split("/")
-  //   const id = Number(arrPath[arrPath.length-1])
-  //   // const id = dataId;
-  //   console.log(id, "id");
-    const { data : dataDocumentationId } = await API().get(`/documentations/tanam_pohon/${id}`);
-    console.log(dataDocumentationId, "api");
-    setDocumentation(dataDocumentationId.data);
+  const getDocumentationById = async () => {
+    const id = params.id
+    console.log(id, "id get");
+    const { data } = await API().get(`/documentations/tanam_pohon/${id}`);
+    console.log(data?.data, "docs");
+    setDocumentation(data?.data);
   } 
 
-  // console.log(dataDoc, "this");
-
-  console.log(documentation, "doc state");
+  // getDocumentationById();
 
   const getDate = (dateStr = '') => {
     if (!dateStr) return ''
@@ -52,21 +42,23 @@ export default function Documentation() {
 
   return (
     <>
-    {console.log(documentation, "return")}
     <div className="container-modal">
       <PictureModal showModal={showModal} setShowModal={setShowModal}/>  
       <div className="container-doc" type="button" onClick={openModal}>
-      <h1 className="mt-4">{documentation.title}</h1>
+      {/* <h1 className="mt-4">{documentation.title}</h1> */}
         <div className="all-doc">
-          { documentation.Documentations.map((data) => (
-            console.log(data, "data")
-            // <div className="doc">
-            //   <div className="doc-img">
-            //     <img src={data.image_url} alt="" />
-            //   </div>
-            //   <p>{getDate(data?.createdAt)} oleh {data.Participant.name}</p>
-            //   <h3>{data?.caption}</h3>
-            // </div>
+          {/* {
+            JSON.stringify(documentation)
+          } */}
+          { documentation?.Documentations?.map((data) => (
+            // console.log(data, "data")
+            <div className="doc">
+              <div className="doc-img">
+                <img src={data.image_url} alt="" />
+              </div>
+              <p>{getDate(data?.createdAt)} oleh {data.Participant.name}</p>
+              <h3>{data?.caption}</h3>
+            </div>
             ))
           }
         </div>
