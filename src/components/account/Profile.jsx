@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../../assets/styles/account.css"
 import { GiTwoCoins } from "react-icons/gi"
 import { FaTree } from "react-icons/fa"
@@ -7,17 +7,22 @@ import { useHistory } from "react-router-dom";
 import { DataLogin } from "../../context/dataLogin";
 
 export default function Profile() {
-  const { userLogin } = useContext(DataLogin);
+  const { userLogin, users } = useContext(DataLogin);
   const history = useHistory();
+  console.log(userLogin, "users");
+
+  const findUser = users.find(user => user.user_id === userLogin.user_id);
+  console.log(findUser);
+
   return (
     <>          
       <div className="profile-container">
         <div className="header-profile">
-          <img src="https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" alt="" />
+          <img src={userLogin.background_url} alt="" />
         </div>
         <div className="row id-profile">
           <div className="profile-picture">
-            <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
+            <img src={userLogin.image_url} alt="" />
           </div>
           <div className="col-2"></div>
           <div className="name-usn col-6">
@@ -25,7 +30,9 @@ export default function Profile() {
             <p>@{userLogin.username}</p>
           </div>
           <div className="btn-edit-profile col-3">
-            <button onClick={() => history.push("/editProfile")}>Edit Profile</button>
+            <button onClick={() => {
+              history.push("/editProfile")
+          }}>Edit Profile</button>
           </div>
         </div>
         <div className="card-profile row">
@@ -41,7 +48,7 @@ export default function Profile() {
               <FaTree className="icon-tree-profile"/>
             </div>
             <p>Banyak pohon yang kamu tanam:</p>
-            <p className="total">35</p>
+            <p className="total">{userLogin.total_trees}</p>
           </div>
           <div className="user-total-fav-issues content-card-profile col-4">
             <div className="circle-profile">
@@ -56,7 +63,7 @@ export default function Profile() {
             <p>Peringkat kamu saat ini:</p>
           </div>
           <div className="col-3">
-            <p>10 dari 10.000 </p>
+            <p>{findUser.user_id} dari {users.length} </p>
           </div>
           <div className="col-4">
             <button>Lihat Papan Peringkat</button>

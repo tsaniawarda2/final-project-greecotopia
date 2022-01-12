@@ -5,9 +5,11 @@ const DataLogin = createContext();
 
 const LoginProvider = ({ children }) => {
   const [ userLogin, setUserLogin ] = useState([]);
+  const [ users, setUsers ] = useState([]);
 
   useEffect(() => {
     getUserLogin();
+    getUsers();
   }, []);
 
   const getUserLogin = async () => {
@@ -15,8 +17,13 @@ const LoginProvider = ({ children }) => {
     setUserLogin(data.dataUser);
   } 
 
+  const getUsers = async () => {
+    const { data : dataUser} = await API().get("/users");
+    setUsers(dataUser.users);
+  }
+
   return (
-    <DataLogin.Provider value={{ userLogin }}>
+    <DataLogin.Provider value={{ userLogin, users }}>
       {children}
     </DataLogin.Provider>
   )
