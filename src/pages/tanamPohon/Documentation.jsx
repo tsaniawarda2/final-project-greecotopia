@@ -3,25 +3,36 @@ import { DataContext } from "../../context/DataTanamPohon";
 import PictureModal from "../../components/modal/PictureModal";
 import { useLocation } from "react-router-dom";
 import { API } from "../../config/api";
+import { useParams } from "react-router-dom";
 
 export default function Documentation() {
+  const params = useParams();
+  console.log("masuk");
   // const { documentation } = useContext(DataContext);
   // console.log(documentation, "doc");
   const [ documentation, setDocumentation ] = useState([]);
   
-  const location = useLocation();
-  const arrPath = location?.pathname?.split("/")
-  const id = Number(arrPath[arrPath.length-1])
+  // const location = useLocation();
+  // const arrPath = location?.pathname?.split("/")
+    // const id = Number(arrPath[arrPath.length-1])
+    // const id = dataId;
 
-  const getDocById = async(id) => {
+  const id = req.params.id;
+    console.log(id, "id");
+
+  useEffect(() => {
+    getDocById();
+  }, []);
+  
+  const getDocById = async() => {
+  //   const arrPath = location?.pathname?.split("/")
+  //   const id = Number(arrPath[arrPath.length-1])
+  //   // const id = dataId;
+  //   console.log(id, "id");
     const { data : dataDocumentationId } = await API().get(`/documentations/tanam_pohon/${id}`);
     console.log(dataDocumentationId, "api");
     setDocumentation(dataDocumentationId.data);
   } 
-
-  // useEffect(() => {
-    getDocById(id);
-  // }, []);
 
   // console.log(dataDoc, "this");
 
