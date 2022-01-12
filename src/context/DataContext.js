@@ -1,6 +1,6 @@
-import React, { createContext, useState, useEffect } from "react";
-import { API } from "../config/api";
+import React, { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { API } from "../config/api";
 
 const DataContext = createContext();
 
@@ -9,6 +9,11 @@ const DataProvider = ({ children }) => {
   const [tanamPohon, setTanamPohon] = useState([]);
   const [dataDoc, setDataDoc] = useState([]);
   const [documentation, setDocumentation] = useState([]);
+  const [forums, setForums] = useState([]);
+  const [forum, setForum] = useState([]);
+  const [issues, setIssues] = useState([]);
+  const [issue, setIssue] = useState([]);
+  const [favIssues, setFavIssues] = useState([]);
   const { pathname } = useLocation();
 
   const [userLogin, setUserLogin] = useState([]);
@@ -30,6 +35,11 @@ const DataProvider = ({ children }) => {
     await getDocumentations();
     await getTanamPohonById(newId);
     await getDocumentationsById(newId);
+    await getForums();
+    await getIssues();
+    await getFavIssues();
+    await getForumById(newId);
+    await getIssueById(newId);
   }, []);
 
   useEffect(async () => {
@@ -39,6 +49,9 @@ const DataProvider = ({ children }) => {
 
     await getTanamPohonById(newId);
     await getDocumentationsById(newId);
+    await getForumById(newId);
+    await getIssueById(newId);
+
   }, [pathname]);
 
   const getTanamPohon = async () => {
@@ -68,12 +81,47 @@ const DataProvider = ({ children }) => {
     }
   };
 
+  // Get All Data Favorite Issue
+  const getFavIssues = async () => {
+    const { data: dataFavIssues } = await API().get("/favoriteissues");
+    setFavIssues(dataFavIssues);
+  };
+
+  // Get All Data Forum
+  const getForums = async () => {
+    const { data: dataForums } = await API().get("/forums");
+    setForums(dataForums.Forums);
+  };
+
+  // Get Data Forum by Id
+  const getForumById = async (id) => {
+    if (id) {
+      const { data: dataForumId } = await API().get(`/forums/${id}`);
+      setForum(dataForumId.Forums);
+    }
+  };
+
+  // Get All Data Issue
+  const getIssues = async () => {
+    const { data: dataIssues } = await API().get("/issues");
+    setIssues(dataIssues.Issues);
+  };
+
+  // Get Data Issue by Id
+  const getIssueById = async (id) => {
+    if (id) {
+      const { data: dataIssueId } = await API().get(`/issues/${id}`);
+      setIssue(dataIssueId.DataIssue);
+    }
+  };
   return (
-    <DataContext.Provider
-      value={{ userLogin, dataTP, tanamPohon, dataDoc, documentation }}
-    >
-      {children}
-    </DataContext.Provider>
+    <>
+      <DataContext.Provider
+        value={{ userLogin, forums, forum, issues, issue, favIssues, dataTP, tanamPohon, dataDoc, documentation }}
+      >
+        {children}
+      </DataContext.Provider>
+    </>
   );
 };
 

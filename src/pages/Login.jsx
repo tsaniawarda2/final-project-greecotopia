@@ -7,42 +7,42 @@ import { API } from "../config/api";
 import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const [ form, setForm ] = useState({
-    username: '',
-    password: ''
-  })
-  const history = useHistory()
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+  const history = useHistory();
 
   const onLogin = async () => {
     try {
       if (!form.username) {
-        toast('Please input username !', {
-          type: 'error'
-        })
-      } 
+        toast("Please input username !", {
+          type: "error",
+        });
+      }
       if (!form.password) {
-        toast('Please input password !', {
-          type: 'error'
-        })
+        toast("Please input password !", {
+          type: "error",
+        });
       }
       if (form.username && form.password) {
-        const { data } = await API().post('/auth/login', form)
+        const { data } = await API().post("/auth/login", form);
         if (data?.token) {
-          localStorage.setItem('token', data?.token)
-          history.push('/')
+          localStorage.setItem("token", data?.token);
+          history.push("/");
         }
       }
     } catch (error) {
-      console.log(error.response)
-      toast(error?.response?.data?.error|| 'Internal Server Error', {
-        type: 'error'
-      })
+      console.log(error.response);
+      toast(error?.response?.data?.error || "Internal Server Error", {
+        type: "error",
+      });
     }
-  }
+  };
 
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <div className="body" id="body-form">
         <div className="container d-flex justify-content-center">
           <div id="form">
@@ -59,7 +59,15 @@ export default function Login() {
                 <label for="username" className="form-label input">
                   Username
                 </label>
-                <input type="text" className="form-control" id="formLogin" value={form?.username}  onChange={e => setForm({ ...form, username: e.target?.value })}/>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="formLogin"
+                  value={form?.username}
+                  onChange={(e) =>
+                    setForm({ ...form, username: e.target?.value })
+                  }
+                />
               </div>
               <div className="mb-2">
                 <label for="password" className="form-label input">
@@ -69,8 +77,10 @@ export default function Login() {
                   type="password"
                   className="form-control"
                   id="formLogin"
-                  value={form?.password} 
-                  onChange={e => setForm({ ...form, password: e.target?.value })}
+                  value={form?.password}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target?.value })
+                  }
                 />
               </div>
 

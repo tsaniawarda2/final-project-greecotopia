@@ -1,0 +1,73 @@
+[
+  {
+    "message": "Success Get All Comments",
+    "comments": [
+      {
+        "comment_id": 1,
+        "context": "Issue ini sangat menarik",
+        "likes": [{ "user_id": 1 }, { "user_id": 2 }],
+        "rep_comments": null,
+        "user_id": 1,
+        "issue_id": 1,
+        "createdAt": "2022-01-09T19:17:43.000Z",
+        "updatedAt": "2022-01-09T19:17:43.000Z",
+        "User": {
+          "user_id": 1,
+          "fullname": "Ananda Raisa",
+          "username": "anarai123",
+          "image_url": "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60"
+        }
+      },
+      {
+        "comment_id": 2,
+        "context": "Hal seperti ini harus didukung agar bumi kita menjadi lebih baik",
+        "likes": [{ "user_id": 1 }],
+        "rep_comments": null,
+        "user_id": 2,
+        "issue_id": 2,
+        "createdAt": "2022-01-09T19:17:43.000Z",
+        "updatedAt": "2022-01-09T19:17:43.000Z",
+        "User": {
+          "user_id": 2,
+          "fullname": "Jonathan Leo",
+          "username": "jojO4567",
+          "image_url": "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJveXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60"
+        }
+      },
+      {
+        "comment_id": 3,
+        "context": "Apa yang bisa kita lakukan untuk beraksi supaya issue ini tidak semakin parah?",
+        "likes": null,
+        "rep_comments": [
+          {
+            "uuid": "7cfdcf7f-99d9-493a-acab-396b2e353408",
+            "context": "Menurutku itu tidak seperti itu",
+            "author": {
+              "user_id": 7,
+              "fullname": "Tsania Warda",
+              "username": "tsania",
+              "image_url": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+            },
+            "depends_on": {
+              "author": 1,
+              "uuid": ""
+            },
+            "createdAt": "2022-01-05T20:13:55.000Z",
+            "updatedAt": "2022-01-05T20:16:09.000Z",
+            "likes": []
+          }
+        ],
+        "user_id": 1,
+        "issue_id": 3,
+        "createdAt": "2022-01-09T19:17:43.000Z",
+        "updatedAt": "2022-01-09T19:17:43.000Z",
+        "User": {
+          "user_id": 1,
+          "fullname": "Ananda Raisa",
+          "username": "anarai123",
+          "image_url": "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGdpcmx8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60"
+        }
+      }
+    ]
+  }
+]
