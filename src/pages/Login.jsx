@@ -33,8 +33,8 @@ export default function Login() {
         }
       }
     } catch (error) {
-      console.log(error)
-      toast(error?.response?.data?.message || 'Internal Server Error', {
+      console.log(error.response)
+      toast(error?.response?.data?.error|| 'Internal Server Error', {
         type: 'error'
       })
     }
@@ -87,7 +87,7 @@ export default function Login() {
               <div className="text-center opsi">
                 <p id="alt1">
                   Belum punya akun?
-                  <NavLink to="/signUp" className="log">
+                  <NavLink to="/register" className="log">
                     Daftar disini
                   </NavLink>
                 </p>

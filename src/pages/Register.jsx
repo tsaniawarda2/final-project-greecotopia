@@ -43,10 +43,19 @@ export default function Login() {
         history.push('/login')
       }
     } catch (error) {
-      console.log(error)
-      toast(error?.response?.data?.message || 'Internal Server Error', {
-        type: 'error'
-      })
+      console.log(error?.response?.data)
+      if(error?.response?.data?.error){
+        toast(error?.response?.data?.error, {
+          type: 'error'
+        })
+      } else if(error?.response?.data?.errors){
+        const errors = error?.response?.data?.errors
+        errors.forEach((err) => {
+          toast(err, {
+            type: 'error'
+          })
+        })
+      }
     }
   }
 
@@ -100,7 +109,7 @@ export default function Login() {
                     onChange={e => setForm({ ...form, password: e.target?.value })}
                   />
                 </div>
-                <div className="password2">
+                {/* <div className="password2">
                   <label for="confPassword" className="form-label input">
                     Confirm Password
                   </label>
@@ -109,7 +118,7 @@ export default function Login() {
                     className="form-control"
                     id="formRegister"
                   />
-                </div>
+                </div> */}
               </div>
 
               {/* Button */}
