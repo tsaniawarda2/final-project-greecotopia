@@ -11,25 +11,22 @@
 #contentW {
   align-items: center;
   justify-content: space-between;
-  padding: 0px 88px;
+  padding: 0px 100px;
 }
 #left {
-  width: 52%;
-  padding-left: 42px;
+  width: 54%;
 }
 #right {
-  width: 36%;
+  width: 46%;
   text-align: end;
-  padding-right: 93px;
 }
-/* Left */
 #welcome p {
   margin-bottom: 0px;
   font-family: "Poppins", sans-serif;
 }
 .hi {
   color: #10550f;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
 }
 .greecotopia {
@@ -38,41 +35,71 @@
   font-weight: 800;
   margin-top: -4px;
 }
+
 .decsWelcome {
   color: #505050;
-  font-size: 26px;
-  margin-bottom: 28px !important;
+  font-size: 28px;
 }
-/* Right */
+
+/* Button Welcome */
+#btnWelcome {
+  margin-top: 32px;
+  text-transform: capitalize;
+  font-family: "Rubik", sans-serif;
+  color: #fcfcfc;
+  background-color: #10550f;
+  border-color: #10550f;
+  font-size: 20px;
+  text-align: left;
+  letter-spacing: 3px;
+  font-weight: 600;
+  padding: 8px 18px 8px 20px;
+  width: 58%;
+  border-radius: 24px 24px 100px 24px;
+  box-shadow: 2px 4px 3px 0px rgb(154 154 154);
+}
+
+/* Image forest */
 #imgForest {
-  width: 68vh;
+  width: 74%;
+  margin-right: 54px;
   transition: transform 0.4s;
 }
 #imgForest:hover {
   transform: scale(1.1);
 }
-/* Button */
-#welcome #btn-home {
-  border-radius: 28px 28px 114px 28px;
-  padding: 10px 56px 10px 20px;
-  width: 56%;
-  font-size: 18px;
-}
 
-#contentHW {
+/* Text */
+.contentHome {
   font-family: "Poppins", sans-serif;
   color: #232825;
 }
 
-/* === JUMBOTRON ===*/
-#welcomeH {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Button */
+#btn-home {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #10550f;
+  border-color: #10550f;
+  border-radius: 12px;
+  padding: 8px 0px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  width: 42%;
 }
-#contentWH {
-  width: 54%;
+#btn-home:hover,
+#btnWelcome:hover {
+  background-color: #117c10;
+  border-color: #117c10;
 }
+#btn-home:focus,
+#btnWelcome:focus {
+  box-shadow: none;
+}
+
+/* === Jumbotron ===*/
 .header {
   padding: 114px 0 64px;
   background-color: #ebf1fa;
@@ -80,31 +107,27 @@
 .header .contentHome {
   padding-right: 15px;
 }
-.header #headlineWH {
+.header #headline {
   font-size: 60px;
   margin-bottom: 5px;
   font-weight: 500;
 }
-#headlineWH span {
+#headline span {
   font-weight: 800;
 }
-.header #titleWH {
+.header #title {
   font-size: 24px;
   margin-bottom: 2px;
   letter-spacing: 4px;
   font-weight: 700;
 }
-#decsWH {
+#decsWHome {
   margin-top: 24px;
-  font-size: 18px;
 }
 /* Polaroid */
-.polaroid-left {
-  display: none;
-}
 #polaroid {
-  margin-right: 46px;
   margin-top: 14px;
+  margin-left: 50px;
   border: 1px solid white;
   border-radius: 5px;
   background-color: white;
@@ -129,33 +152,6 @@
   letter-spacing: 5px;
   font-weight: bold;
 }
-
-/* Button */
-
-#btn-home {
-  font-family: "Rubik", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  background-color: #10550f;
-  border-color: #10550f;
-  border-radius: 12px;
-  padding: 8px 0px;
-  letter-spacing: 2px;
-  color: #fcfcfc;
-  width: 42%;
-}
-#btn-home:hover,
-#btnWelcome:hover {
-  background-color: #117c10;
-  border-color: #117c10;
-}
-#btn-home:focus,
-#btnWelcome:focus {
-  box-shadow: none;
-}
-
-/* --- Text Content --- */
 #firstHome {
   font-size: 20px;
   margin-bottom: -12px;
@@ -164,28 +160,24 @@
 }
 #secondHome {
   font-size: 42px;
-  margin-bottom: 14px;
+  margin-bottom: 6px;
   font-weight: 700;
 }
 #thirdHome {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 4px;
 }
 
-/* === FORUM === */
+/* === Forum === */
 #forum-home {
   padding: 94px 0px 48px;
 }
-#forum-home .content-home {
-  width: 88% !important;
+#forum-home .contentHome {
+  width: 92% !important;
   padding: 70px 0px;
 }
 #forum-home #btn-home {
   width: 52%;
-}
-
-.carousel-left {
-  display: none;
 }
 #carousel .carousel-inner {
   border-radius: 24px;
@@ -235,20 +227,19 @@
   font-size: 16px;
   font-weight: 300;
 }
-
-/* === TANAM POHON === */
-#tanamPohon {
+/* === Tanam Pohon === */
+#home #tanamPohon {
   background-image: url(../image/bg-tanam-pohon.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
   padding: 94px 0px 258px;
 }
-#tanamPohon .content-home {
-  width: 52%;
+#home #tanamPohon .contentHome {
+  width: 52% !important;
 }
 
-/* === LEADERBOARD === */
+/* === Leaderboard === */
 #board-home {
   margin-top: 64px;
   background-image: url(../image/bg-board-home.png);
@@ -257,8 +248,8 @@
   background-position-x: center;
   padding-top: 32px;
 }
-#board-home .content-home {
-  width: 52%;
+#board-home .contentHome {
+  width: 52% !important;
 }
 #board-home .board {
   padding-top: 10px;
@@ -268,92 +259,18 @@
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
-  #welcome {
-    display: block;
-  }
-  #contentW {
-    display: block;
-    padding: 0px 54px;
+  #forum-home .col-md-12 {
     text-align: center;
   }
-  #left,
-  #right {
-    width: 100%;
+  #forum-home .contentHome {
+    width: 100% !important;
   }
-  #left {
-    padding: 0px;
-  }
-  .greecotopia {
-    font-size: 64px;
-    padding-bottom: 6px;
-  }
-  .decsWelcome {
-    font-size: 20px;
-  }
-  #welcome #btn-home {
-    width: 64%;
-  }
-  #right {
-    margin-top: 100px;
-    padding-right: 0px;
-    text-align: center;
-  }
-  #imgForest {
-    width: 62vh;
-  }
-  /* --- Jumbotron --- */
-  #welcomeH {
-    justify-content: center;
-    margin: 0px;
-  }
-  #contentWH {
-    margin-top: 58px;
-    text-align: center;
-    width: 100%;
-  }
-  .polaroid-right {
-    display: none;
-  }
-  .polaroid-left {
-    display: block;
-  }
-  #polaroid {
-    width: 82%;
-    height: 58vh;
+  #firstHome {
     margin-left: 0px;
   }
-  .header #headlineWH {
-    font-size: 52px;
-    margin-bottom: 16px;
-  }
-
-  #btn-home {
-    width: 96%;
-  }
-  .content-home {
-    text-align: center;
-  }
-  /* --- Forum --- */
-  .carousel-right {
-    display: none;
-  }
-  .carousel-left {
-    display: block;
-  }
-  #forum-home .content-home {
-    width: 100% !important;
-    padding: 48px 0px;
-  }
-  /* --- Tanam Pohon & Leaderboard --- */
-  #tanamPohon .content-home,
-  #board-home .content-home {
-    width: 90%;
-  }
-  .board #profileUser1 .sb-avatar,
-  #profileUser1 .sb-avatar__text,
-  #profileUser1 img {
-    width: 142px !important;
-    height: 142px !important;
+  #tanamPohon .contentHome,
+  #board-home .contentHome {
+    width: 80% !important;
   }
 }
 @media only screen and (max-width: 380px) {

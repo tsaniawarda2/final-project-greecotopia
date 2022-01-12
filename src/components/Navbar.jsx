@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import Logo from "../assets/image/logo.png";
 import Profile from "../assets/image/profile.png";
 import Point from "../assets/image/point.png";
 import "../assets/styles/navbar.css";
+import checkLogin from "../utils/checkLogin";
 
 export default function Navbar() {
   return (
@@ -56,37 +57,48 @@ export default function Navbar() {
               </li>
             </ul>
             {/* RIGHT */}
+
             <ul className="navbar-nav mb-md-5 mb-lg-0 navRight">
-              {/* Form */}
-              <li className="nav-item me-md-4">
-                <NavLink
-                  className="nav-link text-uppercase signup"
-                  to="/register"
-                >
-                  Daftar
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link text-uppercase login" to="/login">
-                  Masuk
-                </NavLink>
-              </li>
-              {/* Account */}
-              {/* <li className="nav-item">
-                <NavLink
-                  className="nav-link text-uppercase account"
-                  to="/account"
-                >
-                  <div className="profile1">
-                    <img id="avatar" src={Profile} alt="profile" />
-                  </div>
-                  <div className="profile2">
-                    <p className="username-user">Siti Mae</p>
-                    <img id="point" src={Point} alt="point" />
-                    1000 poin
-                  </div>
-                </NavLink>
-              </li> */}
+              {checkLogin() ? (
+                <>
+                  {/* Account */}
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link text-uppercase account"
+                      to="/account"
+                    >
+                      <div className="profile1">
+                        <img id="avatar" src={Profile} alt="profile" />
+                      </div>
+                      <div className="profile2">
+                        <p className="username-user">Siti Mae</p>
+                        <img id="point" src={Point} alt="point" />
+                        1000 poin
+                      </div>
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  {/* Form */}
+                  <li className="nav-item me-md-4">
+                    <NavLink
+                      className="nav-link text-uppercase signup"
+                      to="/register"
+                    >
+                      Daftar
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link text-uppercase login"
+                      to="/login"
+                    >
+                      Masuk
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

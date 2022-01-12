@@ -6,13 +6,13 @@ export default function Leaderboard() {
   return (
     <>
       <section id="board-home">
-        <div className="container text-content">
+        <div className="container content-home">
           <div className="text-center">
-            <p class="text-uppercase pb-3" id="first">
+            <p class="text-uppercase pb-3" id="firstHome">
               Leaderboard
             </p>
-            <p id="second">Top 5 Greecotopia</p>
-            <p class="pb-4" id="third">
+            <p id="secondHome">Top 5 Greecotopia</p>
+            <p class="pb-4" id="thirdHome">
               Jadilah 3 terbesar dengan mengumpulkan poin sebanyak-banyaknya
               dari kegiatan tanam pohon yang telah kamu ikuti! Hadiah yang akan
               kamu dapatkan berupa tiket perjalanan dari Greenpeace loh. Ayo

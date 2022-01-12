@@ -29,7 +29,7 @@ export default function Login() {
         const { data } = await API().post("/auth/login", form);
         if (data?.token) {
           localStorage.setItem("token", data?.token);
-          history.push("/");
+          history.push("/home");
         }
       }
     } catch (error) {

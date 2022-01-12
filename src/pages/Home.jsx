@@ -8,13 +8,12 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div id="home">
-        <Welcome />
-        {/* <Gallery /> */}
-        <Forum />
-        <TanamPohon />
-        <Leaderboard />
-      </div>
+      <Welcome />
+      {/* <Gallery /> */}
+      <Forum />
+      <TanamPohon />
+      <Leaderboard />
+
       <Footer />
     </>
   );
