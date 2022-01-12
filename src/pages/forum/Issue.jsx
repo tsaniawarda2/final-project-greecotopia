@@ -93,19 +93,39 @@ export default function Issue() {
     return false;
   };
 
-  const handleLike = () => {
-    setlikeComment(!likeComment);
-
-    if (positionLikeID?.likeID) {
-      const payload = {
-        rep_comments_uuid: "",
-        likes: likeComment,
-        user_id: userLogin?.user_id,
-      };
-      const commentID = positionLikeID?.likeID;
-      console.log(payload, "====like comment");
-      console.log(commentID, "------ id like comment");
+  const handleLike = async (comment, repComment) => {
+    console.log(comment, "-----------");
+    console.log(repComment, "-----REPLY------");
+    const payload = {
+      rep_comments_uuid: "",
+      likes: false,
+    };
+    if (repComment) {
+      payload.rep_comments_uuid = repComment?.uuid;
+      payload.likes = !checkLike(repComment?.likes);
+    } else {
+      payload.likes = !checkLike(comment?.likes);
     }
+    const commentID = comment?.comment_id;
+    try {
+      await API().patch(`/comments/${commentID}`, payload);
+      await getCommentsByIssueId(issueID);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // setlikeComment(!likeComment);
+
+    // if (positionLikeID?.likeID) {
+    //   const payload = {
+    //     rep_comments_uuid: "",
+    //     likes: likeComment,
+    //     user_id: userLogin?.user_id,
+    //   };
+    //   const commentID = positionLikeID?.likeID;
+    //   console.log(payload, "====like comment");
+    //   console.log(commentID, "------ id like comment");
+    // }
   };
 
   const handleComment = async () => {
@@ -138,6 +158,7 @@ export default function Issue() {
         toast.warning("Kamu harus login terlebih dahulu", {
           theme: "colored",
         });
+        console.log("Belum LOgin");
       }
     }
   };
@@ -248,7 +269,7 @@ export default function Issue() {
               <p className="firstCom text-uppercase">
                 Yuk Sampaikan Pendapatmu disini
               </p>
-              {/* <p className="secondCom">{Comments.length} Comments</p> */}
+              <p className="secondCom">{Comments?.length} Comments</p>
 
               {/* Form Comment */}
               {!positionComment.commentID && !positionComment.repCommentUUID
@@ -348,18 +369,22 @@ export default function Issue() {
                             <span
                               className="fillUp"
                               onClick={() => {
-                                setPositionLikeID({
-                                  likeID: comment?.comment_id,
-                                  repLikeUUID: "",
-                                  depends_on: {
-                                    user_id: comment?.User?.user_id,
-                                  },
-                                });
+                                // setPositionLikeID({
+                                //   likeID: comment?.comment_id,
+                                //   repLikeUUID: "",
+                                //   depends_on: {
+                                //     user_id: comment?.User?.user_id,
+                                //   },
+                                // });
 
-                                handleLike();
+                                handleLike(comment);
                               }}
                             >
-                              {likeComment === true ? <Like /> : <Dislike />}
+                              {checkLike(comment.likes) ? (
+                                <Like />
+                              ) : (
+                                <Dislike />
+                              )}
 
                               <span className="countCom">
                                 {comment?.likes?.length !== undefined
@@ -448,21 +473,22 @@ export default function Issue() {
                                       {repComment?.context}
                                     </p>
                                     <div className="cli">
-                                      <span className="fillUp">
+                                      <span
+                                        className="fillUp"
+                                        onClick={() =>
+                                          handleLike(comment, repComment)
+                                        }
+                                      >
                                         {checkLike(repComment?.likes) ? (
-                                          <Like
-                                            value={likeComment}
-                                            onClick={(e) =>
-                                              setlikeComment(e?.target?.value)
-                                            }
-                                          />
+                                          <Like />
                                         ) : (
                                           <Dislike />
                                         )}
 
                                         <span className="countCom">
-                                          {comment?.likes?.length !== undefined
-                                            ? comment?.likes?.length
+                                          {repComment?.likes?.length !==
+                                          undefined
+                                            ? repComment?.likes?.length
                                             : "0"}
                                         </span>
                                       </span>

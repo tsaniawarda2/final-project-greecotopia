@@ -22,7 +22,7 @@ export default function Issues() {
     <>
       <Navbar />
       {/* Header */}
-      {/* <Banners item={dataForum} key={dataForum.forum_id} /> */}
+      <Banners item={dataForum} key={dataForum?.forum_id} />
 
       {/* Filter */}
       <ul

@@ -22,7 +22,7 @@ export default function CardIssue({ item }) {
           <div className="card-body">
             <h5 className="card-title">{item.title}</h5>
             <p className="card-text">
-              {item.title.length > 22
+              {item.title.length >= 28
                 ? item.summary.substring(0, 60) + " ..."
                 : item.summary.substring(0, 84) + " ..."}
             </p>

@@ -9,6 +9,7 @@ const DataProvider = ({ children }) => {
   const [forum, setForum] = useState([]);
   const [issues, setIssues] = useState([]);
   const [issue, setIssue] = useState([]);
+  const [favIssues, setFavIssues] = useState([]);
   const { pathname } = useLocation();
 
   const [userLogin, setUserLogin] = useState([]);
@@ -28,6 +29,7 @@ const DataProvider = ({ children }) => {
 
     await getForums();
     await getIssues();
+    await getFavIssues();
     await getForumById(newId);
     await getIssueById(newId);
   }, []);
@@ -39,6 +41,12 @@ const DataProvider = ({ children }) => {
     await getForumById(newId);
     await getIssueById(newId);
   }, [pathname]);
+
+  // Get All Data Favorite Issue
+  const getFavIssues = async () => {
+    const { data: dataFavIssues } = await API().get("/favoriteissues");
+    setFavIssues(dataFavIssues);
+  };
 
   // Get All Data Forum
   const getForums = async () => {
@@ -69,7 +77,9 @@ const DataProvider = ({ children }) => {
   };
   return (
     <>
-      <DataContext.Provider value={{ userLogin, forums, forum, issues, issue }}>
+      <DataContext.Provider
+        value={{ userLogin, forums, forum, issues, issue, favIssues }}
+      >
         {children}
       </DataContext.Provider>
     </>
