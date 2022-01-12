@@ -5,16 +5,16 @@ import Carousel from "../../components/Carousel";
 export default function Forum() {
   return (
     <>
-      <section className="container" id="forum">
+      <section className="container" id="forum-home">
         <div className="row">
           {/* Content */}
           <div className="col-lg-6 col-md-12 col-sm-12">
             <div className="text-content">
-              <p class="text-uppercase pb-3" id="first">
+              <p class="text-uppercase pb-3" id="firstHome">
                 Your Voice Matters
               </p>
-              <p id="second">What do you think?</p>
-              <p class="pb-4" id="third">
+              <p id="secondHome">What do you think?</p>
+              <p class="pb-4" id="thirdHome">
                 Kami sebagai challenge partner Greenpeace ingin memberi wadah
                 untuk masyarakat menyuarakan aspirasinya dengan tujuan mendengar
                 dari sudut pandang lain.

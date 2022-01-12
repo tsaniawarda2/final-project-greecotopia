@@ -121,7 +121,7 @@
   letter-spacing: 4px;
   font-weight: 700;
 }
-#decs {
+#decsWHome {
   margin-top: 24px;
 }
 /* Polaroid */
@@ -152,31 +152,31 @@
   letter-spacing: 5px;
   font-weight: bold;
 }
-#first {
+#firstHome {
   font-size: 20px;
   margin-bottom: -12px;
   letter-spacing: 4px;
   font-weight: 600;
 }
-#second {
+#secondHome {
   font-size: 42px;
   margin-bottom: 6px;
   font-weight: 700;
 }
-#third {
+#thirdHome {
   font-size: 14px;
   margin-bottom: 4px;
 }
 
 /* === Forum === */
-#home #forum {
+#forum-home {
   padding: 94px 0px 48px;
 }
-#home #forum .text-content {
+#forum-home .text-content {
   width: 92% !important;
   padding: 70px 0px;
 }
-#home #forum #btn-home {
+#forum-home #btn-home {
   width: 52%;
 }
 #carousel .carousel-inner {
@@ -259,16 +259,16 @@
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
-  #home #forum .col-md-12 {
+  #forum-home .col-md-12 {
     text-align: center;
   }
-  #home #forum .text-content {
+  #forum-home .text-content {
     width: 100% !important;
   }
-  #first {
+  #firstHome {
     margin-left: 0px;
   }
-  #home #tanamPohon .text-content,
+  #tanamPohon .text-content,
   #board-home .text-content {
     width: 80% !important;
   }

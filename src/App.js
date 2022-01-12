@@ -20,6 +20,7 @@ import {
   Documentation,
   Password,
   Leaderboard,
+  FormReward,
   NotFound,
 } from "./pages";
 
@@ -50,6 +51,7 @@ export default function App() {
         <Route exact path="/documentations" component={Documentations} />
         <Route exact path="/documentations/:id" component={Documentation} />
         <Route exact path="/leaderboard" component={Leaderboard} />
+        <Route exact path="/formReward" component={FormReward} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </>

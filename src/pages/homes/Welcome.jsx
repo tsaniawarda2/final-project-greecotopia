@@ -17,7 +17,7 @@ export default function Welcome() {
                 The <span>Right Reward</span> <br />
                 for the <span>Right Action</span>
               </p>
-              <p className="pb-4" id="decs">
+              <p className="pb-4" id="decsWHome">
                 Ayo mulai peduli lingkungan dimulai dengan menanam pohon untuk
                 membantu menciptakan bumi yang sehat dan nyaman untuk kita
                 semua.

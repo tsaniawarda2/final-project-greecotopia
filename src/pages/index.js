@@ -4,8 +4,7 @@ export { default as Register } from "./Register";
 export { default as Login } from "./Login";
 export { default as Password } from "./Password";
 export { default as Account } from "./Account";
-export { default as EditProfile } from "./account/EditProfile"
-// export { default as ContactUs } from "./account/contactUs"
+export { default as EditProfile } from "./account/EditProfile";
 export { default as Forum } from "./Forum";
 export { default as Issues } from "../pages/forum/Issues";
 export { default as Issue } from "../pages/forum/Issue";
@@ -16,4 +15,5 @@ export { default as FormDocumentation } from "./tanamPohon/FormDocumentation";
 export { default as Documentations } from "./tanamPohon/Documentations";
 export { default as Documentation } from "./tanamPohon/Documentation";
 export { default as Leaderboard } from "./Leaderboard";
+export { default as FormReward } from "./leaderboard/FormReward";
 export { default as NotFound } from "../pages/errors/NotFound";

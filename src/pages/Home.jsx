@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
-import Navbar from "../components/Navbar";
+import React from "react";
 import Footer from "../components/Footer";
-import { DataContext } from "../context/DataContext";
+import Navbar from "../components/Navbar";
 
 import { Welcome, Gallery, Forum, TanamPohon, Leaderboard } from "./homes";
 import "../assets/styles/home.css";
@@ -11,6 +10,7 @@ export default function Home() {
       <Navbar />
       <div id="home">
         <Welcome />
+        {/* <Gallery /> */}
         <Forum />
         <TanamPohon />
         <Leaderboard />
