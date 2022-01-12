@@ -43,72 +43,72 @@ export default function EditProfile() {
   const onHandleSave = async () => {
     try {
       if(fileImage){
-        console.log(fileImage, 'fileimage');
+        // console.log(fileImage, 'fileimage');
         const payloadImg = new FormData()
         payloadImg.append("file", fileImage)
         payloadImg.append("upload_preset", REACT_APP_UPLOAD_PRESET_CLOUDINARY)
         payloadImg.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
-        console.log(payloadImg, "payload img");
-        // if(payloadImg.FormData){
-          // console.log(payloadImg, "masuk");
-          const { data : dataPict} = await Cloudinary().post("/", payloadImg)
-          setImageUrl(dataPict)
-          // const payloadProfile = {
-          //   fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
-          //   username: newProfile.username? newProfile.username : userLogin.username,
-          //   email: newProfile.email? newProfile.email : userLogin.email,
-          //   image_url: dataPict.url,
-          //   background_url: userLogin.background_url,
-          // }
-          
-          // console.log(payloadProfile, "payload image");
-          // setNewProfile(payloadProfile)  
-      // }
-      }
+        // console.log(payloadImg, "payload img");
+        const { data : dataPict} = await Cloudinary().post("/", payloadImg)
+        setImageUrl(dataPict)
+        console.log(dataPict.url, "pict");
 
-      const payloadBg = new FormData()
-        payloadBg.append("file", fileBg)
-        payloadBg.append("upload_preset", REACT_APP_UPLOAD_PRESET_CLOUDINARY)
-        payloadBg.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
-      if(payloadBg.FormData){
-        console.log("masuk bg");
-        const { data : dataPictBg} = await Cloudinary().post("/", payloadBg)
         const payloadProfile = {
-          ...newProfile,
-          background_url: dataPictBg.url
+          fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
+          username: newProfile.username? newProfile.username : userLogin.username,
+          email: newProfile.email? newProfile.email : userLogin.email,
+          image_url: dataPict.url,
+          background_url: userLogin.background_url
         }
-        
-        console.log(payloadProfile, "payload bg");
-        setNewProfile(payloadProfile)
-      } 
 
-      console.log("masuk next");
-      const payloadProfile = {
-        fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
-        username: newProfile.username? newProfile.username : userLogin.username,
-        email: newProfile.email? newProfile.email : userLogin.email,
-        image_url: imageUrl? imageUrl : userLogin.image_url,
-        background_url: bgUrl? bgUrl : userLogin.background_url
+        console.log(payloadProfile, "payload image");
+        const { data } = await API().put("/profile", payloadProfile)
+        console.log(data, "success");
+        setNewProfile(payloadProfile)  
+      } else
+      if(fileBg){
+        const payloadBg = new FormData()
+          payloadBg.append("file", fileBg)
+          payloadBg.append("upload_preset", REACT_APP_UPLOAD_PRESET_CLOUDINARY)
+          payloadBg.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
+
+          // console.log("masuk bg");
+          const { data : dataBg} = await Cloudinary().post("/", payloadBg)
+          setBgUrl(dataBg)
+          // console.log(dataBg.url, "pict");
+
+          const payloadProfile = {
+            fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
+            username: newProfile.username? newProfile.username : userLogin.username,
+            email: newProfile.email? newProfile.email : userLogin.email,
+            image_url: userLogin.background_url,
+            background_url: dataBg.url
+          }
+
+          console.log(payloadProfile, "payload image");
+          const { data } = await API().put("/profile", payloadProfile)
+          setNewProfile(payloadProfile)
+          // setNewProfile({background_url: dataBg.url})
+          console.log(data, "success");
       }
-      console.log(payloadProfile, "payload profile");
-      setNewProfile(payloadProfile)
+      else {
+        console.log("masuk");
+        console.log(imageUrl, "image url");
+        console.log(bgUrl, "bg Url");
+        const payloadProfile = {
+          fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
+          username: newProfile.username? newProfile.username : userLogin.username,
+          email: newProfile.email? newProfile.email : userLogin.email,
+          image_url: userLogin.image_url,
+          background_url: userLogin.background_url
+          // background_url: newProfile.background_url? newProfile.background_url : userLogin.background_url
+        }
 
-      
-      
-
-        // const { data: dataDoc } = await toast.promise(
-        //   API().post("/documentations", payloadDoc),
-        //   {
-        //     pending: "Uploading Documentation in progress!",
-        //     success: "Success uploading Documentation",
-        //     error: "Failed to uploading Documentation"
-        //   }
-        // )
-        // const { data: dataDoc } = await API().post("/documentations", payloadDoc);
-        // console.log(dataDoc.message, "data doc");
-        // console.log("masuk");
-
-        // setShowModalPoint(prev => !prev);
+        console.log(payloadProfile, "payload profile");
+        setNewProfile(payloadProfile)
+        const { data } = await API().put("/profile", payloadProfile)
+        console.log(data, "success");
+      }
     } catch (error) {
       // console.log(error);
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
