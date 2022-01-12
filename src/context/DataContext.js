@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
 import { API } from "../config/api";
 
-const DataLogin = createContext();
+const DataContext = createContext();
 
-const LoginProvider = ({ children }) => {
+const DataProvider = ({ children }) => {
   const [ userLogin, setUserLogin ] = useState([]);
 
   useEffect(() => {
@@ -16,10 +16,10 @@ const LoginProvider = ({ children }) => {
   } 
 
   return (
-    <DataLogin.Provider value={{ userLogin }}>
+    <DataContext.Provider value={{ userLogin }}>
       {children}
-    </DataLogin.Provider>
+    </DataContext.Provider>
   )
 }
 
-export { DataLogin, LoginProvider };
+export { DataProvider, DataContext };
