@@ -1,16 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { DataContext } from "../../context/DataTanamPohon";
+import React, {  useEffect, useState } from "react";
 import PictureModal from "../../components/modal/PictureModal";
-import { useLocation } from "react-router-dom";
 import { API } from "../../config/api";
 import { useParams } from "react-router-dom";
 
 export default function Documentation() {
   const params = useParams();
-  // console.log(params);
-  
-  // const { documentation } = useContext(DataContext);
-  // console.log(documentation, "doc");
+
   const [ documentation, setDocumentation ] = useState({});
 
   useEffect(async () => {
@@ -25,8 +20,6 @@ export default function Documentation() {
     console.log(data?.data, "docs");
     setDocumentation(data?.data);
   } 
-
-  // getDocumentationById();
 
   const getDate = (dateStr = '') => {
     if (!dateStr) return ''
@@ -45,13 +38,9 @@ export default function Documentation() {
     <div className="container-modal">
       <PictureModal showModal={showModal} setShowModal={setShowModal}/>  
       <div className="container-doc" type="button" onClick={openModal}>
-      {/* <h1 className="mt-4">{documentation.title}</h1> */}
+      <h1 className="mt-4">{documentation.title}</h1>
         <div className="all-doc">
-          {/* {
-            JSON.stringify(documentation)
-          } */}
           { documentation?.Documentations?.map((data) => (
-            // console.log(data, "data")
             <div className="doc">
               <div className="doc-img">
                 <img src={data.image_url} alt="" />

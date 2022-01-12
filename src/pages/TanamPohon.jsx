@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext } from "../context/DataTanamPohon";
+import { DataContext } from "../context/DataContext";
 import CardTanamPohon from "../components/card/CardTanamPohon";
 import { useHistory } from "react-router-dom";
 import "../assets/styles/TanamPohon.css";

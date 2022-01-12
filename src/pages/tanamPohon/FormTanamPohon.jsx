@@ -2,14 +2,12 @@ import React, { useContext, useState } from "react";
 import "../../assets/styles/formTanamPohon.css";
 import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
-import { DataContext } from "../../context/DataTanamPohon";
+import { DataContext } from "../../context/DataContext";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import SuccessRegistModal from "../../components/modal/SuccessRegistModal";
 
 export default function FormTanamPohon() {
   const { userLogin, tanamPohon } = useContext(DataContext);
-  // console.log(tanamPohon, "tanam pohon");
-
 
   const [showModal, setShowModal] = useState(false);
   const [showModalSuccess, setShowModalSuccess] = useState(false);

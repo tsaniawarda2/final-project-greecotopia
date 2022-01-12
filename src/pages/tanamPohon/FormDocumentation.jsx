@@ -3,7 +3,7 @@ import "../../assets/styles/formTanamPohon.css";
 import { Cloudinary } from "../../config/thirdParty";
 import { ToastContainer, toast } from "react-toastify";
 import { API } from "../../config/api";
-import { DataContext } from "../../context/DataTanamPohon";
+import { DataContext } from "../../context/DataContext";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import PointModal from "../../components/modal/PointModal";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;

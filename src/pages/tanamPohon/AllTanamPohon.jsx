@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 // import { data } from "../../config/dataTanamPohon";
 import CardTanamPohon from "../../components/card/CardTanamPohon";
-import { DataContext } from "../../context/DataTanamPohon"
+import { DataContext } from "../../context/DataContext"
 import "../../assets/styles/allTanamPohon.css"
 
 export default function AllTanamPohon() {

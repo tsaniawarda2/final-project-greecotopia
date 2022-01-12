@@ -73,4 +73,4 @@ const DataProvider = ({ children }) => {
   )
 }
 
-export { DataContext, DataProvider };
+export { DataProvider, DataContext };

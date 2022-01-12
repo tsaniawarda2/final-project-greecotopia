@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../assets/styles/documentations.css"
-import { DataContext } from "../../context/DataTanamPohon";
 import AlbumDocumentations from "../../components/card/AlbumDocumentations";
 import { API } from "../../config/api";
 
