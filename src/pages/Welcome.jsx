@@ -8,17 +8,17 @@ export default function Home() {
     <>
       <section id="welcome">
         <div className="row gx-0" id="contentW">
-          <div className="col-md-8" id="left">
+          <div className=" col-md-8 col-sm-12" id="left">
             <p className="hi">Hi! We Are</p>
             <p className="greecotopia">Greecotopia</p>
             <p className="decsWelcome">
               Yuk, mulai peduli lingkungan dengan berperan aktif!
             </p>
-            <NavLink to="/home" className="btn btn-success" id="btnWelcome">
+            <NavLink to="/home" className="btn btn-success" id="btn-home">
               Cari tahu lebih lanjut
             </NavLink>
           </div>
-          <div className="col-md-4" id="right">
+          <div className="col-md-4 col-sm-12" id="right">
             <img src={ForestImage} alt="forest" id="imgForest" />
           </div>
         </div>

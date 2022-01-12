@@ -6,10 +6,14 @@ export default function Forum() {
   return (
     <>
       <section className="container" id="forum-home">
-        <div className="row">
+        <div className="row" id="welcomeH">
+          {/* Carousel */}
+          <div className="col-lg-6 col-md-12 col-sm-12 carousel-left">
+            <Carousel id="carousel" />
+          </div>
           {/* Content */}
           <div className="col-lg-6 col-md-12 col-sm-12">
-            <div className="text-content">
+            <div className="content-home">
               <p class="text-uppercase pb-3" id="firstHome">
                 Your Voice Matters
               </p>
@@ -30,8 +34,8 @@ export default function Forum() {
             </div>
           </div>
           {/* Carousel */}
-          <div className="col-lg-6 col-md-12 col-sm-12">
-            <Carousel />
+          <div className="col-lg-6 col-md-12 col-sm-12 carousel-right">
+            <Carousel id="carousel" />
           </div>
         </div>
       </section>

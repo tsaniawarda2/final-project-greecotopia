@@ -1,5 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 import {
   Welcome,
@@ -29,10 +31,11 @@ export default function App() {
     <>
       <Switch>
         <Route exact path="/" component={Welcome} />
-        <Route exact path="/home" component={Home} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/password" component={Password} />
+        {/* <Navbar /> */}
+        <Route exact path="/home" component={Home} />
         <Route exact path="/account" component={Account} />
         <Route exact path="/forums" component={Forum} />
         <Route exact path="/forums/:id" component={Issues} />
@@ -43,6 +46,7 @@ export default function App() {
         <Route exact path="/formTanamPohon" component={FormTanamPohon} />
         <Route exact path="/formTanamPohon/:id" component={FormTanamPohon} />
         <Route exact path="/formDocumentation" component={FormDocumentation} />
+
         <Route
           exact
           path="/formDocumentation/:id"
@@ -52,6 +56,7 @@ export default function App() {
         <Route exact path="/documentations/:id" component={Documentation} />
         <Route exact path="/leaderboard" component={Leaderboard} />
         <Route exact path="/formReward" component={FormReward} />
+        {/* <Footer /> */}
         <Route exact path="*" component={NotFound} />
       </Switch>
     </>
