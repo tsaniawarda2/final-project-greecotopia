@@ -84,15 +84,15 @@ export default function EditProfile() {
           <div className="col-lg-8 profile-right">
             <div className="profile-container">
             <div className="header-profile header-edit-profile">
-                <input type="file" className="custom-file-input icons-camera-header" id="inputBackground" onChange={e => onChangeFileBg(e)}/>
-                <AiFillCamera className="icons-camera-header"/>
+                <AiFillCamera className="icons-camera-header" onClick={_ => document.getElementById('input-background').click()}/>
+                <input type="file" className="custom-file-input icons-camera-header" id="input-background" onChange={e => onChangeFileBg(e)} style={{ opacity: 0 }}/>
               <img src={userLogin?.background_url} alt="" />
             </div>
             <div className="row id-profile">
               <div className="profile-picture edit-profile-pict">
                 <div className="camera-profile">
-                  <input type="file" className="custom-file-input" id="inputGroupFile04" onChange={e => onChangeFileImage(e)}/>
-                  <AiFillCamera className="icons-camera-profile"/>
+                  <AiFillCamera className="icons-camera-profile" onClick={_ => document.getElementById('input-image').click()}/>
+                  <input type="file" className="custom-file-input" id="input-image" onChange={e => onChangeFileImage(e)} style={{ opacity: 0 }}/>
                 </div>
                 <img src={userLogin?.image_url} alt="" />
               </div>
