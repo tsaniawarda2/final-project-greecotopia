@@ -2,17 +2,17 @@ import React, { useContext, useState } from "react";
 import "../../assets/styles/account.css"
 import { GiTwoCoins } from "react-icons/gi"
 import { FaTree } from "react-icons/fa"
-import { AiOutlineHeart } from "react-icons/ai"
+import { AiFillHeart } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { DataLogin } from "../../context/dataLogin";
 
 export default function Profile() {
   const { userLogin, users } = useContext(DataLogin);
   const history = useHistory();
-  console.log(userLogin, "users");
+  // console.log(userLogin, "users");
 
   const findUser = users.find(user => user.user_id === userLogin.user_id);
-  console.log(findUser);
+  // console.log(findUser);
 
   return (
     <>          
@@ -52,7 +52,7 @@ export default function Profile() {
           </div>
           <div className="user-total-fav-issues content-card-profile col-4">
             <div className="circle-profile">
-              <AiOutlineHeart className="icon-heart-profile"/>
+              <AiFillHeart className="icon-heart-profile"/>
             </div>
             <p>Banyak issue favorit kamu:</p>
             <p className="total">5</p>
@@ -62,11 +62,11 @@ export default function Profile() {
           <div className="col-4">
             <p>Peringkat kamu saat ini:</p>
           </div>
-          <div className="col-3">
+          <div className="col-4">
             <p>{findUser.user_id} dari {users.length} </p>
           </div>
-          <div className="col-4">
-            <button>Lihat Papan Peringkat</button>
+          <div className="col-3">
+            <button>Leaderboard</button>
           </div>
         </div>
       </div>

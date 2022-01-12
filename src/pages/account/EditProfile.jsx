@@ -42,6 +42,15 @@ export default function EditProfile() {
 
   const onHandleSave = async () => {
     try {
+      const payloadProfile = {
+        fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
+        username: newProfile.username? newProfile.username : userLogin.username,
+        email: newProfile.email? newProfile.email : userLogin.email,
+        image_url: userLogin.image_url,
+        background_url: userLogin.background_url
+        // background_url: newProfile.background_url? newProfile.background_url : userLogin.background_url
+      }
+      
       if(fileImage){
         // console.log(fileImage, 'fileimage');
         const payloadImg = new FormData()
@@ -53,19 +62,21 @@ export default function EditProfile() {
         setImageUrl(dataPict)
         console.log(dataPict.url, "pict");
 
-        const payloadProfile = {
-          fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
-          username: newProfile.username? newProfile.username : userLogin.username,
-          email: newProfile.email? newProfile.email : userLogin.email,
-          image_url: dataPict.url,
-          background_url: userLogin.background_url
-        }
+        payloadProfile.image_url = dataPict.url;
 
-        console.log(payloadProfile, "payload image");
-        const { data } = await API().put("/profile", payloadProfile)
-        console.log(data, "success");
-        setNewProfile(payloadProfile)  
-      } else
+        // const payloadProfile = {
+        //   fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
+        //   username: newProfile.username? newProfile.username : userLogin.username,
+        //   email: newProfile.email? newProfile.email : userLogin.email,
+        //   image_url: dataPict.url,
+        //   background_url: userLogin.background_url
+        // }
+
+        // console.log(payloadProfile, "payload image");
+        // const { data } = await API().put("/profile", payloadProfile)
+        // console.log(data, "success");
+        // setNewProfile(payloadProfile)  
+      } 
       if(fileBg){
         const payloadBg = new FormData()
           payloadBg.append("file", fileBg)
@@ -77,38 +88,33 @@ export default function EditProfile() {
           setBgUrl(dataBg)
           // console.log(dataBg.url, "pict");
 
-          const payloadProfile = {
-            fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
-            username: newProfile.username? newProfile.username : userLogin.username,
-            email: newProfile.email? newProfile.email : userLogin.email,
-            image_url: userLogin.background_url,
-            background_url: dataBg.url
-          }
+          payloadProfile.background_url = dataBg.url;
 
-          console.log(payloadProfile, "payload image");
-          const { data } = await API().put("/profile", payloadProfile)
-          setNewProfile(payloadProfile)
-          // setNewProfile({background_url: dataBg.url})
-          console.log(data, "success");
+          // const payloadProfile = {
+          //   fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
+          //   username: newProfile.username? newProfile.username : userLogin.username,
+          //   email: newProfile.email? newProfile.email : userLogin.email,
+          //   image_url: userLogin.background_url,
+          //   background_url: dataBg.url
+          // }
+
+          // console.log(payloadProfile, "payload image");
+          // const { data } = await API().put("/profile", payloadProfile)
+          // setNewProfile(payloadProfile)
+          // // setNewProfile({background_url: dataBg.url})
+          // console.log(data, "success");
       }
-      else {
-        console.log("masuk");
-        console.log(imageUrl, "image url");
-        console.log(bgUrl, "bg Url");
-        const payloadProfile = {
-          fullname: newProfile.fullname? newProfile.fullname : userLogin.fullname,
-          username: newProfile.username? newProfile.username : userLogin.username,
-          email: newProfile.email? newProfile.email : userLogin.email,
-          image_url: userLogin.image_url,
-          background_url: userLogin.background_url
-          // background_url: newProfile.background_url? newProfile.background_url : userLogin.background_url
-        }
+      // else {
+        // console.log("masuk");
+        // console.log(imageUrl, "image url");
+        // console.log(bgUrl, "bg Url");
+        
 
-        console.log(payloadProfile, "payload profile");
-        setNewProfile(payloadProfile)
+        // console.log(payloadProfile, "payload profile");
         const { data } = await API().put("/profile", payloadProfile)
+        setNewProfile(payloadProfile)
         console.log(data, "success");
-      }
+      // }
     } catch (error) {
       // console.log(error);
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
@@ -147,15 +153,13 @@ export default function EditProfile() {
           
           <div className="col-lg-8 profile-right">
             <div className="profile-container">
-            <div className="header-profile">
-              <div className="camera-header">
-                <input type="file" className="custom-file-input" id="inputGroupFile04" onChange={e => onChangeFileBg(e)}/>
+            <div className="header-profile header-edit-profile">
+                <input type="file" className="custom-file-input icons-camera-header" id="inputBackground" onChange={e => onChangeFileBg(e)}/>
                 <AiFillCamera className="icons-camera-header"/>
-              </div>
               <img src={userLogin.background_url} alt="" />
             </div>
             <div className="row id-profile">
-              <div className="profile-picture">
+              <div className="profile-picture edit-profile-pict">
                 <div className="camera-profile">
                   <input type="file" className="custom-file-input" id="inputGroupFile04" onChange={e => onChangeFileImage(e)}/>
                   <AiFillCamera className="icons-camera-profile"/>
@@ -170,7 +174,7 @@ export default function EditProfile() {
                   </div>
                   <div className="form-group">
                     <label for="formGroupExampleInput">Username</label>
-                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder={userLogin.username} onChange={e => setNewProfile({ ...newProfile, username: e.target?.value })}/>
+                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder={userLogin.username} onChange={e => setNewProfile({ ...newProfile, username: e.target?.value })} readOnly/>
                   </div>
                   <div className="form-group">
                     <label for="formGroupExampleInput">Email</label>

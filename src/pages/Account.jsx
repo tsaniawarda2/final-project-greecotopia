@@ -3,6 +3,7 @@ import "../assets/styles/account.css";
 import Profile from "../components/account/Profile";
 import ContactUs from "../components/account/ContactUs";
 import { DataLogin } from "../context/dataLogin";
+import FavoriteIssue from "../components/account/FavoriteIssue";
 
 export default function Account() {
   const [toggleState, setToggleState] = useState(1);
@@ -12,7 +13,7 @@ export default function Account() {
   const toggleSide = (index) => {
     setToggleState(index);
   };
-  console.log(toggleState, "index");
+  console.log(userLogin, "user");
 
   return (
     <>
@@ -30,22 +31,22 @@ export default function Account() {
             </div>
             <div className="sidenav-profile">
               <div className="profile-side">
-                <p type="button" className={toggleState === 1 ? "tabs active-tabs" : "tabs"} onClick={() => toggleSide(1)}>
+                <p type="button" className={toggleState === 1 ? "bars active-bars" : "bars"} onClick={() => toggleSide(1)}>
                   Profile
                 </p>
               </div>
               <div className="fav-issues-side">
-                <p type="button" className={toggleState === 2 ? "tabs active-tabs" : "tabs"} onClick={() => toggleSide(2)}>
+                <p type="button" className={toggleState === 2 ? "bars active-bars" : "bars"} onClick={() => toggleSide(2)}>
                   Favorite Issues
                 </p>
               </div>
               <div className="contact-us-side">
-               <p type="button" className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleSide(3)}>
+               <p type="button" className={toggleState === 3 ? "bars active-bars" : "bars"} onClick={() => toggleSide(3)}>
                  Contact Us
                 </p>
               </div>
               <div className="logout-side">
-                <p type="button" className={toggleState === 4 ? "tabs active-tabs" : "tabs"} onClick={() => toggleSide(4)}>
+                <p type="button" className={toggleState === 4 ? "bars active-bars" : "bars"} onClick={() => toggleSide(4)}>
                   Logout
                 </p>
               </div>
@@ -56,15 +57,13 @@ export default function Account() {
             <div className={toggleState === 1 ? "profile-right" : "content"}>
               <Profile/>
             </div>
+            <div className={toggleState === 2 ? "active-content" : "content"}>
+              <FavoriteIssue/>
+            </div>
             <div className={toggleState === 3 ? "profile-right" : "content"}>
               <ContactUs/>
             </div>
-            <div className={toggleState === 2 ? "active-content" : "content"}>
-              {/* <Profile/> */}
-              <p>fav issue</p>
-            </div>
             <div className={toggleState === 4 ? "active-content" : "content"}>
-              {/* <Profile/> */}
               logout
             </div>
           </div>
