@@ -30,7 +30,12 @@ export default function Navbar() {
             {/* CENTER */}
             <ul className="navbar-nav mx-auto mb-md-2 mb-lg-0 navCenter">
               <li className="nav-item me-md-3">
-                <NavLink exact className="nav-link" aria-current="page" to="/">
+                <NavLink
+                  exact
+                  className="nav-link"
+                  aria-current="page"
+                  to="/home"
+                >
                   Home
                 </NavLink>
               </li>

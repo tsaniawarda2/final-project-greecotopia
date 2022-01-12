@@ -24,7 +24,7 @@ export default function Welcome() {
               </p>
               {/* Button */}
               <NavLink
-                to="/signUp"
+                to="/register"
                 className="btn btn-light text-center"
                 id="btn-home"
               >

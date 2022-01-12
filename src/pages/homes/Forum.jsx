@@ -21,7 +21,7 @@ export default function Forum() {
               </p>
               {/* Button */}
               <NavLink
-                to="/forum"
+                to="/forums"
                 className="btn btn-light text-center"
                 id="btn-home"
               >
