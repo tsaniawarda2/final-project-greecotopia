@@ -4,6 +4,8 @@ export { default as Register } from "./Register";
 export { default as Login } from "./Login";
 export { default as Password } from "./Password";
 export { default as Account } from "./Account";
+export { default as EditProfile } from "./account/EditProfile"
+// export { default as ContactUs } from "./account/contactUs"
 export { default as Forum } from "./Forum";
 export { default as Issues } from "../pages/forum/Issues";
 export { default as Issue } from "../pages/forum/Issue";

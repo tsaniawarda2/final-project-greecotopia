@@ -7,6 +7,8 @@ import {
   Login,
   Register,
   Account,
+  EditProfile,
+  // ContactUs,
   Forum,
   Issues,
   Issue,
@@ -34,6 +36,7 @@ export default function App() {
         <Route exact path="/forums" component={Forum} />
         <Route exact path="/forums/:id" component={Issues} />
         <Route exact path="/issues/:id" component={Issue} />
+        <Route exact path="/editProfile" component={EditProfile} />
         <Route exact path="/tanamPohon" component={TanamPohon} />
         <Route exact path="/allTanamPohon" component={AllTanamPohon} />
         <Route exact path="/formTanamPohon" component={FormTanamPohon} />

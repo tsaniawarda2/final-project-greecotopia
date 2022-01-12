@@ -353,7 +353,10 @@
   background-color: #ffffff;
   padding: 0px;
   font-size: 14px;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+>>>>>>> 685420c55f35c715558d10b6f2217db3cb1ca6b6
 }
 #dropItem:hover {
   color: #10550f;
@@ -410,4 +413,8 @@
 /* --- Card ---- */
 #issue #cardIssue {
   margin-top: 56px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 685420c55f35c715558d10b6f2217db3cb1ca6b6
