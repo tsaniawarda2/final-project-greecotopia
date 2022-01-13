@@ -2,15 +2,11 @@ import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { MdClose } from "react-icons/md";
 import "../../assets/styles/documentations.css";
-import { useParams } from "react-router-dom";
 
-export default function PictureModal({ docId, showModal, setShowModal }) {
+export default function PictureModal({ dataId, showModal, setShowModal }) {
   const modalRef = useRef();
-  const params = useParams();
-  // console.log(documentation, "doc modal");
 
-  // const docId = params.id
-  console.log(docId, "doc id");
+  console.log(dataId, "dataId");
 
   const animation = useSpring({
     config: {
@@ -45,23 +41,23 @@ export default function PictureModal({ docId, showModal, setShowModal }) {
                 <div className="modal-profile">
                   <img
                     className="modal-profile-pict"
-                    src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1985&q=80"
+                    src={dataId?.Participant?.User?.image_url}
                     alt=""
                   />
                   <div className="profile-text">
-                    <h1>Devi Ayu </h1>
-                    <p>@username</p>
+                    <h1>{dataId?.Participant?.name} </h1>
+                    <p>@{dataId?.Participant?.User?.username}</p>
                   </div>
                 </div>
                 <div className="pict-modal">
                   <img
-                    src="https://images.unsplash.com/photo-1558022103-603c34ab10ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80"
-                    alt=""
+                    src={dataId?.image_url}
+                    alt="documentation"
                   />
                 </div>
                 <div className="modal-text-bottom">
-                  <h1>Title</h1>
-                  <p>Message</p>
+                  <h1>{dataId?.caption}</h1>
+                  <p>{dataId?.messages}</p>
                 </div>
               </div>
             </div>
