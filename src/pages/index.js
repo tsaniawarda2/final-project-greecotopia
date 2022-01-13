@@ -2,7 +2,6 @@ export { default as Welcome } from "./Welcome";
 export { default as Home } from "./Home";
 export { default as Register } from "./Register";
 export { default as Login } from "./Login";
-export { default as Password } from "./Password";
 export { default as Account } from "./Account";
 export { default as EditProfile } from "./account/EditProfile";
 export { default as Forum } from "./Forum";

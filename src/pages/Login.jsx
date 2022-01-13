@@ -30,7 +30,7 @@ export default function Login() {
         if (data?.token) {
           localStorage.setItem("token", data?.token);
           history.push("/home");
-          window.location.reload()
+          window.location.reload();
         }
       }
     } catch (error) {
@@ -48,7 +48,7 @@ export default function Login() {
         <div className="container d-flex justify-content-center">
           <div id="form">
             <div className="title-form text-center">
-              <NavLink to="/" id="home">
+              <NavLink to="/home" id="home">
                 <img src={Logo} alt="earth" id="logo-log" />
                 Greecotopia
               </NavLink>
@@ -62,6 +62,7 @@ export default function Login() {
                 </label>
                 <input
                   type="text"
+                  placeholder="Masukkan username kamu"
                   className="form-control"
                   id="formLogin"
                   value={form?.username}
@@ -76,6 +77,7 @@ export default function Login() {
                 </label>
                 <input
                   type="password"
+                  placeholder="Masukkan password kamu"
                   className="form-control"
                   id="formLogin"
                   value={form?.password}
@@ -100,12 +102,6 @@ export default function Login() {
                   Belum punya akun?
                   <NavLink to="/register" className="log">
                     Daftar disini
-                  </NavLink>
-                </p>
-                <p id="alt2">
-                  Lupa Password?
-                  <NavLink to="/password" className="log">
-                    Atur ulang password
                   </NavLink>
                 </p>
               </div>

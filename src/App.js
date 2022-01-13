@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router";
+import { Redirect } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
@@ -20,7 +21,6 @@ import {
   FormDocumentation,
   Documentations,
   Documentation,
-  Password,
   Leaderboard,
   FormReward,
   NotFound,
@@ -33,7 +33,6 @@ export default function App() {
         <Route exact path="/" component={Welcome} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/password" component={Password} />
         {/* <Navbar /> */}
         <Route exact path="/home" component={Home} />
         <Route exact path="/account" component={Account} />
@@ -55,8 +54,17 @@ export default function App() {
         <Route exact path="/documentations" component={Documentations} />
         <Route exact path="/documentations/:id" component={Documentation} />
         <Route exact path="/leaderboard" component={Leaderboard} />
-        <Route exact path="/formReward" component={FormReward} />
-        {/* <Footer /> */}
+        <Route
+          exact
+          path="/formReward"
+          render={(props) => {
+            if (!localStorage.getItem("token")) {
+              return <Redirect to="/login" />;
+            } else {
+              return <FormReward {...props} />;
+            }
+          }}
+        />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </>

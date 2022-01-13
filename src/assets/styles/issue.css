@@ -107,6 +107,7 @@
 .secondCom,
 .formIC,
 #dropItem,
+.otherIssue,
 #avaCom .sb-avatar span {
   font-family: "Poppins", sans-serif !important;
 }
@@ -115,7 +116,7 @@
 .firstCom,
 .secondCom,
 .formIC,
-#dropItem {
+.otherIssue #dropItem {
   color: #232825;
 }
 #descIssue p {
@@ -181,7 +182,7 @@
 
 .main-comment #formCom1 .mainInput,
 .main-comment #formCom1 #replyCom {
-  width: 110vh;
+  width: 116vh;
   font-size: 12px;
 }
 .main-comment #formCom1 #replyCom {
@@ -253,6 +254,21 @@
 }
 .upperCom {
   margin-bottom: 4px;
+}
+
+/* Card */
+#otherIssue {
+  margin-top: 34px;
+}
+.otherIssue {
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  padding-bottom: 8px;
+  border-bottom: 4px solid#232323;
+  margin-top: 90px;
+  width: 40%;
 }
 
 /* btnUser */

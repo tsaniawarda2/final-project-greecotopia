@@ -25,12 +25,9 @@ export default function Leaderboard() {
     if (top3) {
       history.push(`/formReward`);
     } else {
-      toast.error(
-        "Ups kamu bukan top 3 :( Coba lagi di session berikutnya ^^",
-        {
-          theme: "colored",
-        }
-      );
+      toast.error("Ups kamu bukan top 3. Coba lagi di session berikutnya", {
+        theme: "colored",
+      });
     }
   };
 
