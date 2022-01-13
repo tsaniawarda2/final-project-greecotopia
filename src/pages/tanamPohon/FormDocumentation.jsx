@@ -22,24 +22,6 @@ export default function FormDocumentation() {
     setShowModal(prev => !prev);
   };
 
-  // const getDate = (dateStr = '') => {
-  //   if (!dateStr) return ''
-  //   const arrDate = dateStr.split('T')
-  //   return arrDate[0]
-  // }
-
-  console.log(tanamPohon);
-  // const checkDate = () =>{
-    const startDate = tanamPohon?.date
-    const dueDate = tanamPohon?.due_date
-
-    console.log(startDate, "start date");
-    console.log(dueDate, "due date");
-    //if start date before due date
-
-  //   return true
-  // }
-
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
     caption: "",
@@ -110,6 +92,11 @@ export default function FormDocumentation() {
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
     }
   }
+
+  // console.log(tanamPohon.due_date, "duedate aja");
+  // console.log(new Date(tanamPohon.due_date), "new date(due date)");
+  // console.log(new Date(), "hari ini");
+  console.log(new Date(tanamPohon.due_date) > new Date());
   
   return (
     <>
@@ -191,12 +178,12 @@ export default function FormDocumentation() {
                 <label for="tp-kesan-pesan">Kesan dan Pesan</label>
                 <textarea className="form-control" id="tp-kesan-pesan" rows="5" onChange={e => setDocumentation({ ...documentation, messages: e.target?.value })}></textarea>
               </div>
-              {/* { */}
-                {/* checkDate?  */}
+              {
+                new Date(tanamPohon.due_date) > new Date() ?
                 <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
-                {/* : */}
+                :
                 <button type="button" className="submit-disable"  disabled>SUBMIT</button>
-              {/* } */}
+              }
             </form>
           </div>
         </div>
