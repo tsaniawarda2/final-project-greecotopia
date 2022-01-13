@@ -13,6 +13,7 @@ import { API } from "../../config/api";
 export default function FormReward() {
   const { userLogin, users } = useContext(DataContext);
 
+  // Find Rank
   const findUser = users?.find((user) => user?.user_id === userLogin?.user_id);
 
   const [showModalSuccess, setShowModalSuccess] = useState(false);

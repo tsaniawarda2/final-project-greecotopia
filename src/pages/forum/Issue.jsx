@@ -474,7 +474,7 @@ export default function Issue() {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer id="toast" />
       <Footer />
     </>
   );

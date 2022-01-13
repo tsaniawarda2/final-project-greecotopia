@@ -133,6 +133,7 @@
   justify-content: flex-end;
   margin-right: 34px;
 }
+/* Avatar */
 .board #profileUser1 .sb-avatar,
 #profileUser1 .sb-avatar__text,
 #profileUser1 img {

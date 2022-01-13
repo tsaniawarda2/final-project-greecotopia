@@ -5,6 +5,7 @@ import { API } from "../config/api";
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
+  // Users
   const [users, setUsers] = useState([]);
   const [topFive, setTopFive] = useState([]);
   const [topTen, setTopTen] = useState([]);
