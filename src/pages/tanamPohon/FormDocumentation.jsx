@@ -6,6 +6,9 @@ import { API } from "../../config/api";
 import { DataContext } from "../../context/DataContext";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import PointModal from "../../components/modal/PointModal";
+import { getDate } from "../../utils/date"
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
@@ -19,11 +22,23 @@ export default function FormDocumentation() {
     setShowModal(prev => !prev);
   };
 
-  const getDate = (dateStr = '') => {
-    if (!dateStr) return ''
-    const arrDate = dateStr.split('T')
-    return arrDate[0]
-  }
+  // const getDate = (dateStr = '') => {
+  //   if (!dateStr) return ''
+  //   const arrDate = dateStr.split('T')
+  //   return arrDate[0]
+  // }
+
+  console.log(tanamPohon);
+  // const checkDate = () =>{
+    const startDate = tanamPohon?.date
+    const dueDate = tanamPohon?.due_date
+
+    console.log(startDate, "start date");
+    console.log(dueDate, "due date");
+    //if start date before due date
+
+  //   return true
+  // }
 
   const [ documentation, setDocumentation ] = useState({
     image_url:"",
@@ -98,10 +113,11 @@ export default function FormDocumentation() {
   
   return (
     <>
+    <Navbar/>
     <div className="container-modal">
       <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
       <PointModal showModal={showModalPoint} setShowModal={setShowModalPoint}/>
-      <div className="form-tanam-pohon row">
+      <div className="form-tanam-pohon">
         <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
           <p>Terima kasih karena kamu sudah mempunyai niat baik untuk menghijaukan bumi kita. Yuk baca terlebih dahulu detail informasi dibawah ini.</p>
@@ -175,13 +191,19 @@ export default function FormDocumentation() {
                 <label for="tp-kesan-pesan">Kesan dan Pesan</label>
                 <textarea className="form-control" id="tp-kesan-pesan" rows="5" onChange={e => setDocumentation({ ...documentation, messages: e.target?.value })}></textarea>
               </div>
-              <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
+              {/* { */}
+                {/* checkDate?  */}
+                <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
+                {/* : */}
+                <button type="button" className="submit-disable"  disabled>SUBMIT</button>
+              {/* } */}
             </form>
           </div>
         </div>
       </div>
       <ToastContainer />
       </div>
+      <Footer/>
     </>
   )
 }

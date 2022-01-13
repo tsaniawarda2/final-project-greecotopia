@@ -5,6 +5,9 @@ import { API } from "../../config/api";
 import { DataContext } from "../../context/DataContext";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import SuccessRegistModal from "../../components/modal/SuccessRegistModal";
+import { getDate } from "../../utils/date";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function FormTanamPohon() {
   const { userLogin, tanamPohon } = useContext(DataContext);
@@ -16,11 +19,11 @@ export default function FormTanamPohon() {
     setShowModal(prev => !prev);
   };
 
-  const getDate = (dateStr = '') => {
-    if (!dateStr) return ''
-    const arrDate = dateStr.split('T')
-    return arrDate[0]
-  }
+  // const getDate = (dateStr = '') => {
+  //   if (!dateStr) return ''
+  //   const arrDate = dateStr.split('T')
+  //   return arrDate[0]
+  // }
 
   const [ participant, setParticipant ] = useState({
     name:"",
@@ -69,10 +72,11 @@ export default function FormTanamPohon() {
 
   return (
     <>
+    <Navbar/>
     <div className="container-modal">
       <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
       <SuccessRegistModal showModal={showModalSuccess} setShowModal={setShowModalSuccess}/>
-      <div className="form-tanam-pohon row">
+      <div className="form-tanam-pohon">
         <div className="info-tp col-lg-6">
           <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
           <p>Terima kasih karena kamu sudah mempunyai niat baik untuk menghijaukan bumi kita. Yuk baca terlebih dahulu detail informasi dibawah ini.</p>
@@ -162,6 +166,7 @@ export default function FormTanamPohon() {
       </div>
       <ToastContainer />
     </div>
+    <Footer/>
     </>
   )
 }

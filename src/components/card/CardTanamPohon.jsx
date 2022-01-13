@@ -1,15 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import {GiTwoCoins} from "react-icons/gi"
+import { getDate } from "../../utils/date";
+import Point from "../../assets/image/point.png"
 
 export default function CardTanamPohon({ item, userLogin }) {
   const history = useHistory();
 
-  const getDate = (dateStr = '') => {
-    if (!dateStr) return ''
-    const arrDate = dateStr.split('T')
-    return arrDate[0]
-  }
+  // const getDate = (dateStr = '') => {
+  //   if (!dateStr) return ''
+  //   const arrDate = dateStr.split('T')
+  //   return arrDate[0]
+  // }
 
   const checkParticipant = (dataParticipant = []) =>{
     const isExistUser = dataParticipant.find((participant) => participant.user_id === userLogin.user_id)  
@@ -23,13 +25,20 @@ export default function CardTanamPohon({ item, userLogin }) {
   return (
     <>
       <div className="card-tp">
-        <div className="point">
+        {/* <div className="point">
           <GiTwoCoins className="point-icon"/>
           <h4>{item.reward_point}</h4>
-        </div>
+        </div> */}
         <img src={item.image_url}/>
-        <p><i className="fas fa-map-marked-alt"></i>{item.location}</p>
-        <p><i className="fas fa-calendar-alt"></i> {getDate(item.date)}</p>
+        <div className="date-poin row">
+          <p className="col-7"><i className="fas fa-calendar-alt"></i> {getDate(item.date)}</p>
+          <p className="col-5 poin-card">
+            {/* <GiTwoCoins className="point-icon"/> */}
+            <img src={Point} alt="point" className="point-icon-card"/>
+            {item.reward_point}
+          </p>
+        </div>
+        <p className="location-card"><i className="fas fa-map-marked-alt"></i>{item.location}</p>
         <h1>{item.title}</h1>
         {
           checkParticipant(item.Participants)? 

@@ -2,22 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .form-tanam-pohon{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
   margin: 110px 35px 50px !important;
+  margin-top: 100px!important;
+}
+
+.info-tp{
+  padding: 20px;
 }
 
 .info-tp h1{
   font-family: 'Rubik', sans-serif;
-  font-size: 36px;
+  font-size: 28px;
 }
 
 .info-tp p, .info-tp td{
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .info-tp th{
   font-family: 'Poppins', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .titik-dua-tp{
@@ -36,10 +45,10 @@
 
 .tp-info{
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #232323;
-  padding-top: 35px;
+  padding-top: 18px;
 }
 
 .tp-info p{
@@ -68,7 +77,7 @@
 }
 
 .form-tp{
-  padding-left: 40px!important;
+  padding: 20px!important;
 }
 
 .container-form-tp{
@@ -79,18 +88,18 @@
 
 .container-form-tp h1{
   font-family: 'Rubik', sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   text-align: center;
 }
 
 .container-form-tp label{
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 12px;
 }
 
 .form-check{
-  margin-top: 16px;
+  margin-top: 14px;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
@@ -117,6 +126,19 @@
 	background-color: #FFB039;
 }
 
+.submit-disable{
+  background-color: #505050;
+  color: #fefefe;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
 .form-unggah-foto input{
   margin-top: 12px;
   margin-bottom: 4px;
@@ -130,7 +152,7 @@
 .container-modal{
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   height: 100vh;
 }
 
@@ -295,4 +317,20 @@
 
 .success-message{
   font-size: 16px!important;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  .form-tanam-pohon{
+    padding-top: 100px;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .container-form-tp{
+    margin-bottom: 100px;
+  }
+
+  .info-tp{
+    margin-top: 425px;
+  }
 }

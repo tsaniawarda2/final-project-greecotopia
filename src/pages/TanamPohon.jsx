@@ -3,6 +3,9 @@ import { DataContext } from "../context/DataContext";
 import CardTanamPohon from "../components/card/CardTanamPohon";
 import { useHistory } from "react-router-dom";
 import "../assets/styles/TanamPohon.css";
+import Slideshow from "../components/Slideshow";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function TanamPohon() {
   const { dataTP: data, userLogin } = useContext(DataContext);
@@ -13,6 +16,7 @@ export default function TanamPohon() {
   
   return (
     <>
+    <Navbar/>
       <div className="tanam-pohon container-fluid p-0">
         <section className="header-tp">
           <div className="content-header-tp">
@@ -24,7 +28,7 @@ export default function TanamPohon() {
         </section>
         <section className="content-tp-2">
           <div className="row row-tp-2">
-            <div className="col-lg-8 tp-2-text">
+            <div className="col-lg-7 tp-2-text">
               <h1>Saya mau menanam pohon, apa yang harus saya persiapkan?</h1>
               <ul>
                 <li> <i className="fas fa-check-circle"></i> Mendaftar dan mengisi data diri.</li>
@@ -35,8 +39,9 @@ export default function TanamPohon() {
                     Tanam Pohon ini merupakan program berkala yang bertujuan untuk menahan laju suhu iklim global.</p>
               </ul>
             </div>
-            <div className="col-lg-4 tp-2-img">
-              <img className=" img-tp" src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img>
+            <div className="col-lg-5 tp-2-img">
+              <div className="kotak-tp"></div>
+              <img className=" img-tp" src="https://cdn.pixabay.com/photo/2014/04/17/23/26/environmental-protection-326923_1280.jpg"></img>
             </div>
           </div>
         </section>
@@ -71,20 +76,38 @@ export default function TanamPohon() {
             </div>
             <div className="col-lg-1"></div>
           </div>
-            <div className="row dokumetasi-content">
-              <div className="col-lg-1"></div>
+            <div className="dokumetasi-content">
+              {/* <div className="col-lg-1"></div>
               <div className="col-lg-5 doc-column-1">
+                {/* <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img> */}
+              {/* <div className="col-lg-5 doc-column-1">
+                <Slideshow/>
+              </div> */}
+              {/* <div className="col-lg-5 doc-column-2">
                 <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img>
+                <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img>
+                <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img> */}
+              {/* </div> */}
+              {/* <div className="col-lg-1"></div>  */}
+              <Slideshow/>
+              <div className="row under-slideshow">
+                <div className="pict-doc col-2">
+                  <img src="https://images.unsplash.com/photo-1535978115060-d01ae6702684?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
+                </div>
+                <div className="pict-doc col-2">
+                  <img src="https://images.unsplash.com/photo-1611843467160-25afb8df1074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />
+                </div>
+                <div className="pict-doc col-2">
+                  <img src="https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                </div>
+                <div className="pict-doc col-2">
+                  <img src="https://images.unsplash.com/photo-1631401551847-78450ef649d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
+                </div>
               </div>
-              <div className="col-lg-5 doc-column-2">
-              <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img>
-              <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img>
-              <img src="https://images.unsplash.com/photo-1598335624134-5bceb5de202d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"></img>
-              </div>
-              <div className="col-lg-1"></div>
             </div>
         </section>
       </div>
+      <Footer/>
     </>
   );
 }

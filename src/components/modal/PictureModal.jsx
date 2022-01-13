@@ -2,9 +2,16 @@ import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { MdClose } from 'react-icons/md';
 import "../../assets/styles/documentations.css"
+import { useParams } from 'react-router-dom';
 
 export default function PictureModal ({ showModal, setShowModal }) {
   const modalRef = useRef();
+  const params = useParams();
+  // console.log(documentation, "doc modal");
+
+  // const docId = params.id
+  // console.log(docId, "doc id");
+  
 
   const animation = useSpring({
     config: {
