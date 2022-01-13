@@ -8,7 +8,6 @@ import { getDate } from "../../utils/date";
 
 export default function Documentation() {
   const params = useParams();
-
   const [documentation, setDocumentation] = useState({});
 
   useEffect(async () => {
@@ -24,17 +23,11 @@ export default function Documentation() {
     setDocumentation(data?.data);
   };
 
-  // const getDate = (dateStr = '') => {
-  //   if (!dateStr) return ''
-  //   const date = new Date(new Date(dateStr).getTime() - new Date(dateStr).getTimezoneOffset() * 60000)
-  //   return `${date.getUTCDate()}/${date.getUTCMonth()}/${date.getUTCFullYear()} ${date.getUTCHours()}:${date.getUTCMinutes()}`
-  // }
-
   const [showModal, setShowModal] = useState(false);
-  const [docIdModal, setDocIdModal] = useState(0);
+  const [dataId, setDataId] = useState(0);
 
-  const openModal = (docId) => {
-    setDocIdModal(docId);
+  const openModal = (dataId) => {
+    setDataId(dataId);
     setShowModal((prev) => !prev);
   };
 
@@ -43,7 +36,7 @@ export default function Documentation() {
       <Navbar />
       <div className="container-modal">
         <PictureModal
-          docId={docIdModal}
+          dataId={dataId}
           showModal={showModal}
           setShowModal={setShowModal}
         />
@@ -54,7 +47,7 @@ export default function Documentation() {
               <div
                 className="doc"
                 type="button"
-                onClick={() => openModal(data?.documentation_id)}
+                onClick={() => openModal(data)}
                 docId={data?.documentation_id}
               >
                 <div className="doc-img">

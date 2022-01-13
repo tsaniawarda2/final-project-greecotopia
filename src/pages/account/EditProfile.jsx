@@ -70,9 +70,16 @@ export default function EditProfile() {
 
           payloadProfile.background_url = dataBg.url;      
       }
-        const { data } = await API().put("/profile", payloadProfile)
+        const { data } = await toast.promise(API().put("/profile", payloadProfile),
+        {
+          pending: "Process saving new profile!",
+          success: "Success save new profile",
+          error: "Failed to save new profile"
+        }
+      )
         setNewProfile(payloadProfile)
-        console.log(data, "success");
+        // console.log(data, "success");
+        window.location.reload()
 
     } catch (error) {
       toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
@@ -100,7 +107,7 @@ export default function EditProfile() {
                 <img src={userLogin?.image_url} alt="" />
               </div>
               <div className="form-edit-profile">
-                <form id="form">
+                <form id="form-edit-profile">
                   <div className="form-group">
                     <label for="formGroupExampleInput">Full Name</label>
                     <input type="text" className="form-control" id="formGroupExampleInput" placeholder={userLogin?.fullname} onChange={e => setNewProfile({ ...newProfile, fullname: e.target?.value })}/>
