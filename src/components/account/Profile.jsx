@@ -5,6 +5,7 @@ import { FaTree } from "react-icons/fa"
 import { AiFillHeart } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
 import { DataContext } from "../../context/DataContext";
+import Avatar from "react-avatar";
 
 export default function Profile() {
   const { userLogin, users } = useContext(DataContext);
@@ -20,7 +21,12 @@ export default function Profile() {
         </div>
         <div className="row id-profile">
           <div className="profile-picture">
-            <img src={userLogin?.image_url} alt="" />
+            {userLogin?.image_url ? (
+              <Avatar src={userLogin?.image_url} id="img-profile"/>
+            ) : (
+              <Avatar name={userLogin?.username} id="img-profile"/>
+            )}
+            {/* <img src={userLogin?.image_url} alt="" /> */}
           </div>
           <div className="col-2"></div>
           <div className="name-usn col-6">
