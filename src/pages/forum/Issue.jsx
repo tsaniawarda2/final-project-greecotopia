@@ -246,11 +246,17 @@ export default function Issue() {
         <div id="issue">
           {/* Content Issue*/}
           <div className="content-issue">
-            <div className="row" id="contentIssue">
-              <div className="col-md-4 " id="picsIssue">
+            <div className="row gx-0" id="contentIssue">
+              <div
+                className="col-lg-4 col-md-12 col-sm-12 col-xs-12"
+                id="picsIssue"
+              >
                 <img src={dataComments?.image_url} alt="issueImg" id="imgCI" />
               </div>
-              <div className="col-md-8" id="descIssue">
+              <div
+                className="col-lg-8 col-md-12 col-sm-12 col-xs-12"
+                id="descIssue"
+              >
                 <p className="catCI">{Forum?.title}</p>
                 <p className="titleCI">{dataComments?.title}</p>
                 <p className="infoCI">

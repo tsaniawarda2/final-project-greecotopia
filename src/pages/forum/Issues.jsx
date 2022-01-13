@@ -51,7 +51,7 @@ export default function Issues() {
           {/* Card */}
           <div className="row" id="cardIssues">
             {dataIssues?.map((forum, idx) => (
-              <div className="col-md-3">
+              <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <CardIssue item={forum} key={forum.issue_id} />
               </div>
             ))}

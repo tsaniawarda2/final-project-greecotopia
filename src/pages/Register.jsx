@@ -20,21 +20,25 @@ export default function Login() {
       if (!form.fullname) {
         toast("Please input fullname !", {
           type: "error",
+          theme: "colored",
         });
       }
       if (!form.email) {
         toast("Please input email !", {
           type: "error",
+          theme: "colored",
         });
       }
       if (!form.username) {
         toast("Please input username !", {
           type: "error",
+          theme: "colored",
         });
       }
       if (!form.password) {
         toast("Please input password !", {
           type: "error",
+          theme: "colored",
         });
       }
       if (form.fullname && form.email && form.username && form.password) {
@@ -47,12 +51,14 @@ export default function Login() {
       if (error?.response?.data?.error) {
         toast(error?.response?.data?.error, {
           type: "error",
+          theme: "colored",
         });
       } else if (error?.response?.data?.errors) {
         const errors = error?.response?.data?.errors;
         errors.forEach((err) => {
           toast(err, {
             type: "error",
+            theme: "colored",
           });
         });
       }
@@ -118,21 +124,19 @@ export default function Login() {
                 />
               </div>
               {/* Password */}
-              <div className="d-flex password">
-                <div className="password1">
-                  <label for="password" className="form-label input">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="formRegister"
-                    value={form?.password}
-                    onChange={(e) =>
-                      setForm({ ...form, password: e.target?.value })
-                    }
-                  />
-                </div>
+              <div className="password">
+                <label for="password" className="form-label input">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="formRegister"
+                  value={form?.password}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target?.value })
+                  }
+                />
               </div>
 
               {/* Button */}

@@ -1,30 +1,53 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import Avatar from "react-avatar";
 
 import "../../assets/styles/leaderboard.css";
+import { DataContext } from "../../context/DataContext";
+import { toast, ToastContainer } from "react-toastify";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
-const dataUser = [
-  {
-    message: "Success Get Data Profile",
-    dataUser: {
-      user_id: 3,
-      fullname: "Tari Ayu",
-      email: "tariAyu@gmail.com",
-      username: "tari4yu",
-      image_url: "",
-      background_url: null,
-      points: 0,
-      role_id: 2,
-    },
-  },
-];
-const user = dataUser[0].dataUser;
-console.log(user, "-asda---");
 export default function FormReward() {
+  const { userLogin: data } = useContext(DataContext);
+  console.log(data, "-masuk?---");
+  const [claim, setClaim] = useState({
+    no_hp: "",
+    rank: 0,
+    session_month: 0,
+    year: 0,
+    date_of_claim: "",
+  });
+
+  const handleClaim = async () => {
+    try {
+      if (!claim.name) {
+        toast.error("No Hp tidak boleh kosong", {
+          theme: "colored",
+        });
+      } else {
+        // const payload = {
+        //   ...claim,
+        //   rank: rank,
+        //   session_month: 1,
+        //   year: 0,
+        //   date_of_claim: "900",
+        // };
+        // console.log("berhasil");
+        // await API().post("/claim_rewards", payload)
+      }
+    } catch (error) {
+      toast.error(
+        error?.response?.data?.error?.message ||
+          error?.response?.message ||
+          "Internal Server Error"
+      );
+    }
+  };
   return (
     <>
+      <Navbar />
       <section id="leaderboard">
         <div className="container text-content" id="claimReward">
           <div className="text-center">
@@ -40,13 +63,15 @@ export default function FormReward() {
               <div className="row" id="dataDiri">
                 <div className="col-md-4 gx-0 py-3" id="profileUser">
                   <p className="rank">1st</p>
-                  {user?.image_url ? (
-                    <Avatar src={user?.image_url} id="avaUser" />
+                  {data?.image_url ? (
+                    <Avatar src={data?.image_url} id="avaUser" />
                   ) : (
-                    <Avatar name={user?.username} id="avaUser" />
+                    <Avatar name={data?.username} id="avaUser" />
                   )}
-                  <p className="name">{user?.username}</p>
-                  <p className="poin">{user?.points} Point</p>
+                  <p className="name">{data?.username}</p>
+                  <p className="poin">
+                    {data?.points ? data?.points : "0"} Point
+                  </p>
                 </div>
                 <div className="col-md-8 gx-0 py-3" id="dataUser">
                   <p className="konfirmasi">Konfirmasi Data Diri</p>
@@ -58,7 +83,7 @@ export default function FormReward() {
                           type="text"
                           className="form-control"
                           id="formDisable"
-                          placeholder={user?.email}
+                          placeholder={data?.email}
                           disabled
                         />
                       </div>
@@ -68,7 +93,7 @@ export default function FormReward() {
                           type="text"
                           className="form-control"
                           id="formDisable"
-                          placeholder={user?.fullname}
+                          placeholder={data?.fullname}
                           disabled
                         />
                       </div>
@@ -80,7 +105,7 @@ export default function FormReward() {
                           type="email"
                           className="form-control"
                           id="formDisable"
-                          placeholder={user?.email}
+                          placeholder={data?.email}
                           disabled
                         />
                       </div>
@@ -105,30 +130,12 @@ export default function FormReward() {
                   </NavLink>
                 </div>
               </div>
-
-              {/* Child User */}
-              {/* {dataTopTen?.map((user) => (
-                <>
-                  <div className="colomnU">
-                    <div className="textUser">
-                      <p id="rankUser">4</p>
-                      <div id="imgUser">
-                        {user?.image_url ? (
-                          <Avatar src={user?.image_url} id="avaUser" />
-                        ) : (
-                          <Avatar name={user?.username} id="avaUser" />
-                        )}
-                      </div>
-                      <p id="userName">{user?.username}</p>
-                    </div>
-                    <p id="poinUser">{user?.points} Poin</p>
-                  </div>
-                </>
-              ))} */}
             </div>
           </div>
         </div>
       </section>
+      <ToastContainer />
+      <Footer />
     </>
   );
 }

@@ -5,7 +5,9 @@ import { API } from "../config/api";
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  const [users, setUsers ] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [topFive, setTopFive] = useState([]);
+  const [topTen, setTopTen] = useState([]);
   const [userLogin, setUserLogin] = useState([]);
 
   // Tanam Pohon
@@ -13,7 +15,7 @@ const DataProvider = ({ children }) => {
   const [tanamPohon, setTanamPohon] = useState([]);
   const [dataDoc, setDataDoc] = useState([]);
   const [documentation, setDocumentation] = useState([]);
-  
+
   // Forum
   const [forums, setForums] = useState([]);
   const [forum, setForum] = useState([]);
@@ -22,21 +24,31 @@ const DataProvider = ({ children }) => {
   const [favIssues, setFavIssues] = useState([]);
   const { pathname } = useLocation();
 
-
   useEffect(() => {
     getUserLogin();
     getUsers();
+    getTopFive();
+    getTopTen();
   }, []);
 
   const getUserLogin = async () => {
     const { data } = await API().get("/profile");
-    setUserLogin(data.dataUser);
+    setUserLogin(data?.dataUser);
   };
   const getUsers = async () => {
-    const { data : dataUser} = await API().get("/users");
+    const { data: dataUser } = await API().get("/users");
     setUsers(dataUser?.users);
-  }
+  };
 
+  const getTopFive = async () => {
+    const { data: dataTopFive } = await API().get("/users/topFive");
+    setTopFive(dataTopFive?.users);
+  };
+  const getTopTen = async () => {
+    const { data: dataTopTen } = await API().get("/users/topTen");
+    setTopTen(dataTopTen?.users);
+    console.log(dataTopTen, "-------TOP10");
+  };
 
   useEffect(async () => {
     const arrPath = pathname?.split("/");
@@ -62,11 +74,7 @@ const DataProvider = ({ children }) => {
     await getDocumentationsById(newId);
     await getForumById(newId);
     await getIssueById(newId);
-
   }, [pathname]);
-
-
-
 
   const getTanamPohon = async () => {
     const { data: dataTanamPohon } = await API().get("/tanampohons");
@@ -131,7 +139,21 @@ const DataProvider = ({ children }) => {
   return (
     <>
       <DataContext.Provider
-        value={{ userLogin, users,forums, forum, issues, issue, favIssues, dataTP, tanamPohon, dataDoc, documentation }}
+        value={{
+          userLogin,
+          users,
+          topFive,
+          topTen,
+          forums,
+          forum,
+          issues,
+          issue,
+          favIssues,
+          dataTP,
+          tanamPohon,
+          dataDoc,
+          documentation,
+        }}
       >
         {children}
       </DataContext.Provider>
@@ -140,4 +162,3 @@ const DataProvider = ({ children }) => {
 };
 
 export { DataProvider, DataContext };
-

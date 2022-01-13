@@ -18,16 +18,16 @@ export default function CardIssue({ item }) {
           <div className="fav text-center">
             <AiOutlineHeart className="icon-fav" />
           </div>
-          <img src={item.image_url} className="card-img-top" alt="imgCard" />
+          <img src={item?.image_url} className="card-img-top" alt="imgCard" />
           <div className="card-body">
-            <h5 className="card-title">{item.title}</h5>
+            <h5 className="card-title">{item?.title}</h5>
             <p className="card-text">
-              {item.title.length >= 28
-                ? item.summary.substring(0, 60) + " ..."
-                : item.summary.substring(0, 84) + " ..."}
+              {item?.title.length >= 28
+                ? item?.summary.substring(0, 60) + " ..."
+                : item?.summary.substring(0, 84) + " ..."}
             </p>
             <div className="comment">
-              {item.Comments.length !== 0 ? (
+              {item?.Comments.length !== 0 ? (
                 <CommentFill
                   className="icon-com"
                   onClick={() =>
@@ -47,7 +47,7 @@ export default function CardIssue({ item }) {
                 />
               )}
 
-              <span className="context">{item.Comments.length}</span>
+              <span className="context">{item?.Comments.length}</span>
             </div>
             <button
               to={`/issues/${item?.issue_id}`}

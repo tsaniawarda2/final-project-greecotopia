@@ -173,7 +173,7 @@
 
 /* --- Comments --- */
 #comment {
-  padding: 24px;
+  padding: 0px 48px;
 }
 .firstCom {
   font-family: "Rubik", sans-serif;
@@ -217,7 +217,7 @@
   border-bottom-right-radius: 14px;
 }
 .main-comment #inputCFilled {
-  width: 138.2vh;
+  width: 142.2vh;
   margin-bottom: 32px;
 }
 
@@ -254,7 +254,7 @@
 }
 #inputCom,
 #inputCFilled {
-  width: 138vh;
+  width: 142vh;
   margin: 0px 16px;
   font-size: 14px;
   padding: 10px 16px;
@@ -399,7 +399,7 @@
   font-size: 14px;
   box-shadow: 2px 2px 2px 0px rgb(197 202 204);
   padding: 10px 16px;
-  width: 127.6vh;
+  width: 132.6vh;
   margin-left: 16px !important;
   margin-bottom: 28px;
 }
@@ -410,4 +410,50 @@
 /* --- Card ---- */
 #issue #cardIssue {
   margin-top: 56px;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  /* Content */
+  #contentIssue {
+    display: block;
+  }
+  #imgCI {
+    width: 694px;
+    border-top-right-radius: 14px;
+  }
+  #issues-filter {
+    margin: 0px 254px;
+    width: 248px;
+    top: 70px;
+  }
+  #issues-filter .nav-item {
+    margin: 40px 215px;
+    margin-bottom: 14px;
+  }
+  .justify-content-center {
+    justify-content: space-between !important;
+  }
+  .sticky-top {
+    position: absolute !important;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #issues-filter {
+    margin: 66px;
+    width: 248px;
+  }
+  #inputCom,
+  #inputCFilled {
+    width: 62vh;
+  }
+  .main-comment {
+    width: 70%;
+  }
+  .main-comment #inputCFilled {
+    width: 62vh;
+  }
+  #repCFilled {
+    width: 52.6vh;
+  }
 }
