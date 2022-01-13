@@ -1,7 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import { Switch, Route, Redirect } from "react-router";
 
 import {
   Welcome,
@@ -10,7 +8,6 @@ import {
   Register,
   Account,
   EditProfile,
-  // ContactUs,
   Forum,
   Issues,
   Issue,
@@ -31,32 +28,87 @@ export default function App() {
     <>
       <Switch>
         <Route exact path="/" component={Welcome} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/register"
+          render={(props) => {
+            if (localStorage.getItem("token")) {
+              return <Redirect to="/home"/>;
+            } else {
+              return <Register {...props} />;
+            }
+          }}
+        />
+        <Route exact path="/login" 
+          render={(props) => {
+            if (localStorage.getItem("token")) {
+              return <Redirect to="/home"/>;
+            } else {
+              return <Login {...props} />;
+            }
+          }}
+        />
         <Route exact path="/password" component={Password} />
-        {/* <Navbar /> */}
         <Route exact path="/home" component={Home} />
-        <Route exact path="/account" component={Account} />
+
+        {/* Account */}
+        <Route exact path="/account"
+          render={(props) => {
+            if (!localStorage.getItem("token")) {
+              return <Redirect to="/login"/>;
+            } else {
+              return <Account {...props} />;
+            }
+          }}
+        />
+        <Route exact path="/editProfile"
+          render={(props) => {
+            if (!localStorage.getItem("token")) {
+              return <Redirect to="/login"/>;
+            } else {
+              return <EditProfile {...props} />;
+            }
+          }}
+        />
+
+        {/* Forum */}
         <Route exact path="/forums" component={Forum} />
         <Route exact path="/forums/:id" component={Issues} />
         <Route exact path="/issues/:id" component={Issue} />
-        <Route exact path="/editProfile" component={EditProfile} />
-        <Route exact path="/tanamPohon" component={TanamPohon} />
-        <Route exact path="/allTanamPohon" component={AllTanamPohon} />
-        <Route exact path="/formTanamPohon" component={FormTanamPohon} />
-        <Route exact path="/formTanamPohon/:id" component={FormTanamPohon} />
-        <Route exact path="/formDocumentation" component={FormDocumentation} />
 
-        <Route
-          exact
-          path="/formDocumentation/:id"
-          component={FormDocumentation}
+        {/* Tanam Pohon */}
+        <Route exact path="/tanamPohon" 
+          render={(props) => <TanamPohon {...props}/>} 
         />
-        <Route exact path="/documentations" component={Documentations} />
-        <Route exact path="/documentations/:id" component={Documentation} />
+        <Route exact path="/allTanamPohon" 
+          render={(props) => <AllTanamPohon {...props}/>} 
+        />
+        <Route exact path="/formTanamPohon/:id" 
+          render={(props) => {
+            if (!localStorage.getItem("token")) {
+              return <Redirect to="/login"/>;
+            } else {
+              return <FormTanamPohon {...props} />;
+            }
+          }}
+        />
+        <Route exact path="/formDocumentation/:id" 
+          render={(props) => {
+            if (!localStorage.getItem("token")) {
+              return <Redirect to="/login"/>;
+            } else {
+              return <FormDocumentation {...props} />;
+            }
+          }}
+        />
+        <Route exact path="/documentations" 
+          render={(props) => <Documentations {...props}/>} 
+        />
+        <Route exact path="/documentations/:id"
+          render={(props) => <Documentation {...props}/>} 
+        />
+
+        {/* Leaderboard */}
         <Route exact path="/leaderboard" component={Leaderboard} />
         <Route exact path="/formReward" component={FormReward} />
-        {/* <Footer /> */}
         <Route exact path="*" component={NotFound} />
       </Switch>
     </>
