@@ -25,6 +25,7 @@ export default function Logout({ showModal, setShowModal }) {
   const onHandleLogout = () => {
       localStorage.removeItem("token"); 
       history.push("/home")
+      setShowModal(false)
     }
 
   return (
@@ -45,7 +46,7 @@ export default function Logout({ showModal, setShowModal }) {
                   Yakin ingin keluar? 
                 </div>
                 <div className='logout-btns'>
-                  <button type='button' className="modal-logout-btn-n" onClick={closeModal}>
+                  <button type='button' className="modal-logout-btn-n" onClick={()=> setShowModal(false)}>
                     Tidak
                   </button>
                   <button type='button' className="modal-logout-btn-y" onClick={onHandleLogout}>

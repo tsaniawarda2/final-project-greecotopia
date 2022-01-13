@@ -11,15 +11,12 @@ export default function Documentation() {
   const [documentation, setDocumentation] = useState({});
 
   useEffect(async () => {
-    console.log("masuk");
     await getDocumentationById();
   }, []);
 
   const getDocumentationById = async () => {
     const id = params.id;
-    console.log(id, "id get");
     const { data } = await API().get(`/documentations/tanam_pohon/${id}`);
-    console.log(data?.data, "docs");
     setDocumentation(data?.data);
   };
 

@@ -7,11 +7,14 @@ import { API } from "../../config/api";
 import { ToastContainer, toast } from "react-toastify";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { useHistory } from "react-router-dom";
+import Avatar from "react-avatar";
 
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function EditProfile() {
   const { userLogin } = useContext(DataContext);
+  console.log(userLogin, "log");
 
   const [ fileImage, setFileImage ] = useState(null);
   const [ fileBg, setFileBg ] = useState(null);
@@ -26,15 +29,15 @@ export default function EditProfile() {
     background_url: ""
   })
 
+  const history = useHistory()
+
   const onChangeFileImage = (e) => {
-    // console.log(e.target)
     const files = e?.target?.files;
     setFileImage(files[0])
   }
 
   const onChangeFileBg = (e) => {
     const files = e?.target?.files;
-    // console.log(files)
     setFileBg(files[0])
   }
 
@@ -55,7 +58,7 @@ export default function EditProfile() {
         payloadImg.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
         const { data : dataPict} = await Cloudinary().post("/", payloadImg)
         setImageUrl(dataPict)
-        console.log(dataPict?.url, "pict");
+
 
         payloadProfile.image_url = dataPict?.url;
       } 
@@ -73,7 +76,7 @@ export default function EditProfile() {
         const { data } = await toast.promise(API().put("/profile", payloadProfile),
         {
           pending: "Penyimpanan profile baru sedang diproses",
-          success: "Berhasil menyimpan perubahan data profile baru!",
+          success: "Login dulu ya agar penyimpananmu tersimpan dengan baik!",
           error: "Gagal menyimpan perubahan data profile baru"
         },
         {
@@ -81,7 +84,8 @@ export default function EditProfile() {
         }
       )
         setNewProfile(payloadProfile)
-        window.location.reload()
+
+        history.push("/login")
 
     } catch (error) {
       console.log(error?.response?.data?.errors[0]);
@@ -107,7 +111,12 @@ export default function EditProfile() {
                   <AiFillCamera className="icons-camera-profile" onClick={_ => document.getElementById('input-image').click()}/>
                   <input type="file" className="custom-file-input" id="input-image" onChange={e => onChangeFileImage(e)} style={{ opacity: 0 }}/>
                 </div>
-                <img src={userLogin?.image_url} alt="" />
+                {userLogin?.image_url ? (
+                  <Avatar src={userLogin?.image_url} id="img-edit-profile"/>
+                ) : (
+                  <Avatar name={userLogin?.username} id="img-edit-profile"/>
+            )}
+                {/* <img src={userLogin?.image_url} alt="" /> */}
               </div>
               <div className="form-edit-profile">
                 <form id="form-edit-profile">
