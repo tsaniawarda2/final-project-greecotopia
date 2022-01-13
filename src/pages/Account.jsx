@@ -8,17 +8,18 @@ import Avatar from "react-avatar"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { useHistory } from "react-router-dom";
+import Logout from "../components/modal/Logout"
 
 export default function Account() {
   const [toggleState, setToggleState] = useState(1);
   const { userLogin } = useContext(DataContext);
   const history = useHistory();
 
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  // const openModal = () => {
-  //   setShowModal(prev => !prev);
-  // };
+  const openModal = () => {
+    setShowModal(prev => !prev);
+  };
   // console.log(userLogin);
 
   const toggleSide = (index) => {
@@ -26,14 +27,10 @@ export default function Account() {
   };
   console.log(userLogin, "user");
 
-  const onHandleLogout = () => {
-    localStorage.removeItem("token"); 
-    history.push("/home")
-  }
-
   return (
     <>
     <Navbar/>
+      <Logout showModal={showModal} setShowModal={setShowModal}/>
       <div className="container-account container-fluid">
         <div className="account">
           <div className="col-lg-4 profile-side-left">
@@ -48,7 +45,7 @@ export default function Account() {
               </div>
               <div className="name-poin col-lg-8">
                 <h1>{userLogin?.fullname}</h1>
-                <p>{userLogin.points} poin</p>
+                <p>{userLogin?.points} poin</p>
               </div>
             </div>
             <div className="sidenav-profile">
@@ -67,9 +64,14 @@ export default function Account() {
                  Contact Us
                 </p>
               </div>
-              <div className="logout-side">
-              <p type="button" onClick={onHandleLogout()}>
+              {/* <div className="logout-side"> */}
+              {/* <p type="button" onClick={onHandleLogout()}> */}
                 {/* <p type="button" className={toggleState === 4 ? "bars active-bars" : "bars"} onClick={() => toggleSide(4)}> */}
+                  {/* <p>Logout</p> */}
+                {/* </p> */}
+              {/* </div> */}
+              <div className="logout-side">
+                <p type="button" onClick={openModal}>
                   Logout
                 </p>
               </div>
@@ -81,17 +83,18 @@ export default function Account() {
               <Profile/>
             </div>
             <div className={toggleState === 2 ? "active-content" : "content"}>
-              <FavoriteIssue/>
+              {/* <FavoriteIssue/> */}
             </div>
             <div className={toggleState === 3 ? "profile-right" : "content"}>
               <ContactUs/>
             </div>
-            <div className={toggleState === 4 ? "active-content" : "content"}>
-              {/* <p onClick={openModal}> */}
+            {/* <div className={toggleState === 4 ? "active-content" : "content"}> */}
+              {/* <p type="button" onClick={openModal}> */}
               {/* <p type="button" onClick={onHandleLogout()}> */}
-                logout
+                {/* logout */}
               {/* </p> */}
-            </div>
+              <Logout showModal={showModal} setShowModal={setShowModal}/>
+            {/* </div> */}
           </div>
         </div>
       </div>

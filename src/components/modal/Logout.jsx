@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useHistory } from 'react-router-dom';
+import LogoutImg from "../../assets/image/logout.png";
+import Logo from "../../assets/image/logo.png"
 
 export default function Logout({ showModal, setShowModal }) {
   const modalRef = useRef();
@@ -14,12 +16,16 @@ export default function Logout({ showModal, setShowModal }) {
     transform: showModal ? `translateY(0%)` : `translateY(-100%)`
   });
 
-  const closeModal = e => {
+  const closeModal = (e) => {
     if (modalRef.current === e.target) {
       setShowModal(false);
-      history.push("/home")
     }
   };
+
+  const onHandleLogout = () => {
+      localStorage.removeItem("token"); 
+      history.push("/home")
+    }
 
   return (
     <>
@@ -28,18 +34,22 @@ export default function Logout({ showModal, setShowModal }) {
           <animated.div style={animation}>
             <div className='modal-wrapper-success' showModal={showModal}>
               <div className='modal-content-point'>
-                <div className='sucess-icons'>
-                  <img src="https://res.cloudinary.com/dxykuppjd/image/upload/v1641773825/success_zls9ts.png" alt="" />
+                <div className="logo-img-modal">
+                  <img src={Logo} alt="logo"/>
+                  Greecotopia
                 </div>
-                <div className='modal-message'>
-                  
+                <div className='logout-img'>
+                  <img src={LogoutImg} alt="logout" />
                 </div>
-                <div className='modal-ok-btn'>
-                  <button type='button' onClick={() => {
-                    setShowModal(prev => !prev)
-                    history.push("/home")
-                  }}>
-                    Logout
+                <div className='modal-message-logout'>
+                  Yakin ingin keluar? 
+                </div>
+                <div className='logout-btns'>
+                  <button type='button' className="modal-logout-btn-n" onClick={closeModal}>
+                    Tidak
+                  </button>
+                  <button type='button' className="modal-logout-btn-y" onClick={onHandleLogout}>
+                    Yakin
                   </button>
                 </div>
               </div>

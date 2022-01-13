@@ -40,7 +40,6 @@ export default function FavoriteIssue() {
             favIssue? 
             // <p>card</p>
             favIssue.map((issue) => {
-              console.log(issue, "issue");
               <CardIssue item={issue}/>
             })
             :

@@ -13,6 +13,10 @@ nav {
   text-transform: uppercase;
 }
 
+#navTop{
+  z-index: 9!important;
+}
+
 /* LEFT */
 .logo-nav {
   width: 42px;
