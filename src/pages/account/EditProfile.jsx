@@ -72,17 +72,20 @@ export default function EditProfile() {
       }
         const { data } = await toast.promise(API().put("/profile", payloadProfile),
         {
-          pending: "Process saving new profile!",
-          success: "Success save new profile",
-          error: "Failed to save new profile"
+          pending: "Penyimpanan profile baru sedang diproses",
+          success: "Berhasil menyimpan perubahan data profile baru!",
+          error: "Gagal menyimpan perubahan data profile baru"
+        },
+        {
+          theme: "colored"
         }
       )
         setNewProfile(payloadProfile)
-        // console.log(data, "success");
         window.location.reload()
 
     } catch (error) {
-      toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
+      console.log(error?.response?.data?.errors[0]);
+      toast(error?.response?.data?.errors[0]|| error?.response?.message || "Internal Server Error", { type: "error", theme: "colored"} )
     }
   }
 

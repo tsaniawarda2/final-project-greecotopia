@@ -19,12 +19,6 @@ export default function FormTanamPohon() {
     setShowModal((prev) => !prev);
   };
 
-  // const getDate = (dateStr = '') => {
-  //   if (!dateStr) return ''
-  //   const arrDate = dateStr.split('T')
-  //   return arrDate[0]
-  // }
-
   const [participant, setParticipant] = useState({
     name: "",
     no_hp: "",
@@ -34,26 +28,29 @@ export default function FormTanamPohon() {
   });
 
   const onHandleRegister = async () => {
-    console.log("click");
     try {
       if (!participant.name) {
         toast("Nama tidak boleh kosong", {
           type: "error",
+          theme: "colored",
         });
       }
       if (!participant.no_hp) {
         toast("Nomor Handphone tidak boleh kosong", {
           type: "error",
+          theme: "colored",
         });
       }
       if (!participant.number_of_trees) {
         toast("Jumlah Pohon tidak boleh kosong", {
           type: "error",
+          theme: "colored",
         });
       }
       if (!participant) {
         toast("Isi data terlebih dahulu ya!", {
           type: "error",
+          theme: "colored",
         });
       } else {
         const payload = {
@@ -61,20 +58,18 @@ export default function FormTanamPohon() {
           tanam_pohon_id: tanamPohon.tanam_pohon_id,
           user_id: userLogin.user_id,
         };
-        console.log(payload, "participant");
         const { data: dataParticipant } = await API().post(
           "/participants",
           payload
         );
-        console.log(dataParticipant);
         setShowModalSuccess(true);
       }
     } catch (error) {
       toast(
-        error?.response?.data?.error?.message ||
+        error?.response?.data?.message ||
           error?.response?.message ||
           "Internal Server Error",
-        { type: "error" }
+        { type: "error", theme: "colored", }
       );
     }
   };

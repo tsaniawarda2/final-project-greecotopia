@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import "../../assets/styles/formTanamPohon.css";
 import { Cloudinary } from "../../config/thirdParty";
 import { ToastContainer, toast } from "react-toastify";
@@ -31,9 +31,7 @@ export default function FormDocumentation() {
   })
 
   const onChangeFile = (e) => {
-    console.log(e.target)
     const files = e?.target?.files
-    console.log(files)
     setForm(files[0])
   }
 
@@ -41,17 +39,20 @@ export default function FormDocumentation() {
     try {
       if (!documentation.caption) {
         toast("Keterangan foto tidak boleh kosong", {
-          type: 'error'
+          type: 'error',
+          theme: "colored", 
         })
       } 
       if (!documentation.messages) {
         toast("Kesan & Pesan tidak boleh kosong", {
-          type: 'error'
+          type: 'error',
+          theme: "colored", 
         })
       }
       if (!form) {
-        toast("Please input file!", {
-          type: "error"
+        toast("Isi file dulu ya!", {
+          type: "error",
+          theme: "colored", 
         })
       } else {
         const payload = new FormData()
@@ -60,8 +61,6 @@ export default function FormDocumentation() {
         payload.append("cloud_name", REACT_APP_CLOUD_NAME_CLOUDINARY)
   
         const { data : dataPict} = await Cloudinary().post("/", payload)
-        
-        console.log(dataPict.url, "pict url");
 
         const payloadDoc = {
           ...documentation,
@@ -70,33 +69,26 @@ export default function FormDocumentation() {
           participant_id: userLogin.user_id
         }
         
-        // console.log(payloadDoc, "payload doc");
         setDocumentation(payloadDoc)
 
           const { data: dataDoc } = await toast.promise(
             API().post("/documentations", payloadDoc),
             {
-              pending: "Uploading Documentation in progress!",
-              success: "Success uploading Documentation",
-              error: "Failed to uploading Documentation"
+              pending: "Unggah dokumentasi sedang dalam proses",
+              success: "Berhasil unggah dokumentasi",
+              error: "Gagal unggah dokumentasi"
+            },
+            {
+              theme: "colored"
             }
           )
-          // const { data: dataDoc } = await API().post("/documentations", payloadDoc);
-          // console.log(dataDoc.message, "data doc");
-          // console.log("masuk");
 
           setShowModalPoint(prev => !prev);
       }
     } catch (error) {
-      // console.log(error);
-      toast(error?.response?.data?.error?.message || error?.response?.message || "Internal Server Error", { type: "error"} )
+      toast(error?.response?.data?.errors[0] || error?.response?.message || "Internal Server Error", { type: "error", theme: "colored", } )
     }
   }
-
-  // console.log(tanamPohon.due_date, "duedate aja");
-  // console.log(new Date(tanamPohon.due_date), "new date(due date)");
-  // console.log(new Date(), "hari ini");
-  console.log(new Date(tanamPohon.due_date) > new Date());
   
   return (
     <>
