@@ -86,23 +86,21 @@ export default function Leaderboard() {
               </div>
 
               {/* Child User */}
-              {data?.map((user) => (
-                <>
-                  <div className="colomnU">
-                    <div className="textUser">
-                      <p id="rankUser">4</p>
-                      <div id="imgUser">
-                        {user?.image_url ? (
-                          <Avatar src={user?.image_url} />
-                        ) : (
-                          <Avatar name={user?.username} />
-                        )}
-                      </div>
-                      <p id="userName">{user?.username}</p>
+              {data?.slice(3)?.map((user, index) => (
+                <div className="colomnU" key={index}>
+                  <div className="textUser">
+                    <p id="rankUser">{index + 4}</p>
+                    <div id="imgUser">
+                      {user?.image_url ? (
+                        <Avatar src={user?.image_url} />
+                      ) : (
+                        <Avatar name={user?.username} />
+                      )}
                     </div>
-                    <p id="poinUser">{user?.points} Poin</p>
+                    <p id="userName">{user?.username}</p>
                   </div>
-                </>
+                  <p id="poinUser">{user?.points} Poin</p>
+                </div>
               ))}
             </div>
           </div>

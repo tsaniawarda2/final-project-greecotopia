@@ -11,7 +11,7 @@ import Footer from "../../components/Footer";
 
 export default function FormTanamPohon() {
   const { userLogin, tanamPohon } = useContext(DataContext);
-
+  const [isCheck, setIsCheck] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showModalSuccess, setShowModalSuccess] = useState(false);
 
@@ -34,6 +34,7 @@ export default function FormTanamPohon() {
   });
 
   const onHandleRegister = async () => {
+    console.log("click");
     try {
       if (!participant.name) {
         toast("Nama tidak boleh kosong", {
@@ -220,14 +221,17 @@ export default function FormTanamPohon() {
                     type="checkbox"
                     className="form-check-input"
                     id="siap-tp"
+                    value={isCheck}
+                    onChange={(e) => setIsCheck(e?.target?.checked)}
                   />
                   <p className="form-check-label" for="siap-tp">
                     Saya siap menanam pohon
                   </p>
                 </div>
                 <button
+                  disabled={!isCheck}
                   type="button"
-                  className="btn-daftar"
+                  className={!isCheck ? "btn-daftar-disable" : "btn-daftar"}
                   onClick={() => onHandleRegister()}
                 >
                   DAFTAR

@@ -12,7 +12,9 @@ export default function CardForum({ item }) {
       <div id="cardFI" className="card-forum">
         <div className="card" id="cForum">
           <img src={item?.image_url} className="card-img-top" alt="imgCard" />
-
+          {/* <div className="fav text-center">
+            <AiOutlineHeart className="icon-fav" />
+          </div> */}
           <div className="card-body">
             <h5 className="card-title">{item?.title}</h5>
             <p className="card-text">{item?.summary}</p>
