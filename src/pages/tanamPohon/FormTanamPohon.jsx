@@ -226,7 +226,7 @@ export default function FormTanamPohon() {
                 <button
                   disabled={!isCheck}
                   type="button"
-                  className={!isCheck ? "btn-daftar-disable" : "btn-daftar"}
+                  className={!isCheck ? "submit-disable" : "btn-daftar"}
                   onClick={() => onHandleRegister()}
                 >
                   DAFTAR

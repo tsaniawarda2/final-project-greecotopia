@@ -468,20 +468,67 @@ body{
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
-	/* .body{
-		width: auto;
+	.content-tp-2 .row-tp-2 {
+		flex-direction: column-reverse;
 	}
-	
-	.tanam-pohon{
-		width: 100%;
-	}
-
-	.container-fluid{
-		padding: 0;
-	} */
-
 	.img-tp, .kotak-tp{
-		height: 300px;
-		width: 300px;
+		height: 230px;
+		width: 230px;
+	}
+
+	.kotak-tp{
+		margin-top: -30px;
+		margin-left: 245px;
+	}
+
+	.img-tp{
+		margin-top: -210px;
+		margin-bottom: 45px;
+		margin-left: 0;
+	}
+
+	.tp-2-img{
+		text-align: center;
+	}
+
+	.cards-tp{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 25px auto;
+		justify-content: center;
+	}
+
+	.content-tp-3{
+		height: 120vh;
+	}
+
+	.text-section-4{
+		justify-content: space-around;
+	}
+
+	.pict-doc{
+		text-align: center;
+	}
+
+	.pict-doc img{
+		margin-top: 20px;
+	}
+
+	.slideshow-container{
+		margin-bottom: 50px;
+	}
+
+	.modal-wrapper-pict{
+		width: 650px;
+	}
+
+	.modal-text-bottom h1{
+		font-size: 20px;
+		margin-bottom: 8px!important;
+	}
+
+	.modal-text-bottom p{
+		font-size: 12px;
 	}
 }

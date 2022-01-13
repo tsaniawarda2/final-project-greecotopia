@@ -57,6 +57,44 @@
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
 	.all-tp-banner{
-    height: 400px;
+    height: 330px;
+  }
+
+  .banner-tp-text p, .card-tp p{
+    font-size: 12px;
+  }
+
+  .banner-tp-text h1, .text-ytp h1{
+    font-size: 28px;
+  }
+
+  .card-tp{
+    width: 280px;
+  }
+
+  .btn-unggah-tp, .btn-join-tp{
+    font-size: 12px;
+  }
+
+  .card-tp h1{
+    font-size: 16px;
+  }
+
+  .poin-card#text{
+    font-size: 14px;
+  }
+
+  .date-poin > .poin-card{
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700;
+    padding-right: 20px;
+  }
+
+  .point-icon-card{
+    height: 15px;
+    width: 15px;
+    margin-right: 4px;
+    margin-top: -2px;
   }
 }
