@@ -3,12 +3,15 @@ import React, { useContext } from "react";
 import CardTanamPohon from "../../components/card/CardTanamPohon";
 import { DataContext } from "../../context/DataContext"
 import "../../assets/styles/allTanamPohon.css"
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function AllTanamPohon() {
   const { dataTP: data, userLogin } = useContext(DataContext);
 
   return (
     <>
+    <Navbar/>
       <div className="all-tp">
         <div className="all-tp-banner">
           <div className="banner-tp-text">
@@ -26,6 +29,7 @@ export default function AllTanamPohon() {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

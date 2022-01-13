@@ -6,7 +6,7 @@ export default function Slideshow() {
   return (
     <>
     <div className="slideshow-container">
-      <div className="card">
+      <div className="card-slideshow">
         <div className="card_part card_one">
         </div>
         

@@ -5,6 +5,8 @@ import { DataContext } from "../../context/DataContext";
 import { Cloudinary } from "../../config/thirdParty";
 import { API } from "../../config/api";
 import { ToastContainer, toast } from "react-toastify";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
@@ -79,6 +81,7 @@ export default function EditProfile() {
 
   return (
     <>
+    <Navbar/>
       <div className="container-account container-fluid">
         <div className="row account">
           <div className="col-lg-8 profile-right">
@@ -121,6 +124,7 @@ export default function EditProfile() {
         </div>
         <ToastContainer/>
       </div>
+      <Footer/>
     </>
   );
 }

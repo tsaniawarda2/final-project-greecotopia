@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import {GiTwoCoins} from "react-icons/gi"
 import { getDate } from "../../utils/date";
+import Point from "../../assets/image/point.png"
 
 export default function CardTanamPohon({ item, userLogin }) {
   const history = useHistory();
@@ -31,7 +32,11 @@ export default function CardTanamPohon({ item, userLogin }) {
         <img src={item.image_url}/>
         <div className="date-poin row">
           <p className="col-7"><i className="fas fa-calendar-alt"></i> {getDate(item.date)}</p>
-          <p className="col-5 poin-card"><GiTwoCoins className="point-icon"/>{item.reward_point}</p>
+          <p className="col-5 poin-card">
+            {/* <GiTwoCoins className="point-icon"/> */}
+            <img src={Point} alt="point" className="point-icon-card"/>
+            {item.reward_point}
+          </p>
         </div>
         <p className="location-card"><i className="fas fa-map-marked-alt"></i>{item.location}</p>
         <h1>{item.title}</h1>

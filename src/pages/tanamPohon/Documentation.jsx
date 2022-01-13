@@ -2,6 +2,8 @@ import React, {  useEffect, useState } from "react";
 import PictureModal from "../../components/modal/PictureModal";
 import { API } from "../../config/api";
 import { useParams } from "react-router-dom";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function Documentation() {
   const params = useParams();
@@ -35,13 +37,14 @@ export default function Documentation() {
 
   return (
     <>
+    <Navbar/>
     <div className="container-modal">
-      <PictureModal showModal={showModal} setShowModal={setShowModal}/>  
-      <div className="container-doc" type="button" onClick={openModal}>
+      <PictureModal showModal={showModal} setShowModal={setShowModal} />  
+      <div className="container-doc">
       <h1 className="mt-4">{documentation.title}</h1>
         <div className="all-doc">
           { documentation?.Documentations?.map((data) => (
-            <div className="doc">
+            <div className="doc" type="button" onClick={openModal} docId={data?.documentation_id}>
               <div className="doc-img">
                 <img src={data.image_url} alt="" />
               </div>
@@ -53,6 +56,7 @@ export default function Documentation() {
         </div>
       </div>
       </div>
+      <Footer/>
     </>
   );
 }

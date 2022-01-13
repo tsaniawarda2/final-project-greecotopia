@@ -4,6 +4,8 @@ import CardTanamPohon from "../components/card/CardTanamPohon";
 import { useHistory } from "react-router-dom";
 import "../assets/styles/TanamPohon.css";
 import Slideshow from "../components/Slideshow";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function TanamPohon() {
   const { dataTP: data, userLogin } = useContext(DataContext);
@@ -14,6 +16,7 @@ export default function TanamPohon() {
   
   return (
     <>
+    <Navbar/>
       <div className="tanam-pohon container-fluid p-0">
         <section className="header-tp">
           <div className="content-header-tp">
@@ -104,6 +107,7 @@ export default function TanamPohon() {
             </div>
         </section>
       </div>
+      <Footer/>
     </>
   );
 }

@@ -6,6 +6,8 @@ import { DataContext } from "../../context/DataContext";
 import SyaratKetentuanModal from "../../components/modal/SyaratKetentuanModal";
 import SuccessRegistModal from "../../components/modal/SuccessRegistModal";
 import { getDate } from "../../utils/date";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 export default function FormTanamPohon() {
   const { userLogin, tanamPohon } = useContext(DataContext);
@@ -70,6 +72,7 @@ export default function FormTanamPohon() {
 
   return (
     <>
+    <Navbar/>
     <div className="container-modal">
       <SyaratKetentuanModal showModal={showModal} setShowModal={setShowModal}/>
       <SuccessRegistModal showModal={showModalSuccess} setShowModal={setShowModalSuccess}/>
@@ -163,6 +166,7 @@ export default function FormTanamPohon() {
       </div>
       <ToastContainer />
     </div>
+    <Footer/>
     </>
   )
 }

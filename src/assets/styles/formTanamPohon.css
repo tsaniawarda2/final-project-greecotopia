@@ -126,6 +126,19 @@
 	background-color: #FFB039;
 }
 
+.submit-disable{
+  background-color: #505050;
+  color: #fefefe;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
 .form-unggah-foto input{
   margin-top: 12px;
   margin-bottom: 4px;
