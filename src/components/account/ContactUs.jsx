@@ -39,7 +39,7 @@ export default function ContactUs() {
     <>
       <div className="contact-container">
         <h1>Sampaikan Pesanmu Di sini!</h1>
-        <div className="form-group contact-us" id="form">
+        <div className="form-group contact-us">
           <textarea className="form-control textarea-contact" id="exampleFormControlTextarea1" rows="10" placeholder="Tuliskan pesanmu disini..." 
           value={message?.context} onChange={e => setMessage({ ...message, context: e.target?.value })}
           ></textarea>
