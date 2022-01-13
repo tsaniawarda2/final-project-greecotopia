@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Board from "../../components/Board";
+import { DataContext } from "../../context/DataContext";
 
 export default function Leaderboard() {
+  const { topFive: data } = useContext(DataContext);
+  console.log(data, "------TOP5");
   return (
     <>
       <section id="board-home">
@@ -27,7 +30,7 @@ export default function Leaderboard() {
               Lihat Peringkatku
             </NavLink>
 
-            <Board />
+            <Board item={data} />
           </div>
         </div>
       </section>

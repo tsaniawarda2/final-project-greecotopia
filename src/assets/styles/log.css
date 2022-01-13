@@ -19,9 +19,6 @@
 }
 
 /* === REGISTER === */
-.password1 {
-  margin-right: 24px;
-}
 
 /* FONT */
 .input,
@@ -124,4 +121,52 @@
 #alt2 {
   margin-top: 8px;
   margin-bottom: 0px;
+}
+
+/* TABLET */
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  #body-form {
+    height: 108vh;
+  }
+  #form {
+    width: 72%;
+    padding: 38px 54px;
+    margin-left: 0px;
+  }
+}
+
+/* MOBILE */
+@media only screen and (max-width: 380px) {
+  #form {
+    width: 82%;
+    padding: 8px 24px;
+    margin-left: 0px;
+  }
+  #body-form {
+    height: 118vh;
+  }
+  #logo-log {
+    width: 24%;
+    margin-right: 0px;
+  }
+  #home {
+    font-size: 28px;
+  }
+  .title-form h2 {
+    font-size: 16px;
+  }
+  #form .form-control {
+    height: 34px;
+    font-size: 12px;
+  }
+  #submit {
+    font-size: 16px;
+  }
+  .opsi {
+    font-size: 12px;
+  }
+  #alt1 {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
 }

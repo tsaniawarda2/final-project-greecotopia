@@ -45,7 +45,7 @@
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
   padding-top: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 0px;
 }
 .top p {
   color: #fcfcfc;
@@ -87,6 +87,7 @@
   background-color: #fcfcfc;
   font-size: 16px;
   padding: 14px 0px;
+  margin: 2px 0px;
 }
 .colomnU p {
   margin-bottom: 0px;

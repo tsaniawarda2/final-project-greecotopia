@@ -1,39 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import Avatar from "react-avatar";
 
 import "../assets/styles/leaderboard.css";
+import { DataContext } from "../context/DataContext";
 
-const dataUser = [
-  {
-    message: "Success Get Data Top 10",
-    users: [
-      {
-        user_id: 3,
-        username: "kasdf",
-        image_url: "",
-        points: 900,
-      },
-      {
-        user_id: 2,
-        username: "jojO4567",
-        image_url:
-          "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJveXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
-        points: 6400,
-      },
-      {
-        user_id: 1,
-        username: "budiMan",
-        image_url: "",
-        points: 4000,
-      },
-    ],
-  },
-];
-const dataTopTen = dataUser[0].users;
-console.log(dataTopTen, "----");
 export default function Leaderboard() {
+  const { topTen: data } = useContext(DataContext);
+  console.log(data, "--------TOP10");
   return (
     <>
       <section id="leaderboard">
@@ -48,34 +23,34 @@ export default function Leaderboard() {
               {/* Main User */}
               <div className="row" id="top3">
                 <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
-                  <p className="rank">2st</p>
-                  {dataTopTen?.image_url ? (
-                    <Avatar src={dataTopTen?.image_url} id="avaUser" />
+                  <p className="rank">2 nd</p>
+                  {data?.image_url ? (
+                    <Avatar src={data[1]?.image_url} id="avaUser" />
                   ) : (
-                    <Avatar name={dataTopTen?.username} id="avaUser" />
+                    <Avatar name={data[1]?.username} id="avaUser" />
                   )}
-                  <p className="name">username</p>
-                  <p className="poin">{dataTopTen?.points} Point</p>
+                  <p className="name">{data[1]?.username}</p>
+                  <p className="poin">{data[1]?.points} Point</p>
                 </div>
                 <div className="col-md-4 gx-0 py-3 top" id="profileUser1">
-                  <p className="rank">2st</p>
-                  {dataTopTen?.image_url ? (
-                    <Avatar src={dataTopTen?.image_url} id="avaUser" />
+                  <p className="rank">1 st</p>
+                  {data?.image_url ? (
+                    <Avatar src={data[0]?.image_url} id="avaUser" />
                   ) : (
-                    <Avatar name={dataTopTen?.username} id="avaUser" />
+                    <Avatar name={data[0]?.username} id="avaUser" />
                   )}
-                  <p className="name">username</p>
-                  <p className="poin">{dataTopTen?.points} Point</p>
+                  <p className="name">{data[0]?.username}</p>
+                  <p className="poin">{data[0]?.points} Point</p>
                 </div>
                 <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
-                  <p className="rank">2st</p>
-                  {dataTopTen?.image_url ? (
-                    <Avatar src={dataTopTen?.image_url} id="avaUser" />
+                  <p className="rank">3 rd</p>
+                  {data?.image_url ? (
+                    <Avatar src={data[2]?.image_url} id="avaUser" />
                   ) : (
-                    <Avatar name={dataTopTen?.username} id="avaUser" />
+                    <Avatar name={data[2]?.username} id="avaUser" />
                   )}
-                  <p className="name">username</p>
-                  <p className="poin">{dataTopTen?.points} Point</p>
+                  <p className="name">{data[2]?.username}</p>
+                  <p className="poin">{data[2]?.points} Point</p>
                 </div>
               </div>
 
@@ -89,7 +64,7 @@ export default function Leaderboard() {
               </NavLink>
 
               {/* Child User */}
-              {dataTopTen?.map((user) => (
+              {data?.map((user) => (
                 <>
                   <div className="colomnU">
                     <div className="textUser">

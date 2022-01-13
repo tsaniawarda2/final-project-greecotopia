@@ -13,7 +13,6 @@ import { DataContext } from "../context/DataContext";
 const bgColors = ["hutan", "energi", "plastik", "laut"];
 export default function Forum() {
   const { forums: data } = useContext(DataContext);
-  console.log(data, "------DATA FORUMS");
   const history = useHistory();
 
   return (
@@ -22,6 +21,9 @@ export default function Forum() {
       <div className="container mb-5">
         {/* Header */}
         <div className="row" id="forum">
+          <div className="col-md-4 img-header leftBan">
+            <img className="wytd-img" src={People} alt="thinking" />
+          </div>
           <div className="col-md-8 content-header">
             <p className="yvm text-uppercase">Your Voice Matter</p>
             <p className="wdyt">What do you think?</p>
@@ -31,7 +33,7 @@ export default function Forum() {
               dari sudut pandang lain.
             </p>
           </div>
-          <div className="col-md-4 img-header">
+          <div className="col-md-4 img-header rightBan">
             <img className="wytd-img" src={People} alt="thinking" />
           </div>
         </div>

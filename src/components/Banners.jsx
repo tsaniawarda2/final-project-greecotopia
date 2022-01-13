@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { mobile, tablet } from "../assets/styles/responsive";
 
 const Banner = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
@@ -27,6 +28,9 @@ const Banner = styled.div`
   background-position: center 66%;
   background-blend-mode: multiply;
   background-attachment: fixed;
+  ${mobile({ height: "70vh" })};
+  ${tablet({ height: "68vh" })};
+}
 `;
 const ContentBan = styled.div`
   display: block;
@@ -36,6 +40,8 @@ const ContentBan = styled.div`
   left: 50%;
   color: #232825;
   text-align: center;
+  ${mobile({ top: "44%" })};
+  ${tablet({ top: "40%" })};
 `;
 const YvmBan = styled.h3`
   font-size: 16px;
@@ -61,11 +67,11 @@ const DescBan = styled.h3`
 export default function Banners({ item }) {
   return (
     <>
-      <Banner bg={item.banner_url}>
+      <Banner bg={item?.banner_url}>
         <ContentBan>
           <YvmBan>Your Voice Matter</YvmBan>
-          <TitleBan>{item.title}</TitleBan>
-          <DescBan>{item.description}</DescBan>
+          <TitleBan>{item?.title}</TitleBan>
+          <DescBan>{item?.description}</DescBan>
         </ContentBan>
       </Banner>
     </>

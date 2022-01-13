@@ -1,68 +1,50 @@
 import React from "react";
 import Avatar from "react-avatar";
 
-const dataUser = [
-  {
-    message: "Success Get Data Top 5",
-    users: [
-      {
-        user_id: 3,
-        username: "kasdf",
-        image_url: "",
-        points: 900,
-      },
-      {
-        user_id: 2,
-        username: "jojO4567",
-        image_url:
-          "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJveXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
-        points: 6400,
-      },
-    ],
-  },
-];
-const dataTopFive = dataUser[0].users;
-console.log(dataTopFive, "----");
-export default function Board() {
+export default function Board({ item, idx }) {
+  console.log(item.length + 1);
   return (
     <>
       <div className="board">
         {/* Main User */}
         <div className="row" id="top3">
+          {/* === Peringkat 2 === */}
           <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
-            <p className="rank">2st</p>
-            {dataTopFive?.image_url ? (
-              <Avatar src={dataTopFive?.image_url} id="avaUser" />
+            <p className="rank">2 nd</p>
+            {item?.image_url ? (
+              <Avatar src={item[1]?.image_url} id="avaUser" />
             ) : (
-              <Avatar name={dataTopFive?.username} id="avaUser" />
+              <Avatar name={item[1]?.username} id="avaUser" />
             )}
-            <p className="name">username</p>
-            <p className="poin">{dataTopFive?.points} Point</p>
+            <p className="name">{item[1]?.username} </p>
+            <p className="poin">{item[1]?.points} Point</p>
           </div>
+          {/* === Peringkat 1 === */}
           <div className="col-md-4 gx-0 py-3 top" id="profileUser1">
-            <p className="rank">2st</p>
-            {dataTopFive?.image_url ? (
-              <Avatar src={dataTopFive?.image_url} id="avaUser" />
+            <p className="rank">1 st</p>
+            {item?.image_url ? (
+              <Avatar src={item[0]?.image_url} id="avaUser" />
             ) : (
-              <Avatar name={dataTopFive?.username} id="avaUser" />
+              <Avatar name={item[0]?.username} id="avaUser" />
             )}
-            <p className="name">username</p>
-            <p className="poin">{dataTopFive?.points} Point</p>
+            <p className="name">{item[0]?.username}</p>
+            <p className="poin">{item[0]?.points} Point</p>
           </div>
+          {/* === Peringkat 3 === */}
           <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
-            <p className="rank">2st</p>
-            {dataTopFive?.image_url ? (
-              <Avatar src={dataTopFive?.image_url} id="avaUser" />
+            <p className="rank">3 rd</p>
+            {item?.image_url ? (
+              <Avatar src={item[2]?.image_url} id="avaUser" />
             ) : (
-              <Avatar name={dataTopFive?.username} id="avaUser" />
+              <Avatar name={item[2]?.username} id="avaUser" />
             )}
-            <p className="name">username</p>
-            <p className="poin">{dataTopFive?.points} Point</p>
+            <p className="name">{item[2]?.username}</p>
+            <p className="poin">{item[2]?.points} Point</p>
           </div>
         </div>
 
         {/* Child User */}
-        {dataTopFive?.map((user) => (
+        {item?.map((user) => (
           <>
             <div className="colomnU">
               <div className="textUser">
