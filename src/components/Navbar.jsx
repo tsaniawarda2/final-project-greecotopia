@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import { MdOutlineEdit as Edit, MdLogout as LogOut } from "react-icons/md";
@@ -9,13 +9,21 @@ import checkLogin from "../utils/checkLogin";
 import { DataContext } from "../context/DataContext";
 import Avatar from "react-avatar";
 import { useHistory } from "react-router-dom";
+import Logout from "./modal/Logout"
 
 export default function Navbar() {
   const { userLogin: data } = useContext(DataContext);
   console.log(data?.image_url, "=======Navbar");
   const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(prev => !prev);
+  };
+
   return (
     <>
+    <Logout showModal={showModal} setShowModal={setShowModal}/>
       <nav
         className="navbar navbar-expand-lg navbar-light bg-light fixed-top"
         id="navTop"
@@ -113,6 +121,7 @@ export default function Navbar() {
                         className="dropdown-item btn btn-logout"
                         id="dropItem"
                         // onClick={handleLogout}
+                        onClick={openModal}
                       >
                         <LogOut id="outIcon" /> Log Out
                       </div>
