@@ -98,3 +98,34 @@
     margin-top: -2px;
   }
 }
+
+@media only screen and (max-width: 380px) {
+  .banner-tp-text h1{
+    font-size: 24px;
+  }
+
+  .banner-tp-text p{
+    font-size: 12px;
+  }
+
+  .all-tp-banner{
+    height: 500px;
+  }
+
+  .modal-wrapper{
+    width: 400px!important;
+    flex-direction: column;
+  }
+
+  .modal-img-container{
+    display: none;
+  }
+
+  .modal-content li{
+    font-size: 12px;
+  }
+
+  .form-tanam-pohon{
+    flex-direction: column;
+  }
+}

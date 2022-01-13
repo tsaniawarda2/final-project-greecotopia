@@ -48,10 +48,10 @@ export default function TanamPohon() {
         <section className="content-tp-3">
           <div className="row text-section-3">
             <div className="col-lg-1"></div>
-            <div className="col-lg-8 col-md-7 text-header-tp-3">
+            <div className="col-lg-8 col-md-7 col-sm-12 text-header-tp-3">
               <h1>Mari mulai Tanam Pohon!</h1>
             </div>
-            <div className="col-lg-2 col-md-3 btn-header-tp-3">
+            <div className="col-lg-2 col-md-3 col-sm-12 btn-header-tp-3">
               <button className="btn-tp-3" onClick={()=> history.push("/alltanampohon")}>Lebih Banyak</button>
             </div>
             <div className="col-lg-1"></div>
@@ -68,7 +68,7 @@ export default function TanamPohon() {
         <section className="content-tp-4">
           <div className="row text-section-4">
             <div className="col-lg-1"></div>
-            <div className="col-lg-8 col-md-7 text-header-tp-4">
+            <div className="col-lg-8 col-md-7 col-sm-12 text-header-tp-4">
               <h1>Dokumentasi Tanam Pohon</h1>
             </div>
             <div className="col-lg-2 col-md-3 btn-header-tp-4">

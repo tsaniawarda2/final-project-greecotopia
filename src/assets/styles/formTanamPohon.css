@@ -329,6 +329,46 @@
 @media only screen and (min-width: 381px) and (max-width: 768px) {
   .form-tanam-pohon {
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column!important;
+    flex-wrap: nowrap;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .form-tanam-pohon{
+    flex-direction: column!important;
+  }
+
+  .tp-info{
+    align-items: flex-end!important;
+  }
+
+  .tp-info h6{
+    font-size: 12px;
+  }
+
+  .container-form-tp h1{
+    font-size: 20px;
+  }
+
+  .form-tanam-pohon{
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .info-tp{
+    padding: 20px 15px;
+  }
+
+  .modal-wrapper-success{
+    width: 350px;
+  }
+
+  .modal-message h1{
+    font-size: 28px!important;
+  }
+
+  .modal-message p{
+    font-size: 12px;
   }
 }

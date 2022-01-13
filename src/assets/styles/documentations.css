@@ -146,3 +146,51 @@
     margin-top: 100px;
   }
 }
+
+@media only screen and (max-width: 380px) {
+  .doc-text h1{
+    font-size: 24px;
+  }
+
+  .container-docs{
+    margin: 100px auto;
+    padding: 20px;
+  }
+
+  .container-doc h1{
+    font-size: 24px;
+    margin: 50px 30px;
+  }
+
+  .all-doc{
+    margin: 0;
+  }
+
+  .modal-wrapper-pict{
+    width: 350px;
+  }
+
+  .modal-content h1{
+    font-size: 20px;
+  }
+
+  .modal-content p {
+    font-size: 12px;
+  }
+
+  .modal-wrapper-point{
+    width: 300px;
+  }
+
+  .modal-message h1{
+    font-size: 28px;
+  }
+
+  .modal-content-point p{
+    font-size: 12px;
+  }
+
+  .modal-ok-btn button{
+    font-size: 16px;
+  }
+}
