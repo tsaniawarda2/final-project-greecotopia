@@ -1,12 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { useSpring, animated } from "react-spring";
 import { MdClose } from "react-icons/md";
 import "../../assets/styles/documentations.css";
+import { getDate } from "../../utils/date";
 
 export default function PictureModal({ dataId, showModal, setShowModal }) {
   const modalRef = useRef();
-
-  console.log(dataId, "dataId");
 
   const animation = useSpring({
     config: {
@@ -39,14 +38,14 @@ export default function PictureModal({ dataId, showModal, setShowModal }) {
               </div>
               <div className="modal-content">
                 <div className="modal-profile">
-                  <img
+                  {/* <img
                     className="modal-profile-pict"
-                    src={dataId?.Participant?.User?.image_url}
+                    src={user?.image_url}
                     alt=""
-                  />
+                  /> */}
                   <div className="profile-text">
                     <h1>{dataId?.Participant?.name} </h1>
-                    <p>@{dataId?.Participant?.User?.username}</p>
+                    <p>{getDate(dataId?.createdAt)}</p>
                   </div>
                 </div>
                 <div className="pict-modal">

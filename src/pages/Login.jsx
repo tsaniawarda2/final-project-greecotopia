@@ -30,7 +30,7 @@ export default function Login() {
         if (data?.token) {
           localStorage.setItem("token", data?.token);
           history.push("/home");
-          window.location.reload();
+          // window.location.reload()
         }
       }
     } catch (error) {
