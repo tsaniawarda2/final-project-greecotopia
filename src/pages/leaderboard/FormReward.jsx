@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 import Avatar from "react-avatar";
 
@@ -9,39 +8,37 @@ import { toast, ToastContainer } from "react-toastify";
 import SuccessClaimModal from "../../components/modal/SuccessClaimModal";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { getDate } from "../../utils/date";
+import { API } from "../../config/api";
 
 export default function FormReward() {
-  const { userLogin: data } = useContext(DataContext);
+  const { userLogin, users } = useContext(DataContext);
+
+  const findUser = users?.find((user) => user?.user_id === userLogin?.user_id);
 
   const [showModalSuccess, setShowModalSuccess] = useState(false);
-  // console.log(data, "-masuk?---");
   const [dataClaim, setDataClaim] = useState({
     no_hp: "",
-    rank: 0,
-    session_month: 0,
-    year: 0,
-    date_of_claim: getDate(new Date(), true),
+    user_id: 0,
   });
 
   const handleClaim = async () => {
     try {
       if (!dataClaim.no_hp) {
-        toast.error("No Hp tidak boleh kosong", {
+        toast.error("No Handphone tidak boleh kosong", {
           theme: "colored",
         });
       } else {
         const payload = {
-          ...dataClaim,
           no_hp: dataClaim.no_hp,
+          user_id: userLogin?.user_id,
         };
+        await API().post("/claim_rewards", payload);
         console.log(payload, "berhasil");
-        // await API().post("/claim_rewards", payload)
         setShowModalSuccess(true);
       }
     } catch (error) {
       toast.error(
-        error?.response?.data?.error?.message ||
+        error?.response?.userLogin?.error?.message ||
           error?.response?.message ||
           "Internal Server Error"
       );
@@ -68,15 +65,20 @@ export default function FormReward() {
               {/* Form */}
               <div className="row" id="dataDiri">
                 <div className="col-md-4 gx-0 py-3" id="profileUser">
-                  <p className="rank">1st</p>
-                  {data?.image_url ? (
-                    <Avatar src={data?.image_url} id="avaUser" />
+                  <p className="rank">
+                    {findUser?.user_id - 1}
+                    {findUser?.user_id - 1 === 1 ? " st" : null}
+                    {findUser?.user_id - 1 === 2 ? " nd" : null}
+                    {findUser?.user_id - 1 === 3 ? " rd" : null}
+                  </p>
+                  {userLogin?.image_url ? (
+                    <Avatar src={userLogin?.image_url} id="avaUser" />
                   ) : (
-                    <Avatar name={data?.username} id="avaUser" />
+                    <Avatar name={userLogin?.username} id="avaUser" />
                   )}
-                  <p className="name">{data?.username}</p>
+                  <p className="name">{userLogin?.username}</p>
                   <p className="poin">
-                    {data?.points ? data?.points : "0"} Point
+                    {userLogin?.points ? userLogin?.points : "0"} Point
                   </p>
                 </div>
                 <div className="col-md-8 gx-0 py-3" id="dataUser">
@@ -89,7 +91,7 @@ export default function FormReward() {
                           type="text"
                           className="form-control"
                           id="formDisable"
-                          placeholder={data?.email}
+                          placeholder={userLogin?.email}
                           disabled
                         />
                       </div>
@@ -99,7 +101,7 @@ export default function FormReward() {
                           type="text"
                           className="form-control"
                           id="formDisable"
-                          placeholder={data?.fullname}
+                          placeholder={userLogin?.fullname}
                           disabled
                         />
                       </div>
@@ -111,12 +113,12 @@ export default function FormReward() {
                           type="email"
                           className="form-control"
                           id="formDisable"
-                          placeholder={data?.email}
+                          placeholder={userLogin?.email}
                           disabled
                         />
                       </div>
                       <div className="cNumber form-gruop">
-                        <label for="noHp">No. Hp</label>
+                        <label for="noHp">No Handphone</label>
                         <input
                           type="text"
                           className="form-control"
@@ -139,7 +141,7 @@ export default function FormReward() {
                     id="btn-claim"
                     onClick={() => handleClaim()}
                   >
-                    Data sudah sesuai
+                    Klaim Sekarang
                   </div>
                 </div>
               </div>

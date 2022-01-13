@@ -103,6 +103,7 @@ export default function Issue() {
       console.log(error);
     }
   };
+
   const handleDelete = async (comment) => {
     const userLoginID = userLogin?.user_id;
     const commentUserID = comment?.user_id;

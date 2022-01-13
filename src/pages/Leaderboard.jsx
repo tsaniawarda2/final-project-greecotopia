@@ -12,13 +12,17 @@ import Footer from "../components/Footer";
 export default function Leaderboard() {
   const { topTen: data } = useContext(DataContext);
   const { topThree: claim } = useContext(DataContext);
-  const { userLogin } = useContext(DataContext);
-
+  const { userLogin, rewards } = useContext(DataContext);
   const history = useHistory();
 
-  const handleClaim = () => {
-    const find = claim?.find((user) => user?.user_id === userLogin?.user_id);
-    if (find) {
+  const userID = userLogin?.user_id;
+  const alreadyClaim = rewards?.find((rewards) => rewards?.user_id === userID);
+
+  const handleClaim = async () => {
+    const userID = userLogin?.user_id;
+    const top3 = claim?.find((user) => user?.user_id === userID);
+
+    if (top3) {
       history.push(`/formReward`);
     } else {
       toast.error(
@@ -77,13 +81,24 @@ export default function Leaderboard() {
               </div>
 
               {/* Button Claim */}
-              <div
-                className="btn btn-danger text-center"
-                id="btnClaimB"
-                onClick={() => handleClaim()}
-              >
-                Top 3? <br /> Klaim Hadiahmu!
-              </div>
+              {alreadyClaim ? (
+                <button
+                  className="btn btn-danger text-center"
+                  id="btnClaimB"
+                  onClick={() => handleClaim()}
+                  disabled
+                >
+                  Top 3? <br /> Klaim Hadiahmu!
+                </button>
+              ) : (
+                <button
+                  className="btn btn-danger text-center"
+                  id="btnClaimB"
+                  onClick={() => handleClaim()}
+                >
+                  Top 3? <br /> Klaim Hadiahmu!
+                </button>
+              )}
 
               {/* Child User */}
               {data?.slice(3)?.map((user, index) => (

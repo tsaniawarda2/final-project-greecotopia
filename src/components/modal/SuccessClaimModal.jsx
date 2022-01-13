@@ -18,7 +18,7 @@ export default function SuccessClaimModal({ showModal, setShowModal }) {
   const closeModal = (e) => {
     if (modalRef.current === e.target) {
       setShowModal(false);
-      history.push("/formReward");
+      history.push("/leaderboard");
     }
   };
 

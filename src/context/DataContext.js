@@ -10,6 +10,7 @@ const DataProvider = ({ children }) => {
   const [topTen, setTopTen] = useState([]);
   const [topThree, setTopThree] = useState([]);
   const [userLogin, setUserLogin] = useState([]);
+  const [rewards, setRewards] = useState([]);
 
   // Tanam Pohon
   const [dataTP, setDataTP] = useState([]);
@@ -31,6 +32,7 @@ const DataProvider = ({ children }) => {
     getTopThree();
     getTopFive();
     getTopTen();
+    getRewards();
   }, []);
 
   const getUserLogin = async () => {
@@ -45,7 +47,6 @@ const DataProvider = ({ children }) => {
   const getTopThree = async () => {
     const { data: dataTopThree } = await API().get("/users/topThree");
     setTopThree(dataTopThree?.users);
-    // console.log(dataTopThree, "-------TOP3");
   };
   const getTopFive = async () => {
     const { data: dataTopFive } = await API().get("/users/topFive");
@@ -54,6 +55,10 @@ const DataProvider = ({ children }) => {
   const getTopTen = async () => {
     const { data: dataTopTen } = await API().get("/users/topTen");
     setTopTen(dataTopTen?.users);
+  };
+  const getRewards = async () => {
+    const { data: dataRewards } = await API().get("/claim_rewards");
+    setRewards(dataRewards?.Rewards);
   };
 
   useEffect(async () => {
@@ -74,7 +79,6 @@ const DataProvider = ({ children }) => {
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
-    console.log(pathname, "path");
 
     await getTanamPohonById(newId);
     await getDocumentationsById(newId);
@@ -100,7 +104,6 @@ const DataProvider = ({ children }) => {
   };
 
   const getDocumentationsById = async (id) => {
-    console.log(id, "id");
     if (id) {
       const { data: dataDocumentationId } = await API().get(
         `/documentations/tanam_pohon/${id}`
@@ -151,6 +154,7 @@ const DataProvider = ({ children }) => {
           topThree,
           topFive,
           topTen,
+          rewards,
           forums,
           forum,
           issues,
