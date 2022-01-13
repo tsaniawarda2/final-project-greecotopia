@@ -15,9 +15,6 @@ export default function CardIssue({ item }) {
     <>
       <div id="cardFI" className="card-issue">
         <div className="card" id="cIssue">
-          <div className="fav text-center">
-            <AiOutlineHeart className="icon-fav" />
-          </div>
           <img src={item?.image_url} className="card-img-top" alt="imgCard" />
           <div className="card-body">
             <h5 className="card-title">{item?.title}</h5>

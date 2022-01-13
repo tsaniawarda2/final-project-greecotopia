@@ -8,6 +8,7 @@ const DataProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [topFive, setTopFive] = useState([]);
   const [topTen, setTopTen] = useState([]);
+  const [topThree, setTopThree] = useState([]);
   const [userLogin, setUserLogin] = useState([]);
 
   // Tanam Pohon
@@ -27,6 +28,7 @@ const DataProvider = ({ children }) => {
   useEffect(() => {
     getUserLogin();
     getUsers();
+    getTopThree();
     getTopFive();
     getTopTen();
   }, []);
@@ -40,6 +42,11 @@ const DataProvider = ({ children }) => {
     setUsers(dataUser?.users);
   };
 
+  const getTopThree = async () => {
+    const { data: dataTopThree } = await API().get("/users/topThree");
+    setTopThree(dataTopThree?.users);
+    // console.log(dataTopThree, "-------TOP3");
+  };
   const getTopFive = async () => {
     const { data: dataTopFive } = await API().get("/users/topFive");
     setTopFive(dataTopFive?.users);
@@ -47,7 +54,6 @@ const DataProvider = ({ children }) => {
   const getTopTen = async () => {
     const { data: dataTopTen } = await API().get("/users/topTen");
     setTopTen(dataTopTen?.users);
-    console.log(dataTopTen, "-------TOP10");
   };
 
   useEffect(async () => {
@@ -142,6 +148,7 @@ const DataProvider = ({ children }) => {
         value={{
           userLogin,
           users,
+          topThree,
           topFive,
           topTen,
           forums,

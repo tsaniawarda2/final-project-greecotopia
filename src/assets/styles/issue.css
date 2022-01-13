@@ -38,9 +38,7 @@
   width: 90%;
   margin: 16px 8px;
 }
-.card-issue .fav {
-  bottom: 164px;
-}
+
 #cIssue .card-title {
   margin-bottom: 8px;
 }
@@ -157,23 +155,9 @@
   font-size: 14px;
 }
 
-/* Button */
-#buttonIssue {
-  display: flex;
-  justify-content: end;
-  margin-top: 24px;
-  margin-right: 36px;
-}
-#btn-fav {
-  width: 24%;
-  padding: 6px 0px 4px;
-  margin-bottom: 4px;
-  letter-spacing: 2px;
-}
-
 /* --- Comments --- */
 #comment {
-  padding: 0px 48px;
+  padding: 38px 48px 18px;
 }
 .firstCom {
   font-family: "Rubik", sans-serif;

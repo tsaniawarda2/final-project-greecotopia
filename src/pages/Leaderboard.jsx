@@ -1,16 +1,38 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
 
 import Avatar from "react-avatar";
 
 import "../assets/styles/leaderboard.css";
 import { DataContext } from "../context/DataContext";
+import { useHistory } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Leaderboard() {
   const { topTen: data } = useContext(DataContext);
-  console.log(data, "--------TOP10");
+  const { topThree: claim } = useContext(DataContext);
+  const { userLogin } = useContext(DataContext);
+
+  const history = useHistory();
+
+  const handleClaim = () => {
+    const find = claim?.find((user) => user?.user_id === userLogin?.user_id);
+    if (find) {
+      history.push(`/formReward`);
+    } else {
+      toast.error(
+        "Ups kamu bukan top 3 :( Coba lagi di session berikutnya ^^",
+        {
+          theme: "colored",
+        }
+      );
+    }
+  };
+
   return (
     <>
+      <Navbar />
       <section id="leaderboard">
         <div className="container text-content">
           <div className="text-center">
@@ -55,13 +77,13 @@ export default function Leaderboard() {
               </div>
 
               {/* Button Claim */}
-              <NavLink
-                to="/formReward"
+              <div
                 className="btn btn-danger text-center"
                 id="btnClaimB"
+                onClick={() => handleClaim()}
               >
                 Top 3? <br /> Klaim Hadiahmu!
-              </NavLink>
+              </div>
 
               {/* Child User */}
               {data?.map((user) => (
@@ -86,6 +108,8 @@ export default function Leaderboard() {
           </div>
         </div>
       </section>
+      <ToastContainer />
+      <Footer />
     </>
   );
 }

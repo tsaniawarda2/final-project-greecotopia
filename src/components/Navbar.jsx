@@ -12,7 +12,7 @@ import { useHistory } from "react-router-dom";
 
 export default function Navbar() {
   const { userLogin: data } = useContext(DataContext);
-  console.log(data?.image_url, "=======Navbar");
+
   const history = useHistory();
   return (
     <>
@@ -118,36 +118,6 @@ export default function Navbar() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Account */}
-                  {/* <li className="nav-item">
-                    <div
-                      className="nav-link text-uppercase"
-                      id="btnProfile"
-                      onClick={() => history.push(`/account`)}
-                    >
-                      <div id="avaNav">
-                        {data?.image_url ? (
-                          <Avatar
-                            id="avaNav"
-                            src={data?.image_url}
-                            alt="profile"
-                          />
-                        ) : (
-                          <Avatar
-                            id="avaNav"
-                            name={data?.username}
-                            alt="profile"
-                          />
-                        )}
-                      </div>
-                      <div className="profile2">
-                        <p className="userNameP">{data?.username}</p>
-                        <img id="point" src={Point} alt="point" />
-                        {data?.points ? data?.points : "0"} Poin
-                      </div>
-                    </div>
-                  </li> */}
                 </>
               ) : (
                 <>

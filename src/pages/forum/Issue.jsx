@@ -1,6 +1,6 @@
 // Import Module React
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Avatar from "react-avatar";
 
 // Icon
@@ -269,11 +269,6 @@ export default function Issue() {
                     __html: `${dataComments?.description}`,
                   }}
                 ></div>
-              </div>
-            </div>
-            <div id="buttonIssue">
-              <div id="btn-fav" className="btn btn-warning">
-                Tambahkan ke Favorit
               </div>
             </div>
             <div id="comment">

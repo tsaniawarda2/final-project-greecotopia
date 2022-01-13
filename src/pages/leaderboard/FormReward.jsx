@@ -6,36 +6,38 @@ import Avatar from "react-avatar";
 import "../../assets/styles/leaderboard.css";
 import { DataContext } from "../../context/DataContext";
 import { toast, ToastContainer } from "react-toastify";
+import SuccessClaimModal from "../../components/modal/SuccessClaimModal";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { getDate } from "../../utils/date";
 
 export default function FormReward() {
   const { userLogin: data } = useContext(DataContext);
-  console.log(data, "-masuk?---");
-  const [claim, setClaim] = useState({
+
+  const [showModalSuccess, setShowModalSuccess] = useState(false);
+  // console.log(data, "-masuk?---");
+  const [dataClaim, setDataClaim] = useState({
     no_hp: "",
     rank: 0,
     session_month: 0,
     year: 0,
-    date_of_claim: "",
+    date_of_claim: getDate(new Date(), true),
   });
 
   const handleClaim = async () => {
     try {
-      if (!claim.name) {
+      if (!dataClaim.no_hp) {
         toast.error("No Hp tidak boleh kosong", {
           theme: "colored",
         });
       } else {
-        // const payload = {
-        //   ...claim,
-        //   rank: rank,
-        //   session_month: 1,
-        //   year: 0,
-        //   date_of_claim: "900",
-        // };
-        // console.log("berhasil");
+        const payload = {
+          ...dataClaim,
+          no_hp: dataClaim.no_hp,
+        };
+        console.log(payload, "berhasil");
         // await API().post("/claim_rewards", payload)
+        setShowModalSuccess(true);
       }
     } catch (error) {
       toast.error(
@@ -48,6 +50,10 @@ export default function FormReward() {
   return (
     <>
       <Navbar />
+      <SuccessClaimModal
+        showModal={showModalSuccess}
+        setShowModal={setShowModalSuccess}
+      />
       <section id="leaderboard">
         <div className="container text-content" id="claimReward">
           <div className="text-center">
@@ -116,24 +122,32 @@ export default function FormReward() {
                           className="form-control"
                           id="datainput"
                           placeholder="+62"
+                          value={dataClaim?.no_hp}
+                          onChange={(e) =>
+                            setDataClaim({
+                              ...dataClaim,
+                              no_hp: e.target?.value,
+                            })
+                          }
                         />
                       </div>
                     </div>
                   </div>
                   {/* Button */}
-                  <NavLink
-                    to="/leaderboard"
+                  <div
                     className="btn btn-light text-center"
                     id="btn-claim"
+                    onClick={() => handleClaim()}
                   >
                     Data sudah sesuai
-                  </NavLink>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
       <ToastContainer />
       <Footer />
     </>
