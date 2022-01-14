@@ -8,6 +8,9 @@ export default function Home() {
     <>
       <section id="welcome">
         <div className="row gx-0" id="contentW">
+          <div className="col-md-4 col-sm-12 forest-left" id="right">
+            <img src={ForestImage} alt="forest" id="imgForest" />
+          </div>
           <div className=" col-md-8 col-sm-12" id="left">
             <p className="hi">Hi! We Are</p>
             <p className="greecotopia">Greecotopia</p>
@@ -18,7 +21,7 @@ export default function Home() {
               Cari tahu lebih lanjut
             </NavLink>
           </div>
-          <div className="col-md-4 col-sm-12" id="right">
+          <div className="col-md-4 col-sm-12 forest-right" id="right">
             <img src={ForestImage} alt="forest" id="imgForest" />
           </div>
         </div>

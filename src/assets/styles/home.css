@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 
 /* ===== WELCOME ===== */
+.forest-left {
+  display: none;
+}
 #welcome {
   background-color: #fcfcfc;
   height: 100vh;
@@ -268,8 +271,16 @@
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
+  .forest-left {
+    display: block;
+  }
+  .forest-right {
+    display: none;
+  }
   #welcome {
     display: block;
+    width: 130%;
+    padding: 40px 0px;
   }
   #contentW {
     display: block;
@@ -284,22 +295,22 @@
     padding: 0px;
   }
   .greecotopia {
-    font-size: 64px;
+    font-size: 62px;
     padding-bottom: 6px;
   }
   .decsWelcome {
     font-size: 20px;
   }
   #welcome #btn-home {
-    width: 64%;
+    width: 46%;
   }
   #right {
-    margin-top: 100px;
+    margin-bottom: 54px;
     padding-right: 0px;
     text-align: center;
   }
   #imgForest {
-    width: 62vh;
+    width: 64vh;
   }
   /* --- Jumbotron --- */
   #welcomeH {
@@ -326,7 +337,6 @@
     font-size: 52px;
     margin-bottom: 16px;
   }
-
   #btn-home {
     width: 64%;
   }
@@ -368,12 +378,20 @@
   }
 }
 @media only screen and (max-width: 380px) {
+  .forest-left {
+    display: block;
+  }
+  .forest-right {
+    display: none;
+  }
   #welcome {
     display: block;
+    width: 130%;
+    padding: 74px 0px;
   }
   #contentW {
     display: block;
-    padding: 0px 54px;
+    padding: 0px 14px;
     text-align: center;
   }
   #left,
@@ -384,22 +402,22 @@
     padding: 0px;
   }
   .greecotopia {
-    font-size: 64px;
+    font-size: 58px;
     padding-bottom: 6px;
   }
   .decsWelcome {
     font-size: 20px;
   }
   #welcome #btn-home {
-    width: 64%;
+    width: 80%;
   }
   #right {
-    margin-top: 100px;
+    margin-bottom: 64px;
     padding-right: 0px;
     text-align: center;
   }
   #imgForest {
-    width: 62vh;
+    width: 54vh;
   }
   /* --- Jumbotron --- */
   #welcomeH {
