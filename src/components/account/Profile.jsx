@@ -77,7 +77,7 @@ export default function Profile() {
             </p>
           </div>
           <div className="col-lg-4 col-md-4 col-sm-12">
-            <button>Leaderboard</button>
+            <button onClick={history.push("/leaderboard")}>Leaderboard</button>
           </div>
         </div>
       </div>
