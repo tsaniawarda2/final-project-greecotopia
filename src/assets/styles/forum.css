@@ -267,7 +267,10 @@
     padding: 4px 0px 2px;
     margin-left: 28%;
   }
-
+  /* Card */
+  #cardFI .card {
+    padding: 16px;
+  }
   #cardForum .card {
     margin: 12px 16px;
   }
