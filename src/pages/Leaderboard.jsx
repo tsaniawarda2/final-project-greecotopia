@@ -45,7 +45,10 @@ export default function Leaderboard() {
             <div className="board">
               {/* Main User */}
               <div className="row" id="top3">
-                <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
+                <div
+                  className="col-md-4 col-sm-4 col-xs-4 gx-0 py-3 top"
+                  id="profileUser23"
+                >
                   <p className="rank">2 nd</p>
                   {data?.image_url ? (
                     <Avatar src={data[1]?.image_url} id="avaUser" />
@@ -55,7 +58,10 @@ export default function Leaderboard() {
                   <p className="name">{data[1]?.username}</p>
                   <p className="poin">{data[1]?.points} Point</p>
                 </div>
-                <div className="col-md-4 gx-0 py-3 top" id="profileUser1">
+                <div
+                  className="col-md-4 col-sm-4 col-xs-4 gx-0 py-3 top"
+                  id="profileUser1"
+                >
                   <p className="rank">1 st</p>
                   {data?.image_url ? (
                     <Avatar src={data[0]?.image_url} id="avaUser" />
@@ -65,7 +71,10 @@ export default function Leaderboard() {
                   <p className="name">{data[0]?.username}</p>
                   <p className="poin">{data[0]?.points} Point</p>
                 </div>
-                <div className="col-md-4 gx-0 py-3 top" id="profileUser23">
+                <div
+                  className="col-md-4 col-sm-4 col-xs-4 gx-0 py-3 top"
+                  id="profileUser23"
+                >
                   <p className="rank">3 rd</p>
                   {data?.image_url ? (
                     <Avatar src={data[2]?.image_url} id="avaUser" />

@@ -287,6 +287,11 @@
 #btn-claim:focus {
   box-shadow: none;
 }
+
+#profileUser23 .sb-avatar__text span {
+  font-size: 44px !important;
+  font-family: "Poppins", sans-serif;
+}
 @media only screen and (min-width: 381px) and (max-width: 768px) {
   #leaderboard .text-content {
     width: 80% !important;
@@ -294,17 +299,36 @@
   .board #profileUser23 .sb-avatar,
   #profileUser23 .sb-avatar__text,
   #profileUser23 img {
-    width: 96px !important;
-    height: 96px !important;
+    width: 84px !important;
+    height: 84px !important;
   }
   .board #profileUser1 .sb-avatar,
   #profileUser1 .sb-avatar__text,
   #profileUser1 img {
-    width: 134px !important;
-    height: 134px !important;
+    width: 114px !important;
+    height: 114px !important;
+  }
+  #profileUser1 .sb-avatar__text span {
+    font-size: 48px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  #profileUser23 .sb-avatar__text span {
+    font-size: 34px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  .top p {
+    color: #fefefe;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+  #profileUser .rank,
+  .top .rank {
+    padding-bottom: 8px;
   }
   #btnClaimB {
-    font-size: 18px;
+    font-size: 16px;
+    width: 54%;
   }
   .colomnU {
     font-size: 14px;
@@ -329,9 +353,7 @@
   #profileUser p {
     font-size: 13px;
   }
-  #profileUser .rank {
-    font-size: 15px;
-  }
+
   #dataUser {
     margin-left: 38px;
     width: 60%;
@@ -347,6 +369,9 @@
   }
 }
 @media only screen and (max-width: 380px) {
+  #top3 {
+    justify-content: center;
+  }
   .board,
   .formReward {
     padding-top: 8px;
@@ -364,32 +389,53 @@
   #leaderboard #second {
     font-size: 16px;
   }
+  #profileUser1 {
+    width: 34%;
+  }
+  #profileUser23 {
+    width: 24%;
+  }
   .board #profileUser23 .sb-avatar,
   #profileUser23 .sb-avatar__text,
   #profileUser23 img {
-    width: 88px !important;
-    height: 88px !important;
+    width: 48px !important;
+    height: 48px !important;
   }
   .top p {
-    font-size: 14px;
+    font-size: 10px;
   }
   .top .rank {
-    font-size: 16px;
+    font-size: 12px;
+  }
+  #profileUser .rank,
+  .top .rank {
+    padding-bottom: 4px;
+  }
+  #profileUser .name,
+  .top .name {
+    padding-top: 6px;
   }
   .board #profileUser1 .sb-avatar,
   #profileUser1 .sb-avatar__text,
   #profileUser1 img {
-    width: 114px !important;
-    height: 114px !important;
+    width: 68px !important;
+    height: 68px !important;
+  }
+  #profileUser1 .sb-avatar__text span {
+    font-size: 34px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  #profileUser23 .sb-avatar__text span {
+    font-size: 24px !important;
+    font-family: "Poppins", sans-serif;
   }
   .py-3 {
     padding-bottom: 8px !important;
   }
   #btnClaimB {
-    font-size: 14px;
-    width: 68%;
-    margin-bottom: 24px;
-    margin-top: 6px;
+    font-size: 12px;
+    width: 64%;
+    margin: -2px 0px 18px;
   }
   #imgUser .sb-avatar,
   #imgUser .sb-avatar__text,
@@ -398,7 +444,7 @@
     height: 46px !important;
   }
   .colomnU p {
-    font-size: 12px;
+    font-size: 10px;
   }
   .textUser {
     margin-left: 18px;
@@ -429,6 +475,7 @@
     margin-left: 48px;
     width: 124px !important;
     height: 124px !important;
+    box-shadow: none;
   }
   #claimReward {
     padding: 0px 0px 34px;
@@ -451,7 +498,7 @@
   #btn-claim {
     font-size: 12px;
     margin-left: -74px;
-    width: 64%;
+    width: 72%;
   }
   .py-3 {
     padding-top: 0px !important;
