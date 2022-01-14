@@ -114,7 +114,7 @@ export default function Navbar() {
                         id="dropItem"
                         onClick={() => history.push(`/account`)}
                       >
-                        <Edit id="editIcon" /> Edit Profile
+                        <Edit id="editIcon" /> Account
                       </div>
                       <div class="dropdown-divider"></div>
                       <div

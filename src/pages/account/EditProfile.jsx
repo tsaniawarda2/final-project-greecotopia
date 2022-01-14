@@ -93,7 +93,8 @@ export default function EditProfile() {
       );
       setNewProfile(payloadProfile);
 
-      history.push("/login");
+      history.push("/");
+      window.location.reload()
     } catch (error) {
       console.log(error?.response?.data?.errors[0]);
       toast(

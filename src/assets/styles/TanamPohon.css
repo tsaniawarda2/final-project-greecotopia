@@ -71,6 +71,11 @@ body{
 	font-weight: 500;
 }
 
+.submit-disable-tp {
+  background-color: #b4b1b0;
+  cursor: not-allowed;
+}
+
 .content-tp-2 ul{
   list-style-type: none;
   padding: 0;
@@ -272,7 +277,7 @@ body{
   margin-bottom: 16px;
 }
 
-.btn-join-tp, .btn-unggah-tp{
+.btn-join-tp, .btn-unggah-tp, .submit-disable-tp{
 	color: #FCFCFC;
 	font-family: 'Rubik', sans-serif;
 	font-size: 16px;
