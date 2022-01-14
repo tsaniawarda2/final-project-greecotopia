@@ -57,6 +57,7 @@ export default function Issue() {
 
     await getCommentsByIssueId(newId);
     setIssueID(newId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(async () => {

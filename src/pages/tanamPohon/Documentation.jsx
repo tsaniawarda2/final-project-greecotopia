@@ -12,6 +12,7 @@ export default function Documentation() {
 
   useEffect(async () => {
     await getDocumentationById();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getDocumentationById = async () => {

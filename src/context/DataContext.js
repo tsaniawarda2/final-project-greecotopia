@@ -34,6 +34,7 @@ const DataProvider = ({ children }) => {
     getTopFive();
     getTopTen();
     getRewards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getUserLogin = async () => {
@@ -75,6 +76,7 @@ const DataProvider = ({ children }) => {
     await getFavIssues();
     await getForumById(newId);
     await getIssueById(newId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(async () => {
