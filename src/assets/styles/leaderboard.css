@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Text */
+#leaderboard .text-content {
+  font-family: "Poppins", sans-serif;
+  color: #232323;
+}
+
+#leaderboard #first {
+  text-transform: uppercase;
+  font-size: 42px;
+  margin-bottom: 6px;
+  font-weight: 700;
+  letter-spacing: 8px;
+}
+#leaderboard #second {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 4px;
+  letter-spacing: 4px;
+}
+
+/* === Leaderboard === */
+#leaderboard {
+  margin-top: 64px;
+  padding-top: 34px;
+  background-image: url(../image/bg-leaderboard.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding-top: 32px 0px 258px;
+}
+#leaderboard .text-content {
+  width: 52% !important;
+}
+
+/* Board */
+#top3 {
+  display: flex;
+  align-items: flex-end;
+}
+.board,
+.formReward {
+  background-color: #ff6239a8;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  padding-top: 18px;
+  margin-bottom: 0px;
+}
+.top p {
+  color: #fefefe;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.top .rank {
+  font-size: 18px;
+}
+
+/* Button */
+#btnClaimB {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #fcfcfc;
+  border-color: #fcfcfc;
+  border-radius: 12px;
+  padding: 8px 6px;
+  letter-spacing: 2px;
+  color: #232323;
+  width: 36%;
+  margin-bottom: 24px;
+  box-shadow: 3px 3px 2px 0px rgb(193 193 193);
+}
+#btnClaimB:hover,
+#btnClaimB:focus {
+  background-color: #ffb039;
+  border-color: #ffb039;
+  color: #fcfcfc;
+  box-shadow: 3px 3px 2px 0px rgb(228, 228, 228);
+}
+
+.colomnU {
+  display: flex;
+  align-items: center;
+  background-color: #fcfcfc;
+  font-size: 16px;
+  padding: 14px 0px;
+  border-top: 1px solid #ff6239a8;
+}
+.colomnU p {
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+.textUser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-left: 34px;
+  width: 150%;
+  text-align: start;
+}
+.colomnU #rankUser {
+  justify-content: flex-start !important;
+  font-weight: 600;
+  width: 6%;
+}
+
+#imgUser {
+  width: 28%;
+  text-align: center;
+}
+#imgUser .sb-avatar,
+#imgUser .sb-avatar__text,
+#imgUser img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+}
+#imgUser .sb-avatar__text span {
+  font-size: 28px !important;
+}
+#userName {
+  width: 56%;
+  text-align: start;
+  margin-left: 12px;
+}
+#poinUser {
+  display: flex;
+  width: 34%;
+  justify-content: flex-end;
+  margin-right: 34px;
+}
+/* Avatar */
+.board #profileUser1 .sb-avatar,
+#profileUser1 .sb-avatar__text,
+#profileUser1 img {
+  width: 148px !important;
+  height: 148px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgba(199, 199, 199, 0.74);
+}
+.board #profileUser23 .sb-avatar,
+#profileUser23 .sb-avatar__text,
+#profileUser23 img {
+  width: 114px !important;
+  height: 114px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgba(199, 199, 199, 0.74);
+}
+
+/* Claim Reward */
+#claimReward {
+  padding: 0px 0px 224px;
+}
+.formReward {
+  padding-top: 12px;
+  background-color: #ff6139e5;
+  box-shadow: 4px -4px 4px 0px rgb(151 151 151 / 74%);
+}
+.dataClaim {
+  margin-bottom: 120px;
+}
+.titleForm {
+  color: #fcfcfc;
+  font-size: 28px;
+  font-weight: 700;
+  padding: 0px 0px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+#dataDiri {
+  background-color: #fcfcfcf1;
+  align-items: center;
+  padding: 12px 0px 24px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+#profileUser p {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+#profileUser {
+  width: 20%;
+  margin-left: 36px;
+}
+#profileUser .sb-avatar,
+#profileUser .sb-avatar__text,
+#profileUser img {
+  width: 148px !important;
+  height: 148px !important;
+  object-fit: cover !important;
+  border-radius: 100% !important;
+  box-shadow: 2px 2px 2px 0px rgb(147 147 147 / 74%);
+}
+#profileUser .rank,
+.top .rank {
+  padding-bottom: 12px;
+}
+#profileUser .name,
+.top .name {
+  padding-top: 12px;
+}
+#profileUser .rank,
+#profileUser .name,
+.top .rank {
+  font-family: "Rubik", sans-serif;
+}
+
+#profileUser .rank {
+  font-size: 16px;
+}
+#dataUser {
+  margin-left: 34px;
+}
+.konfirmasi {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+/* Form */
+#inputData {
+  align-items: flex-start;
+  text-align: start;
+  margin-bottom: 24px;
+}
+#inputData .form-control {
+  border-color: #fcc97e;
+  box-shadow: 1px 1px 1px 0px rgb(180 180 180 / 45%);
+}
+#inputData .form-control:focus {
+  border-color: #fcc97e;
+  box-shadow: 0 0 0 1px rgba(187, 164, 61, 0.25);
+  color: #232825;
+}
+#inputData label {
+  font-size: 13px;
+  font-weight: 600;
+}
+#inputData input {
+  font-size: 13px;
+}
+.confName,
+.confInfo {
+  width: 47%;
+}
+.confName {
+  margin-right: 18px;
+}
+.cUsername,
+.cEmail {
+  margin-bottom: 12px;
+}
+#formDisable {
+  background-color: #fff5e6;
+}
+#dataInput {
+  color: #232323;
+}
+
+/* Btn Claim */
+#btn-claim {
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #10550f;
+  border-color: #10550f;
+  border-radius: 12px;
+  padding: 8px 0px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  width: 48%;
+}
+#btn-claim:hover {
+  background-color: #0d460c;
+  border-color: #0d460c;
+}
+#btn-claim:focus {
+  box-shadow: none;
+}
+
+#profileUser23 .sb-avatar__text span {
+  font-size: 44px !important;
+  font-family: "Poppins", sans-serif;
+}
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  #leaderboard .text-content {
+    width: 80% !important;
+  }
+  .board #profileUser23 .sb-avatar,
+  #profileUser23 .sb-avatar__text,
+  #profileUser23 img {
+    width: 84px !important;
+    height: 84px !important;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 114px !important;
+    height: 114px !important;
+  }
+  #profileUser1 .sb-avatar__text span {
+    font-size: 48px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  #profileUser23 .sb-avatar__text span {
+    font-size: 34px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  .top p {
+    color: #fefefe;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+  #profileUser .rank,
+  .top .rank {
+    padding-bottom: 8px;
+  }
+  #btnClaimB {
+    font-size: 16px;
+    width: 54%;
+  }
+  .colomnU {
+    font-size: 14px;
+  }
+  #imgUser .sb-avatar,
+  #imgUser .sb-avatar__text,
+  #imgUser img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  /* Claim Reward */
+  #leaderboard #first {
+    font-size: 36px;
+  }
+  #profileUser .sb-avatar,
+  #profileUser .sb-avatar__text,
+  #profileUser img {
+    width: 114px !important;
+    height: 114px !important;
+  }
+  #profileUser p {
+    font-size: 13px;
+  }
+
+  #dataUser {
+    margin-left: 38px;
+    width: 60%;
+  }
+  .titleForm {
+    font-size: 24px;
+  }
+  .konfirmasi {
+    font-size: 18px;
+  }
+  #claimReward {
+    padding: 0px 0px 58px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  #top3 {
+    justify-content: center;
+  }
+  .board,
+  .formReward {
+    padding-top: 8px;
+  }
+  .py-3 {
+    padding-bottom: 4px !important;
+  }
+  #leaderboard .text-content {
+    width: 84% !important;
+  }
+  #leaderboard #first {
+    font-size: 24px;
+    margin-left: 0px;
+  }
+  #leaderboard #second {
+    font-size: 16px;
+  }
+  #profileUser1 {
+    width: 34%;
+  }
+  #profileUser23 {
+    width: 24%;
+  }
+  .board #profileUser23 .sb-avatar,
+  #profileUser23 .sb-avatar__text,
+  #profileUser23 img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .top p {
+    font-size: 10px;
+  }
+  .top .rank {
+    font-size: 12px;
+  }
+  #profileUser .rank,
+  .top .rank {
+    padding-bottom: 4px;
+  }
+  #profileUser .name,
+  .top .name {
+    padding-top: 6px;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 68px !important;
+    height: 68px !important;
+  }
+  #profileUser1 .sb-avatar__text span {
+    font-size: 34px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  #profileUser23 .sb-avatar__text span {
+    font-size: 24px !important;
+    font-family: "Poppins", sans-serif;
+  }
+  #dataDiri {
+    padding: 20px 0px 24px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .py-3 {
+    padding-bottom: 8px !important;
+  }
+  #btnClaimB {
+    font-size: 12px;
+    width: 64%;
+    margin: -2px 0px 18px;
+  }
+  #imgUser .sb-avatar,
+  #imgUser .sb-avatar__text,
+  #imgUser img {
+    width: 46px !important;
+    height: 46px !important;
+  }
+  .colomnU p {
+    font-size: 10px;
+  }
+  .textUser {
+    margin-left: 18px;
+    width: 240%;
+  }
+  #imgUser {
+    width: 24%;
+  }
+  .colomnU #rankUser {
+    width: 12%;
+  }
+
+  /* Claim Reward */
+  .titleForm {
+    font-size: 22px;
+    letter-spacing: 6px;
+  }
+  #profileUser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin: -4px 0px;
+  }
+  #profileUser .sb-avatar,
+  #profileUser .sb-avatar__text,
+  #profileUser img {
+    margin-left: 48px;
+    width: 124px !important;
+    height: 124px !important;
+    box-shadow: none;
+  }
+  #dataUser {
+    margin-top: -12px;
+  }
+  #claimReward {
+    padding: 0px 0px 34px;
+  }
+  #inputData {
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 24px;
+  }
+  .konfirmasi {
+    margin-left: -76px;
+  }
+  .confName,
+  .confInfo {
+    width: 78%;
+  }
+  .confName {
+    margin-right: 0px;
+  }
+  #btn-claim {
+    font-size: 12px;
+    margin-left: -74px;
+    width: 72%;
+  }
+  .py-3 {
+    padding-top: 0px !important;
+  }
+}

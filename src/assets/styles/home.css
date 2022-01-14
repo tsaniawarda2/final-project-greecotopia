@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+/* ===== WELCOME ===== */
+.forest-left {
+  display: none;
+}
+#welcome {
+  background-color: #fcfcfc;
+  height: 100vh;
+  padding: 84px 0px;
+  display: flex;
+}
+#contentW {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 88px;
+}
+#left {
+  width: 52%;
+  padding-left: 42px;
+}
+#right {
+  width: 36%;
+  text-align: end;
+  padding-right: 93px;
+}
+/* Left */
+#welcome p {
+  margin-bottom: 0px;
+  font-family: "Poppins", sans-serif;
+}
+.hi {
+  color: #10550f;
+  font-size: 28px;
+  font-weight: 700;
+}
+.greecotopia {
+  color: #232323;
+  font-size: 74px;
+  font-weight: 800;
+  margin-top: -4px;
+}
+.decsWelcome {
+  color: #505050;
+  font-size: 26px;
+  margin-bottom: 28px !important;
+}
+/* Right */
+#imgForest {
+  width: 68vh;
+  transition: transform 0.4s;
+}
+#imgForest:hover {
+  transform: scale(1.1);
+}
+/* Button */
+#welcome #btn-home {
+  border-radius: 28px 28px 114px 28px;
+  padding: 10px 56px 10px 20px;
+  width: 56%;
+  font-size: 18px;
+}
+
+#contentHW {
+  font-family: "Poppins", sans-serif;
+  color: #232825;
+}
+
+/* === JUMBOTRON ===*/
+#welcomeH {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#contentWH {
+  width: 54%;
+}
+.header {
+  padding: 114px 0 64px;
+  background-color: #ebf1fa;
+}
+.header .contentHome {
+  padding-right: 15px;
+}
+.header #headlineWH {
+  font-size: 60px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+#headlineWH span {
+  font-weight: 800;
+}
+.header #titleWH {
+  font-size: 24px;
+  margin-bottom: 2px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+#decsWH {
+  margin-top: 24px;
+  font-size: 18px;
+}
+/* Polaroid */
+.polaroid-left {
+  display: none;
+}
+#polaroid {
+  margin-right: 46px;
+  margin-top: 14px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: white;
+  padding: 18px 18px 0px;
+  box-shadow: 10px 17px 18px 1px rgb(197, 202, 204);
+  transform: rotate(-5deg);
+  width: 35%;
+  height: 64vh;
+}
+#polaroid img {
+  display: block;
+  width: 100%;
+  height: 48vh;
+  object-fit: cover;
+  object-position: 65% 20%;
+  border-radius: 5px;
+}
+#polaroid p {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: bold;
+}
+
+/* Button */
+
+#btn-home {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #10550f;
+  border-color: #10550f;
+  border-radius: 12px;
+  padding: 8px 0px;
+  letter-spacing: 2px;
+  color: #fcfcfc;
+  width: 42%;
+}
+#btn-home:hover,
+#btnWelcome:hover {
+  background-color: #117c10;
+  border-color: #117c10;
+}
+#btn-home:focus,
+#btnWelcome:focus {
+  box-shadow: none;
+}
+
+/* --- Text Content --- */
+#firstHome {
+  font-size: 20px;
+  margin-bottom: -12px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+#secondHome {
+  font-size: 42px;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+#thirdHome {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+/* === FORUM === */
+#forum-home {
+  padding: 98px 0px 48px;
+}
+#forum-home .content-home {
+  width: 88% !important;
+  padding: 70px 0px;
+}
+#forum-home #btn-home {
+  width: 52%;
+}
+
+.carousel-left {
+  display: none;
+}
+#carousel .carousel-inner {
+  border-radius: 24px;
+  background-color: #232825;
+}
+#carousel .carousel-control-prev,
+#carousel .carousel-control-next {
+  margin: -50px;
+}
+#carousel .carousel-control-prev-icon,
+#carousel .carousel-control-next-icon {
+  background-color: black;
+  border-radius: 34px;
+  padding: 22px;
+  background-size: 76% 100%;
+  margin: 100px;
+}
+#carousel .carousel-control-prev-icon {
+  background-position: 32%;
+}
+#carousel .carousel-control-next-icon {
+  background-position: 68%;
+}
+#carousel .carousel-indicators [data-bs-target] {
+  width: 16%;
+  height: 4px;
+  margin: 0px 12px;
+  background-color: #fcfcfc;
+}
+#carousel .carousel-item img {
+  opacity: 74%;
+}
+#carousel .carousel-caption {
+  padding: 114px 0px 104px;
+  color: #fcfcfc;
+}
+#carousel h5 {
+  font-family: "Rubik", sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 34px;
+}
+#carousel p {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/* === TANAM POHON === */
+#tanamPohon {
+  background-image: url(../image/bg-tanam-pohon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding: 94px 0px 258px;
+}
+#tanamPohon .content-home {
+  width: 52%;
+}
+
+/* === LEADERBOARD === */
+#board-home {
+  margin-top: 64px;
+  background-image: url(../image/bg-board-home.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  padding-top: 32px;
+}
+#board-home #profileUser1 {
+  margin-bottom: 36px;
+}
+#board-home .content-home {
+  width: 52%;
+}
+#board-home .board {
+  padding-top: 10px;
+}
+#board-home #btn-home {
+  margin-bottom: 38px;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  .forest-left {
+    display: block;
+  }
+  .forest-right {
+    display: none;
+  }
+  #welcome {
+    display: block;
+    width: 130%;
+    padding: 40px 0px;
+  }
+  #contentW {
+    display: block;
+    padding: 0px 54px;
+    text-align: center;
+  }
+  #left,
+  #right {
+    width: 100%;
+  }
+  #left {
+    padding: 0px;
+  }
+  .greecotopia {
+    font-size: 62px;
+    padding-bottom: 6px;
+  }
+  .decsWelcome {
+    font-size: 20px;
+  }
+  #welcome #btn-home {
+    width: 46%;
+  }
+  #right {
+    margin-bottom: 54px;
+    padding-right: 0px;
+    text-align: center;
+  }
+  #imgForest {
+    width: 64vh;
+  }
+  /* --- Jumbotron --- */
+  #welcomeH {
+    justify-content: center;
+    margin: 0px;
+  }
+  #contentWH {
+    margin-top: 58px;
+    text-align: center;
+    width: 100%;
+  }
+  .polaroid-right {
+    display: none;
+  }
+  .polaroid-left {
+    display: block;
+  }
+  #polaroid {
+    width: 82%;
+    height: 58vh;
+    margin-left: 0px;
+  }
+  .header #headlineWH {
+    font-size: 52px;
+    margin-bottom: 16px;
+  }
+  #btn-home {
+    width: 64%;
+  }
+  .content-home {
+    text-align: center;
+  }
+  /* --- Forum --- */
+  .carousel-right {
+    display: none;
+  }
+  .carousel-left {
+    display: block;
+    width: 90% !important;
+  }
+  #carousel .carousel-indicators [data-bs-target] {
+    width: 12%;
+  }
+  #carousel .carousel-inner {
+    left: -32px;
+    border-radius: 24px;
+    width: 114%;
+    background-color: #232825;
+  }
+  #carousel .carousel-control-prev,
+  #carousel .carousel-control-next {
+    margin: -68px;
+  }
+
+  #forum-home .content-home {
+    width: 100% !important;
+    padding: 48px 0px;
+  }
+  /* --- Tanam Pohon & Leaderboard --- */
+  #tanamPohon {
+    padding: 68px 0px 164px;
+  }
+  #board-home {
+    margin-top: 78px;
+    padding-top: 0px;
+  }
+  #tanamPohon .content-home,
+  #board-home .content-home {
+    width: 88%;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 142px !important;
+    height: 142px !important;
+  }
+  #board-home #profileUser1 {
+    margin-bottom: 36px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .forest-left {
+    display: block;
+  }
+  .forest-right {
+    display: none;
+  }
+  #welcome {
+    display: block;
+    width: 130%;
+    padding: 74px 0px;
+  }
+  #contentW {
+    display: block;
+    padding: 0px 14px;
+    text-align: center;
+  }
+  #left,
+  #right {
+    width: 100%;
+  }
+  #left {
+    padding: 0px;
+  }
+  .greecotopia {
+    font-size: 58px;
+    padding-bottom: 6px;
+  }
+  .decsWelcome {
+    font-size: 20px;
+  }
+  #welcome #btn-home {
+    width: 80%;
+  }
+  #right {
+    margin-bottom: 64px;
+    padding-right: 0px;
+    text-align: center;
+  }
+  #imgForest {
+    width: 54vh;
+  }
+  /* --- Jumbotron --- */
+  #welcomeH {
+    justify-content: center;
+    margin: 0px;
+  }
+  #contentWH {
+    margin-top: 58px;
+    text-align: center;
+    width: 100%;
+  }
+  .polaroid-right {
+    display: none;
+  }
+  .polaroid-left {
+    display: block;
+  }
+  #polaroid {
+    width: 82%;
+    height: 58vh;
+    margin-left: 0px;
+  }
+  .header #headlineWH {
+    font-size: 52px;
+    margin-bottom: 16px;
+  }
+
+  #btn-home {
+    width: 64%;
+  }
+  .content-home {
+    text-align: center;
+  }
+  /* --- Forum --- */
+  .carousel-right {
+    display: none;
+  }
+  .carousel-left {
+    display: block;
+    width: 90% !important;
+  }
+  #carousel .carousel-indicators [data-bs-target] {
+    width: 12%;
+  }
+  #forum-home .content-home {
+    width: 100% !important;
+    padding: 48px 0px;
+  }
+  /* --- Tanam Pohon & Leaderboard --- */
+  #tanamPohon {
+    padding: 68px 0px 164px;
+  }
+  #board-home {
+    margin-top: 116px;
+    padding-top: 0px;
+  }
+  #tanamPohon .content-home,
+  #board-home .content-home {
+    width: 88%;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 142px !important;
+    height: 142px !important;
+  }
+}
