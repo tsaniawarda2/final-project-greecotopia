@@ -100,7 +100,7 @@ export default function FormDocumentation() {
   const [doc, setDoc] = useState([]);
   const [existUser, setExistUser] = useState(false);
   console.log(doc);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     await getDocumentationById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
