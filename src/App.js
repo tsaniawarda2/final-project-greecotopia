@@ -159,6 +159,8 @@ export default function App() {
                 } else {
                   return <FormReward {...props} />;
                 }
+              } else {
+                return <NotFound />;
               }
             }
           }}

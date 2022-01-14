@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Avatar from "react-avatar";
 import { NavLink } from "react-router-dom";
-import Board from "../../components/Board";
 import { DataContext } from "../../context/DataContext";
 
 export default function Leaderboard() {

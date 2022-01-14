@@ -17,7 +17,7 @@ export default function Footer() {
       <section className="footer">
         <div className="container">
           <div className="row">
-            <div className="col-lg-3 col-md-6 col-xs-12">
+            <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
               <div id="ttl-footer">
                 <img className="logo-footer" src={Logo} alt="brand" />
                 Greecotopia
@@ -27,26 +27,30 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 col-xs-12 uLink">
-              <p className="list-pages">
+            <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 uLink">
+              <div className="ttl-footer">Useful Link</div>
+              <p className="list-pages" id="linkFooter">
                 <Link className="item-pages" to="/home">
                   Home
                 </Link>
                 <Link className="item-pages" to="/account">
                   Account
                 </Link>
-                <Link className="item-pages" to="/forum">
-                  Forum
-                </Link>
+
                 <Link className="item-pages" to="/tanamPohon">
                   Tanam Pohon
+                </Link>
+
+                <Link className="item-pages" to="/forums">
+                  Forum
                 </Link>
                 <Link className="item-pages" to="/leaderboard">
                   Leaderboard
                 </Link>
               </p>
             </div>
-            <div className="col-lg-3 col-md-6 col-xs-12 findUs">
+            <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12 findUs">
+              <div className="ttl-footer">Find Us At</div>
               <p className="list-pages">
                 <Link className="item-pages" to="#">
                   <FaFacebookF className="me-3" />
@@ -65,20 +69,6 @@ export default function Footer() {
                   (021) 5212552
                 </Link>
               </p>
-            </div>
-            <div className="col-lg-3 col-md-6 col-xs-12 contactUs">
-              <div className="list-pages">Subscribe to our newsletter</div>
-              <div className="contact">
-                <input
-                  type="text"
-                  class="form-control subs"
-                  id="subscribe"
-                  placeholder="Email Address"
-                />
-                <button type="submit" class="btn-submit">
-                  OK
-                </button>
-              </div>
             </div>
           </div>
         </div>
