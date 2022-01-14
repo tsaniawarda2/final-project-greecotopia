@@ -11,4 +11,4 @@ Member:
 
 Mentor: Rizky Maulita Putri
 
-Link Documentation API : [Greecotopia Documentation](https://github.com/tech4impact-group5-6/ta-backend-tsania/tree/main)
+Link Documentation API : [Greecotopia Documentation](https://documenter.getpostman.com/view/18343779/UVXjJFjv)
