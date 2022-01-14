@@ -9,7 +9,6 @@ import PointModal from "../../components/modal/PointModal";
 import { getDate } from "../../utils/date";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { useParams } from "react-router-dom";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } =
   process.env;
 
@@ -70,7 +69,6 @@ export default function FormDocumentation() {
           tanam_pohon_id: tanamPohon.tanam_pohon_id,
           participant_id: userLogin.user_id,
         };
-
         setDocumentation(payloadDoc);
 
         const { data: dataDoc } = await toast.promise(
@@ -84,6 +82,7 @@ export default function FormDocumentation() {
             theme: "colored",
           }
         );
+        console.log(dataDoc);
 
         setShowModalPoint((prev) => !prev);
       }
@@ -98,9 +97,9 @@ export default function FormDocumentation() {
   };
 
   console.log(tanamPohon, "tp");
-
   const [doc, setDoc] = useState([]);
   const [existUser, setExistUser] = useState(false);
+  console.log(doc);
 
   useEffect(async () => {
     await getDocumentationById();

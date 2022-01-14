@@ -62,16 +62,18 @@ export default function FormTanamPohon() {
           "/participants",
           payload
         );
+        console.log(dataParticipant);
+
         setShowModalSuccess(true);
       }
     } catch (error) {
-      console.log(error?.response)
+      console.log(error?.response);
       toast(
         error?.response?.data?.errors[0] ||
-        error?.response?.data?.message ||
+          error?.response?.data?.message ||
           error?.response?.message ||
           "Internal Server Error",
-        { type: "error", theme: "colored", }
+        { type: "error", theme: "colored" }
       );
     }
   };

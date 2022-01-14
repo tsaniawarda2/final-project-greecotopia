@@ -50,6 +50,7 @@ export default function Issue() {
   const [issueID, setIssueID] = useState(0);
 
   const { pathname } = useLocation();
+  // react-hooks/exhaustive-deps
 
   useEffect(async () => {
     const arrPath = pathname?.split("/");

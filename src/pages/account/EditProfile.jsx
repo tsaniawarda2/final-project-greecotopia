@@ -19,7 +19,9 @@ export default function EditProfile() {
 
   const [fileImage, setFileImage] = useState(null);
   const [fileBg, setFileBg] = useState(null);
+  // no-unused-vars
   const [imageUrl, setImageUrl] = useState(null);
+  //  no-unused-vars
   const [bgUrl, setBgUrl] = useState(null);
 
   const [newProfile, setNewProfile] = useState({
@@ -209,8 +211,8 @@ export default function EditProfile() {
           </div>
         </div>
       </div>
-        <ToastContainer/>
-      <Footer/>
+      <ToastContainer />
+      <Footer />
     </>
   );
 }
