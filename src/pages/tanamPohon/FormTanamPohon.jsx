@@ -65,7 +65,9 @@ export default function FormTanamPohon() {
         setShowModalSuccess(true);
       }
     } catch (error) {
+      console.log(error?.response)
       toast(
+        error?.response?.data?.errors[0] ||
         error?.response?.data?.message ||
           error?.response?.message ||
           "Internal Server Error",
