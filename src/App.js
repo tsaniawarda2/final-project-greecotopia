@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router";
+import { DataContext } from "./context/DataContext";
 
 import {
   Welcome,
@@ -23,6 +24,13 @@ import {
 } from "./pages";
 
 export default function App() {
+  const { topThree: claim } = useContext(DataContext);
+  const { userLogin, rewards } = useContext(DataContext);
+
+  const userID = userLogin?.user_id;
+  const top3 = claim?.find((user) => user?.user_id === userID);
+  const alreadyClaim = rewards?.find((rewards) => rewards?.user_id === userID);
+
   return (
     <>
       <Switch>
@@ -145,7 +153,13 @@ export default function App() {
             if (!localStorage.getItem("token")) {
               return <Redirect to="/login" />;
             } else {
-              return <FormReward {...props} />;
+              if (top3) {
+                if (alreadyClaim) {
+                  return <Redirect to="/leaderboard" />;
+                } else {
+                  return <FormReward {...props} />;
+                }
+              }
             }
           }}
         />
