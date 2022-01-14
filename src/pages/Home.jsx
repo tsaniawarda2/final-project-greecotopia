@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Navbar />
       {checkLogin() ? null : <Welcome />}
-      {/* <Gallery /> */}
+      <Gallery />
       <Forum />
       <TanamPohon />
       <Leaderboard />

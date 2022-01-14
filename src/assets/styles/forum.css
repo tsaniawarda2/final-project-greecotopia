@@ -246,9 +246,7 @@
   }
 
   #content-forum {
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     width: 100%;
     border-top-right-radius: 0px;
     border-bottom-left-radius: 14px;
@@ -269,7 +267,10 @@
     padding: 4px 0px 2px;
     margin-left: 28%;
   }
-
+  /* Card */
+  #cardFI .card {
+    padding: 16px;
+  }
   #cardForum .card {
     margin: 12px 16px;
   }

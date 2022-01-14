@@ -43,7 +43,10 @@ export default function Forum() {
           <>
             <div className={`${bgColors[idxForum]} row`} id="content-forum">
               {/* Categories */}
-              <div className="col-lg-2 col-md-12" id="image-cat">
+              <div
+                className="col-lg-2 col-md-6 col-sm-12 col-xs-12"
+                id="image-cat"
+              >
                 <div className="picture">
                   <img src={dataForum.image_url} alt={dataForum.title} />
                 </div>
@@ -63,7 +66,10 @@ export default function Forum() {
                 </div>
               </div>
               {/* Issues */}
-              <div className="col-lg-10 col-md-12 d-flex" id="contentCard">
+              <div
+                className="col-lg-10 col-md-6 col-sm-12 col-xs-12 d-flex"
+                id="contentCard"
+              >
                 {dataForum?.Issues?.map((dataIssue, idxIssue) => (
                   <CardForum item={dataIssue} key={idxIssue} />
                 ))}

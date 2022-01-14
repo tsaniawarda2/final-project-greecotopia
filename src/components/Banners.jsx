@@ -29,7 +29,7 @@ const Banner = styled.div`
   background-blend-mode: multiply;
   background-attachment: fixed;
   ${mobile({ height: "70vh" })};
-  ${tablet({ height: "68vh" })};
+  ${tablet({ height: "68vh", backgroundPosition: "center 2%" })};
 }
 `;
 const ContentBan = styled.div`
@@ -41,7 +41,7 @@ const ContentBan = styled.div`
   color: #232825;
   text-align: center;
   ${mobile({ top: "44%" })};
-  ${tablet({ top: "40%" })};
+  ${tablet({ top: "38%" })};
 `;
 const YvmBan = styled.h3`
   font-size: 16px;

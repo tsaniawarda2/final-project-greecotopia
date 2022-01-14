@@ -11,10 +11,7 @@ import Footer from "../../components/Footer";
 import { API } from "../../config/api";
 
 export default function FormReward() {
-  const { userLogin, users } = useContext(DataContext);
-
-  // Find Rank
-  const findUser = users?.find((user) => user?.user_id === userLogin?.user_id);
+  const { userLogin } = useContext(DataContext);
 
   const [showModalSuccess, setShowModalSuccess] = useState(false);
   const [dataClaim, setDataClaim] = useState({
@@ -65,13 +62,10 @@ export default function FormReward() {
               <p className="titleForm">Klaim Hadiah</p>
               {/* Form */}
               <div className="row" id="dataDiri">
-                <div className="col-md-4 gx-0 py-3" id="profileUser">
-                  <p className="rank">
-                    {findUser?.user_id - 1}
-                    {findUser?.user_id - 1 === 1 ? " st" : null}
-                    {findUser?.user_id - 1 === 2 ? " nd" : null}
-                    {findUser?.user_id - 1 === 3 ? " rd" : null}
-                  </p>
+                <div
+                  className="col-md-4 col-sm-12 col-xs-12 gx-0 py-3"
+                  id="profileUser"
+                >
                   {userLogin?.image_url ? (
                     <Avatar src={userLogin?.image_url} id="avaUser" />
                   ) : (
@@ -82,7 +76,10 @@ export default function FormReward() {
                     {userLogin?.points ? userLogin?.points : "0"} Point
                   </p>
                 </div>
-                <div className="col-md-8 gx-0 py-3" id="dataUser">
+                <div
+                  className="col-md-8 col-sm-12 col-xs-12 gx-0 py-3"
+                  id="dataUser"
+                >
                   <p className="konfirmasi">Konfirmasi Data Diri</p>
                   <div className="d-flex" id="inputData">
                     <div className="confName">

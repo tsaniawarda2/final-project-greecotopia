@@ -29,7 +29,7 @@ export default function Footer() {
             </div>
             <div className="col-lg-3 col-md-6 col-xs-12 uLink">
               <p className="list-pages">
-                <Link className="item-pages" to="/">
+                <Link className="item-pages" to="/home">
                   Home
                 </Link>
                 <Link className="item-pages" to="/account">

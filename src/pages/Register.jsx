@@ -72,7 +72,7 @@ export default function Login() {
         <div className="container d-flex justify-content-center">
           <div id="form">
             <div className="title-form text-center">
-              <NavLink to="/" id="home">
+              <NavLink to="/home" id="home">
                 <img src={Logo} alt="earth" id="logo-log" />
                 Greecotopia
               </NavLink>
@@ -87,6 +87,7 @@ export default function Login() {
                 </label>
                 <input
                   type="text"
+                  placeholder="Masukkan nama lengkap"
                   className="form-control"
                   id="formRegister"
                   value={form?.fullname}
@@ -102,6 +103,7 @@ export default function Login() {
                 </label>
                 <input
                   type="text"
+                  placeholder="Masukkan email, contoh : greecotopia@email.com"
                   className="form-control"
                   id="formRegister"
                   value={form?.email}
@@ -115,6 +117,7 @@ export default function Login() {
                 </label>
                 <input
                   type="text"
+                  placeholder="Buat username, contoh : greecotopia_123"
                   className="form-control"
                   id="formRegister"
                   value={form?.username}
@@ -130,6 +133,7 @@ export default function Login() {
                 </label>
                 <input
                   type="password"
+                  placeholder="Buat password, contoh : gr33c0top!4"
                   className="form-control"
                   id="formRegister"
                   value={form?.password}

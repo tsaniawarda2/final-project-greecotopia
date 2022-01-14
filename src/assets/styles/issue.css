@@ -8,9 +8,14 @@
   margin-top: 52px;
   font-weight: 500;
   letter-spacing: 2px;
+  padding: 14px 0px;
+  background-color: #fefefe;
+}
+.sticky-top {
+  top: 68px;
 }
 #issues-filter .nav-item {
-  margin: 0px 28px;
+  margin: 0px 54px;
 }
 #link-issues {
   text-decoration: none;
@@ -107,6 +112,7 @@
 .secondCom,
 .formIC,
 #dropItem,
+.otherIssue,
 #avaCom .sb-avatar span {
   font-family: "Poppins", sans-serif !important;
 }
@@ -115,7 +121,7 @@
 .firstCom,
 .secondCom,
 .formIC,
-#dropItem {
+.otherIssue #dropItem {
   color: #232825;
 }
 #descIssue p {
@@ -181,7 +187,7 @@
 
 .main-comment #formCom1 .mainInput,
 .main-comment #formCom1 #replyCom {
-  width: 110vh;
+  width: 116vh;
   font-size: 12px;
 }
 .main-comment #formCom1 #replyCom {
@@ -253,6 +259,21 @@
 }
 .upperCom {
   margin-bottom: 4px;
+}
+
+/* Card */
+#otherIssue {
+  margin-top: 34px;
+}
+.otherIssue {
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  padding-bottom: 8px;
+  border-bottom: 4px solid#232323;
+  margin-top: 90px;
+  width: 40%;
 }
 
 /* btnUser */
@@ -406,13 +427,19 @@
     border-top-right-radius: 14px;
   }
   #issues-filter {
-    margin: 0px 254px;
-    width: 248px;
-    top: 70px;
+    margin: 0px 0px;
+    width: 100%;
+    top: 70vh;
   }
   #issues-filter .nav-item {
-    margin: 40px 215px;
-    margin-bottom: 14px;
+    margin: 18px 13px;
+    margin-bottom: 12px;
+    width: 134px;
+  }
+  #link-issues {
+    padding: 8px 0px;
+    border-radius: 28px;
+    text-align: center;
   }
   .justify-content-center {
     justify-content: space-between !important;
@@ -420,12 +447,45 @@
   .sticky-top {
     position: absolute !important;
   }
+
+  /* Card */
+  #issues {
+    margin-top: 118px;
+  }
+  #positionCI {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+  }
+  .card-issue {
+    width: 80%;
+  }
 }
 
 @media only screen and (max-width: 380px) {
   #issues-filter {
-    margin: 66px;
-    width: 248px;
+    margin: 0px 0px;
+    width: 54vh;
+    top: 70vh;
+  }
+  #issues-filter .nav-item {
+    margin: 18px 13px;
+    margin-bottom: 12px;
+    width: 134px;
+  }
+  #link-issues {
+    padding: 8px 0px;
+    border-radius: 28px;
+    text-align: center;
+  }
+  .justify-content-center {
+    justify-content: space-between !important;
+  }
+  .sticky-top {
+    position: absolute !important;
+  }
+  #issues {
+    margin-top: 168px;
   }
   #inputCom,
   #inputCFilled {
@@ -439,5 +499,20 @@
   }
   #repCFilled {
     width: 52.6vh;
+  }
+
+  /* Card */
+  #positionCI {
+    display: flex;
+    justify-content: center;
+  }
+  .card-issue {
+    width: 84%;
+  }
+  #cIssue {
+    padding: 14px;
+  }
+  .mb-5 {
+    margin-bottom: 24px !important;
   }
 }

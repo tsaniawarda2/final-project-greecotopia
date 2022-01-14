@@ -28,9 +28,12 @@ import Footer from "../../components/Footer";
 import "../../assets/styles/issue.css";
 import checkLogin from "../../utils/checkLogin";
 import { toast, ToastContainer } from "react-toastify";
+import CardIssue from "../../components/card/CardIssue";
 
 export default function Issue() {
   const { userLogin } = useContext(DataContext);
+  const { forum } = useContext(DataContext);
+  const dataIssues = forum.Issues;
 
   // --- Data Comment ---
   const [dataComments, setDataComments] = useState([]);
@@ -85,6 +88,7 @@ export default function Issue() {
   };
 
   const handleLike = async (comment, repComment) => {
+    // console.log(comment, "Like Comment");
     const payload = {
       rep_comments_uuid: "",
       likes: false,
@@ -95,12 +99,20 @@ export default function Issue() {
     } else {
       payload.likes = !checkLike(comment?.likes);
     }
+    // console.log(payload, "Like reply");
     const commentID = comment?.comment_id;
     try {
-      await API().patch(`/comments/${commentID}`);
+      await API().patch(`/comments/${commentID}`, payload);
       await getCommentsByIssueId(issueID);
     } catch (error) {
-      console.log(error);
+      toast.warning(
+        error?.response?.userLogin?.error?.message ||
+          error?.response?.message ||
+          "Kamu harus login terlebih dahulu",
+        {
+          theme: "colored",
+        }
+      );
     }
   };
 
@@ -164,7 +176,6 @@ export default function Issue() {
         toast.warning("Kamu harus login terlebih dahulu", {
           theme: "colored",
         });
-        console.log("Belum LOgin");
       }
     }
   };
@@ -319,7 +330,14 @@ export default function Issue() {
                                   data-bs-toggle="dropdown"
                                   aria-expanded="false"
                                 >
-                                  <HiDotsVertical id="iMenu" />
+                                  {checkLogin() ? (
+                                    <HiDotsVertical id="iMenu" />
+                                  ) : (
+                                    <HiDotsVertical
+                                      id="iMenu"
+                                      style={{ display: "none" }}
+                                    />
+                                  )}
                                 </button>
                                 <div
                                   className="dropdown-menu"
@@ -473,8 +491,19 @@ export default function Issue() {
             </div>
           </div>
         </div>
+        <div id="otherIssues">
+          <p className="otherIssue">Tanggapi isu {Forum?.title} lainnya</p>
+          {/* Card */}
+          <div className="row" id="cardIssues">
+            {dataIssues?.map((forum, idx) => (
+              <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={idx}>
+                <CardIssue item={forum} key={forum.issue_id} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <ToastContainer id="toast" />
+      <ToastContainer />
       <Footer />
     </>
   );
