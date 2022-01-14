@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import { MdOutlineEdit as Edit, MdLogout as LogOut } from "react-icons/md";
 import Logo from "../assets/image/logo.png";
-import Profile from "../assets/image/profile.png";
 import Point from "../assets/image/point.png";
 import "../assets/styles/navbar.css";
+import checkLogin from "../utils/checkLogin";
+import { DataContext } from "../context/DataContext";
+import Avatar from "react-avatar";
+import { useHistory } from "react-router-dom";
+import Logout from "./modal/Logout"
 
 export default function Navbar() {
+  const { userLogin: data } = useContext(DataContext);
+
+  const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(prev => !prev);
+  };
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div className="container">
+    <Logout showModal={showModal} setShowModal={setShowModal}/>
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+        id="navTop"
+      >
+        <div className="container" id="navbarGree">
           {/* LEFT */}
           <NavLink className="navbar-brand" to="/">
             <img className="logo-nav" src={Logo} alt="brand" /> Greecotopia
@@ -30,12 +48,17 @@ export default function Navbar() {
             {/* CENTER */}
             <ul className="navbar-nav mx-auto mb-md-2 mb-lg-0 navCenter">
               <li className="nav-item me-md-3">
-                <NavLink exact className="nav-link" aria-current="page" to="/">
+                <NavLink
+                  exact
+                  className="nav-link"
+                  aria-current="page"
+                  to="/home"
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item me-md-3">
-                <NavLink exact className="nav-link" to="/forum">
+                <NavLink exact className="nav-link" to="/forums">
                   Forum
                 </NavLink>
               </li>
@@ -51,37 +74,81 @@ export default function Navbar() {
               </li>
             </ul>
             {/* RIGHT */}
-            <ul className="navbar-nav mb-md-5 mb-lg-0 navRight">
-              {/* Form */}
-              <li className="nav-item me-md-4">
-                <NavLink
-                  className="nav-link text-uppercase signup"
-                  to="/signUp"
-                >
-                  Daftar
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link text-uppercase login" to="/login">
-                  Masuk
-                </NavLink>
-              </li>
-              {/* Account */}
-              {/* <li className="nav-item">
-                <NavLink
-                  className="nav-link text-uppercase account"
-                  to="/account"
-                >
-                  <div className="profile1">
-                    <img id="avatar" src={Profile} alt="profile" />
+
+            <ul
+              className="navbar-nav mb-md-5 mb-lg-0 navRight"
+              id="navbar-right"
+            >
+              {checkLogin() ? (
+                <>
+                  <div class="dropdown nav-username">
+                    <div
+                      id="btnProfile"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <li className="nav-item">
+                        <div
+                          className="nav-link text-uppercase"
+                          id="btnProfile"
+                        >
+                          <div id="avaNav">
+                            {data?.image_url ? (
+                              <Avatar src={data?.image_url} alt="profile" />
+                            ) : (
+                              <Avatar name={data?.username} alt="profile" />
+                            )}
+                          </div>
+                          <div className="profile2">
+                            <p className="userNameP">{data?.username}</p>
+                            <img id="point" src={Point} alt="point" />
+                            {data?.points ? data?.points : "0"} Poin
+                          </div>
+                        </div>
+                      </li>
+                    </div>
+                    <div className="dropdown-menu" id="dropdownNav">
+                      <div
+                        className="dropdown-item btn btn-profile"
+                        id="dropItem"
+                        onClick={() => history.push(`/account`)}
+                      >
+                        <Edit id="editIcon" /> Edit Profile
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <div
+                        className="dropdown-item btn btn-logout"
+                        id="dropItem"
+                        // onClick={handleLogout}
+                        onClick={openModal}
+                      >
+                        <LogOut id="outIcon" /> Log Out
+                      </div>
+                    </div>
                   </div>
-                  <div className="profile2">
-                    <p className="username-user">Siti Mae</p>
-                    <img id="point" src={Point} alt="point" />
-                    1000 poin
-                  </div>
-                </NavLink>
-              </li> */}
+                </>
+              ) : (
+                <>
+                  {/* Form */}
+                  <li className="nav-item me-md-4">
+                    <NavLink
+                      className="nav-link text-uppercase signup"
+                      to="/register"
+                    >
+                      Daftar
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link text-uppercase login"
+                      to="/login"
+                    >
+                      Masuk
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

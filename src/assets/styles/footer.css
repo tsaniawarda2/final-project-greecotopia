@@ -5,6 +5,12 @@
 .footer {
   background-color: #10550f;
   padding: 48px 0px 24px;
+  position: relative;
+  z-index: 1;
+}
+footer {
+  position: relative;
+  z-index: 1;
 }
 .logo-footer {
   width: 42px;
@@ -15,7 +21,7 @@
   margin-bottom: 0px;
   font-weight: 700;
   color: #f7f6f2;
-  font-size: 20px;
+  font-size: 24px;
   margin-top: -4px;
   font-family: "Rubik", sans-serif;
   text-transform: uppercase;
@@ -42,14 +48,37 @@
 }
 .list-pages {
   display: flex;
-  flex-direction: column;
-  font-weight: 500;
+  flex-wrap: wrap;
 }
 .item-pages {
+  width: 50%;
   margin-bottom: 8px;
+}
+#linkHome {
+  justify-content: space-between;
 }
 .findUs {
   margin-left: -80px;
+}
+.findUs .list-pages {
+  flex-direction: column;
+  margin-left: 100px;
+}
+.findUs .item-pages {
+  width: 134%;
+}
+.uLink .ttl-footer,
+.findUs .ttl-footer {
+  color: #fcfcfc;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.uLink .ttl-footer {
+  margin-left: 94px;
+}
+.findUs .ttl-footer {
+  margin-left: 100px;
 }
 .contact {
   width: 100%;
