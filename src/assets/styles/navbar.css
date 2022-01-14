@@ -13,8 +13,8 @@ nav {
   text-transform: uppercase;
 }
 
-#navTop{
-  z-index: 9!important;
+#navTop {
+  z-index: 9 !important;
 }
 
 /* LEFT */
@@ -128,10 +128,10 @@ nav {
 /* TABLET */
 @media only screen and (min-width: 381px) and (max-width: 768px) {
   #navbar-right {
+    flex-direction: column;
     justify-content: center;
-    flex-direction: row;
-    margin-top: 12px;
     margin-bottom: 12px !important;
+    margin-top: -8px;
   }
   .navbar-collapse {
     text-align: center;
@@ -152,7 +152,7 @@ nav {
 @media only screen and (max-width: 380px) {
   #navbar-right {
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 12px;
     margin-bottom: 12px !important;
   }

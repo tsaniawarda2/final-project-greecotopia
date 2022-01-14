@@ -59,6 +59,9 @@
 }
 
 @media only screen and (max-width: 380px) {
+  #bodyOwl {
+    margin-top: 50px;
+  }
   #tanamPohon {
     padding: 0px 0px 164px;
   }

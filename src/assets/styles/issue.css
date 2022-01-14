@@ -15,7 +15,7 @@
   top: 68px;
 }
 #issues-filter .nav-item {
-  margin: 0px 54px;
+  margin: 0px 30px;
 }
 #link-issues {
   text-decoration: none;
@@ -266,14 +266,14 @@
   margin-top: 34px;
 }
 .otherIssue {
-  font-size: 28px;
-  font-weight: 700;
-  text-transform: capitalize;
-  letter-spacing: 4px;
-  padding-bottom: 8px;
   border-bottom: 4px solid#232323;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 4px;
   margin-top: 90px;
-  width: 40%;
+  padding-bottom: 8px;
+  text-transform: capitalize;
+  width: 42%;
 }
 
 /* btnUser */
@@ -447,6 +447,19 @@
   .sticky-top {
     position: absolute !important;
   }
+  #inputCFilled,
+  #inputCom {
+    width: 76vh;
+  }
+  .secondCom {
+    width: 18%;
+  }
+  .main-comment #inputCFilled {
+    width: 94vh;
+  }
+  .main-comment {
+    width: 0%;
+  }
 
   /* Card */
   #issues {
@@ -471,12 +484,13 @@
   #issues-filter .nav-item {
     margin: 18px 13px;
     margin-bottom: 12px;
-    width: 134px;
+    width: 116px;
   }
   #link-issues {
     padding: 8px 0px;
     border-radius: 28px;
     text-align: center;
+    font-size: 12px;
   }
   .justify-content-center {
     justify-content: space-between !important;
@@ -507,7 +521,7 @@
     justify-content: center;
   }
   .card-issue {
-    width: 84%;
+    width: 70%;
   }
   #cIssue {
     padding: 14px;
