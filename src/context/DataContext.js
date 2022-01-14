@@ -61,8 +61,10 @@ const DataProvider = ({ children }) => {
   const getRewards = async () => {
     const { data: dataRewards } = await API().get("/claim_rewards");
     setRewards(dataRewards?.Rewards);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
@@ -78,6 +80,7 @@ const DataProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
