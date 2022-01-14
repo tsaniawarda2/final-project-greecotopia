@@ -41,7 +41,8 @@ export default function SuccessRegistModal ({ showModal, setShowModal }) {
                 <div className='modal-ok-btn'>
                   <button type='button' onClick={() => {
                     setShowModal(prev => !prev)
-                    history.push("/tanampohon")
+                    history.push("/")
+                    window.location.reload()
                   }}>
                     Okay
                   </button>

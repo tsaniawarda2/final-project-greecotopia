@@ -33,13 +33,14 @@ export default function PointModal ({ showModal, setShowModal }) {
                 </div>
                 <div className='modal-message'>
                   <h1>Selamat!</h1>
-                  <p>Kamu berhasil mendapatkan 750 poin!</p>
+                  <p>Kamu berhasil mendapatkan poin!</p>
                   <p>Yuk terus kumpulkan poin lebih banyak lagi!</p>
                 </div>
                 <div className='modal-ok-btn'>
                   <button type='button' onClick={() => {
                     setShowModal(prev => !prev)
-                    history.push("/tanamPohon")
+                    history.push("/")
+                    window.location.reload()
                   }}>
                     Okay
                   </button>

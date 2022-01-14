@@ -41,7 +41,7 @@ export default function CardTanamPohon({ item, userLogin }) {
         </p>
         <h1>{item.title}</h1>
         {new Date(item.due_date) < new Date() ? (
-          <button className="submit-disable">Expired</button>
+          <button className="submit-disable-tp" disabled>sudah berakhir</button>
         ) : checkParticipant(item.Participants) ? (
           <button
             className="btn-unggah-tp"
