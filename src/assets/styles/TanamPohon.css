@@ -188,7 +188,7 @@ body{
 	background-color: #fcfcfc;
 	border-radius: 15px;
 	height: 100%;
-	width: 320px;
+	width: 275px;
 	padding: 16px;
 	margin: 30px;
 	box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
@@ -223,9 +223,8 @@ body{
 .date-poin > .poin-card{
 	text-align: right;
 	color: #ffb039;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 700;
-	padding-right: 30px;
 }
 
 .point-icon{
@@ -233,8 +232,8 @@ body{
 }
 
 .point-icon-card{
-	height: 20px;
-	width: 20px;
+	height: 16px;
+	width: 16px;
 	align-items: center;
 	margin-right: 8px;
 	margin-top: -4px;
@@ -245,7 +244,7 @@ body{
 }
 
 .card-tp > img{
-	height: 220px;
+	height: 150px;
 	width: 100%;
 	border-radius: 5px;
 	object-fit: cover;
@@ -256,7 +255,7 @@ body{
 
 .card-tp p{
 	font-family: 'Poppins', sans-serif;
-	font-size: 14px;
+	font-size: 10px;
   font-weight: 500;
 	color: #10550F;
   margin: 0!important;
@@ -271,7 +270,7 @@ body{
 
 .card-tp h1{
 	font-family: 'Rubik', sans-serif;
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 600;
 	margin-top: 12px;
   margin-bottom: 16px;
@@ -280,7 +279,7 @@ body{
 .btn-join-tp, .btn-unggah-tp, .submit-disable-tp{
 	color: #FCFCFC;
 	font-family: 'Rubik', sans-serif;
-	font-size: 16px;
+	font-size: 12px;
   font-weight: 600;
 	text-align: center;
 	padding: 8px 50px;
