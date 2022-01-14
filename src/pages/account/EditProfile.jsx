@@ -141,8 +141,8 @@ export default function EditProfile() {
             </div>
           </div>
         </div>
-        <ToastContainer/>
       </div>
+        <ToastContainer/>
       <Footer/>
     </>
   );

@@ -11,7 +11,7 @@ body{
 }
 
 .container-fluid{
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .header-tp{

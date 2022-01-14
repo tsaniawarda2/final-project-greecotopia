@@ -19,7 +19,7 @@ export default function Profile() {
         <div className="header-profile">
           <img src={userLogin?.background_url} alt="" />
         </div>
-        <div className="row id-profile">
+        <div className="id-profile">
           <div className="profile-picture">
             {userLogin?.image_url ? (
               <Avatar src={userLogin?.image_url} id="img-profile"/>
@@ -28,48 +28,48 @@ export default function Profile() {
             )}
             {/* <img src={userLogin?.image_url} alt="" /> */}
           </div>
-          <div className="col-2"></div>
-          <div className="name-usn col-6">
+          {/* <div className="col-lg-2 col-md-2 space-profile"></div> */}
+          <div className="name-usn col-lg-6 col-md-6 col-sm-6">
             <h1>{userLogin?.fullname}</h1>
             <p>@{userLogin?.username}</p>
           </div>
-          <div className="btn-edit-profile col-3">
+          <div className="btn-edit-profile col-lg-3 col-md-3 col-sm-6">
             <button onClick={() => {
               history.push("/editProfile")
           }}>Edit Profile</button>
           </div>
         </div>
-        <div className="card-profile row">
-          <div className="user-total-poin content-card-profile col-4">
+        <div className="card-profile">
+          <div className="user-total-poin content-card-profile col-lg-4 col-md-4">
             <div className="circle-profile">
               <GiTwoCoins className="icon-coins-profile"/>
             </div>
-            <p>Poin yang kamu miliki saat ini:</p>
+            <p className="card-title-profile">Poin yang kamu miliki saat ini:</p>
             <p className="total">{userLogin?.points}</p>
           </div>
-          <div className="user-total-trees content-card-profile col-4">
+          <div className="user-total-trees content-card-profile col-lg-4 col-md-4">
             <div className="circle-profile">
               <FaTree className="icon-tree-profile"/>
             </div>
-            <p>Banyak pohon yang kamu tanam:</p>
+            <p className="card-title-profile">Banyak pohon yang kamu tanam:</p>
             <p className="total">{userLogin?.total_trees}</p>
           </div>
-          <div className="user-total-fav-issues content-card-profile col-4">
+          {/* <div className="user-total-fav-issues content-card-profile col-4">
             <div className="circle-profile">
               <AiFillHeart className="icon-heart-profile"/>
             </div>
             <p>Banyak issue favorit kamu:</p>
             <p className="total">5</p>
-          </div>
+          </div> */}
         </div>
         <div className="pr-rank-user row">
-          <div className="col-4">
+          <div className="col-lg-4 col-md-4 col-sm-12">
             <p>Peringkat kamu saat ini:</p>
           </div>
-          <div className="col-4">
+          <div className="col-lg-4 col-md-4 col-sm-12 rank-text">
             <p>{findUser?.user_id-1} dari {users?.length-1} </p>
           </div>
-          <div className="col-3">
+          <div className="col-lg-4 col-md-4 col-sm-12">
             <button>Leaderboard</button>
           </div>
         </div>
