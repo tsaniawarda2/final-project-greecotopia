@@ -50,17 +50,17 @@ export default function Issue() {
   const [issueID, setIssueID] = useState(0);
 
   const { pathname } = useLocation();
-  // react-hooks/exhaustive-deps
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);
 
     await getCommentsByIssueId(newId);
     setIssueID(newId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const arrPath = pathname?.split("/");
     const newId = Number(arrPath[arrPath.length - 1]);

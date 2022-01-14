@@ -19,9 +19,9 @@ export default function EditProfile() {
 
   const [fileImage, setFileImage] = useState(null);
   const [fileBg, setFileBg] = useState(null);
-  // no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const [imageUrl, setImageUrl] = useState(null);
-  //  no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const [bgUrl, setBgUrl] = useState(null);
 
   const [newProfile, setNewProfile] = useState({
@@ -79,6 +79,7 @@ export default function EditProfile() {
 
         payloadProfile.background_url = dataBg.url;
       }
+      // eslint-disable-next-line no-unused-vars
       const { data } = await toast.promise(
         API().put("/profile", payloadProfile),
         {
