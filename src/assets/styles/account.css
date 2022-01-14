@@ -55,21 +55,15 @@
   padding: 8px;
 }
 
+.image-profile .sb-avatar .sb-avatar__text, .profile-picture .sb-avatar .sb-avatar__text{
+  border-radius: 50%;
+}
+
+
+
 #photo-profile {
   margin-left: 8px;
   width: 80px !important;
-}
-#photo-profile .sb-avatar__text,
-#photo-profile .sb-avatar,
-#photo-profile img span {
-  width: 80px !important;
-  height: 80px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  padding: 8px !important;
-}
-#photo-profile .sb-avatar__text span {
-  font-size: 24px;
 }
 
 /* 
@@ -251,7 +245,7 @@
   border-radius: 50%;
   position: absolute;
   margin-top: -60px;
-  margin-left: 7%;
+  margin-left: 6.5%;
 }
 
 .card-title-profile{
@@ -297,6 +291,7 @@
   margin: 25px auto 70px!important;
   padding: 16px 0;
   border-radius: 12px;
+  align-items: center;
 }
 
 .pr-rank-user .col-4 {
@@ -693,7 +688,6 @@
   .id-profile{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     width: 100%;
   }
 

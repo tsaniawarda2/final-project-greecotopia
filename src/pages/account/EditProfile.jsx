@@ -127,7 +127,12 @@ export default function EditProfile() {
                   onChange={(e) => onChangeFileBg(e)}
                   style={{ opacity: 0 }}
                 />
-                <img src={userLogin?.background_url} alt="" />
+                {
+                  userLogin?.background_url ?
+                  <img src={userLogin?.background_url} alt="bg" />
+                  :
+                  <img src="https://images.unsplash.com/photo-1641752084801-80dc709cdf28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="bg" />
+                }
               </div>
               <div className="row id-profile">
                 <div className="profile-picture edit-profile-pict">
