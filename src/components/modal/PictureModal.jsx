@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { MdClose } from "react-icons/md";
 import "../../assets/styles/documentations.css";
@@ -49,10 +49,7 @@ export default function PictureModal({ dataId, showModal, setShowModal }) {
                   </div>
                 </div>
                 <div className="pict-modal">
-                  <img
-                    src={dataId?.image_url}
-                    alt="documentation"
-                  />
+                  <img src={dataId?.image_url} alt="documentation" />
                 </div>
                 <div className="modal-text-bottom">
                   <h1>{dataId?.caption}</h1>

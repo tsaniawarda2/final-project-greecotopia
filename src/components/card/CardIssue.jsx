@@ -2,7 +2,6 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import "../../assets/styles/issue.css";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import {
   FaComment as CommentFill,
   FaRegComment as CommentOutline,
