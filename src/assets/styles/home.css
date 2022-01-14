@@ -174,7 +174,7 @@
 
 /* === FORUM === */
 #forum-home {
-  padding: 94px 0px 48px;
+  padding: 98px 0px 48px;
 }
 #forum-home .content-home {
   width: 88% !important;
@@ -328,7 +328,7 @@
   }
 
   #btn-home {
-    width: 96%;
+    width: 64%;
   }
   .content-home {
     text-align: center;
@@ -339,15 +339,26 @@
   }
   .carousel-left {
     display: block;
+    width: 90% !important;
+  }
+  #carousel .carousel-indicators [data-bs-target] {
+    width: 12%;
   }
   #forum-home .content-home {
     width: 100% !important;
     padding: 48px 0px;
   }
   /* --- Tanam Pohon & Leaderboard --- */
+  #tanamPohon {
+    padding: 68px 0px 164px;
+  }
+  #board-home {
+    margin-top: 116px;
+    padding-top: 0px;
+  }
   #tanamPohon .content-home,
   #board-home .content-home {
-    width: 90%;
+    width: 88%;
   }
   .board #profileUser1 .sb-avatar,
   #profileUser1 .sb-avatar__text,
@@ -357,4 +368,102 @@
   }
 }
 @media only screen and (max-width: 380px) {
+  #welcome {
+    display: block;
+  }
+  #contentW {
+    display: block;
+    padding: 0px 54px;
+    text-align: center;
+  }
+  #left,
+  #right {
+    width: 100%;
+  }
+  #left {
+    padding: 0px;
+  }
+  .greecotopia {
+    font-size: 64px;
+    padding-bottom: 6px;
+  }
+  .decsWelcome {
+    font-size: 20px;
+  }
+  #welcome #btn-home {
+    width: 64%;
+  }
+  #right {
+    margin-top: 100px;
+    padding-right: 0px;
+    text-align: center;
+  }
+  #imgForest {
+    width: 62vh;
+  }
+  /* --- Jumbotron --- */
+  #welcomeH {
+    justify-content: center;
+    margin: 0px;
+  }
+  #contentWH {
+    margin-top: 58px;
+    text-align: center;
+    width: 100%;
+  }
+  .polaroid-right {
+    display: none;
+  }
+  .polaroid-left {
+    display: block;
+  }
+  #polaroid {
+    width: 82%;
+    height: 58vh;
+    margin-left: 0px;
+  }
+  .header #headlineWH {
+    font-size: 52px;
+    margin-bottom: 16px;
+  }
+
+  #btn-home {
+    width: 64%;
+  }
+  .content-home {
+    text-align: center;
+  }
+  /* --- Forum --- */
+  .carousel-right {
+    display: none;
+  }
+  .carousel-left {
+    display: block;
+    width: 90% !important;
+  }
+  #carousel .carousel-indicators [data-bs-target] {
+    width: 12%;
+  }
+  #forum-home .content-home {
+    width: 100% !important;
+    padding: 48px 0px;
+  }
+  /* --- Tanam Pohon & Leaderboard --- */
+  #tanamPohon {
+    padding: 68px 0px 164px;
+  }
+  #board-home {
+    margin-top: 116px;
+    padding-top: 0px;
+  }
+  #tanamPohon .content-home,
+  #board-home .content-home {
+    width: 88%;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 142px !important;
+    height: 142px !important;
+  }
 }

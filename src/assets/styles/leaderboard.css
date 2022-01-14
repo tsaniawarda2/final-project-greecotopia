@@ -8,16 +8,18 @@
 }
 
 #leaderboard #first {
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   font-size: 42px;
   margin-bottom: 6px;
   font-weight: 700;
+  letter-spacing: 8px;
 }
 #leaderboard #second {
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 4px;
+  letter-spacing: 4px;
 }
 
 /* === Leaderboard === */
@@ -289,6 +291,169 @@
   #leaderboard .text-content {
     width: 80% !important;
   }
+  .board #profileUser23 .sb-avatar,
+  #profileUser23 .sb-avatar__text,
+  #profileUser23 img {
+    width: 96px !important;
+    height: 96px !important;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 134px !important;
+    height: 134px !important;
+  }
+  #btnClaimB {
+    font-size: 18px;
+  }
+  .colomnU {
+    font-size: 14px;
+  }
+  #imgUser .sb-avatar,
+  #imgUser .sb-avatar__text,
+  #imgUser img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  /* Claim Reward */
+  #leaderboard #first {
+    font-size: 36px;
+  }
+  #profileUser .sb-avatar,
+  #profileUser .sb-avatar__text,
+  #profileUser img {
+    width: 114px !important;
+    height: 114px !important;
+  }
+  #profileUser p {
+    font-size: 13px;
+  }
+  #profileUser .rank {
+    font-size: 15px;
+  }
+  #dataUser {
+    margin-left: 38px;
+    width: 60%;
+  }
+  .titleForm {
+    font-size: 24px;
+  }
+  .konfirmasi {
+    font-size: 18px;
+  }
+  #claimReward {
+    padding: 0px 0px 58px;
+  }
 }
 @media only screen and (max-width: 380px) {
+  .board,
+  .formReward {
+    padding-top: 8px;
+  }
+  .py-3 {
+    padding-bottom: 4px !important;
+  }
+  #leaderboard .text-content {
+    width: 84% !important;
+  }
+  #leaderboard #first {
+    font-size: 24px;
+    margin-left: 0px;
+  }
+  #leaderboard #second {
+    font-size: 16px;
+  }
+  .board #profileUser23 .sb-avatar,
+  #profileUser23 .sb-avatar__text,
+  #profileUser23 img {
+    width: 88px !important;
+    height: 88px !important;
+  }
+  .top p {
+    font-size: 14px;
+  }
+  .top .rank {
+    font-size: 16px;
+  }
+  .board #profileUser1 .sb-avatar,
+  #profileUser1 .sb-avatar__text,
+  #profileUser1 img {
+    width: 114px !important;
+    height: 114px !important;
+  }
+  .py-3 {
+    padding-bottom: 8px !important;
+  }
+  #btnClaimB {
+    font-size: 14px;
+    width: 68%;
+    margin-bottom: 24px;
+    margin-top: 6px;
+  }
+  #imgUser .sb-avatar,
+  #imgUser .sb-avatar__text,
+  #imgUser img {
+    width: 46px !important;
+    height: 46px !important;
+  }
+  .colomnU p {
+    font-size: 12px;
+  }
+  .textUser {
+    margin-left: 18px;
+    width: 240%;
+  }
+  #imgUser {
+    width: 24%;
+  }
+  .colomnU #rankUser {
+    width: 12%;
+  }
+
+  /* Claim Reward */
+  .titleForm {
+    font-size: 22px;
+    letter-spacing: 6px;
+  }
+  #profileUser {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin: -4px 0px;
+  }
+  #profileUser .sb-avatar,
+  #profileUser .sb-avatar__text,
+  #profileUser img {
+    margin-left: 48px;
+    width: 124px !important;
+    height: 124px !important;
+  }
+  #claimReward {
+    padding: 0px 0px 34px;
+  }
+  #inputData {
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 24px;
+  }
+  .konfirmasi {
+    margin-left: -76px;
+  }
+  .confName,
+  .confInfo {
+    width: 78%;
+  }
+  .confName {
+    margin-right: 0px;
+  }
+  #btn-claim {
+    font-size: 12px;
+    margin-left: -74px;
+    width: 64%;
+  }
+  .py-3 {
+    padding-top: 0px !important;
+  }
 }

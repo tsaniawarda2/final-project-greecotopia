@@ -1,2 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+#bodyOwl {
+  margin-top: 64px;
+}
+.owl-theme .owl-nav {
+  margin-top: -24px;
+  margin-left: 34px;
+}
+.owl-carousel .owl-item img {
+  height: 58vh !important;
+  object-fit: cover !important;
+}
+.owl-carousel .owl-nav button.owl-prev {
+  margin-right: 94px;
+  color: #ff6239;
+}
+.owl-carousel .owl-nav button.owl-next {
+  margin-left: 384px;
+  color: #ff6239;
+}
+.owl-prev span,
+.owl-next span {
+  font-size: 94px;
+}
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background: none;
+  color: #ffb039;
+}
+
+.owl-theme .owl-dots {
+  margin-top: -74px;
+}
+.owl-carousel button.owl-dot {
+  margin-left: 24px;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 24px;
+  height: 6px;
+  background: #ff6139e5;
+}
+.owl-theme .owl-dots .owl-dot.active span {
+  background: #faad3bea;
+}
+
+@media only screen and (min-width: 381px) and (max-width: 768px) {
+  .owl-theme .owl-nav {
+    margin-left: 0px;
+  }
+  .owl-theme .owl-dots .owl-dot span {
+    width: 18px;
+    height: 4px;
+    background: #ff6139e5;
+  }
+  .owl-carousel button.owl-dot {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+}

@@ -26,7 +26,8 @@ export default function App() {
   return (
     <>
       <Switch>
-        <Route exact path="/" component={Welcome} />
+        <Route exact path="/" render={(props) => <Welcome {...props} />} />
+        <Route exact path="/home" render={(props) => <Home {...props} />} />
         <Route
           exact
           path="/register"
@@ -49,8 +50,6 @@ export default function App() {
             }
           }}
         />
-        <Route exact path="/password" component={Password} />
-        <Route exact path="/home" component={Home} />
 
         {/* Account */}
         <Route
@@ -77,9 +76,17 @@ export default function App() {
         />
 
         {/* Forum */}
-        <Route exact path="/forums" component={Forum} />
-        <Route exact path="/forums/:id" component={Issues} />
-        <Route exact path="/issues/:id" component={Issue} />
+        <Route exact path="/forums" render={(props) => <Forum {...props} />} />
+        <Route
+          exact
+          path="/forums/:id"
+          render={(props) => <Issues {...props} />}
+        />
+        <Route
+          exact
+          path="/issues/:id"
+          render={(props) => <Issue {...props} />}
+        />
 
         {/* Tanam Pohon */}
         <Route
@@ -126,8 +133,22 @@ export default function App() {
         />
 
         {/* Leaderboard */}
-        <Route exact path="/leaderboard" component={Leaderboard} />
-        <Route exact path="/formReward" component={FormReward} />
+        <Route
+          exact
+          path="/leaderboard"
+          render={(props) => <Leaderboard {...props} />}
+        />
+        <Route
+          exact
+          path="/formReward"
+          render={(props) => {
+            if (!localStorage.getItem("token")) {
+              return <Redirect to="/login" />;
+            } else {
+              return <FormReward {...props} />;
+            }
+          }}
+        />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </>

@@ -8,6 +8,11 @@
   margin-top: 52px;
   font-weight: 500;
   letter-spacing: 2px;
+  padding: 14px 0px;
+  background-color: #fefefe;
+}
+.sticky-top {
+  top: 68px;
 }
 #issues-filter .nav-item {
   margin: 0px 28px;
@@ -422,6 +427,7 @@
     border-top-right-radius: 14px;
   }
   #issues-filter {
+    display: inline !important;
     margin: 0px 254px;
     width: 248px;
     top: 70px;

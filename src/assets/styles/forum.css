@@ -246,9 +246,7 @@
   }
 
   #content-forum {
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     width: 100%;
     border-top-right-radius: 0px;
     border-bottom-left-radius: 14px;
