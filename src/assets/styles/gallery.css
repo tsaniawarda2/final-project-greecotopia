@@ -59,4 +59,82 @@
 }
 
 @media only screen and (max-width: 380px) {
+  #tanamPohon {
+    padding: 0px 0px 164px;
+  }
+  /* Header */
+  .header {
+    padding: 114px 0 38px;
+  }
+  #polaroid {
+    margin-right: 0px;
+  }
+  #polaroid img {
+    height: 42vh;
+  }
+  #btn-home {
+    width: 74%;
+    font-size: 14px;
+  }
+  .header #headlineWH {
+    font-size: 34px;
+  }
+
+  /* Forum */
+  .carousel-inner {
+    width: 62vh;
+  }
+  #carousel .carousel-control-prev-icon,
+  #carousel .carousel-control-next-icon {
+    padding: 14px;
+    margin: 0px;
+  }
+  #carousel .carousel-control-prev,
+  #carousel .carousel-control-next {
+    margin: -24px;
+  }
+  #carousel h5 {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: -32px;
+  }
+  #carousel p {
+    display: none;
+  }
+  .carousel-caption {
+    bottom: -3.75rem;
+  }
+
+  #firstHome {
+    font-size: 14px;
+    margin-bottom: -8px;
+  }
+  #secondHome {
+    font-size: 28px;
+  }
+  #thirdHome {
+    padding: 0px 14px;
+    font-size: 12px;
+  }
+  #forum-home #btn-home {
+    width: 72%;
+  }
+  #btn-home {
+    width: 78%;
+    font-size: 12px;
+  }
+  #decsWH {
+    margin-top: 24px;
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+  .owl-dot,
+  .owl-nav {
+    display: none;
+  }
+  #board-home {
+    margin-top: 60px;
+  }
 }

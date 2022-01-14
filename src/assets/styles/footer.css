@@ -141,12 +141,17 @@ footer {
     margin-left: 40px;
     width: 42% !important;
   }
-  .uLink {
-    display: none;
+  .mainTitle {
+    text-align: center;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-bottom: 14px;
   }
-  .contactUs {
-    margin-bottom: 18px;
-    margin-left: 46px;
+  .uLink {
+    margin-left: 36px;
+  }
+  .uLink .ttl-footer {
+    margin-left: 0px;
   }
 }
 
@@ -154,15 +159,32 @@ footer {
 @media only screen and (max-width: 380px) {
   .footer {
     text-align: center;
-    padding: 24px 28px;
+    padding: 24px 28px 0px;
+  }
+  #ttl-footer {
+    font-size: 20px;
+  }
+  .aboutUs,
+  .list-pages,
+  .item-pages,
+  .item-pages:hover {
+    font-size: 14px;
+  }
+  .uLink .ttl-footer {
+    margin-left: 0px;
+    margin-top: 12px;
   }
   #first {
     margin-left: -40px;
   }
-  .uLink {
+  .findUs {
     display: none;
   }
+  .uLink {
+    margin-left: 0px;
+  }
   footer {
-    padding: 8px 54px;
+    padding: 12px 54px;
+    font-size: 12px;
   }
 }
