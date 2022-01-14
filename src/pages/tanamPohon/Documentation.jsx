@@ -9,7 +9,7 @@ import { getDate } from "../../utils/date";
 export default function Documentation() {
   const params = useParams();
   const [documentation, setDocumentation] = useState({});
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     await getDocumentationById();
     // eslint-disable-next-line react-hooks/exhaustive-deps
