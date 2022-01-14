@@ -7,25 +7,21 @@ import FavoriteIssue from "../components/account/FavoriteIssue";
 import Avatar from "react-avatar"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
-import { useHistory } from "react-router-dom";
 import Logout from "../components/modal/Logout"
 
 export default function Account() {
   const [toggleState, setToggleState] = useState(1);
   const { userLogin } = useContext(DataContext);
-  const history = useHistory();
 
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
     setShowModal(prev => !prev);
   };
-  // console.log(userLogin);
 
   const toggleSide = (index) => {
     setToggleState(index);
   };
-  console.log(userLogin, "user");
 
   return (
     <>
@@ -35,7 +31,7 @@ export default function Account() {
         <div className="account">
           <div className="col-lg-4 profile-side-left">
             <div className="user-profile row">
-              <div className="image-profile col-4">
+              <div className="image-profile col-lg-4">
                 {userLogin?.image_url ? (
                   <Avatar src={userLogin?.image_url} id="photo-profile"/>
                 ) : (
@@ -54,31 +50,26 @@ export default function Account() {
                   Profile
                 </p>
               </div>
-              <div className="fav-issues-side">
+              {/* <div className="fav-issues-side">
                 <p type="button" className={toggleState === 2 ? "bars active-bars" : "bars"} onClick={() => toggleSide(2)}>
                   Favorite Issues
                 </p>
-              </div>
+              </div> */}
               <div className="contact-us-side">
                <p type="button" className={toggleState === 3 ? "bars active-bars" : "bars"} onClick={() => toggleSide(3)}>
                  Contact Us
                 </p>
               </div>
-              {/* <div className="logout-side"> */}
-              {/* <p type="button" onClick={onHandleLogout()}> */}
-                {/* <p type="button" className={toggleState === 4 ? "bars active-bars" : "bars"} onClick={() => toggleSide(4)}> */}
-                  {/* <p>Logout</p> */}
-                {/* </p> */}
-              {/* </div> */}
               <div className="logout-side">
                 <p type="button" onClick={openModal}>
                   Logout
                 </p>
+              {/* <Logout showModal={showModal} setShowModal={setShowModal}/> */}
               </div>
             </div>
           </div>
           
-          <div className="col-lg-8">
+          <div className="col-lg-8 col-md-12 col-sm-12 ">
             <div className={toggleState === 1 ? "profile-right" : "content"}>
               <Profile/>
             </div>
@@ -86,18 +77,28 @@ export default function Account() {
               {/* <FavoriteIssue/> */}
             </div>
             <div className={toggleState === 3 ? "profile-right" : "content"}>
-              <ContactUs/>
+              {toggleState === 3 ?
+                <ContactUs/>
+                :
+                <></>
+              }
             </div>
-            {/* <div className={toggleState === 4 ? "active-content" : "content"}> */}
-              {/* <p type="button" onClick={openModal}> */}
-              {/* <p type="button" onClick={onHandleLogout()}> */}
-                {/* logout */}
-              {/* </p> */}
-              <Logout showModal={showModal} setShowModal={setShowModal}/>
-            {/* </div> */}
           </div>
         </div>
+
+        {
+          toggleState === 3 ? 
+          <></>
+          :
+          <div className="contact-us-profile">
+            <div className="cup-text">Ada yang ingin disampaikan untuk Greecotopia?</div>
+            <div className="btn-cup">
+              <button type="button" className={toggleState === 3 ? "bars active-bars" : "bars"} onClick={() => toggleSide(3)}>Contact Us</button>
+            </div>
+          </div>
+        }
       </div>
+
       <Footer/>
     </>
   );

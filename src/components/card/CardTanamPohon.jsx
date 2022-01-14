@@ -41,6 +41,9 @@ export default function CardTanamPohon({ item, userLogin }) {
         <p className="location-card"><i className="fas fa-map-marked-alt"></i>{item.location}</p>
         <h1>{item.title}</h1>
         {
+          new Date(item.due_date) < new Date()? 
+          <button className="submit-disable">Expired</button>
+          :
           checkParticipant(item.Participants)? 
           <button className="btn-unggah-tp" onClick={() => history.push(`/formDocumentation/${item.tanam_pohon_id}`, {id: item.tanam_pohon_id})}>Unggah Dokumentasi</button>
           :

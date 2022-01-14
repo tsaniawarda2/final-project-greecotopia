@@ -91,29 +91,29 @@ export default function FormDocumentation() {
     }
   }
 
-  // const [ doc, setDoc ] = useState();
-  // const params = useParams();
+  console.log(tanamPohon, "tp");
 
-  // useEffect(() => {
-  //   getDocumentationById();
-  // }, [])
+  const [ doc, setDoc] = useState([])
+  const [ existUser, setExistUser ] = useState(false);
 
-  // const getDocumentationById = async () => {
-  //   const id = params.id
-  //   const { data: documentationById } = await API().get(`/documentations/${id}`)
-  //   setDoc(documentationById?.data);
-  //   console.log(documentationById.data, "success get");
-  // }
+  useEffect(async() => {
+    await getDocumentationById();
+  }, [])
 
-  // console.log(documentation);
-  // const isUploaded = (documentation) =>{
-  //   const isExistUser = documentation.find((documentation) => documentation.Participant.user_id === userLogin.user_id)  
-  //   if(isExistUser){
-  //     return true
-  //   }  else {
-  //     return false
-  //   }
-  // }
+  const getDocumentationById = async () => {
+    const id = tanamPohon.tanam_pohon_id
+    const { data: documentationById } = await API().get(`/documentations/tanam_pohon/${id}`)
+    setDoc(documentationById?.data);
+    console.log(documentationById?.data?.Documentations, "success get");
+
+    const isExistUser = documentationById?.data?.Documentations.find((documentation) => documentation?.Participant?.user_id === userLogin.user_id)
+    console.log("masuk");
+    if(isExistUser){
+      setExistUser(true)
+    } else {
+      setExistUser(false)
+    }
+  }
 
 
   return (
@@ -197,8 +197,7 @@ export default function FormDocumentation() {
                 <textarea className="form-control" id="tp-kesan-pesan" rows="5" onChange={e => setDocumentation({ ...documentation, messages: e.target?.value })}></textarea>
               </div>
               {
-                new Date(tanamPohon.due_date) > new Date() ?
-                // documentation?.Participant?.user_id === userLogin?.user_id ?
+                new Date(tanamPohon.date) < new Date() && !existUser ?
                 <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
                 :
                 <button type="button" className="submit-disable"  disabled>SUBMIT</button>

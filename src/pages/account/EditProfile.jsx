@@ -208,9 +208,9 @@ export default function EditProfile() {
             </div>
           </div>
         </div>
-        <ToastContainer />
       </div>
-      <Footer />
+        <ToastContainer/>
+      <Footer/>
     </>
   );
 }
