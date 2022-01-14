@@ -468,20 +468,180 @@ body{
 }
 
 @media only screen and (min-width: 381px) and (max-width: 768px) {
-	/* .body{
-		width: auto;
+	.content-tp-2 .row-tp-2 {
+		flex-direction: column-reverse;
 	}
-	
-	.tanam-pohon{
-		width: 100%;
-	}
-
-	.container-fluid{
-		padding: 0;
-	} */
-
 	.img-tp, .kotak-tp{
-		height: 300px;
-		width: 300px;
+		height: 230px;
+		width: 230px;
+	}
+
+	.kotak-tp{
+		margin-top: -30px;
+		margin-left: 245px;
+	}
+
+	.img-tp{
+		margin-top: -210px;
+		margin-bottom: 45px;
+		margin-left: 0;
+	}
+
+	.tp-2-img{
+		text-align: center;
+	}
+
+	.cards-tp{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 25px auto;
+		justify-content: center;
+	}
+
+	.content-tp-3{
+		height: 100%;
+	}
+
+	.text-section-4{
+		justify-content: space-around;
+	}
+
+	.pict-doc{
+		text-align: center;
+	}
+
+	.pict-doc img{
+		margin-top: 20px;
+	}
+
+	.slideshow-container{
+		margin-bottom: 50px;
+	}
+
+	.modal-wrapper-pict{
+		width: 650px;
+	}
+
+	.modal-text-bottom h1{
+		font-size: 20px;
+		margin-bottom: 8px!important;
+	}
+
+	.modal-text-bottom p{
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 380px) {
+	.content-header-tp{
+		margin: 0 20px;
+	}
+
+	.title-tp{
+		font-size: 32px;
+		margin-top: 180px;
+	}
+
+	.subtitle-tp{
+		font-size: 20px;
+	}
+
+	.content-header-tp p{
+		font-size: 12px;
+	}
+
+	.btn-tanam-pohon{
+		font-size: 16px;
+	}
+
+	.tp-2-img{
+		display: none;
+	}
+
+	.tp-2-text{
+		font-size: 14px;
+		padding: 0!important;
+	}
+
+	.tp-2-text h1{
+		font-size: 24px;
+	}
+
+	.text-tp-section-3{
+		justify-content: center;
+		text-align: center;
+	}
+
+	.text-header-tp-3 h1{
+		font-size: 24px;
+		text-align: center;
+	}
+
+	.btn-tp-3{
+		font-size: 18px;
+		margin-top: 4px;
+	}
+
+	.btn-header-tp-3{
+		text-align: center;
+	}
+
+	.cards-tp{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 25px auto;
+		justify-content: center;
+	}
+
+	.content-tp-3{
+		height: 100%;
+	}
+
+	.pict-doc{
+		text-align: center;
+	}
+
+	.pict-doc img{
+		margin-top: 20px;
+	}
+
+	.slideshow-container{
+		margin-bottom: 30px;
+	}
+
+	.modal-wrapper-pict{
+		width: 650px;
+	}
+
+	.modal-text-bottom h1{
+		font-size: 20px;
+		margin-bottom: 8px!important;
+	}
+
+	.modal-text-bottom p{
+		font-size: 12px;
+	}
+
+	.text-header-tp-4{
+		text-align: center;
+	}
+
+	.text-header-tp-4 h1{
+		font-size: 24px;
+	}
+
+	.btn-tp-4{
+		font-size: 18px;
+	}
+
+	.btn-header-tp-4{
+		text-align: center;
+		margin-top: 12px!important;
+	}
+
+	.card-slideshow{
+		margin: 0 20px;
 	}
 }

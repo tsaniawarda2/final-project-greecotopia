@@ -87,7 +87,7 @@ export default function FormTanamPohon() {
           setShowModal={setShowModalSuccess}
         />
         <div className="form-tanam-pohon">
-          <div className="info-tp col-lg-6">
+          <div className="info-tp col-lg-6 col-sm-12">
             <h1>Langkah yang bagus untuk membantu bumi kita!</h1>
             <p>
               Terima kasih karena kamu sudah mempunyai niat baik untuk
@@ -158,7 +158,7 @@ export default function FormTanamPohon() {
               </div>
             </div>
           </div>
-          <div className="form-tp col-lg-6">
+          <div className="form-tp col-lg-6 col-sm-12">
             <div className="container-form-tp">
               <h1>Formulir Pendaftaran Tanam Pohon</h1>
               <form action="">
@@ -226,7 +226,7 @@ export default function FormTanamPohon() {
                 <button
                   disabled={!isCheck}
                   type="button"
-                  className={!isCheck ? "btn-daftar-disable" : "btn-daftar"}
+                  className={!isCheck ? "submit-disable" : "btn-daftar"}
                   onClick={() => onHandleRegister()}
                 >
                   DAFTAR

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../../assets/styles/formTanamPohon.css";
 import { Cloudinary } from "../../config/thirdParty";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,6 +9,7 @@ import PointModal from "../../components/modal/PointModal";
 import { getDate } from "../../utils/date"
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { useParams } from "react-router-dom";
 const { REACT_APP_CLOUD_NAME_CLOUDINARY, REACT_APP_UPLOAD_PRESET_CLOUDINARY } = process.env;
 
 export default function FormDocumentation() {
@@ -89,7 +90,32 @@ export default function FormDocumentation() {
       toast(error?.response?.data?.errors[0] || error?.response?.message || "Internal Server Error", { type: "error", theme: "colored", } )
     }
   }
-  
+
+  // const [ doc, setDoc ] = useState();
+  // const params = useParams();
+
+  // useEffect(() => {
+  //   getDocumentationById();
+  // }, [])
+
+  // const getDocumentationById = async () => {
+  //   const id = params.id
+  //   const { data: documentationById } = await API().get(`/documentations/${id}`)
+  //   setDoc(documentationById?.data);
+  //   console.log(documentationById.data, "success get");
+  // }
+
+  // console.log(documentation);
+  // const isUploaded = (documentation) =>{
+  //   const isExistUser = documentation.find((documentation) => documentation.Participant.user_id === userLogin.user_id)  
+  //   if(isExistUser){
+  //     return true
+  //   }  else {
+  //     return false
+  //   }
+  // }
+
+
   return (
     <>
     <Navbar/>
@@ -172,6 +198,7 @@ export default function FormDocumentation() {
               </div>
               {
                 new Date(tanamPohon.due_date) > new Date() ?
+                // documentation?.Participant?.user_id === userLogin?.user_id ?
                 <button type="button" className="btn-submit-doc"  onClick={() => onHandleUpload()}>SUBMIT</button>
                 :
                 <button type="button" className="submit-disable"  disabled>SUBMIT</button>
