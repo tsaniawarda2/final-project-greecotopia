@@ -47,8 +47,8 @@
 }
 
 #content-forum {
+  height: 66vh;
   margin-bottom: 54px;
-  height: 54vh;
 }
 
 /* ===== IMAGE ===== */
@@ -98,7 +98,7 @@
   text-align: center;
   color: #f7f6f2;
   position: sticky;
-  margin-top: -58%;
+  margin-top: -72%;
   margin-left: 16px;
 }
 .categories {
